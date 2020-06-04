@@ -74,11 +74,11 @@ do
 
     file="$( expandpath "$file" )"
 
-    [ -d "$loc" ] || [ -f "$loc" ] && locexists=1
+    [ -d "$loc" -o -f "$loc" ] && locexists=1
 
     if ! [ -d "$file" ] && ! [ -f "$file" ] && ! [ -L "$file" ] 
     then
-        if ! [ "$locexists" = 1 ]
+        if ! [ "$locexists" ]
         then
             clrl "${WSS}Source file or directory does not exist, ignoring" "$RED"
         else
@@ -107,7 +107,7 @@ do
         continue
     }
 
-    [ "$locexists" = 1 ] && { 
+    [ "$locexists" ] && { 
         echo "${WSS}Target file or directory exists, continuing"
         continue
     }
