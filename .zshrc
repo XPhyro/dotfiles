@@ -100,7 +100,7 @@ mpow="EB:06:EF:5D:4F:4D"
 #
 
 alias sudo="nocorrect sudo "
-alias fuck="sudo !!"
+alias fuck="eval 'sudo !!'"
 
 alias ls="ls --color=auto"
 
@@ -222,8 +222,6 @@ alias ycmgen="~/repo/YCM-Generator/config_gen.py"
 
 alias ggl="googler"
 alias gpupig="gpupdo "$( getloc igg )""
-
-alias fuck="thefuck"
 
 #
 ##
