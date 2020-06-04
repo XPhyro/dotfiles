@@ -1,0 +1,24 @@
+se rnu
+se nu
+
+se ai
+se showmatch
+se so=2134
+
+se is
+se hls
+se ic
+se inf
+se scs
+se gd
+
+se multiple-cursors
+
+nnoremap <A-S-j> :m .+1<CR>==
+nnoremap <A-S-k> :m .-2<CR>==
+inoremap <A-S-j> <Esc>:m .+1<CR>==gi
+inoremap <A-S-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-S-j> :m '>+1<CR>gv=gv
+vnoremap <A-S-k> :m '<-2<CR>gv=gv
+
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>

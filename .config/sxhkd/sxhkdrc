@@ -1,0 +1,45 @@
+### Programs ###
+ctrl + alt + {h,n,j,i,s,p}; ctrl + alt + t
+    $TERMINAL -e sudo {htop,nvtop,jnettop,iotop,slabtop,powertop}
+ctrl + alt + m; ctrl + alt + m
+    $TERMINAL -e neomutt; statbarsetmail
+ctrl + alt + r; ctrl + alt + r
+    $TERMINAL -e ranger
+ctrl + alt + b; ctrl + alt + b
+    $TERMINAL -e bluetoothctl
+ctrl + alt + s; ctrl + alt + s
+    flameshot gui
+ctrl + alt + o; ctrl + alt + {b,i,g,m,c}
+    {google-chrome-stable,google-chrome-stable --incognito,steam,spotify,discord}
+
+### System ###
+{Caps_Lock,Num_Lock}
+    xdotool key {Caps_Lock,Num_Lock}; statbarset
+super + minus
+    voldown; statbarset
+super + equal
+    volup; statbarset
+super + underscore
+    volmute; statbarset
+super + plus
+    volset; statbarset
+shift + super + r
+    execute
+shift + super + alt + k
+    kasel
+shift + super + alt + F2
+    syu
+shift + super + alt + F3
+    tpcycle
+shift + super + alt + {F6,F7,F8}
+    {restart-sxhkd,restart-notifd,restart-paudio}
+shift + super + alt + {F9,F10}
+    {dmenumount,dmenuumount}
+shift + super + alt + {F11,F12}
+   {btccdev,btdcdev}
+ctrl + super + alt + u
+    dmenuunicode
+ctrl + super + alt + k
+    kmcycle
+ctrl + super + alt + m
+    manpdf

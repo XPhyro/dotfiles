@@ -1,0 +1,29 @@
+[Added Associations]
+application/pdf=org.gnome.Evince.desktop;evince.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+application/x-7z-compressed=org.gnome.Nautilus.desktop;
+application/x-ruby=sonic-pi.desktop;
+image/svg+xml=org.kde.gwenview.desktop;
+image/vnd.adobe.photoshop=gimp.desktop;
+image/webp=ida.desktop;
+
+[Default Applications]
+application/epub+zip=zathura.desktop
+application/pdf=zathura.desktop
+application/uproject=com.epicgames.UnrealEngineEditor.desktop
+image/jpeg=sxiv.desktop
+image/svg+xml=org.kde.gwenview.desktop
+image/vnd.adobe.photoshop=org.kde.krita.desktop
+image/webp=sxiv.desktop
+text/html=google-chrome.desktop
+text/plain=vim.desktop
+text/x-python=vim.desktop
+video/mp4=vlc.desktop
+video/x-matroska=vlc.desktop
+video/x-msvideo=vlc.desktop;
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/magnet=org.qbittorrent.qBittorrent.desktop
+x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
