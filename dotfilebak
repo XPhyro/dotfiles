@@ -64,6 +64,9 @@ do
     file="$( echo "$files" | awk -v "j=$i" '{print $j}' )"
     loc="$( echo "$locs" | awk -v "j=$i" '{print $j}' | expandpath )"
 
+    locexists=""
+    willonlylink=""
+    
     echo "${WS}Moving $file to $loc"
 
     grep -Fxq "$file" "$LISTST" && {

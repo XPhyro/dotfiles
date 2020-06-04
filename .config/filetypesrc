@@ -1,0 +1,10 @@
+[EmbedSettings]
+embed-application/pdf=false
+embed-application/x-ruby=false
+embed-image/svg+xml=false
+embed-image/vnd.adobe.photoshop=false
+embed-image/webp=false
+embed-text/plain=false
+embed-text/x-python=false
+embed-video/mp4=false
+embed-video/x-matroska=false
