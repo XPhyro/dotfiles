@@ -120,7 +120,7 @@ done
 echo "Updating .gitignore"
 
 sed 's/~\///' "$LISTST" > .gitignore # just in case something sensitive ends up here
-echo ".gitignore" >> .gitignore
+echo ".gitignore" >> .gitignore # names might also reveal information
 
 echo "Committing changes"
 
