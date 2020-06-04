@@ -14,6 +14,7 @@ tpcycle
 statbartick &
 dotfilesbaktick &
 dotfilesbaktick-sensitive &
+redshiftmanager &
 
 session=${1:-dwm}
 
