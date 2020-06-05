@@ -213,7 +213,7 @@ alias gcm="git commit -m"
 alias gpl="git pull"
 alias gps="git push"
 
-alias ytdl="youtube-dl --add-metadata"
+alias ytdl="youtube-dl --add-metadata --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive"
 alias pvpn="sudo protonvpn"
 alias pvpnc="sudo protonvpn c --cc"
 
