@@ -35,7 +35,10 @@ BASEST="$HOME/.dotfiles-sensitive"
 LIST="dotfiles.list"
 LISTST="$BASEST/dotfiles-sensitive.list"
 
-cd "$BASE" || { echo "Could not cd to $BASE"; exit 1; }
+cd "$BASE" || { 
+    echo "Could not cd to $BASE"
+    exit 1
+}
 
 echo "Processing $LIST"
 

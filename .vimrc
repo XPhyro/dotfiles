@@ -148,6 +148,7 @@ augroup END
 augroup actiongroup
     autocmd InsertLeave     *       call <SID>WriteOnInsertLeave()
     autocmd BufWritePost    sxhkdrc silent! execute "!restart-sxhkd"
+    autocmd BufWritePost    .Xresources silent! execute "!xrdb -load ~/.Xresources"
 augroup END
 
 cmap w!! w !sudo tee > /dev/null %
