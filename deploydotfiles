@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 
+BASE="$HOME/.dotfiles"
 LIST="dotfiles.list"
+
+cd "$BASE" || exit 1
 
 # Reverse version sorting is crucial for the main loop;
 # if the file is a directory, we should be operating
