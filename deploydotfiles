@@ -8,12 +8,17 @@ while read -r i
 do
     file="$( echo "$i" | sed 's/^~\///' )"
     [ -f "$file" ] && {
-        rm -f "$file"
+        rm -f "$HOME/$file"
         ln -s "$file" "$HOME/$file"
         continue
     }
     [ -d "$file" ] && { 
         mv -n "$HOME/$file/"* "$file"
+        rm -rf "$HOME/$file"
         ln -s "$file" "$HOME/$file"
+        continue
+    }
+    [ -L "$file" ] && {
+        echo "$file is a symlink, continuing"
     }
 done < "$LIST"
