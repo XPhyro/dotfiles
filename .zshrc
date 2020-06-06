@@ -127,6 +127,8 @@ alias to="touch"
 alias fd="sudo fdisk"
 alias cfd="sudo cfdisk"
 
+alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
+
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 alias hgrep="hist | grep"
 alias hgrepc="hist | grep -C 3"
@@ -135,7 +137,8 @@ alias ygrep="yay -Q | grep"
 alias lgrep="l1 | grep"
 alias llgrep="ll | grep"
 alias lrgrep="lr | grep"
-alias ppgrep="ps aux | grep -E"
+alias pgrep="ps aux | grep -E"
+alias ppgrep="/usr/bin/pgrep"
 
 alias find="find -regextype grep"
 
