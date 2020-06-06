@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+LIST="dotfiles.list"
+
+files=""
+
+while read -r i
+do
+    file="$( echo "$i" | sed 's/^~\///' )"
+    [ -f "$file" ] && {
+        rm -f "$file"
+        ln -s "$file" "$HOME/$file"
+        continue
+    }
+    [ -d "$file" ] && { 
+        tmpd="$( mktemp -d )"
+        mv "$file/"*
+    }
+done < "$LIST"
