@@ -2,7 +2,7 @@
 
 LIST="dotfiles.list"
 
-files=""
+sort -rV -o "$LIST" "$LIST" # this is crucial for the following loop if the file is a directory
 
 while read -r i
 do
@@ -13,7 +13,7 @@ do
         continue
     }
     [ -d "$file" ] && { 
-        tmpd="$( mktemp -d )"
-        mv "$file/"*
+        mv -n "$HOME/$file/"* "$file"
+        ln -s "$file" "$HOME/$file"
     }
 done < "$LIST"
