@@ -9,7 +9,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_history
+HISTFILE=~/.dotfiles-sensitive/.zsh_history
 HISTSIZE=1000000000
 SAVEHIST=1000000000
 setopt nomatch

@@ -2,17 +2,22 @@
 
 LIST="dotfiles.list"
 
-sort -rV -o "$LIST" "$LIST" # this is crucial for the following loop if the file is a directory
+# Reverse version sorting is crucial for the main loop;
+# if the file is a directory, we should be operating
+# from high depth to low depth.
+sort -rV -o "$LIST" "$LIST" 
 
 while read -r i
 do
     file="$( echo "$i" | sed 's/^~\///' )"
     [ -f "$file" ] && {
+        echo "Linking $file to $HOME/$file"
         rm -f "$HOME/$file"
         ln -s "$file" "$HOME/$file"
         continue
     }
     [ -d "$file" ] && { 
+        echo "Linking $file to $HOME/$file"
         mv -n "$HOME/$file/"* "$file"
         rm -rf "$HOME/$file"
         ln -s "$file" "$HOME/$file"
