@@ -137,6 +137,8 @@ alias llgrep="ll | grep"
 alias lrgrep="lr | grep"
 alias ppgrep="ps aux | grep -E"
 
+alias find="find -regextype grep"
+
 alias udb="sudo updatedb"
 alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 alias loc="locate -i"
