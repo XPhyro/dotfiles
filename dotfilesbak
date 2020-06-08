@@ -123,7 +123,7 @@ do
     ln -s "$BASE/$loc" "$file"
 done
 
-echo "Updating .gitignore"
+echo "Creating .gitignore"
 
 sed 's/~\///' "$LISTST" > .gitignore # just in case something sensitive ends up here
 echo ".gitignore" >> .gitignore # names might also reveal information
@@ -140,3 +140,5 @@ then
 else
     echo "Already up to date"
 fi
+
+rm .gitignore
