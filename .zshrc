@@ -148,7 +148,7 @@ alias loc="locate -i"
 alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
 
 alias py="ptpython"
-#alias py="python3"
+alias pyy="python3"
 alias pypy="pypy3"
 alias gpp="g++"
 
