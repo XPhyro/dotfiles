@@ -45,7 +45,6 @@
 ~/.config/systemd/user
 ~/.config/user-dirs.dirs
 ~/.config/vlc/vlcrc
-~/.config/vlc/vlc-qt-interface.conf
 ~/.config/wal/colorschemes
 ~/.config/xfe/xferc
 ~/.config/xsettingsd/xsettingsd.conf
