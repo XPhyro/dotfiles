@@ -1,5 +1,7 @@
 export HISTTIMEFORMAT="[%F %T] "
 
+export HISTFILE=~/.dotfiles-sensitive/.zsh_history
+
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.local/bin/usr
 export PATH=$PATH:~/code/sh
