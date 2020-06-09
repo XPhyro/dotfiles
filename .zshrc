@@ -211,6 +211,7 @@ alias vol="pulseaudio-ctl"
 
 alias gl="git log"
 alias gr="git reset"
+alias grao="git remote add origin"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gdw="git diff --word-diff"
