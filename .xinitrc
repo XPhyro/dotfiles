@@ -7,7 +7,7 @@ bluetoothctl power on &
 flameshot &
 sudo crond &
 
-xrandr-home &
+xr-home &
 xdotool key Num_Lock
 xset r rate 250 40
 tpcycle
