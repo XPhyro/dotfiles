@@ -100,7 +100,7 @@ mpow="EB:06:EF:5D:4F:4D"
 #
 
 alias sudo="nocorrect sudo "
-alias fuck="eval 'sudo !!'"
+alias fuck='sudo $( fc -ln -1 )'
 
 alias ls="ls --color=auto"
 
