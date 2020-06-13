@@ -203,6 +203,7 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+inoremap <C-Backspace> <Esc>ldbi
 "add two empty lines over the current one, and leave the cursor at the upper one
 nnoremap <C-o> kO<CR>
 "delete in line everything except selected
@@ -211,7 +212,7 @@ vnoremap <C-d> dO<Esc>pjdd
 nnoremap <Leader>lr :se lazyredraw!<CR>
 nnoremap <Leader>sp :se spell!<CR>
 nnoremap <Leader>cl :se cursorline!<CR>
-nnoremap cs :colorscheme DarkDefault<CR>:colorscheme 
+nnoremap <Leader>cs :colorscheme DarkDefault<CR>:colorscheme 
 "ycm
 nnoremap <Leader>cm :call ToggleYCMAutoComplete()<CR>
 
