@@ -116,10 +116,8 @@ alias lr="ls -lRh"
 alias lar="ls -lARh"
 alias lsd="ls -d"
 
-alias cd.="cd .."
-alias cd..="cd ../.."
-alias cd...="cd ../../.."
-alias cdr="cd /"
+alias ...="../.."
+alias ....="../../.."
 
 alias mkd="mkdir"
 alias to="touch"
