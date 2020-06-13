@@ -145,6 +145,9 @@ alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 alias loc="locate -i"
 alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
 
+alias ffm="ffmpeg"
+alias ffp="ffprobe"
+
 alias py="ptpython"
 alias pyy="python3"
 alias pypy="pypy3"
