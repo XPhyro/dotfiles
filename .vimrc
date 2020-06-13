@@ -204,11 +204,14 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
-inoremap <C-m> <Esc>ldbi
+inoremap <C-x> <Esc>ldbi
 "add two empty lines over the current one, and leave the cursor at the upper one
 nnoremap <C-o> kO<CR>
 "delete in line everything except selected
 vnoremap <C-d> dO<Esc>pjdd
+"insert new line in normal mode
+nnoremap <CR> o<ESC>
+nnoremap <BS> O<ESC>
 "set instructions
 nnoremap <Leader>lr :se lazyredraw!<CR>
 nnoremap <Leader>sp :se spell!<CR>
