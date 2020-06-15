@@ -340,7 +340,7 @@ gdo() {
         git add "$1" && git commit -m "$2" -m "$3" && git push "$4" "$5" "$6"
     elif [ "$2" ]
     then
-        git add "$1" && git commit -m "$2" && git push
+        git add . && git commit -m "$1" -m "$2" && git push
     elif [ "$1" ]
     then
         git add . && git commit -m "$1" && git push
