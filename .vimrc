@@ -146,9 +146,11 @@ augroup configgroup
 augroup END
 
 augroup actiongroup
-    autocmd InsertLeave     *       call <SID>WriteOnInsertLeave()
-    autocmd BufWritePost    sxhkdrc silent! execute "!restart-sxhkd"
+    autocmd InsertLeave     *           call <SID>WriteOnInsertLeave()
+    autocmd BufWritePost    sxhkdrc     silent! execute "!restart-sxhkd"
     autocmd BufWritePost    .Xresources silent! execute "!xrdb -load ~/.Xresources"
+    autocmd BufWritePost    locations   silent! execute "!genrc"
+    autocmd BufWritePost    files       silent! execute "!genrc"
 augroup END
 
 cmap w!! w !sudo tee > /dev/null %
@@ -203,6 +205,9 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+""navigation
+"nnoremap <J> <C-d>
+"nnoremap <K> <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
 inoremap <C-x> <Esc>ldbi
 "add two empty lines over the current one, and leave the cursor at the upper one
