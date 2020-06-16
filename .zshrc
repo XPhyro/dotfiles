@@ -299,14 +299,15 @@ r() {
 
 ltxstp() {
     bibtex "$1"
-    latexmk -pdf -pvc "$(pwd)/$1" > /dev/null &
     zathura "$(pwd)/$1.pdf" &
+    sleep 0.1
+    latexmk -pdf -pvc "$(pwd)/$1" > /dev/null &
     disown
     exit
 }
 
 ltxcln() {
-    killall perl
+    kill "$( pgrep latexmk | head -n 1 | awk '{print $2}' )"
     killall zathura
     exit
 }
