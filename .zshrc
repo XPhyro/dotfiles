@@ -154,7 +154,7 @@ alias pypy="pypy3"
 alias pyy="python3"
 
 alias b="broot"
-alias f="fzf"
+alias f="fzfopen"
 alias m="neomutt"
 alias v="vim"
 alias z="zathura"
@@ -298,6 +298,13 @@ r() {
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
+}
+
+tox() {
+    for i in "$@"
+    do
+        touch "$i" && chmod +x "$i"
+    done
 }
 
 ltxstp() {
