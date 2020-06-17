@@ -69,22 +69,22 @@ setopt EXTENDED_HISTORY
 FIGNORE=".meta"
 
 mnt="/mnt"
-mntmbssh="/mnt/sshfs"
 mntmb="/mnt/mybook"
+mntmbssh="/mnt/sshfs"
 
-VIMRC="$HOME/.vimrc"
-ECHOSHRC="$HOME/.echo.shrc"
+BASHHIST="$HOME/.bash_history"
 BASHPROF="$HOME/.bash_profile"
 BASHRC="$HOME/.bashrc"
-BASHHIST="$HOME/.bash_history"
-ZSHRC="$HOME/.zshrc"
-ZSHHIST="$HOME/.zsh_history"
-ZPROFILE="$HOME/.zprofile"
-SXHKDRC="$HOME/.config/sxhkd/sxhkdrc"
-XINITRC="$HOME/.xinitrc"
-RANGERRC="$HOME/.config/ranger/rc.conf"
+ECHOSHRC="$HOME/.echo.shrc"
 MIMEAPPS="$HOME/.config/mimeapps.list"
+RANGERRC="$HOME/.config/ranger/rc.conf"
+SXHKDRC="$HOME/.config/sxhkd/sxhkdrc"
+VIMRC="$HOME/.vimrc"
 WORKOUT="$HOME/documents/data-dump/workout.log"
+XINITRC="$HOME/.xinitrc"
+ZPROFILE="$HOME/.zprofile"
+ZSHHIST="$HOME/.zsh_history"
+ZSHRC="$HOME/.zshrc"
 
 pihole="192.168.1.100"
 
@@ -99,74 +99,75 @@ mpow="EB:06:EF:5D:4F:4D"
 ##
 #
 
-alias sudo="nocorrect sudo "
 alias fuck='sudo $( fc -ln -1 )'
+alias sudo="nocorrect sudo "
 
 alias ls="ls --color=auto"
 
-alias grep="grep --color=auto"
 alias diff="colordiff"
+alias grep="grep --color=auto"
 alias vdiff="vimdiff"
 
-alias ll="ls -lh"
 alias l1="ls -1"
 alias la="ls -A"
 alias lal="ls -Alh"
-alias lr="ls -lRh"
 alias lar="ls -lARh"
+alias ll="ls -lh"
+alias lr="ls -lRh"
 alias lsd="ls -d"
 
-alias ...="../.."
 alias ....="../../.."
+alias ...="../.."
 
 alias mkd="mkdir"
 alias to="touch"
 
-alias fd="sudo fdisk"
 alias cfd="sudo cfdisk"
+alias fd="sudo fdisk"
 
 alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
 
+alias cgrep="compgen | grep"
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 alias hgrep="hist | grep"
 alias hgrepc="hist | grep -C 3"
-alias cgrep="compgen | grep"
-alias ygrep="yay -Q | grep"
 alias lgrep="l1 | grep"
 alias llgrep="ll | grep"
 alias lrgrep="lr | grep"
 alias pgrep="ps aux | grep -E"
 alias ppgrep="/usr/bin/pgrep"
+alias ygrep="yay -Q | grep"
 
 alias find="find -regextype grep"
 
-alias udb="sudo updatedb"
-alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 alias loc="locate -i"
 alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
+alias udb="sudo updatedb"
+alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 
 alias ffm="ffmpeg"
 alias ffp="ffprobe"
 
-alias py="ptpython"
-alias pyy="python3"
-alias pypy="pypy3"
 alias gpp="g++"
+alias py="ptpython"
+alias pypy="pypy3"
+alias pyy="python3"
 
-alias v="vim"
 alias b="broot"
-alias z="zathura"
+alias f="fzf"
 alias m="neomutt"
+alias v="vim"
+alias z="zathura"
 
-alias ve="v $ECHOSHRC"
 alias vb="v $BASHRC"
-alias vz="v $ZSHRC"
-alias vzp="v $ZPROFILE"
-alias vv="v $VIMRC"
-alias vx="v $XINITRC"
+alias ve="v $ECHOSHRC"
 alias vm="v $MIMEAPPS"
 alias vs="v $SXHKDRC"
+alias vv="v $VIMRC"
 alias vw="v $WORKOUT"
+alias vx="v $XINITRC"
+alias vz="v $ZSHRC"
+alias vzp="v $ZPROFILE"
 
 alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
 alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
@@ -175,33 +176,33 @@ alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d 
 
 alias smic="sudo make install clean"
 
-alias SS="sudo systemctl"
 alias S="systemctl --user"
+alias SS="sudo systemctl"
 
-alias xr="xrandr"
-alias xkbd-fast="xset r rate 250 40"
-alias xkbd-slow="xset r rate 600 25"
 alias xc="xclip -sel clip"
 alias xco="xclip -o -sel clip"
+alias xkbd-fast="xset r rate 250 40"
+alias xkbd-slow="xset r rate 600 25"
+alias xr="xrandr"
 
 alias dhcp="sudo dhcpcd"
 
-alias ssh="ssh -p 14253"
 alias scp="scp -P 14253"
+alias ssh="ssh -p 14253"
 
 alias ka="killall"
 alias rfk="rfkill"
 
 alias sc="shellcheck"
 
-alias mount="sudo mount"
-alias umount="sudo umount"
-alias rc="rclone"
 alias fum="fusermount"
+alias mount="sudo mount"
+alias rc="rclone"
+alias umount="sudo umount"
 
 alias iotop="sudo iotop"
-alias powertop="sudo powertop"
 alias jnettop="sudo jnettop"
+alias powertop="sudo powertop"
 alias slabtop="sudo slabtop"
 
 alias btmon="sudo btmon"
@@ -224,9 +225,9 @@ alias gps="git push"
 alias gr="git reset"
 alias grao="git remote add origin"
 
-alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s"'
 alias pvpn="sudo protonvpn"
 alias pvpnc="sudo protonvpn c --cc"
+alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s"'
 
 alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
