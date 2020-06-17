@@ -1,6 +1,5 @@
 [Default Applications]
 application/epub+zip=zathura.desktop
-application/pdf=zathura.desktop
 application/uproject=com.epicgames.UnrealEngineEditor.desktop
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
 image/jpeg=sxiv.desktop
@@ -9,6 +8,7 @@ image/vnd.adobe.photoshop=org.kde.krita.desktop
 image/webp=sxiv.desktop
 text/html=google-chrome.desktop
 text/plain=vim.desktop
+text/markdown=vim.desktop
 text/x-python=vim.desktop
 video/mp4=vlc.desktop
 video/x-matroska=vlc.desktop
@@ -27,3 +27,4 @@ application/x-ruby=sonic-pi.desktop;
 image/svg+xml=org.kde.gwenview.desktop;
 image/vnd.adobe.photoshop=gimp.desktop;
 image/webp=ida.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
