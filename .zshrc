@@ -354,19 +354,8 @@ gdo() {
 }
 
 gdoom() {
-    if [ "$3" ]
-    then
-        gdo $@ --set-upstream origin master
-    elif [ "$2" ]
-    then
-        gdo . $@ --set-upstream origin master
-    elif [ "$1" ]
-    then
-        git add . && git commit -m "$1" && git push
-    else
-
-    fi
-    gdo "$1" "$2" "$3" --set-upstream origin master
+    git branch -u origin/master
+    gdo $@
 }
 
 gdoe() {
