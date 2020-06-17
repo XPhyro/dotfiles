@@ -221,7 +221,9 @@ alias gdw="git diff --word-diff"
 alias gf="git fetch"
 alias gl="git log"
 alias gpl="git pull"
+alias gplom="git pull origin master"
 alias gps="git push"
+alias gpsom="git push --set-upstream origin master"
 alias gr="git reset"
 alias grao="git remote add origin"
 
@@ -349,6 +351,22 @@ gdo() {
     else
         echo "No arguments given."
     fi
+}
+
+gdoom() {
+    if [ "$3" ]
+    then
+        gdo $@ --set-upstream origin master
+    elif [ "$2" ]
+    then
+        gdo . $@ --set-upstream origin master
+    elif [ "$1" ]
+    then
+        git add . && git commit -m "$1" && git push
+    else
+
+    fi
+    gdo "$1" "$2" "$3" --set-upstream origin master
 }
 
 gdoe() {
