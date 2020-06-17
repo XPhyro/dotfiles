@@ -2,6 +2,7 @@
 application/epub+zip=zathura.desktop
 application/uproject=com.epicgames.UnrealEngineEditor.desktop
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
+application/x-shellscript=vim.desktop
 image/jpeg=sxiv.desktop
 image/svg+xml=org.kde.gwenview.desktop
 image/vnd.adobe.photoshop=org.kde.krita.desktop

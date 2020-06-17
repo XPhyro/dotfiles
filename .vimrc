@@ -205,9 +205,9 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
-""navigation
-"nnoremap <J> <C-d>
-"nnoremap <K> <C-u>
+"navigation
+nnoremap J <C-d>
+nnoremap K <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
 inoremap <C-x> <Esc>ldbi
 "add two empty lines over the current one, and leave the cursor at the upper one
