@@ -324,7 +324,7 @@ let g:ycm_key_list_next_completion=['<C-i>']
 "let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 "let g:UltiSnipsExpandTrigger="<c-tab>"
 "let g:UltiSnipsListSnippets="<c-s-tab>"
-let g:UltiSnipsExpandTrigger=";;"
+let g:UltiSnipsExpandTrigger=";e"
 let g:UltiSnipsJumpForwardTrigger=";w"
 let g:UltiSnipsJumpBackwardTrigger=";b"
 
