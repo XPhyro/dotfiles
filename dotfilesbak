@@ -103,8 +103,16 @@ do
             rm "$file"
             willonlylink=1
         else
-            clrl "${WSSS}Could not fix symlink" "$RED"
-            continue
+	    possibletarget=".$( echo "$target" )"
+
+            if [ -d "$possibletarget" ] || [ -f "$possibletarget" ]
+	    then
+		rm "$file"
+		willonlylink=1
+	    else
+                clrl "${WSSS}Could not fix symlink" "$RED"
+                continue
+	    fi
         fi
     fi
 

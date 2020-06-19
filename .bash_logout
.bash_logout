@@ -1,1 +1,0 @@
-/home/xphyro/.dotfiles/.bash_logout
