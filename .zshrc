@@ -139,7 +139,7 @@ alias pgrep="ps aux | grep -iE"
 alias ppgrep="/usr/bin/pgrep"
 alias ygrep="yay -Q | grep -i"
 
-alias find="find -regextype grep"
+#alias find="find -regextype grep"
 
 alias loc="locate -i"
 alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
