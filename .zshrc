@@ -138,6 +138,7 @@ alias lrgrep="lr | grep -i"
 alias pgrep="ps aux | grep -iE"
 alias ppgrep="/usr/bin/pgrep"
 alias ygrep="yay -Q | grep -i"
+alias zsgrep="cat $ZSHRC | grep -i"
 
 #alias find="find -regextype grep"
 
