@@ -203,6 +203,7 @@ alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size
 alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
 alias smic="sudo make install clean"
+alias hsmic="./autogen.sh && ./configure --prefix=/usr && sudo make install"
 
 alias S="systemctl --user"
 alias SS="sudo systemctl"
