@@ -14,7 +14,7 @@ tpcycle
 statbartick &
 dotfilesbaktick &
 dotfilesbaktick-sensitive &
-redshiftmanager &
+redshift -l "$( catfl gpsloc )" &
 
 session=${1:-dwm}
 
