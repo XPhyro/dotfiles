@@ -285,14 +285,44 @@ hist() {
 }
 
 p() {
-    sudo pacman $@
+    hasopt=0
+
+    for i in "$@"
+    do
+        [ "${i:0:1}" = "-" ] && {
+            hasopt=1
+            break
+        }
+    done
+
+    if [ "$hasopt" = "1" ]
+    then
+        sudo pacman $@
+    else
+        sudo pacman -Syu $@
+    fi
 
     statbarsetavlsyu
     statbarset
 }
 
 y() {
-    yay $@
+    hasopt=0
+
+    for i in "$@"
+    do
+        [ "${i:0:1}" = "-" ] && {
+            hasopt=1
+            break
+        }
+    done
+
+    if [ "$hasopt" = "1" ]
+    then
+        yay $@
+    else
+        yay -Syu $@
+    fi
 
     statbarsetavlsyu
     statbarset
