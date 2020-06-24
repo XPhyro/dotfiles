@@ -242,6 +242,9 @@ alias btctl="bluetoothctl"
 alias tlmgr="tllocalmgr"
 alias vol="pulseaudio-ctl"
 
+alias a2dpm="a2dp $mpow"
+alias a2dpb="a2dp $bt"
+
 alias gc="git commit"
 alias gcd="git commit --dry-run"
 alias gcm="git commit -m"
