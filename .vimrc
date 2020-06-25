@@ -126,9 +126,7 @@ augroup configgroup
     au!
     "fix zsh caret
     au VimEnter     *           silent exec "! echo -ne '\e[1 q'"
-    au FileType     tex         let b:dispatch='pdflatex %'
-    au FileType     tex         command! PdfLatex Dispatch! pdflatex %
-    au FileType     tex         nnoremap <Leader>c :PdfLatex<CR>
+    au FileType     tex         let b:dispatch='pdflatex %' | command! PdfLatex Dispatch! pdflatex % | nnoremap <Leader>c :PdfLatex<CR>
     au FileType     ruby        setlocal commentstring=#\ %s
     au FileType     python      setlocal commentstring=#\ %s
     au BufNewFile   *.sh        exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
@@ -141,16 +139,15 @@ augroup configgroup
     au BufEnter     *           exe ':filetype detect'
     "if the user saved a new file, activate auto-save
     au BufWritePre  *           if IsCurrentNewFile() | call ToggleWriteOnInsertLeave()
-    au BufWritePre  *.py        silent! exe ':Black'
+    au BufWritePre  *.py        silent! exe ":Black"
     au BufWritePre  *           call StripTrailingWhitespace()
 augroup END
 
 augroup actiongroup
-    autocmd InsertLeave     *           call <SID>WriteOnInsertLeave()
-    autocmd BufWritePost    sxhkdrc     silent! execute "!restart-sxhkd"
-    autocmd BufWritePost    .Xresources silent! execute "!xrdb -load ~/.Xresources"
-    autocmd BufWritePost    locations   silent! execute "!genrc"
-    autocmd BufWritePost    files       silent! execute "!genrc"
+    au InsertLeave     *                call <SID>WriteOnInsertLeave()
+    au BufWritePost    sxhkdrc          silent! exe "!restart-sxhkd"
+    au BufWritePost    .Xresources      silent! exe "!xrdb -load ~/.Xresources"
+    au BufWritePost    locations,files  silent! exe ":sort u" | silent! exe "!genrc"
 augroup END
 
 cmap w!! w !sudo tee > /dev/null %

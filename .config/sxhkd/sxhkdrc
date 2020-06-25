@@ -1,4 +1,7 @@
 ### Programs ###
+##
+#
+
 ctrl + alt + {h,n,j,i,s,p}; ctrl + alt + t
     $TERMINAL -e sudo {htop,nvtop,jnettop,iotop,slabtop,powertop}
 ctrl + alt + m; ctrl + alt + m
@@ -13,8 +16,17 @@ ctrl + alt + s; ctrl + alt + s
     flameshot gui
 ctrl + alt + o; ctrl + alt + {b,i,g,m,c}
     {google-chrome-stable,google-chrome-stable --incognito,steam,spotify,discord}
+ctrl + alt + o; ctrl + alt + m; ctrl + alt + o
+    
+
+#
+##
+### Programs ###
 
 ### System ###
+##
+#
+
 {Caps_Lock,Num_Lock}
     xdotool key {Caps_Lock,Num_Lock}; statbarset
 super + minus
@@ -47,3 +59,7 @@ ctrl + super + alt + k
     kmcycle
 ctrl + super + alt + m
     manpdf
+
+#
+##
+### System ###
