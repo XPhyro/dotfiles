@@ -106,7 +106,7 @@ fun! s:NextTextObject(motion)
     exe "normal! f".c."v".a:motion.c
 endfun
 
-fun! IsCurrentNewFile()
+fun! IsCurrentFileNew()
     return empty(glob(@%))
 endfun
 
@@ -133,12 +133,12 @@ augroup configgroup
     au BufEnter     *.vimrc     let b:noStripWhitespace=1
     au BufEnter     *.log       let b:noWriteOnInsert=1
     au BufEnter     *.tex       call ToggleYCMAutoComplete()
-    au BufEnter     *           if IsCurrentNewFile() | let b:noWriteOnInsert=1
+    au BufEnter     *           if IsCurrentFileNew() | let b:noWriteOnInsert=1
     au BufEnter     Makefile    setlocal noexpandtab
     "for some reason vim does not detect shebangs unless this is here
     au BufEnter     *           exe ':filetype detect'
     "if the user saved a new file, activate auto-save
-    au BufWritePre  *           if IsCurrentNewFile() | call ToggleWriteOnInsertLeave()
+    au BufWritePre  *           if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
     au BufWritePre  *.py        silent! exe ":Black"
     au BufWritePre  *           call StripTrailingWhitespace()
 augroup END
