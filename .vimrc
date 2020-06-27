@@ -189,6 +189,7 @@ nnoremap <Leader>oP o<Esc>"+p
 nnoremap <Leader>OP O<Esc>"+p
 vnoremap <Leader>y "+y
 vnoremap <Leader>Y "*y
+"execute wc on the file
 nnoremap <Leader>wc :w !wc<CR>
 ""window navigations
 "nnoremap <C-h> <C-w>h
@@ -207,11 +208,12 @@ nnoremap J <C-d>
 nnoremap K <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
 inoremap <C-x> <Esc>ldbi
-"add two empty lines over the current one, and leave the cursor at the upper one
+"add two empty lines two lines over, and leave the cursor at the lower one
 nnoremap <C-o> kO<CR>
 "delete in line everything except selected
 vnoremap <C-d> dO<Esc>pjdd
 "insert new line in normal mode
+
 nnoremap <CR> o<ESC>
 nnoremap <BS> O<ESC>
 "set instructions
