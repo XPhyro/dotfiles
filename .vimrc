@@ -175,7 +175,7 @@ nnoremap <Leader>evm :vsp ~/documents/notes/computer-science/vim<CR>
 "edit tmux notes
 nnoremap <Leader>etm :vsp ~/documents/notes/computer-science/tmux<CR>
 "open ack.vim
-nnoremap <Leader>a :Ack
+nnoremap <Leader>a :Ack 
 "toggle between relative and absolute number
 nnoremap <Leader>n :se rnu!<CR>
 "copy, paste to actual clips
@@ -213,7 +213,6 @@ nnoremap <C-o> kO<CR>
 "delete in line everything except selected
 vnoremap <C-d> dO<Esc>pjdd
 "insert new line in normal mode
-
 nnoremap <CR> o<ESC>
 nnoremap <BS> O<ESC>
 "set instructions
@@ -223,9 +222,9 @@ nnoremap <Leader>cl :se cursorline!<CR>
 nnoremap <Leader>cs :colorscheme DarkDefault<CR>:colorscheme 
 "ycm
 nnoremap <Leader>cm :call ToggleYCMAutoComplete()<CR>
-
+"fortmat json file
 nnoremap <Leader>fjs :%!python -m json.tool<CR>
-
+"toggle behaviours
 nnoremap <Leader>ts :call ToggleStripTrailingWhitespace()<CR>
 nnoremap <Leader>tw :call ToggleWriteOnInsertLeave()<CR>
 noremap <Leader>tb :ToggleBool<CR>
@@ -236,7 +235,6 @@ vnoremap ; :
 inoremap jk <Esc>
 "kj acts as escape
 inoremap kj <Esc>
-"inoremap B ba
 
 "vnoremap <Leader>s( <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
 "vnoremap <Leader>s) <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
