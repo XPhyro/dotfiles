@@ -120,7 +120,6 @@ alias ....="../../.."
 alias ...="../.."
 
 alias mkd="mkdir"
-alias to="touch"
 
 alias cfd="sudo cfdisk"
 alias fd="sudo fdisk"
@@ -160,6 +159,9 @@ alias b="broot"
 alias m="neomutt"
 alias v="vim"
 alias z="zathura"
+
+alias td="todo"
+alias tdh="todo --help"
 
 alias f="fzfopen"
 alias far="fzfopen ar"
@@ -274,7 +276,7 @@ alias ycmgen="~/repo/YCM-Generator/config_gen.py"
 
 alias ggl="googler"
 alias gpupig="gpupdo "$( getloc igg )""
-alias trickle-gpupig="gpupdo "$( getloc igg )""
+alias trickle-gpupig="sudo trickled -d 1000 -u 400 & disown; trickle gpupdo "$( getloc igg )""
 
 #
 ##
@@ -369,10 +371,20 @@ r() {
     fi
 }
 
+to() {
+    for i in "$@"
+    do
+        [ -d "$i" -o -f "$i" ] && continue
+        dir="$( dirname "$i" )"
+        [ -d "$dir" ] || mkdir -p "$dir"
+        touch "$i"
+    done
+}
+
 tox() {
     for i in "$@"
     do
-        touch "$i" && chmod +x "$i"
+        to "$i" && chmod +x "$i"
     done
 }
 
