@@ -199,6 +199,8 @@ alias vx="v $XINITRC"
 alias vz="v $ZSHRC"
 alias vzp="v $ZPROFILE"
 
+alias ys="yay -Ss"
+
 alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
 alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
 
@@ -272,6 +274,7 @@ alias ycmgen="~/repo/YCM-Generator/config_gen.py"
 
 alias ggl="googler"
 alias gpupig="gpupdo "$( getloc igg )""
+alias trickle-gpupig="gpupdo "$( getloc igg )""
 
 #
 ##
