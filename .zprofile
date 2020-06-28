@@ -1,11 +1,11 @@
 export HISTTIMEFORMAT="[%F %T] "
 
-export HISTFILE=~/.dotfiles-sensitive/.zsh_history
+export HISTFILE="$HOME/.dotfiles-sensitive/.zsh_history"
 
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.local/bin/usr
-export PATH=$PATH:~/code/sh
-export PATH=$PATH:~/.vim/bundle/vim-live-latex-preview/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin/usr
+export PATH=$PATH:$HOME/code/sh
+export PATH=$PATH:$HOME/.vim/bundle/vim-live-latex-preview/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/code/py/_modules
 
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
