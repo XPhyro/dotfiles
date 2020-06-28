@@ -161,6 +161,16 @@ alias v="vim"
 alias z="zathura"
 
 alias td="todo"
+alias tdc="todo copy"
+alias tdy="todo cancel"
+alias tdd="todo delete"
+alias tddo="todo done"
+alias tde="todo edit"
+alias tdf="todo flush"
+alias tdl="todo list"
+alias tdm="todo move"
+alias tdn="todo new"
+alias tds="todo show"
 alias tdh="todo --help"
 
 alias f="fzfopen"
@@ -474,3 +484,5 @@ bindkey '^v' edit-command-line
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 . ~/.echo.shrc
+
+todo list
