@@ -10,7 +10,8 @@ sudo crond &
 xr-home &
 xdotool key Num_Lock
 xmodmap -e "keycode 9 = Caps_Lock"
-xmodmap -e "keycode 66 = Escape"
+setxkbmap -option "caps:escape"
+xset -r 9
 xset r rate 250 40
 tpcycle
 statbartick &
