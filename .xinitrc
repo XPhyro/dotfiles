@@ -1,5 +1,11 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+xdotool key Num_Lock
+setxkbmap -option "caps:escape"
+xmodmap -e "keycode 9 = Caps_Lock"
+xset -r 9
+xset r rate 250 40
+
 sxhkd &
 pulseaudio --start &
 bluetoothctl power on &
@@ -7,17 +13,13 @@ bluetoothctl power on &
 flameshot &
 sudo crond &
 
-xr-home &
-xdotool key Num_Lock
-xmodmap -e "keycode 9 = Caps_Lock"
-setxkbmap -option "caps:escape"
-xset -r 9
-xset r rate 250 40
 tpcycle
 statbartick &
 dotfilesbaktick &
 dotfilesbaktick-sensitive &
 redshift -l "$( catfl gpsloc )" &
+
+xr-home &
 
 session=${1:-dwm}
 
