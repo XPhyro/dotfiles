@@ -29,6 +29,8 @@ ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r}
 ##
 #
 
+{button6,button7}
+    {voldown,volup}; statbarset
 {Caps_Lock,Num_Lock}
     xdotool key {Caps_Lock,Num_Lock}; statbarset
 super + minus
