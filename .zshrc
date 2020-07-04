@@ -202,6 +202,9 @@ alias fqpy="fzfopen py && exit"
 alias fqre="fzfopen re && exit"
 alias fqsh="fzfopen sh && exit"
 
+alias mdt="mdv TODO.md"
+alias mdr="mdv README.md"
+
 alias vb="v $BASHRC"
 alias ve="v $ECHOSHRC"
 alias viv="v $IDEAVIMRC"
@@ -231,6 +234,9 @@ alias xco="xclip -o -sel clip"
 alias xkbd-fast="xset r rate 250 40"
 alias xkbd-slow="xset r rate 600 25"
 alias xr="xrandr"
+
+alias netstat="sudo netstat"
+alias netstatt="netstat -tulpn"
 
 alias dhcp="sudo dhcpcd"
 
@@ -463,6 +469,18 @@ gdoom() {
 gdoe() {
     gdo $@
     exit
+}
+
+md() {
+    if [ "$@" ]
+    then
+        mdv $@
+    else
+        for i in *.md
+        do
+            mdv "$i"
+        done
+    fi
 }
 
 #
