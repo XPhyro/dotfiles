@@ -26,5 +26,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-nnoremap J <C-d>
-nnoremap K <C-u>
+"nnoremap J <C-d>
+"nnoremap K <C-u>
+nnoremap J 10j
+nnoremap K 10k
