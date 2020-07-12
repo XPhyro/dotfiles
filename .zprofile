@@ -17,5 +17,7 @@ export EDITOR="vim"
 export BROWSER="google-chrome-stable"
 export READER="zathura"
 
+export MDV_THEME=663.6093
+
 #[ ! "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && exec startx "$SCRIPTSFOLDER/xinitrc"
 [ ! "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && startx
