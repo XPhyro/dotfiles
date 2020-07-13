@@ -122,6 +122,22 @@ fun! ToggleYCMAutoComplete()
     endif
 endfun
 
+function! Multiple_cursors_before()
+    if exists('b:noWriteOnInsert')
+        let b:willNotChangeWriteOnInsert=1
+    else
+        let b:noWriteOnInsert=1
+    endif
+endfunction
+
+function! Multiple_cursors_after()
+    if exists('b:willNotChangeWriteOnInsert')
+        unlet b:willNotChangeWriteOnInsert
+    else
+        unlet b:noWriteOnInsert
+    endif
+endfunction
+
 augroup configgroup
     au!
     "fix zsh caret
