@@ -30,3 +30,5 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 "nnoremap K <C-u>
 nnoremap J 10j
 nnoremap K 10k
+
+inoremap <S-space> <space>
