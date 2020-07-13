@@ -221,6 +221,8 @@ alias vz="v $ZSHRC"
 alias vzp="v $ZPROFILE"
 
 alias ys="yay -Ss"
+alias yr="yay -R"
+alias yrr="yay -Rns"
 
 alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
 alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
