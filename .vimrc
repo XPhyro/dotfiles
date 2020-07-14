@@ -320,6 +320,7 @@ Plug 'XPhyro/toggle-bool'
 Plug 'tpope/vim-repeat'
 Plug 'glts/vim-radical'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
 call plug#end()
 
 "set visual-increment types
