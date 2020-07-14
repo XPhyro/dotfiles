@@ -220,6 +220,7 @@ alias vx="v $XINITRC"
 alias vz="v $ZSHRC"
 alias vzp="v $ZPROFILE"
 
+alias yu="yay -Syu"
 alias ys="yay -Ss"
 alias yr="yay -R"
 alias yrr="yay -Rns"
