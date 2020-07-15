@@ -14,6 +14,7 @@ flameshot &
 sudo crond &
 
 tpcycle
+clplog &
 statbartick &
 dotfilesbaktick &
 dotfilesbaktick-sensitive &
