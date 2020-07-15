@@ -149,6 +149,6 @@ else
     echo "Already up to date"
 fi
 
-echo "Removing  .gitignore"
+echo "Removing .gitignore"
 
 rm .gitignore
