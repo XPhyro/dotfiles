@@ -6,6 +6,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/bin/usr
 export PATH=$PATH:$HOME/code/sh
 export PATH=$PATH:$HOME/.vim/bundle/vim-live-latex-preview/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/code/py/_modules
 
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
