@@ -291,8 +291,10 @@ alias gpl="git pull"
 alias gplom="git pull origin master"
 alias gps="git push"
 alias gpsom="git push --set-upstream origin master"
-alias gr="git reset"
-alias grao="git remote add origin"
+alias grem="git remote"
+alias grema="git remote add"
+alias gres="git reset"
+alias gvb="git version-bump"
 
 alias pvpn="sudo protonvpn"
 alias pvpnc="sudo protonvpn c --cc"
@@ -449,8 +451,16 @@ ga() {
     fi
 }
 
+gcmp() {
+    git commit -m "$1" && git push
+}
+
 gcmm() {
     git commit -m "$1" -m "$2"
+}
+
+gcmmp() {
+    git commit -m "$1" -m "$2" && git push
 }
 
 gdo() {
