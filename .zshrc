@@ -278,6 +278,7 @@ alias a2dpme="a2dp $mpow && exit"
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
 
+alias ga.="git add ."
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
@@ -302,6 +303,8 @@ alias gpst="git push --tags"
 alias grem="git remote"
 alias grema="git remote add"
 alias gres="git reset"
+alias gsta="git stash"
+alias gstap="git stash apply"
 alias gt="git tag"
 alias gvb="git version-bump"
 
@@ -449,6 +452,10 @@ cd() {
         dir="$( getloc "$@" )"
         [ "$dir" ] && builtin cd "$dir"
     fi
+}
+
+gaf() {
+    find . -name "$1" -exec git add {} \;
 }
 
 gcmp() {

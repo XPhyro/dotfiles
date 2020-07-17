@@ -26,7 +26,8 @@ vnoremap ; :
 "vnoremap <C-j> :m '>+1<CR>gv=gv
 "vnoremap <C-k> :m '<-2<CR>gv=gv
 
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+"nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> L :<C-u>nohlsearch<CR>
 
 "nnoremap J <C-d>
 "nnoremap K <C-u>
