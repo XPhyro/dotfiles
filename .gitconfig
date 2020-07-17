@@ -9,6 +9,6 @@
 	process = git-lfs filter-process
 	required = true
 [pull]
-	rebase = false
+	rebase = true
 [alias]
     tm = "!sh -c 'f() { export GIT_COMMITTER_DATE=$(git log -1 --format=%ci $0); git tag -f -a $0 $0^{}; }; f '"
