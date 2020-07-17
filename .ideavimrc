@@ -14,6 +14,8 @@ se gd
 
 se multiple-cursors
 
+let mapleader=","
+
 nnoremap ; :
 vnoremap ; :
 
@@ -32,3 +34,7 @@ nnoremap J 10j
 nnoremap K 10k
 
 inoremap <S-space> <space>
+
+noremap <Leader>d "+x
+noremap <Leader>y "+y
+noremap <Leader>p "+P
