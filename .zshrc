@@ -86,6 +86,7 @@ XINITRC="$HOME/.xinitrc"
 ZPROFILE="$HOME/.zprofile"
 ZSHHIST="$HOME/.zsh_history"
 ZSHRC="$HOME/.zshrc"
+GITCONFIG="$HOME/.gitconfig"
 
 pihole="192.168.1.100"
 
@@ -218,6 +219,7 @@ alias vv="v $VIMRC"
 alias vw="v $WORKOUT"
 alias vx="v $XINITRC"
 alias vz="v $ZSHRC"
+alias vg="v $GITCONFIG"
 alias vzp="v $ZPROFILE"
 
 alias yu="yay -Syu"
@@ -276,6 +278,7 @@ alias a2dpme="a2dp $mpow && exit"
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
 
+alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
 alias gcd="git commit --dry-run"
@@ -445,15 +448,6 @@ cd() {
     else
         dir="$( getloc "$@" )"
         [ "$dir" ] && builtin cd "$dir"
-    fi
-}
-
-ga() {
-    if [ "$@" ]
-    then
-        git add $@
-    else
-        git add .
     fi
 }
 
