@@ -1,5 +1,10 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+setupxr() {
+    sleep 0.05
+    xr-home
+}
+
 xdotool key Num_Lock
 setxkbmap -option "caps:escape"
 xmodmap -e "keycode 9 = Caps_Lock"
@@ -20,7 +25,7 @@ dotfilesbaktick &
 dotfilesbaktick-sensitive &
 redshift -l "$( catfl gpsloc )" &
 
-xr-home &
+setupxr &
 
 session=${1:-dwm}
 
