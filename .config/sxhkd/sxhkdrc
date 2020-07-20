@@ -16,8 +16,9 @@ ctrl + alt + b; ctrl + alt + b
     $TERMINAL -e bluetoothctl
 ctrl + alt + s; ctrl + alt + s
     flameshot gui
-ctrl + alt + o; ctrl + alt + {b,i,m,c,p,q}
-    {google-chrome-stable,google-chrome-stable --incognito,spotify,discord,popcorntime,qbittorrent}
+ctrl + alt + o; ctrl + alt + {b,i,m,c,p,q,s}
+    {google-chrome-stable,google-chrome-stable --incognito,spotify,discord,popcorntime,qbittorrent,google-chrome-stable --new-window http://localhost:8989/}
+
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,m}
     {steam,ModOrganizer2}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r}

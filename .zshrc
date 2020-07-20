@@ -134,8 +134,9 @@ alias dud="du -ch . | sort -h | less +G"
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 
 alias cgrep="compgen | grep -i"
+alias ngrep="netstat -tulpn | grep -i"
 alias hgrep="hist | grep -i"
-alias hgrepc="hist | grep -C 3"
+alias hgrepc="hist | grep -iC 3"
 alias lgrep="l1 | grep -i"
 alias llgrep="ll | grep -i"
 alias lalgrep="lal | grep -i"
@@ -226,7 +227,7 @@ alias vzp="v $ZPROFILE"
 alias yu="yay -Syu"
 alias ys="yay -Ss"
 alias yr="yay -R"
-alias yrr="yay -Rns"
+alias yrn="yay -Rns"
 
 alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
 alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
@@ -237,7 +238,7 @@ alias smic="sudo make install clean"
 alias hsmic="./autogen.sh && ./configure --prefix=/usr && sudo make install"
 
 alias S="systemctl --user"
-alias SS="sudo systemctl"
+alias s="sudo systemctl"
 
 alias xc="xclip -sel clip"
 alias xco="xclip -o -sel clip"
