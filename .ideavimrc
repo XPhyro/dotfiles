@@ -34,8 +34,8 @@ nnoremap <silent> L :<C-u>nohlsearch<CR>
 nnoremap J 10j
 nnoremap K 10k
 
-nnoremap <A-f><A-l> <C-w><C-l>
-nnoremap <A-f><A-h> <C-w><C-h>
+nnoremap <A-d><A-l> <C-w><C-l>
+nnoremap <A-d><A-h> <C-w><C-h>
 
 inoremap <S-space> <space>
 
