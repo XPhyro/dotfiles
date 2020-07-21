@@ -34,11 +34,13 @@ nnoremap <silent> L :<C-u>nohlsearch<CR>
 nnoremap J 10j
 nnoremap K 10k
 
-nnoremap <C-x><C-c> <C-w><C-l>
-nnoremap <C-x><C-z> <C-w><C-h>
+nnoremap <A-f><A-l> <C-w><C-l>
+nnoremap <A-f><A-h> <C-w><C-h>
 
 inoremap <S-space> <space>
 
 noremap <Leader>d "+x
 noremap <Leader>y "+y
 noremap <Leader>p "+P
+
+nnoremap <Leader>svr :source ~/.ideavimrc<CR>

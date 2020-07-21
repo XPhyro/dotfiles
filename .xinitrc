@@ -1,7 +1,7 @@
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 setupxr() {
-    sleep 0.05
+    sleep 0.1
     xr-home
 }
 
