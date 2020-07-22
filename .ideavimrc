@@ -46,3 +46,6 @@ noremap <Leader>y "+y
 noremap <Leader>p "+P
 
 nnoremap <Leader>svr :source ~/.ideavimrc<CR>
+
+nnoremap <C-i> O<Esc>O
+nnoremap <C-o> O<Esc>O<CR>
