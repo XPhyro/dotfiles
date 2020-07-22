@@ -318,9 +318,7 @@ alias grema="git remote add"
 alias gremv="git remote -v"
 alias gres="git reset"
 alias gresh="git reset --hard"
-alias greshh1="git reset --hard HEAD~1"
 alias gress="git reset --soft"
-alias gressh1="git reset --soft HEAD~1"
 alias grest="git restore"
 alias grests.="git restore --staged ."
 alias grests="git restore --staged"
@@ -518,6 +516,14 @@ gdoom() {
 gdoe() {
     gdo $@
     exit
+}
+
+greshh() {
+    git reset --hard "HEAD~$1"
+}
+
+gressh() {
+    git reset --soft "HEAD~$1"
 }
 
 md() {

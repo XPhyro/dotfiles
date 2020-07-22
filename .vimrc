@@ -253,10 +253,12 @@ inoremap jk <Esc>
 "kj acts as escape
 inoremap kj <Esc>
 
+nnoremap ZZ :<CR>
 nnoremap Q :<CR>
-nnoremap QW :q<CR>
-nnoremap QE :wq<CR>
-nnoremap QR :w<CR>
+nnoremap QQ :q<CR>
+nnoremap QW :wq<CR>
+nnoremap QE :w<CR>
+nnoremap QF :q!<CR>
 
 "vnoremap <Leader>s( <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
 "vnoremap <Leader>s) <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
