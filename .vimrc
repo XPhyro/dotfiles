@@ -225,7 +225,8 @@ nnoremap K <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
 inoremap <C-x> <Esc>ldbi
 "add two empty lines two lines over, and leave the cursor at the lower one
-nnoremap <C-o> kO<CR>
+"nnoremap <C-o> kO<CR>
+nnoremap <C-o> O<CR><Esc>O
 "delete in line everything except selected
 vnoremap <C-d> dO<Esc>pjdd
 "insert new line in normal mode
