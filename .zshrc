@@ -251,6 +251,11 @@ alias netstatt="netstat -tulpn"
 
 alias dhcp="sudo dhcpcd"
 
+alias ping100="ping 192.168.1.100"
+alias ping1="ping 192.168.1.1"
+alias ping8="ping 8.8.8.8"
+alias pingg="ping google.com"
+
 alias scp="scp -P 14253"
 alias ssh="ssh -p 14253"
 
@@ -282,9 +287,10 @@ alias a2dpbe="a2dp $bt && exit"
 
 alias ga.="git add ."
 alias ga="git add"
+alias gacm="git add . && git commit -m"
 alias gb="git branch"
-alias gbu="git branch -u"
 alias gba="git branch -a"
+alias gbu="git branch -u"
 alias gbv="git branch -v"
 alias gc="git commit"
 alias gcd="git commit --dry-run"
@@ -306,12 +312,11 @@ alias gpsf="git push --force-with-lease"
 alias gpsom="git push --set-upstream origin master"
 alias gpst="git push --tags"
 alias grem="git remote"
-alias gremv="git remote -v"
 alias grema="git remote add"
+alias gremv="git remote -v"
 alias gres="git reset"
 alias grest="git restore"
 alias grests="git restore --staged"
-alias gacm="git add . && git commit -m"
 alias gsta="git stash"
 alias gstap="git stash apply"
 alias gt="git tag"
@@ -477,6 +482,10 @@ gcmm() {
 
 gcmmp() {
     git commit -m "$1" -m "$2" && git push
+}
+
+gacmm() {
+    git add . && gcmm $@
 }
 
 gdo() {
