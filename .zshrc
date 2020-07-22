@@ -36,9 +36,9 @@ KEYTIMEOUT=5
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
@@ -76,6 +76,7 @@ BASHHIST="$HOME/.bash_history"
 BASHPROF="$HOME/.bash_profile"
 BASHRC="$HOME/.bashrc"
 ECHOSHRC="$HOME/.echo.shrc"
+GITCONFIG="$HOME/.gitconfig"
 IDEAVIMRC="$HOME/.ideavimrc"
 MIMEAPPS="$HOME/.config/mimeapps.list"
 RANGERRC="$HOME/.config/ranger/rc.conf"
@@ -86,7 +87,6 @@ XINITRC="$HOME/.xinitrc"
 ZPROFILE="$HOME/.zprofile"
 ZSHHIST="$HOME/.zsh_history"
 ZSHRC="$HOME/.zshrc"
-GITCONFIG="$HOME/.gitconfig"
 
 pihole="192.168.1.100"
 
@@ -121,7 +121,9 @@ alias lsd="ls -d"
 alias ....="../../.."
 alias ...="../.."
 
+alias cpr="cp -r"
 alias mkd="mkdir"
+alias mvr="mv -r"
 
 alias cfd="sudo cfdisk"
 alias cfdn="sudo cfdisk /dev/nvme0n1"
@@ -134,13 +136,13 @@ alias dud="du -ch . | sort -h | less +G"
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 
 alias cgrep="compgen | grep -i"
-alias ngrep="netstat -tulpn | grep -i"
 alias hgrep="hist | grep -i"
 alias hgrepc="hist | grep -iC 3"
+alias lalgrep="lal | grep -i"
 alias lgrep="l1 | grep -i"
 alias llgrep="ll | grep -i"
-alias lalgrep="lal | grep -i"
 alias lrgrep="lr | grep -i"
+alias ngrep="netstat -tulpn | grep -i"
 alias pgrep="ps aux | grep -iE"
 alias ppgrep="/usr/bin/pgrep"
 alias ygrep="yay -Q | grep -i"
@@ -168,16 +170,16 @@ alias z="zathura"
 
 alias td="todo"
 alias tdc="todo copy"
-alias tdy="todo cancel"
 alias tdd="todo delete"
 alias tddo="todo done"
 alias tde="todo edit"
 alias tdf="todo flush"
+alias tdh="todo --help"
 alias tdl="todo list"
 alias tdm="todo move"
 alias tdn="todo new"
 alias tds="todo show"
-alias tdh="todo --help"
+alias tdy="todo cancel"
 
 alias f="fzfopen"
 alias far="fzfopen ar"
@@ -207,11 +209,12 @@ alias fqpy="fzfopen py && exit"
 alias fqre="fzfopen re && exit"
 alias fqsh="fzfopen sh && exit"
 
-alias mdt="mdv TODO.md"
 alias mdr="mdv README.md"
+alias mdt="mdv TODO.md"
 
 alias vb="v $BASHRC"
 alias ve="v $ECHOSHRC"
+alias vg="v $GITCONFIG"
 alias viv="v $IDEAVIMRC"
 alias vm="v $MIMEAPPS"
 alias vr="v README.md"
@@ -221,21 +224,20 @@ alias vv="v $VIMRC"
 alias vw="v $WORKOUT"
 alias vx="v $XINITRC"
 alias vz="v $ZSHRC"
-alias vg="v $GITCONFIG"
 alias vzp="v $ZPROFILE"
 
-alias yu="yay -Syu"
-alias ys="yay -Ss"
 alias yr="yay -R"
 alias yrn="yay -Rns"
+alias ys="yay -Ss"
+alias yu="yay -Syu"
 
 alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
 alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
 
 alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
-alias smic="sudo make install clean"
 alias hsmic="./autogen.sh && ./configure --prefix=/usr && sudo make install"
+alias smic="sudo make install clean"
 
 alias S="systemctl --user"
 alias s="sudo systemctl"
@@ -280,10 +282,10 @@ alias btctl="bluetoothctl"
 alias tlmgr="tllocalmgr"
 alias vol="pulseaudio-ctl"
 
-alias a2dpm="a2dp $mpow"
-alias a2dpme="a2dp $mpow && exit"
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
+alias a2dpm="a2dp $mpow"
+alias a2dpme="a2dp $mpow && exit"
 
 alias ga.="git add ."
 alias ga="git add"
@@ -320,8 +322,8 @@ alias greshh1="git reset --hard HEAD~1"
 alias gress="git reset --soft"
 alias gressh1="git reset --soft HEAD~1"
 alias grest="git restore"
-alias grests="git restore --staged"
 alias grests.="git restore --staged ."
+alias grests="git restore --staged"
 alias gsta="git stash"
 alias gstap="git stash apply"
 alias gt="git tag"
