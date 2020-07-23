@@ -297,7 +297,7 @@ xnoremap in :<c-u>call <SID>NextTextObject('i')<CR>
 
 vnoremap <F3> :sort<CR>
 vnoremap <F4> d:execute 'normal a' . join(sort(split(getreg('"'))), ' ')<CR>
-nnoremap <F5> :norm 'vip:sort<CR>'
+nnoremap <F5> vip:sort<CR>
 
 "wipe registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) |
