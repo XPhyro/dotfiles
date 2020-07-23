@@ -49,3 +49,4 @@ nnoremap <Leader>svr :source ~/.ideavimrc<CR>
 
 nnoremap <C-i> O<Esc>O
 nnoremap <C-o> O<Esc>O<CR>
+nnoremap <C-p> o<Esc>O
