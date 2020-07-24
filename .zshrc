@@ -496,6 +496,10 @@ gacmm() {
     git add . && gcmm $@
 }
 
+gpsa() {
+    git push "$1" && git push --tags "$1"
+}
+
 gdo() {
     if [ "$3" ]
     then
