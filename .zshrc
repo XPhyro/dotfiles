@@ -497,7 +497,12 @@ gacmm() {
 }
 
 gpsa() {
-    git push "$1" && git push --tags "$1"
+    if [ "$1" ]
+    then
+        git push "$1" && git push --tags "$1"
+    else
+        git push && git push --tags
+    fi
 }
 
 gdo() {
