@@ -21,8 +21,8 @@ ctrl + alt + o; ctrl + alt + {b,i,m,c,p,q,s,j,1}
 
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,m}
     {steam,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
-ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r}
-    {unity-hub,rider}
+ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d}
+    {unity-hub,rider,unity-hub & rider &}
 
 #
 ##
