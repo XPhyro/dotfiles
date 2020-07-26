@@ -223,7 +223,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap J <C-d>
 nnoremap K <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
-inoremap <C-x> <Esc>ldbi
+inoremap <C-x> <Esc>bdawa
 "nnoremap <C-o> kO<CR>
 nnoremap <C-o> O<CR><Esc>O
 nnoremap <C-i> O<Esc>O
