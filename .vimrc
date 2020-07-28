@@ -122,21 +122,29 @@ fun! ToggleYCMAutoComplete()
     endif
 endfun
 
-function! Multiple_cursors_before()
+fun! s:TempToggleWriteOnInsertLeaveBefore()
     if exists('b:noWriteOnInsert')
         let b:willNotChangeWriteOnInsert=1
     else
         let b:noWriteOnInsert=1
     endif
-endfunction
+endfun
 
-function! Multiple_cursors_after()
+fun! s:TempToggleWriteOnInsertLeaveAfter()
     if exists('b:willNotChangeWriteOnInsert')
         unlet b:willNotChangeWriteOnInsert
     else
         unlet b:noWriteOnInsert
     endif
-endfunction
+endfun
+
+fun! Multiple_cursors_before()
+    call s:TempToggleWriteOnInsertLeaveBefore()
+endfun
+
+fun! Multiple_cursors_after()
+    call s:TempToggleWriteOnInsertLeaveAfter()
+endfun
 
 augroup configgroup
     au!
@@ -223,7 +231,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap J <C-d>
 nnoremap K <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
-inoremap <C-x> <Esc>bdawa
+inoremap <C-x> <Esc>BdaWa
 "nnoremap <C-o> kO<CR>
 nnoremap <C-o> O<CR><Esc>O
 nnoremap <C-i> O<Esc>O
