@@ -164,9 +164,10 @@ alias pypy="pypy3"
 alias pyy="python3"
 
 alias b="broot"
-alias m="neomutt"
-alias v="vim"
 alias gv="gvim"
+alias m="neomutt"
+alias q="exit"
+alias v="vim"
 alias z="zathura"
 
 alias td="todo"
