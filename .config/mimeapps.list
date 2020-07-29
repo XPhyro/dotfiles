@@ -8,6 +8,7 @@ image/jpeg=sxiv.desktop
 image/svg+xml=org.kde.gwenview.desktop
 image/vnd.adobe.photoshop=org.kde.krita.desktop
 image/webp=sxiv.desktop
+inode/directory=org.gnome.Nautilus.desktop
 text/html=google-chrome.desktop
 text/markdown=vim.desktop
 text/plain=vim.desktop
