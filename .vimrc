@@ -232,6 +232,10 @@ nnoremap J <C-d>
 nnoremap K <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
 inoremap <C-x> <Esc>BdaWa
+xnoremap <C-x> BdaWa
+nnoremap Z dd
+nnoremap <Leader>mv ddGp``
+nnoremap <Leader>cp YGp``
 "nnoremap <C-o> kO<CR>
 nnoremap <C-o> O<CR><Esc>O
 nnoremap <C-i> O<Esc>O
