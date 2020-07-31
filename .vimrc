@@ -239,6 +239,7 @@ nnoremap <Leader>cp YGp``
 "nnoremap <C-o> kO<CR>
 nnoremap <C-o> O<CR><Esc>O
 nnoremap <C-i> O<Esc>O
+nnoremap <C-p> o<Esc>O
 "delete in line everything except selected
 vnoremap <C-d> dO<Esc>pjdd
 "insert new line in normal mode
