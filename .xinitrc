@@ -11,6 +11,11 @@ xmodmap -e "keycode 9 = Caps_Lock"
 xset -r 9
 xset r rate 250 40
 
+[ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" = "" ] || {
+    startplasma-x11
+    exit
+}
+
 sxhkd &
 pulseaudio --start &
 bluetoothctl power on &
