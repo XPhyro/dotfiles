@@ -266,7 +266,7 @@ inoremap jk <Esc>
 "kj acts as escape
 inoremap kj <Esc>
 
-nnoremap ZZ :<CR>
+nnoremap ZZ 2dd
 nnoremap Q :<CR>
 nnoremap QQ :q<CR>
 nnoremap QW :wq<CR>
