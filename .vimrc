@@ -234,6 +234,7 @@ nnoremap K <C-u>
 inoremap <C-x> <Esc>BdaWa
 xnoremap <C-x> BdaWa
 nnoremap Z dd
+nnoremap Y y$
 nnoremap <Leader>dg ddgp``
 nnoremap <Leader>yg Ygp``
 nnoremap <Leader>dG ddGp``
