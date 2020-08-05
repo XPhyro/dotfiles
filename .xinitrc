@@ -6,10 +6,7 @@ setupxr() {
 }
 
 xdotool key Num_Lock
-setxkbmap -option "caps:escape"
-xmodmap -e "keycode 9 = Caps_Lock"
-xset -r 9
-xset r rate 250 40
+setxkb
 
 [ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" = "" ] || {
     startplasma-x11
