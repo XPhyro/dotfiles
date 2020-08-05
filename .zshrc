@@ -132,7 +132,6 @@ alias fd="sudo fdisk"
 alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
 alias dud="du -ch . | sort -h | less +G"
 
-
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 
 alias cgrep="compgen | grep -i"
@@ -576,6 +575,6 @@ bindkey '^v' edit-command-line
 
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-. ~/.echo.shrc
+# . ~/.echo.shrc
 
 todo list
