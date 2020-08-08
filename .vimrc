@@ -29,7 +29,7 @@ se tabstop=4
 se shiftwidth=4
 "number of spaces in tab when editing
 se softtabstop=4
-"On pressing tab, insert 4 spaces
+"insert spaces in place of tabs
 se expandtab
 
 "wrap text after 4 chars
@@ -149,22 +149,22 @@ endfun
 augroup configgroup
     au!
     "fix zsh caret
-    au VimEnter     *           silent exec "! echo -ne '\e[1 q'"
-    au FileType     tex         let b:dispatch='pdflatex %' | command! PdfLatex Dispatch! pdflatex % | nnoremap <Leader>c :PdfLatex<CR>
-    au FileType     ruby        setlocal commentstring=#\ %s
-    au FileType     python      setlocal commentstring=#\ %s
-    au BufNewFile   *.sh        exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
-    au BufEnter     *.vimrc     let b:noStripWhitespace=1
-    au BufEnter     *.log       let b:noWriteOnInsert=1
-    au BufEnter     *.tex       call ToggleYCMAutoComplete()
-    au BufEnter     *           if IsCurrentFileNew() | let b:noWriteOnInsert=1
-    au BufEnter     Makefile    setlocal noexpandtab
+    au VimEnter     *                   silent exec "! echo -ne '\e[1 q'"
+    au FileType     tex                 let b:dispatch='pdflatex %' | command! PdfLatex Dispatch! pdflatex % | nnoremap <Leader>c :PdfLatex<CR>
+    au FileType     ruby                setlocal commentstring=#\ %s
+    au FileType     python              setlocal commentstring=#\ %s
+    au BufNewFile   *.sh                exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
+    au BufEnter     *.vimrc             let b:noStripWhitespace=1
+    au BufEnter     *.log               let b:noWriteOnInsert=1
+    au BufEnter     *.tex               call ToggleYCMAutoComplete()
+    au BufEnter     *                   if IsCurrentFileNew() | let b:noWriteOnInsert=1
+    au BufEnter     Makefile,marks      set expandtab!
     "for some reason vim does not detect shebangs unless this is here
-    au BufEnter     *           exe ':filetype detect'
+    au BufEnter     *                   exe ':filetype detect'
     "if the user saved a new file, activate auto-save
-    au BufWritePre  *           if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
-    au BufWritePre  *.py        silent! exe ":Black"
-    au BufWritePre  *           call StripTrailingWhitespace()
+    au BufWritePre  *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
+    au BufWritePre  *.py                silent! exe ":Black"
+    au BufWritePre  *                   call StripTrailingWhitespace()
 augroup END
 
 augroup actiongroup
