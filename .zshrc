@@ -359,7 +359,7 @@ hist() {
     [[ "$@" ]] && fc -li -$@ || fc -li 0
 }
 
-recordmrk() {
+changemark() {
     mark="$1"
     mrk="$( getfl mrk )"
     #gawk -i inplace -F"\t" -v mrk='¬' -v PWD="$PWD" '$1 == mrk {$2=PWD}1' "$mrk"
@@ -371,7 +371,7 @@ recordmrk() {
     do
         mrk="$( echo "$i" | awk '{print $1}' )"
         [ "$mrk" = "¬" ] && {
-            recordmrk ¬
+            changemark ¬
             cd "$( echo "$i" | awk '{print $2}' | expandpath )"
             return
         }
@@ -384,12 +384,27 @@ m() {
     mark="$1"
     mrk="$( getfl mrk )"
 
-    if [ grep -Eq "$mark\s" "$mrk" ]
-    then
-        gawk -i inplace -v mrk='¬' -v PWD="$PWD" '$1 == mrk {$2=PWD}1' "$mrk"
-    else
+    grep -Eq "$mark\s" "$mrk" && { 
+        changemark "$mark"
+        return
+    }
 
-    fi
+    echo "$mark $PWD" >> "$mrk"
+}
+
+@() {
+    mark="$1"
+
+    cat "$( getfl mrk )" | while read -r i
+    do
+        mrk="$( echo "$i" | awk '{print $1}' )"
+        [ "$mrk" = "$mark" ] && {
+            cd "$( echo "$i" | awk '{print $2}' | expandpath )"
+            return
+        }
+    done
+
+    echo "Mark $mark does not exist."
 }
 
 g() {
@@ -399,7 +414,7 @@ g() {
 
     if [ -d "$dir" ]
     then
-        recordmrk ¬
+        changemark ¬
         cd "$dir"
     else
         echo "No such directory."
