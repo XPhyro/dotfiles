@@ -164,7 +164,6 @@ alias pyy="python3"
 
 alias b="broot"
 alias gv="gvim"
-alias m="neomutt"
 alias q="exit"
 alias v="vim"
 alias z="zathura"
@@ -360,6 +359,53 @@ hist() {
     [[ "$@" ]] && fc -li -$@ || fc -li 0
 }
 
+recordmrk() {
+    mark="$1"
+    mrk="$( getfl mrk )"
+    #gawk -i inplace -F"\t" -v mrk='¬' -v PWD="$PWD" '$1 == mrk {$2=PWD}1' "$mrk"
+    gawk -i inplace -v mrk="$mark" -v PWD="$PWD" '$1 == mrk {$2=PWD}1' "$mrk"
+}
+
+¬() {
+    cat "$( getfl mrk )" | while read -r i
+    do
+        mrk="$( echo "$i" | awk '{print $1}' )"
+        [ "$mrk" = "¬" ] && {
+            recordmrk ¬
+            cd "$( echo "$i" | awk '{print $2}' | expandpath )"
+            return
+        }
+    done
+
+    echo "Could not find the previous mark."
+}
+
+m() {
+    mark="$1"
+    mrk="$( getfl mrk )"
+
+    if [ grep -Eq "$mark\s" "$mrk" ]
+    then
+        gawk -i inplace -v mrk='¬' -v PWD="$PWD" '$1 == mrk {$2=PWD}1' "$mrk"
+    else
+
+    fi
+}
+
+g() {
+    [ "$2" ] && { echo "Only one argument is accepted."; return 1; }
+
+    dir="$( getloc "$1" )"
+
+    if [ -d "$dir" ]
+    then
+        recordmrk ¬
+        cd "$dir"
+    else
+        echo "No such directory."
+    fi
+}
+
 p() {
     hasopt=0
 
@@ -402,19 +448,6 @@ y() {
 
     statbarsetavlsyu
     statbarset
-}
-
-g() {
-    [ "$2" ] && { echo "Only one argument is accepted."; return 1; }
-
-    dir="$( getloc "$1" )"
-
-    if [ -d "$dir" ]
-    then
-        cd "$dir"
-    else
-        echo "No such directory."
-    fi
 }
 
 l() {
@@ -575,6 +608,6 @@ bindkey '^v' edit-command-line
 
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-# . ~/.echo.shrc
+ . ~/.echo.shrc
 
 todo list
