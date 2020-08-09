@@ -314,6 +314,7 @@ alias gmercon="git merge --continue"
 alias gpl="git pull"
 alias gplom="git pull origin master"
 alias gps="git push"
+alias gpsa="git push --all"
 alias gpsf="git push --force-with-lease"
 alias gpssu="git push --set-upstream"
 alias gpst="git push --tags"
@@ -547,18 +548,14 @@ gacmm() {
     git add . && gcmm $@
 }
 
-gpsa() {
-    if [ "$1" ]
-    then
-        git push "$1" && git push --tags "$1"
-    else
-        git push && git push --tags
-    fi
-}
-
-gpsaa() {
-    git push --all && git push --tags --all
-}
+# gpsaa() {
+#     if [ "$1" ]
+#     then
+#         git push "$1" && git push --tags "$1"
+#     else
+#         git push && git push --tags
+#     fi
+# }
 
 gdo() {
     if [ "$3" ]
