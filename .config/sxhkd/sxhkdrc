@@ -18,11 +18,10 @@ ctrl + alt + s; ctrl + alt + s
     flameshot gui
 ctrl + alt + o; ctrl + alt + {b,i,m,c,p,q,s,j,1}
     {google-chrome-stable,google-chrome-stable --incognito,PROCESS=/opt/spotify/spotify tglapp,PROCESS=/opt/discord/Discord tglapp,popcorntime,qbittorrent,google-chrome-stable --new-window http://localhost:8989/,google-chrome-stable --new-window http://localhost:9117/,google-chrome-stable --new-window 192.168.1.1}
-
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,m}
     {steam,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
-ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d,l}
-    {unity-hub,rider,unity-hub & rider &,unity-layout-reference}
+ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d,l,c}
+    {unity-hub,rider,unity-hub & rider &,unity-layout-reference,clion}
 
 #
 ##
