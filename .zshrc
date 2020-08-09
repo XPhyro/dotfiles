@@ -556,6 +556,10 @@ gpsa() {
     fi
 }
 
+gpsaa() {
+    git push --all && git push --tags --all
+}
+
 gdo() {
     if [ "$3" ]
     then
