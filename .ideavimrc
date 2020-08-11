@@ -53,3 +53,5 @@ nnoremap <C-p> o<Esc>O
 
 nnoremap Z dd
 nnoremap Y y$
+nnoremap yp yyp
+nnoremap yP yyP
