@@ -37,8 +37,8 @@ ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d,l,c}
     xdotool key {Caps_Lock,Num_Lock}; statbarset
 super + {minus,equal,underscore,plus}
     {voldown,volup,volmute,volset}; statbarset
-super + alt + {minus,equal,plus}
-    {brightdown,brightup,brightset}
+super + alt + {minus,equal,underscore,plus}
+    {brightdown,brightup,brightmute,brightset}
 shift + super + r
     execute
 shift + super + p
