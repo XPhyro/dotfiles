@@ -102,7 +102,7 @@ mpow="EB:06:EF:5D:4F:4D"
 #
 
 alias fuck='sudo $( fc -ln -1 )'
-alias sudo="nocorrect sudo "
+#alias sudo="nocorrect sudo "
 
 alias clr="clear"
 
@@ -283,6 +283,9 @@ alias btmon="sudo btmon"
 alias btctl="bluetoothctl"
 alias tlmgr="tllocalmgr"
 alias vol="pulseaudio-ctl"
+
+alias lpbkon="pactl load-module module-loopback latency_msec=1"
+alias lpbkoff="pactl unload-module module-loopback"
 
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
