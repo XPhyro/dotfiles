@@ -129,6 +129,10 @@ alias .....="../../../.."
 alias ....="../../.."
 alias ...="../.."
 
+alias q="exit"
+alias qq="exit"
+alias qqq="exit"
+
 alias cpr="cp -r"
 alias mkd="mkdir"
 alias mvr="mv -r"
@@ -172,7 +176,6 @@ alias pyy="python3"
 
 alias b="broot"
 alias gv="gvim"
-alias q="exit"
 alias v="vim"
 alias z="zathura"
 
