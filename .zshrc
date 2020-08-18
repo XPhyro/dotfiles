@@ -102,7 +102,7 @@ mpow="EB:06:EF:5D:4F:4D"
 #
 
 alias fuck='sudo $( fc -ln -1 )'
-#alias sudo="nocorrect sudo "
+alias sudo="nocorrect sudo "
 
 alias clr="clear"
 
@@ -120,6 +120,12 @@ alias ll="ls -lh"
 alias lr="ls -lRh"
 alias lsd="ls -d"
 
+alias ..........="../../../../../../../../.."
+alias .........="../../../../../../../.."
+alias ........="../../../../../../.."
+alias .......="../../../../../.."
+alias ......="../../../../.."
+alias .....="../../../.."
 alias ....="../../.."
 alias ...="../.."
 
@@ -348,6 +354,8 @@ alias ycmgen="~/repo/YCM-Generator/config_gen.py"
 alias ggl="googler"
 alias gpupig="gpupdo "$( getloc igg )""
 alias trickle-gpupig="sudo trickled -d 1000 -u 400 & disown; trickle gpupdo "$( getloc igg )""
+
+alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
 
 #
 ##
