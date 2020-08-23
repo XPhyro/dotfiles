@@ -360,6 +360,7 @@ alias trickle-gpupig="sudo trickled -d 1000 -u 400 & disown; trickle gpupdo "$( 
 
 alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
 alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
+alias ue4genp="~/archive/unreal-engine/GenerateProjectFiles.sh"
 
 #
 ##
