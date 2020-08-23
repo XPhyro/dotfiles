@@ -358,7 +358,8 @@ alias ggl="googler"
 alias gpupig="gpupdo "$( getloc igg )""
 alias trickle-gpupig="sudo trickled -d 1000 -u 400 & disown; trickle gpupdo "$( getloc igg )""
 
-alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
+alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
+alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
 
 #
 ##
