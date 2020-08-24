@@ -65,6 +65,7 @@ precmd_functions+=(_fix_cursor)
 #
 
 setopt EXTENDED_HISTORY
+setopt histignorespace
 
 FIGNORE=".meta"
 
@@ -315,6 +316,7 @@ alias gbv="git branch -v"
 alias gbva="git branch -av"
 alias gc="git commit"
 alias gcd="git commit --dry-run"
+alias gcdl="git -c color.status=always commit --dry-run | less -r"
 alias gcl="git clone"
 alias gcm="git commit -m"
 alias gco="git checkout"
@@ -361,6 +363,7 @@ alias ggl="googler"
 alias gpupig="gpupdo "$( getloc igg )""
 alias trickle-gpupig="sudo trickled -d 1000 -u 400 & disown; trickle gpupdo "$( getloc igg )""
 
+alias uh="~/programs/squashfs-root/unityhub"
 alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
 alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
 alias ue4genp="~/archive/unreal-engine/GenerateProjectFiles.sh"
