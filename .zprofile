@@ -1,6 +1,6 @@
 export HISTTIMEFORMAT="[%F %T] "
-
 export HISTFILE="$HOME/.dotfiles-sensitive/.zsh_history"
+export HISTCONTROL="ignorespace"
 
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/bin/usr

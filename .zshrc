@@ -101,6 +101,9 @@ mpow="EB:06:EF:5D:4F:4D"
 ##
 #
 
+alias mp="modprobe"
+alias mpr="modprobe -r"
+
 alias fuck='sudo $( fc -ln -1 )'
 alias sudo="nocorrect sudo "
 
@@ -203,8 +206,6 @@ alias fmb="fzfopen mb"
 alias fmn="fzfopen mn"
 alias fpi="fzfopen pi"
 alias fpy="fzfopen py"
-alias fre="fzfopen re"
-alias fsh="fzfopen sh"
 
 alias fq="fzfopen && exit"
 alias fqar="fzfopen ar && exit"
@@ -219,6 +220,8 @@ alias fqpi="fzfopen pi && exit"
 alias fqpy="fzfopen py && exit"
 alias fqre="fzfopen re && exit"
 alias fqsh="fzfopen sh && exit"
+alias fre="fzfopen re"
+alias fsh="fzfopen sh"
 
 alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
@@ -293,13 +296,13 @@ alias btctl="bluetoothctl"
 alias tlmgr="tllocalmgr"
 alias vol="pulseaudio-ctl"
 
-alias lpbkon="pactl load-module module-loopback latency_msec=1"
-alias lpbkoff="pactl unload-module module-loopback"
-
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
 alias a2dpm="a2dp $mpow"
 alias a2dpme="a2dp $mpow && exit"
+alias am="alsamixer"
+alias lpbkoff="pactl unload-module module-loopback"
+alias lpbkon="pactl load-module module-loopback latency_msec=1"
 
 alias ga.="git add ."
 alias ga="git add"
