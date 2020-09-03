@@ -33,7 +33,7 @@ se softtabstop=4
 se expandtab
 
 "wrap text after 4 chars
-"se tw=4
+se tw=0
 
 se ai "autoindent
 se showmatch
