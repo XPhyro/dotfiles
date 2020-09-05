@@ -547,7 +547,9 @@ yPosition=19
 
 [RecentFiles]
 File1[$e]=$HOME/code/unity/Uwrith/Assets/Textures/SpellTextures/RawRingOfFireTexture.kra
+File2[$e]=$HOME/code/unity/Uwrith/Assets/Textures/SpellTextures/RawAirCartTexture.kra
 Name1[$e]=RawRingOfFireTexture.kra
+Name2[$e]=RawAirCartTexture.kra
 
 [Shortcut Schemes]
 Current Scheme=photoshop_compatible
