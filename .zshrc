@@ -530,10 +530,23 @@ tox() {
     done
 }
 
+ltx() {
+    if [ "$1" = "" ]
+    then
+        echo "Assuming input as \"main\"."
+        ltx main
+        return
+    fi
+
+    latexmk -pdf -pvc "$(pwd)/$1" > /dev/null &
+}
+
 ltxstp() {
     if [ "$1" = "" ]
     then
-        echo "You must enter the name of the TeX file."
+        echo "Assuming input as \"main\"."
+        ltxstp main
+        return
     fi
 
     bibtex "$1"
