@@ -232,7 +232,8 @@ alias vb="v $BASHRC"
 alias ve="v $ECHOSHRC"
 alias vg="v $GITCONFIG"
 alias viv="v $IDEAVIMRC"
-alias vm="v $MIMEAPPS"
+alias vm="v main.tex"
+alias vmim="v $MIMEAPPS"
 alias vr="v README.md"
 alias vs="v $SXHKDRC"
 alias vt="v TODO.md"
@@ -348,6 +349,7 @@ alias gress="git reset --soft"
 alias grest="git restore"
 alias grests.="git restore --staged ."
 alias grests="git restore --staged"
+alias gsmuir="git submodule update --init --recursive"
 alias gst="git stash"
 alias gstp="git stash apply"
 alias gt="git tag"
@@ -529,6 +531,11 @@ tox() {
 }
 
 ltxstp() {
+    if [ "$1" = "" ]
+    then
+        echo "You must enter the name of the TeX file."
+    fi
+
     bibtex "$1"
     zathura "$(pwd)/$1.pdf" &
     sleep 0.1
