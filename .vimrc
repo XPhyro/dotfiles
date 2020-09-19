@@ -42,6 +42,8 @@ se foldmethod=marker
 
 se so=2134 "scrolloff
 
+se bs=indent,eol,start "backspace
+
 se is "incsearch
 se hls "highlightsearch
 se ic "ignorecase
