@@ -116,7 +116,7 @@ fun! ToggleYCMAutoComplete()
     if !exists('g:ycm_auto_trigger')
         return
     endif
-    
+
     if g:ycm_auto_trigger
         let g:ycm_auto_trigger=0
     else
@@ -236,6 +236,7 @@ nnoremap K <C-u>
 inoremap <C-x> <Esc>BdaWa
 xnoremap <C-x> BdaWa
 nnoremap Z dd
+"unmap ZZ
 nnoremap Y y$
 nnoremap yp yyp
 nnoremap yP yyP
@@ -273,7 +274,6 @@ inoremap jk <Esc>
 "kj acts as escape
 inoremap kj <Esc>
 
-nnoremap ZZ 2dd
 nnoremap Q :<CR>
 nnoremap QQ :q<CR>
 nnoremap QW :wq<CR>
