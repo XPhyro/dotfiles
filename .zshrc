@@ -275,6 +275,8 @@ alias ping1="ping 192.168.1.1"
 alias ping8="ping 8.8.8.8"
 alias pingg="ping google.com"
 
+alias speedtest="speedtestlog"
+
 alias scp="scp -P 14253"
 alias ssh="ssh -p 14253"
 
