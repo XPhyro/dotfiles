@@ -138,6 +138,9 @@ alias q="exit"
 alias qq="exit"
 alias qqq="exit"
 
+alias bash="HISTFILE= bash"
+alias sh="HISTFILE= sh"
+
 alias cpr="cp -r"
 alias mkd="mkdir"
 alias mvr="mv -r"
@@ -268,6 +271,7 @@ alias xr="xrandr"
 alias netstat="sudo netstat"
 alias netstatt="netstat -tulpn"
 
+alias wpac="sudo rm /run/wpa_supplicant/wlan0; sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf && sudo dhcpcd; until ping -c1 google.com; do sleep 0.5s; done"
 alias dhcp="sudo dhcpcd"
 
 alias ping100="ping 192.168.1.100"
@@ -358,6 +362,8 @@ alias gst="git stash"
 alias gstp="git stash apply"
 alias gt="git tag"
 alias gvb="git version-bump"
+
+alias pdfls="pdflatexstp"
 
 alias pvpn="sudo protonvpn"
 alias pvpnc="sudo protonvpn c --cc"
@@ -532,39 +538,6 @@ tox() {
     do
         to "$i" && chmod +x "$i"
     done
-}
-
-ltx() {
-    if [ "$1" = "" ]
-    then
-        echo "Assuming input as \"main\"."
-        ltx main
-        return
-    fi
-
-    latexmk -pdf -pvc "$(pwd)/$1" > /dev/null &
-}
-
-ltxstp() {
-    if [ "$1" = "" ]
-    then
-        echo "Assuming input as \"main\"."
-        ltxstp main
-        return
-    fi
-
-    bibtex "$1"
-    zathura "$(pwd)/$1.pdf" &
-    sleep 0.1
-    latexmk -pdf -pvc "$(pwd)/$1" > /dev/null &
-    disown
-    exit
-}
-
-ltxcln() {
-    kill "$( pgrep latexmk | head -n 1 | awk '{print $2}' )"
-    killall zathura
-    exit
 }
 
 cd() {
