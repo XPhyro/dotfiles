@@ -278,8 +278,8 @@ alias pingg="ping google.com"
 alias scp="scp -P 14253"
 alias ssh="ssh -p 14253"
 
-alias ka="killall"
-alias rfk="rfkill"
+alias ka="sudo killall"
+alias rfk="sudo rfkill"
 
 alias sc="shellcheck"
 
@@ -319,6 +319,7 @@ alias gbva="git branch -av"
 alias gc="git commit"
 alias gcd="git commit --dry-run"
 alias gcdl="git -c color.status=always commit --dry-run | less -r"
+
 alias gcl="git clone"
 alias gcm="git commit -m"
 alias gco="git checkout"
