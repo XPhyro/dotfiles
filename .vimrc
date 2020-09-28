@@ -153,6 +153,7 @@ augroup configgroup
     "fix zsh caret
     au VimEnter     *                   silent exec "! echo -ne '\e[1 q'"
     "au FileType     tex                 let b:dispatch='pdflatex %' | command! PdfLatex Dispatch! pdflatex % | nnoremap <Leader>c :PdfLatex<CR>
+    au FileType     tex                 command! Dispatch! pdflatexstp %
     au FileType     ruby                setlocal commentstring=#\ %s
     au FileType     python              setlocal commentstring=#\ %s
     au BufNewFile   *.sh                exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
@@ -324,7 +325,7 @@ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 
 call plug#begin()
 Plug 'glts/vim-magnum'
-Plug 'vim-scripts/restore_view.vim'
+" Plug 'vim-scripts/restore_view.vim' " for some reason, this has lots of clashes when in a tex file
 Plug 'mbbill/undotree/'
 Plug 'mileszs/ack.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -350,6 +351,7 @@ Plug 'tpope/vim-repeat'
 Plug 'glts/vim-radical'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
+Plug 'farmergreg/vim-lastplace'
 call plug#end()
 
 "set visual-increment types
