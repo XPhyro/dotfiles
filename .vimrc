@@ -152,13 +152,13 @@ augroup configgroup
     au!
     "fix zsh caret
     au VimEnter     *                   silent exec "! echo -ne '\e[1 q'"
-    au FileType     tex                 let b:dispatch='pdflatex %' | command! PdfLatex Dispatch! pdflatex % | nnoremap <Leader>c :PdfLatex<CR>
+    "au FileType     tex                 let b:dispatch='pdflatex %' | command! PdfLatex Dispatch! pdflatex % | nnoremap <Leader>c :PdfLatex<CR>
     au FileType     ruby                setlocal commentstring=#\ %s
     au FileType     python              setlocal commentstring=#\ %s
     au BufNewFile   *.sh                exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
     au BufEnter     *.vimrc             let b:noStripWhitespace=1
     au BufEnter     *.log               let b:noWriteOnInsert=1
-    au BufEnter     *.tex               call ToggleYCMAutoComplete()
+    "au BufEnter     *.tex               call ToggleYCMAutoComplete()
     au BufEnter     *                   if IsCurrentFileNew() | let b:noWriteOnInsert=1
     au BufEnter     Makefile,marks      set expandtab!
     "for some reason vim does not detect shebangs unless this is here
