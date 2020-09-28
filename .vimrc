@@ -152,8 +152,6 @@ augroup configgroup
     au!
     "fix zsh caret
     au VimEnter     *                   silent exec "! echo -ne '\e[1 q'"
-    "au FileType     tex                 let b:dispatch='pdflatex %' | command! PdfLatex Dispatch! pdflatex % | nnoremap <Leader>c :PdfLatex<CR>
-    au FileType     tex                 command! Dispatch! pdflatexstp %
     au FileType     ruby                setlocal commentstring=#\ %s
     au FileType     python              setlocal commentstring=#\ %s
     au BufNewFile   *.sh                exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
@@ -352,6 +350,7 @@ Plug 'glts/vim-radical'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'farmergreg/vim-lastplace'
+" Plug 'joonty/vim-do'
 call plug#end()
 
 "set visual-increment types
