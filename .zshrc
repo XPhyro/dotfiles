@@ -366,6 +366,7 @@ alias gt="git tag"
 alias gvb="git version-bump"
 
 alias pdfls="pdflatexstp"
+alias pdfl="pdflatex"
 
 alias pvpn="sudo protonvpn"
 alias pvpnc="sudo protonvpn c --cc"
