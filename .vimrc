@@ -154,6 +154,7 @@ augroup configgroup
     au VimEnter     *                   silent exec "! echo -ne '\e[1 q'"
     au FileType     ruby                setlocal commentstring=#\ %s
     au FileType     python              setlocal commentstring=#\ %s
+    au FileType     tex                 setlocal noautoindent
     au BufNewFile   *.sh                exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
     au BufEnter     *.vimrc             let b:noStripWhitespace=1
     au BufEnter     *.log               let b:noWriteOnInsert=1
