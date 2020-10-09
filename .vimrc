@@ -280,6 +280,9 @@ nnoremap QW :wq<CR>
 nnoremap QE :w<CR>
 nnoremap QF :q!<CR>
 
+nnoremap <Leader>n :n<CR>
+nnoremap <Leader>p :p<CR>
+
 "vnoremap <Leader>s( <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
 "vnoremap <Leader>s) <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
 "vnoremap <Leader>s[ <ESC><ESC>`<i[<ESC>`>3la]<ESC>`<3lv`>3l
