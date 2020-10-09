@@ -245,6 +245,7 @@ alias vw="v $WORKOUT"
 alias vx="v $XINITRC"
 alias vz="v $ZSHRC"
 alias vzp="v $ZPROFILE"
+alias vmem="sudo v /sys/power/{mem_sleep,state}"
 
 alias u="y; update"
 
