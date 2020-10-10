@@ -282,6 +282,8 @@ nnoremap QF :q!<CR>
 
 nnoremap <Leader>n :n<CR>
 nnoremap <Leader>p :p<CR>
+nnoremap <Leader>wn :wn<CR>
+nnoremap <Leader>wp :wp<CR>
 
 "vnoremap <Leader>s( <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
 "vnoremap <Leader>s) <ESC><ESC>`<i(<ESC>`>3la)<ESC>`<3lv`>3l
@@ -337,6 +339,7 @@ Plug 'fisadev/vim-isort'
 Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
 Plug 'tpope/vim-dispatch'
 Plug 'terryma/vim-multiple-cursors'
+"Plug 'ycm-core/YouCompleteMe', { 'commit': 'f84dd1fb12877490b4b95fded1984a6a82985871' }
 Plug 'ycm-core/YouCompleteMe'
 Plug 'flazz/vim-colorschemes'
 Plug 'wincent/terminus'
