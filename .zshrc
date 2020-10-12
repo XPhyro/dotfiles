@@ -248,7 +248,9 @@ alias vzp="v $ZPROFILE"
 alias vmem="sudo v /sys/power/{mem_sleep,state}"
 
 alias u="y; update"
+alias uq="y; update && exit"
 
+alias yq="y && exit"
 alias yr="yay -R"
 alias yrn="yay -Rns"
 alias ys="yay -Ss"
