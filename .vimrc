@@ -41,6 +41,7 @@ se foldenable
 se foldmethod=marker
 
 se so=2134 "scrolloff
+se cul
 
 se bs=indent,eol,start "backspace
 
