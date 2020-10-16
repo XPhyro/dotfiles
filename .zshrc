@@ -249,8 +249,8 @@ alias vx="v $XINITRC"
 alias vz="v $ZSHRC"
 alias vzp="v $ZPROFILE"
 
-alias u="y; update"
-alias uq="y; update && exit"
+alias u="y; echo; update"
+alias uq="y; echo; update && exit"
 
 alias yq="y && exit"
 alias yr="yay -R"
