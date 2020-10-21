@@ -403,6 +403,7 @@ zsudo() {
 }
 
 hist() {
+    [ "$1" ] && return
     [[ "$@" ]] && fc -li -$@ || fc -li 0
 }
 
