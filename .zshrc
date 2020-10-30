@@ -299,7 +299,7 @@ alias sc="shellcheck"
 
 alias fum="fusermount"
 alias mount="sudo mount"
-alias rc="rclone"
+alias rc="sudo rclone"
 alias umount="sudo umount"
 
 alias iotop="sudo iotop"
