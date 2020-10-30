@@ -203,6 +203,7 @@ nnoremap <Leader>evm :vsp ~/documents/notes/computer-science/vim<CR>
 nnoremap <Leader>etm :vsp ~/documents/notes/computer-science/tmux<CR>
 "open ack.vim
 nnoremap <Leader>a :Ack 
+nnoremap <Leader>b :Black<CR>
 "toggle between relative and absolute number
 nnoremap <Leader>n :se rnu!<CR>
 "copy, paste to actual clips

@@ -2,7 +2,7 @@
 
 setupxr() {
     sleep 0.2
-    xr-home
+    xrh
 }
 
 xdotool key Num_Lock
