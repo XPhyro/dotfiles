@@ -284,7 +284,7 @@ nnoremap QF :q!<CR>
 
 
 nnoremap <Leader>n :n<CR>
-nnoremap <Leader>p :p<CR>
+"nnoremap <Leader>p :p<CR>
 nnoremap <Leader>wn :wn<CR>
 nnoremap <Leader>wp :wp<CR>
 
