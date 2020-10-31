@@ -186,7 +186,6 @@ alias pyy="python3"
 alias b="broot"
 alias gv="gvim"
 alias v="vim"
-alias z="zathura"
 
 alias td="todo"
 alias tdc="todo copy"
@@ -529,6 +528,15 @@ r() {
         dir="$(cat "$tmp")"
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+z() {
+    if [ "$2" = "" ]
+    then
+        zathura $@ &
+    else
+        tabbed -c zathura $@ -e &
     fi
 }
 
