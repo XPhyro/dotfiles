@@ -540,10 +540,17 @@ z() {
     fi
 }
 
+zd() {
+    z $@ && disown
+}
+
 to() {
     for i in "$@"
     do
-        [ -d "$i" -o -f "$i" ] && continue
+        [ -d "$i" -o -f "$i" ] && {
+            touch "$i"
+            continue
+        }
         dir="$( dirname "$i" )"
         [ -d "$dir" ] || mkdir -p "$dir"
         touch "$i"
