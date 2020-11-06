@@ -147,7 +147,7 @@ alias mvr="mv -r"
 
 alias cfd="sudo cfdisk"
 alias cfdn="sudo cfdisk /dev/nvme0n1"
-alias fd="sudo fdisk"
+alias sfd="sudo fdisk"
 
 alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
 alias dffsw="watch -n 5 'df -h | head -n 1; df -h | grep ^/dev/ --color=never'"
@@ -200,6 +200,10 @@ alias tdn="todo new"
 alias tds="todo show"
 alias tdy="todo cancel"
 
+PATH_OF_FD_BIN="$( where fd )"
+alias fd='cd "$('"$PATH_OF_FD_BIN"' -t d | fzf )"'
+unset PATH_OF_FD_BIN
+
 alias f="fzfopen"
 alias far="fzfopen ar"
 alias fcc="fzfopen cc"
@@ -211,6 +215,8 @@ alias fmb="fzfopen mb"
 alias fmn="fzfopen mn"
 alias fpi="fzfopen pi"
 alias fpy="fzfopen py"
+alias fre="fzfopen re"
+alias fsh="fzfopen sh"
 
 alias fq="fzfopen && exit"
 alias fqar="fzfopen ar && exit"
@@ -225,8 +231,6 @@ alias fqpi="fzfopen pi && exit"
 alias fqpy="fzfopen py && exit"
 alias fqre="fzfopen re && exit"
 alias fqsh="fzfopen sh && exit"
-alias fre="fzfopen re"
-alias fsh="fzfopen sh"
 
 alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
