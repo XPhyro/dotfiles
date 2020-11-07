@@ -378,8 +378,11 @@ alias gvb="git version-bump"
 alias pdfl="pdflatex -shell-escape"
 alias pdfls="pdflatexstp"
 
-alias pvpn="sudo protonvpn"
-alias pvpnc="sudo protonvpn c --cc"
+alias protonvpn="sudo protonvpn"
+alias pvpn="protonvpn"
+alias pvpnc="protonvpn c --cc"
+alias pvpnd="protonvpn d"
+
 alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s"'
 alias ytdlshort='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s"'
 
