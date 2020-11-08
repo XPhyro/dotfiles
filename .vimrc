@@ -281,7 +281,7 @@ nnoremap QQ :q<CR>
 nnoremap QW :wq<CR>
 nnoremap QE :w<CR>
 nnoremap QF :q!<CR>
-
+nnoremap <Leader>qe :w !sudo tee > /dev/null %<CR>
 
 nnoremap <Leader>n :n<CR>
 "nnoremap <Leader>p :p<CR>
