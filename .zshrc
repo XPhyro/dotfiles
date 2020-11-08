@@ -383,6 +383,7 @@ alias pdfls="pdflatexstp"
 alias protonvpn="sudo protonvpn"
 alias pvpn="protonvpn"
 alias pvpnc="protonvpn c --cc"
+alias pvpncn="protonvpn c --cc nl"
 alias pvpnd="protonvpn d"
 
 alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s"'
