@@ -576,6 +576,14 @@ tox() {
     done
 }
 
+toxv() {
+    for i in "$@"
+    do
+        tox "$i"
+        vim "$i"
+    done
+}
+
 cd() {
     if [ -d "$@" ] 
     then
