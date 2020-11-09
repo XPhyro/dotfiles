@@ -43,6 +43,8 @@ super + {minus,equal,underscore,plus}
     {voldown,volup,volmute,volset}; statbarset
 super + alt + {minus,equal,underscore,plus}
     {brightdown,brightup,brightmute,brightset}
+super + alt + ctrl + underscore
+    sleep 0.2; xset dpms force suspend
 shift + super + r
     execute
 shift + super + p
