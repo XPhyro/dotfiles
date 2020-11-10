@@ -47,5 +47,6 @@
 ~/.config/xfe/xferc
 ~/.config/xsettingsd/xsettingsd.conf
 ~/.config/zathura/zathurarc
+~/.local/bin/usr
 ~/.mplayer/config
 ~/.ssh/config

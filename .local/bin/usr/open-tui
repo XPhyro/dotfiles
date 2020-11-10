@@ -1,0 +1,12 @@
+#!/bin/bash
+
+tool=$1
+loc="$2"
+loc=${loc#"file://"}
+
+if [[ ! -e $loc ]]; then
+    loc=$(dirname "$loc")
+fi
+
+# st -e zsh -c "\"$tool\" \"$loc\"; zsh -i"
+st -e "$tool" "$loc"
