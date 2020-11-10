@@ -107,6 +107,7 @@ alias mpr="modprobe -r"
 
 alias fuck='sudo $( fc -ln -1 )'
 alias sudo="nocorrect sudo "
+alias sudod="/usr/bin/sudo"
 
 alias clr="clear"
 
@@ -171,7 +172,9 @@ alias zsgrep="cat $ZSHRC | grep -i"
 #alias find="find -regextype grep"
 
 alias loc="locate -i"
+alias locs="locate"
 alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
+alias locms="locate -d /var/lib/mlocate/mlocate-mybook.db"
 alias udb="sudo updatedb"
 alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 
