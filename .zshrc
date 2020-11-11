@@ -258,10 +258,12 @@ alias vzp="v $ZPROFILE"
 alias u="y; echo; update"
 alias uq="y; echo; update && exit"
 
+alias yf="yay -F"
 alias yq="y && exit"
 alias yr="yay -R"
 alias yrn="yay -Rns"
 alias ys="yay -Ss"
+alias yss="yay -S"
 alias yu="yay -Syu"
 
 alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
