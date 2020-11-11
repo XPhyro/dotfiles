@@ -253,6 +253,7 @@ alias vv="v $VIMRC"
 alias vw="v $WORKOUT"
 alias vx="v $XINITRC"
 alias vz="v $ZSHRC"
+alias vza="v ~/.config/zathura/zathurarc"
 alias vzp="v $ZPROFILE"
 
 alias u="y; echo; update"
