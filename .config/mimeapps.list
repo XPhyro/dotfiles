@@ -1,5 +1,6 @@
 [Default Applications]
 application/epub+zip=zathura.desktop
+application/json=vim.desktop
 application/uproject=com.epicgames.UnrealEngineEditor.desktop
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
 application/x-shellscript=vim.desktop
@@ -8,11 +9,13 @@ image/jpeg=sxiv.desktop
 image/svg+xml=xsvg.desktop
 image/vnd.adobe.photoshop=org.kde.krita.desktop
 image/webp=sxiv.desktop
-inode/directory=org.gnome.Nautilus.desktop
+# inode/directory=org.gnome.Nautilus.desktop
+inode/directory=xranger.desktop
 text/html=google-chrome.desktop
 text/markdown=vim.desktop
 text/plain=vim.desktop
 text/x-csrc=vim.desktop
+text/x-log=vim.desktop
 text/x-python=vim.desktop
 video/mp4=vlc.desktop
 video/x-matroska=vlc.desktop
