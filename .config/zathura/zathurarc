@@ -14,3 +14,6 @@ map J zoom out
 map K zoom in
 
 map i recolor
+
+map <A-i> set "first-page-column 1:1"
+map <A-d> set "first-page-column 2:2"
