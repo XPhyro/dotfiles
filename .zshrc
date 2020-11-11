@@ -534,21 +534,21 @@ y() {
 l() {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
+    [ -f "$tmp" ] && {
         dir="$(cat "$tmp")"
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+    }
 }
 
 r() {
     tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
-    if [ -f "$tmp" ]; then
+    [ -f "$tmp" ] && {
         dir="$(cat "$tmp")"
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+    }
 }
 
 z() {
