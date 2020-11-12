@@ -22,7 +22,7 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,m}
     {steam,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d,l,c}
     {unity-hub,rider,unity-hub & rider &,unity-layout-reference,clion}
-ctrl + alt + o; ctrl + alt + m; ctrl + alt + {l,s,a,o}
+ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p,s,a,o}
     {PROCESS='/opt/spotify/spotify' tglapp,musescore,matlab,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
 ctrl + alt + s; ctrl + alt + c
     sxiv ~/course-schedule.png
