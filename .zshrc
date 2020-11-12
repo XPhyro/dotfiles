@@ -528,8 +528,7 @@ y() {
         yay -Syu $@
     fi
 
-    statbarsetavlsyu
-    statbarset
+    {statbarsetavlsyu && statbarset} &; disown # find a way to only disown this process
 }
 
 l() {
