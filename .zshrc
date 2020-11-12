@@ -381,6 +381,7 @@ alias gsma="git submodule add"
 alias gsmuir="git submodule update --init --recursive"
 alias gst="git stash"
 alias gstp="git stash apply"
+alias gsuno="git status -uno"
 alias gt="git tag"
 alias gvb="git version-bump"
 
