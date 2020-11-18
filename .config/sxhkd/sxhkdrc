@@ -16,8 +16,8 @@ ctrl + alt + b; ctrl + alt + b
     $TERMINAL -e bluetoothctl
 ctrl + alt + s; ctrl + alt + s
     flameshot gui
-ctrl + alt + o; ctrl + alt + {b,i,c,p,q,s,j,1}
-    {google-chrome-stable,google-chrome-stable --incognito,PROCESS=/opt/discord/Discord tglapp,popcorntime,qbittorrent,google-chrome-stable --new-window http://localhost:8989/,google-chrome-stable --new-window http://localhost:9117/,google-chrome-stable --new-window 192.168.1.1}
+ctrl + alt + o; ctrl + alt + {t,b,i,c,p,q,s,j,1}
+    {KA='stalonetray' EXEC='stalonetray' GREP='stalonetray$' tglapp,brave,brave --incognito,PROCESS=/opt/discord/Discord tglapp,popcorntime,qbittorrent,brave --new-window http://localhost:8989/,brave --new-window http://localhost:9117/,brave --new-window 192.168.1.1}
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,m}
     {steam,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d,l,c}
@@ -26,6 +26,8 @@ ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p,s,a,o}
     {PROCESS='/opt/spotify/spotify' tglapp,musescore,matlab,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
 ctrl + alt + s; ctrl + alt + c
     sxiv ~/course-schedule.png
+ctrl + alt + s; ctrl + alt + e
+    zathura ~/code/tex/metu/20201-exams/main.pdf
 
 #
 ##

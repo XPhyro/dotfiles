@@ -143,7 +143,7 @@ git remote update
 if [ "$( git status -uno -s )" ]
 then
     git pull > /dev/null 2>&1
-    git commit -m "#$(( "$( git rev-list --all --count )" + 1 )): Auto commit by dotfilesbak"
+    git commit -m "#$(( $( git rev-list --all --count ) + 1 )): Auto commit by dotfilesbak"
     git push
 else
     echo "Already up to date"
