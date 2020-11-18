@@ -85,6 +85,7 @@ SXHKDRC="$HOME/.config/sxhkd/sxhkdrc"
 VIMRC="$HOME/.vimrc"
 WORKOUT="$HOME/documents/data-dump/workout.log"
 XINITRC="$HOME/.xinitrc"
+XRESOURCES="$HOME/.Xresources"
 ZATHURARC="$HOME/.config/zathura/zathurarc"
 ZPROFILE="$HOME/.zprofile"
 ZSHHIST="$HOME/.zsh_history"
@@ -146,6 +147,8 @@ alias sh="HISTFILE= sh"
 alias cpr="cp -r"
 alias mkd="mkdir"
 alias mvr="mv -r"
+alias prm="progress -m"
+alias prM="progress -M"
 
 alias cfd="sudo cfdisk"
 alias cfdn="sudo cfdisk /dev/nvme0n1"
@@ -159,6 +162,7 @@ alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \$
 
 alias cgrep="compgen | grep -i"
 alias hgrep="hist | grep -i"
+# alias hcgrep="hist | awk '{$1=$2=$3=""; print substr($0,2)}' | grep -i" # TODO: Works as standalone, but alias gives error, fix.
 alias hgrepc="hist | grep -iC 3"
 alias lalgrep="lal | grep -i"
 alias lgrep="l1 | grep -i"
@@ -248,11 +252,13 @@ alias vmem="sudo v /sys/power/{mem_sleep,state}"
 alias vmim="v $MIMEAPPS"
 alias vmt="v main.tex"
 alias vr="v README.md"
+alias vra="v $RANGERRC"
 alias vs="v $SXHKDRC"
 alias vt="v TODO.md"
 alias vv="v $VIMRC"
 alias vw="v $WORKOUT"
 alias vx="v $XINITRC"
+alias vxr="v $XRESOURCES"
 alias vz="v $ZSHRC"
 alias vza="v $ZATHURARC"
 alias vzp="v $ZPROFILE"
@@ -298,6 +304,7 @@ alias ping100="ping 192.168.1.100"
 alias ping1="ping 192.168.1.1"
 alias ping8="ping 8.8.8.8"
 alias pingg="ping google.com"
+alias pingn="pingn 192.168.1.1 8.8.8.8 google.com &; disown"
 
 alias speedtest="speedtestlog"
 alias speedtestp="speedtestlogp"
@@ -338,6 +345,8 @@ alias lpbkon="pactl load-module module-loopback latency_msec=1"
 alias ga.="git add ."
 alias ga="git add"
 alias gacm="git add . && git commit -m"
+alias gacmre='git add . && git commit -m "Update README.md"'
+alias gacmto='git add . && git commit -m "Update TODO.md"'
 alias gb="git branch"
 alias gba="git branch -a"
 alias gbav="git branch -av"
@@ -345,6 +354,7 @@ alias gbu="git branch -u"
 alias gbv="git branch -v"
 alias gbva="git branch -av"
 alias gc="git commit"
+alias gca="git commit --amend"
 alias gcd="git commit --dry-run"
 alias gcdl="git -c color.status=always commit --dry-run | less -r"
 alias gcl="git clone"
@@ -396,6 +406,12 @@ alias pvpnd="protonvpn d"
 
 alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s"'
 alias ytdlshort='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s"'
+
+alias rdf="rdfind"
+alias rdfl='rdfind -minsize 1 -removeindentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp )" -dryrun false'
+alias rdfr='rdfind -minsize 1 -removeindentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp )" -dryrun false'
+alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp )" -dryrun false ~/downloads'
+
 
 alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
@@ -528,7 +544,8 @@ y() {
         yay -Syu $@
     fi
 
-    {statbarsetavlsyu && statbarset} &; disown # find a way to only disown this process
+    {statbarsetavlsyu && statbarset} &
+    disown # find a way to only disown this process
 }
 
 l() {
@@ -715,7 +732,8 @@ bindkey '^v' edit-command-line
 ### END KEYMAP ###
 
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.autojump/share/autojump/autojump.zsh
 
- . ~/.echo.shrc
+sed -e '/^#.*/d' -e 's/#.*//' ~/.echo.shrc
 
 todo list

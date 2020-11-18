@@ -1,13 +1,13 @@
 AntialiasSelectionOutline=false
 ArtColorSel.ColorSpace=0
 ArtColorSel.InversedSaturation=false
-ArtColorSel.Light=0.48487485000158015
+ArtColorSel.Light=1
 ArtColorSel.LightPieces=11
 ArtColorSel.NumRings=7
 ArtColorSel.RingPieces=12
-ArtColorSel.SelColorH=0.7695328196129294
-ArtColorSel.SelColorS=1.000002135117123
-ArtColorSel.SelColorX=0.48487485000158015
+ArtColorSel.SelColorH=0
+ArtColorSel.SelColorS=0
+ArtColorSel.SelColorX=1
 ArtColorSel.defaultHueSteps=12
 ArtColorSel.defaultSaturationSteps=7
 ArtColorSel.defaultValueScaleSteps=11
@@ -44,8 +44,8 @@ Krita/Ocio/OcioConfigPath=
 Krita/Ocio/OcioLockColorVisualRepresentation=false
 Krita/Ocio/OcioLutPath=
 Krita/Ocio/UseOcio=false
-LastBackGroundColor=<!DOCTYPE LastBackGroundColor>\n<LastBackGroundColor>\n <RGB g="0" b="0" r="0" space="sRGB-elle-V2-srgbtrc.icc"/>\n</LastBackGroundColor>\n
-LastForeGroundColor=<!DOCTYPE LastForeGroundColor>\n<LastForeGroundColor>\n <RGB g="0" b="1" r="0.807843148708344" space="sRGB built-in"/>\n</LastForeGroundColor>\n
+LastBackGroundColor=<!DOCTYPE LastBackGroundColor>\n<LastBackGroundColor>\n <RGB b="0" r="0" space="sRGB-elle-V2-srgbtrc.icc" g="0"/>\n</LastBackGroundColor>\n
+LastForeGroundColor=<!DOCTYPE LastForeGroundColor>\n<LastForeGroundColor>\n <RGB b="1" r="1" space="sRGB-elle-V2-srgbtrc.icc" g="1"/>\n</LastForeGroundColor>\n
 LastPreset=b)_Basic-5_Size_Opacity
 LineSmoothingDelayDistance=50
 LineSmoothingDistance=50
@@ -132,9 +132,9 @@ hideScrollbarsFullScreen=true
 hideStatusbarFullScreen=true
 hideTitleBarFullscreen=true
 hideToolbarFullscreen=true
-imageHeightDef=4096
-imageResolutionDef=100
-imageWidthDef=4096
+imageHeightDef=7016
+imageResolutionDef=600
+imageWidthDef=9920
 levelOfDetailEnabled=false
 logviewer_enabled=false
 maxSwapSize=4096
@@ -572,12 +572,9 @@ yPosition=19
 File1[$e]=$HOME/code/unity/Uwrith/Assets/Textures/SpellTextures/RawRingOfFireTexture.kra
 File2[$e]=$HOME/code/unity/Uwrith/Assets/Textures/SpellTextures/RawAirCartTexture.kra
 File3[$e]=$HOME/course-schedule.png
-File4[$e]=$HOME/hi-there.png
 Name1[$e]=RawRingOfFireTexture.kra
 Name2[$e]=RawAirCartTexture.kra
 Name3[$e]=course-schedule.png
-Name4[$e]=hi-there.png
-maxRecentFileItems=100
 
 [Shortcut Schemes]
 Current Scheme=photoshop_compatible
