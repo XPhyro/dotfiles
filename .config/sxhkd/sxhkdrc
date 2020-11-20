@@ -50,7 +50,7 @@ super + {minus,equal,underscore,plus}
 super + alt + {minus,equal,underscore,plus}
     {brightdown,brightup,brightmute,brightset}
 super + alt + ctrl + underscore
-    sleep 0.2; xset dpms force suspend
+    sleep 0.3; xset dpms force suspend
 shift + super + r
     execute
 shift + super + p
