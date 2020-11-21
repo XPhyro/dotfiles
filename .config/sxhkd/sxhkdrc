@@ -77,6 +77,8 @@ ctrl + super + alt + m
     manpdf
 shift + super + alt + m
     view-music
+ctrl + shift + super + alt + m
+    view-music -c firefox
 
 #
 ##
