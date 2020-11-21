@@ -491,7 +491,10 @@ m() {
 }
 
 g() {
-    [ "$2" ] && { echo "Only one argument is accepted."; return 1; }
+    [ "$2" ] && { 
+        echo "Only one argument is accepted."
+        return 1
+    }
 
     dir="$( getloc "$1" )"
 
@@ -501,6 +504,7 @@ g() {
         cd "$dir"
     else
         echo "No such directory."
+        return 1
     fi
 }
 
