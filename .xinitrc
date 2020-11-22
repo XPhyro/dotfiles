@@ -6,6 +6,11 @@ setupxr() {
     xrh
 }
 
+setupaudio() {
+    sleep 2s
+    pulseaudio --start
+}
+
 xdotool key Num_Lock
 setxkb
 
@@ -15,7 +20,6 @@ setxkb
 }
 
 sxhkd &
-pulseaudio --start &
 bluetoothctl power on &
 /usr/lib/notification-daemon-1.0/notification-daemon &
 notiflog &
@@ -31,5 +35,6 @@ dotfilesbaktick &
 dotfilesbaktick-sensitive &
 redshift -l "$( catfl gpsloc )" &
 
+setupaudio &
 setupxr &
 exec dwm
