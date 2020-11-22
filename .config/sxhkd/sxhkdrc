@@ -51,6 +51,8 @@ super + alt + {minus,equal,underscore,plus}
     {brightdown,brightup,brightmute,brightset}
 super + alt + ctrl + underscore
     sleep 0.3; xset dpms force suspend
+shift + super + alt + c; shift + super + alt + {h,l,j,k,o}
+    mprisctl {prev,next,playpause,stop,open "$( getspotifyuri )"}
 shift + super + r
     execute
 shift + super + p
