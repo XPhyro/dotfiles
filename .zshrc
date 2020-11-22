@@ -443,7 +443,15 @@ hist() {
 }
 
 manb() {
-    man bash | less -p "^SHELL BUILTIN COMMANDS$"
+    if [ -z "$1" ]
+    then
+        man bash | less +/^SHELL\ BUILTIN\ COMMANDS$
+    elif [ -z "$2" ]
+    then
+        man bash | less +/^SHELL\ BUILTIN\ COMMANDS$''/"^       $1"''/"$1"
+    else
+        echo "Only one argument is accepted."
+    fi
 }
 
 changemark() {
