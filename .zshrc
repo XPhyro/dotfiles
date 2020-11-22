@@ -442,6 +442,10 @@ hist() {
     [[ "$@" ]] && fc -li -$@ || fc -li 0
 }
 
+manb() {
+    man bash | less -p "^SHELL BUILTIN COMMANDS$"
+}
+
 changemark() {
     mark="$1"
     mrk="$( getfl mrk )"
@@ -552,8 +556,8 @@ y() {
         yay -Syu $@
     fi
 
-    {statbarsetavlsyu && statbarset} &
-    disown # find a way to only disown this process
+    {statbarsetavlsyu && statbarset} &!
+    # [ -z "$( jobs | grep "$!" )" ] || disown "$!"
 }
 
 l() {
