@@ -1,0 +1,10 @@
+[Unit]
+Description=Back up insensitive dot files.
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/home/xphyro/code/sh/dotfilesbaktick
+
+[Install]
+WantedBy=default.target

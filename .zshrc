@@ -268,6 +268,8 @@ alias uq="y; echo; update && exit"
 
 alias yf="yay -F"
 alias yq="y && exit"
+alias yqq="yay -Q"
+alias yqqu="yay -Qu"
 alias yr="yay -R"
 alias yrn="yay -Rns"
 alias ys="yay -Ss"
@@ -276,6 +278,8 @@ alias yu="yay -Syu"
 
 alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
 alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
+alias yay-autoremove="yay -Rcns $(yay -Qdtq)"
+alias yay-list='LC_ALL=C yay -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
 
 alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
