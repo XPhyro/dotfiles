@@ -31,8 +31,6 @@ tpcycle &
 clplog &
 statbartick &
 syncmailtick &
-dotfilesbaktick &
-dotfilesbaktick-sensitive &
 redshift -l "$( catfl gpsloc )" &
 
 setupaudio &
