@@ -24,8 +24,8 @@ ctrl + alt + o; ctrl + alt + p; ctrl + alt + c; ctrl + alt + {i,p}
     {google-chrome-stable,google-chrome-stable --incognito}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + p
     popcorntime
-ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,m}
-    {steam,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
+ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,g,m}
+    {steam,open-steam,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d,l,c}
     {unity-hub,rider,unity-hub & rider &,unity-layout-reference,clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p,s,a,o}
@@ -47,6 +47,8 @@ ctrl + alt + s; ctrl + alt + {c,e,a}
     xdotool key {Caps_Lock,Num_Lock}; statbarset
 super + {minus,equal,underscore,plus}
     {voldown,volup,volmute,volset}; statbarset
+super + ctrl + underscore
+    volmicmute; statbarset
 super + alt + {minus,equal,underscore,plus}
     {brightdown,brightup,brightmute,brightset}
 super + alt + ctrl + underscore
