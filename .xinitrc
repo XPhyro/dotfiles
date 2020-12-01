@@ -1,14 +1,27 @@
+#!/usr/bin/env sh
+# Shebang exists to enable vim syntax highlighting.
+
 xrdb -merge -I$HOME ~/.Xresources
 # [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources # does not work for some reason
 
 setupxr() {
-    sleep 0.5s
+    sleep 0.5
     xrh
 }
 
 setupaudio() {
-    sleep 2s
+    sleep 2
     pulseaudio --start
+}
+
+openpdfs() {
+    sleep 5
+
+    find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort | while read -r i
+    do
+        xph-open "$i" &
+        sleep 0.1
+    done
 }
 
 xdotool key Num_Lock
@@ -18,6 +31,9 @@ setxkb
     startplasma-x11
     exit
 }
+
+hsetroot
+xcompmgr -c -o 0 &
 
 sxhkd &
 bluetoothctl power on &
@@ -33,6 +49,7 @@ statbartick &
 syncmailtick &
 redshift -l "$( catfl gpsloc )" &
 
+openpdfs &
 setupaudio &
 setupxr &
 exec dwm
