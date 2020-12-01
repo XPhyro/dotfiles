@@ -27,7 +27,7 @@ openpdfs() {
 xdotool key Num_Lock
 setxkb
 
-[ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" = "" ] || {
+[ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" ] && {
     startplasma-x11
     exit
 }
@@ -36,7 +36,6 @@ hsetroot
 xcompmgr -c -o 0 &
 
 sxhkd &
-bluetoothctl power on &
 /usr/lib/notification-daemon-1.0/notification-daemon &
 notiflog &
 flameshot &
