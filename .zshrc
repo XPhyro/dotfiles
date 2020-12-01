@@ -308,7 +308,7 @@ alias ping100="ping 192.168.1.100"
 alias ping1="ping 192.168.1.1"
 alias ping8="ping 8.8.8.8"
 alias pingg="ping google.com"
-alias pingn="pingn 192.168.1.1 8.8.8.8 google.com &; disown"
+alias pingn="pingnotif 192.168.1.1 8.8.8.8 google.com &!"
 
 alias speedtest="speedtestlog"
 alias speedtestp="speedtestlogp"
@@ -412,9 +412,9 @@ alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infi
 alias ytdlshort='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s"'
 
 alias rdf="rdfind"
-alias rdfl='rdfind -minsize 1 -removeindentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp )" -dryrun false'
-alias rdfr='rdfind -minsize 1 -removeindentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp )" -dryrun false'
-alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp )" -dryrun false ~/downloads'
+alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfl-log.XXXXXX )" -dryrun false'
+alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
+alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-p-log.XXXXXX )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-log.XXXXXX )" -dryrun false ~/downloads'
 
 
 alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
@@ -422,7 +422,7 @@ alias ycmgen="~/repo/YCM-Generator/config_gen.py"
 
 alias ggl="googler"
 alias gpupig="gpupdo "$( getloc igg )""
-alias trickle-gpupig="sudo trickled -d 1000 -u 400 & disown; trickle gpupdo "$( getloc igg )""
+alias trickle-gpupig="sudo trickled -d 1000 -u 400 &!; trickle gpupdo "$( getloc igg )""
 
 alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
 alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
@@ -604,7 +604,7 @@ z() {
 }
 
 zd() {
-    z $@ && disown
+    z $@ &!
 }
 
 to() {
