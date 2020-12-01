@@ -1,3 +1,6 @@
+#!/usr/bin/env sh
+# Shebang exists to enable vim syntax highlighting.
+
 ### Programs ###
 ##
 #
@@ -54,9 +57,7 @@ super + alt + {minus,equal,underscore,plus}
 super + alt + ctrl + underscore
     sleep 0.3; xset dpms force suspend
 shift + super + alt + c; shift + super + alt + {h,l,j,k,o}
-    mprisctl {prev,next,playpause,stop,open "$( getspotifyuri )"}
-shift + super + r
-    execute
+    mprisctl {prev,next,playpause,stop,open "$( getmprisuri -d )"}
 shift + super + p
     j4-dmenu-desktop
 shift + super + y
