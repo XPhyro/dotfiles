@@ -1,0 +1,9 @@
+[Unit]
+Description=Power on bluetooth.
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bluetoothctl power on
+
+[Install]
+WantedBy=default.target

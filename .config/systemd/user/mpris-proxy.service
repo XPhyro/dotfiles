@@ -3,6 +3,7 @@ Description=Forward bluetooth midi controls via mpris2 so they are picked up by 
 
 [Service]
 Type=simple
+Restart=always
 ExecStart=/usr/bin/mpris-proxy
 
 [Install]
