@@ -4,6 +4,7 @@ filetype plugin on
 filetype indent on
 
 "colorscheme crayon
+"colorscheme deus
 colorscheme deus
 "colorscheme ego
 "colorscheme falcon
@@ -18,6 +19,7 @@ se sc "showcmd
 se background=dark
 se t_Co=256
 hi Comment ctermfg=darkgrey
+hi Normal ctermfg=white ctermbg=black
 se title
 se wildmenu
 se ruler
