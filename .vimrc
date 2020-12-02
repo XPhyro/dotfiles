@@ -339,7 +339,8 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'triglav/vim-visual-increment'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'fisadev/vim-isort'
-Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
+"Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
+Plug 'psf/black'
 Plug 'tpope/vim-dispatch'
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'ycm-core/YouCompleteMe', { 'commit': 'f84dd1fb12877490b4b95fded1984a6a82985871' }
