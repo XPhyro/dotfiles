@@ -558,6 +558,7 @@ p() {
     statbarset
 }
 
+# TODO: Make y do -S instead of -Syu when trying to install a package that is not installed.
 y() {
     hasopt=0
 

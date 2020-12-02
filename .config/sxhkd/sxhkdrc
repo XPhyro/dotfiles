@@ -3,6 +3,7 @@
 
 # TODO: Add obs, pavucontrol, guvcview.
 # TODO: If possible, add a shortcut for obs that automatically starts recording webcam and microphone without interfering with the default setup.
+# TODO: Add pacmixer/ncpamixer/pulsemixer.
 
 ### Programs ###
 ##
