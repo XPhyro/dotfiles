@@ -266,6 +266,7 @@ alias vzp="v $ZPROFILE"
 
 alias u="y; echo; update"
 alias uq="y; echo; update && exit"
+alias uy="update"
 
 alias yf="yay -F"
 alias yq="y && exit"
