@@ -19,7 +19,7 @@ openpdfs() {
 
     find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort | while read -r i
     do
-        xph-open "$i" &
+        xph-open "$i"
         sleep 0.1
     done
 }
