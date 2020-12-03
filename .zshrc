@@ -419,17 +419,18 @@ alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infi
 alias ytdlshort='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s"'
 
 alias rdf="rdfind"
-alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfl-log.XXXXXX )" -dryrun false'
-alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
 alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-p-log.XXXXXX )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-log.XXXXXX )" -dryrun false ~/downloads'
+alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfl-log.XXXXXX )" -dryrun false'
+alias rdfp='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfp-log.XXXXXX )" -dryrun false ~/downloads/p'
+alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
 
 
 alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
 
 alias ggl="googler"
-alias gpupig="gpupdo "$( getloc igg )""
-alias trickle-gpupig="sudo trickled -d 1000 -u 400 &!; trickle gpupdo "$( getloc igg )""
+alias gpupig='gpupdo "$( getloc igg )"'
+alias trickle-gpupig='sudo trickled -d 1000 -u 400 &!; trickle gpupdo "$( getloc igg )"'
 
 alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
 alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
