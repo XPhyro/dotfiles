@@ -26,6 +26,7 @@ openpdfs() {
 
 xdotool key Num_Lock
 setxkb
+setxkbtick &
 
 [ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" ] && {
     startplasma-x11
