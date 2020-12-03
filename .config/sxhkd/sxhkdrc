@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 # Shebang exists to enable vim syntax highlighting.
 
-# TODO: Add pavucontrol.
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
 
 ### Programs ###
