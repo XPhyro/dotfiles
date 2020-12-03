@@ -174,7 +174,7 @@ augroup END
 
 augroup actiongroup
     au InsertLeave                  *                call <SID>WriteOnInsertLeave()
-    au BufWritePost                 sxhkdrc          silent! exe "!restart-sxhkd"
+    au BufWritePost                 sxhkdrc          silent! exe "!setxkb; restart-sxhkd"
     au BufWritePost                 .Xresources      silent! exe "!xrdb -load ~/.Xresources"
     au BufWritePre,FileWritePre     locations,files  silent! exe ":sort u" | silent! exe "!genrc"
 augroup END
