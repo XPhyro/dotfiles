@@ -277,7 +277,7 @@ alias yqqu="yay -Qu"
 alias yr="yay -R"
 alias yrn="yay -Rns"
 alias ys="yay -Ss"
-alias ysc="yay -Sc"
+alias ysc="yes | yay -Sc"
 alias yss="yay -S"
 alias yu="yay -Syu"
 
