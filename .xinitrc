@@ -17,7 +17,7 @@ setupaudio() {
 openpdfs() {
     sleep 5
 
-    find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort | while read -r i
+    find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
     do
         xph-open "$i" &
         sleep 0.1
