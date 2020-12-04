@@ -56,6 +56,7 @@ se gd "gdefault
 
 se display+=lastline
 se encoding=utf-8
+se fileencoding=utf-8
 se wrap
 se nolist
 se linebreak
