@@ -300,6 +300,7 @@ alias xc="xclip -sel clip"
 alias xco="xclip -o -sel clip"
 alias xds="xset dpms force suspend" # TODO: Add a sleep version of this as a function.
 alias xdsq="xset dpms force suspend && exit" # TODO: Add a sleep version of this as a function.
+alias xevv="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\n\", \$5, \$8 }'"
 alias xkbd-fast="xset r rate 250 40"
 alias xkbd-slow="xset r rate 600 25"
 alias xkbset="setxkb"
