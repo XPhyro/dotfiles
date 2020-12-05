@@ -15,7 +15,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export TERMINAL="st"
 export EDITOR="vim"
-export BROWSER="google-chrome-stable"
+export BROWSER="brave"
 export READER="zathura"
 
 export MDV_THEME=663.6093
