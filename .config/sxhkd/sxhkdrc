@@ -2,6 +2,7 @@
 # Shebang exists to enable vim syntax highlighting.
 
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
+# TODO: Add xtrlock and maybe lk4b with a dmenu prompt to ask for password.
 
 ### Programs ###
 ##
@@ -59,7 +60,7 @@ super + ctrl + underscore
 super + alt + {minus,equal,underscore,plus}
     {brightdown,brightup,brightmute,brightset}
 super + alt + ctrl + underscore
-    sleep 0.3; xset dpms force suspend
+    xtrlock -b & sleep 0.25; xset dpms force suspend
 shift + super + alt + c; shift + super + alt + {h,l,j,k,o}
     mprisctl {prev,next,playpause,stop,open "$( getmprisuri --detect )"}
 shift + super + p
