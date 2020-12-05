@@ -61,6 +61,8 @@ super + alt + {minus,equal,underscore,plus}
     {brightdown,brightup,brightmute,brightset}
 super + alt + ctrl + underscore
     xtrlock -b & sleep 0.25; xset dpms force suspend
+super + alt + ctrl + plus
+    xtrlock
 shift + super + alt + c; shift + super + alt + {h,l,j,k,o}
     mprisctl {prev,next,playpause,stop,open "$( getmprisuri --detect )"}
 shift + super + p

@@ -111,7 +111,7 @@ alias fuck='sudo $( fc -ln -1 )'
 alias sudo="nocorrect sudo "
 alias sudod="/usr/bin/sudo"
 
-alias clr="clear"
+alias c="clear"
 
 alias ls="ls --color=auto"
 
