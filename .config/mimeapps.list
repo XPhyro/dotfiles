@@ -11,6 +11,7 @@ image/svg+xml=xsvg.desktop
 image/vnd.adobe.photoshop=org.kde.krita.desktop
 image/webp=sxiv.desktop
 inode/directory=xranger.desktop
+text/csv=vim.desktop
 text/html=brave-browser.desktop
 text/markdown=vim.desktop
 text/plain=vim.desktop
