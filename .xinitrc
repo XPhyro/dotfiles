@@ -25,7 +25,7 @@ openpdfs() {
 }
 
 xdotool key Num_Lock
-setxkb
+setxkb -s
 setxkbtick &
 
 [ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" ] && {
