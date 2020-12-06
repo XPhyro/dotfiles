@@ -147,6 +147,8 @@ alias sh="HISTFILE= sh"
 
 alias cpr="cp -r"
 alias mkd="mkdir"
+alias mkd="mkdir -p"
+alias rmr="rm -r"
 alias mvr="mv -r"
 alias prm="progress -m"
 alias prM="progress -M"
