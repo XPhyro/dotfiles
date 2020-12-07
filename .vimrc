@@ -318,6 +318,9 @@ nnoremap <Leader>su} viW<ESC><ESC>`<i{<ESC>`>3la}<ESC>
 nnoremap <Leader>su" viW<ESC><ESC>`<i"<ESC>`>3la"<ESC>
 nnoremap <Leader>su' viW<ESC><ESC>`<i'<ESC>`>3la'<ESC>
 
+nnoremap <Leader>sps :split<CR>
+nnoremap <Leader>spv :vsplit<CR>
+
 "search for selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
