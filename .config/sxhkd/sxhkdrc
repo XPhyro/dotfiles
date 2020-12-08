@@ -10,8 +10,6 @@
 
 ctrl + alt + {h,n,w,i,s,p,g}; ctrl + alt + t
     $TERMINAL -e sudo {htop,nvtop,jnettop,iotop,slabtop,powertop,glances}
-ctrl + alt + c; ctrl + alt t
-    sudo conky
 ctrl + alt + m; ctrl + alt + m
     $TERMINAL -e neomutt; statbarsetmail
 ctrl + alt + w; ctrl + alt + w
