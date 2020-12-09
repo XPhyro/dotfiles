@@ -33,6 +33,7 @@ se shiftwidth=4
 se softtabstop=4
 "insert spaces in place of tabs
 se expandtab
+se smarttab
 
 "wrap text after 4 chars
 se tw=0
