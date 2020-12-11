@@ -47,7 +47,7 @@ tpcycle &
 clplog &
 statbartick &
 syncmailtick &
-redshift -l "$( catfl gpsloc )" &
+redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
 
 openpdfs &
 setupaudio &
