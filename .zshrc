@@ -419,10 +419,10 @@ alias pvpnc="protonvpn c --cc"
 alias pvpncn="protonvpn c --cc nl"
 alias pvpnd="protonvpn d"
 
-alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s"'
-alias ytdlnolog='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s"'
-alias ytdlshort='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s"'
-alias ytdlshortnolog='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s"'
+alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" -f mkv --prefer-free-formats --merge-output-format mkv'
+alias ytdlnolog='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" -f mkv --prefer-free-formats --merge-output-format mkv'
+alias ytdlshort='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s" -f mkv --prefer-free-formats --merge-output-format mkv'
+alias ytdlshortnolog='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s" -f mkv --prefer-free-formats --merge-output-format mkv'
 
 alias rdf="rdfind"
 alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-p-log.XXXXXX )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-log.XXXXXX )" -dryrun false ~/downloads'
