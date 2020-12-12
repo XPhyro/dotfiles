@@ -2,8 +2,7 @@
 # Shebang exists to enable vim syntax highlighting.
 
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
-# TODO: Add open-zoom.
-# TODO: Add dismissnotif.
+# TODO: Add open-zoom, dismissnotif and bitwarden.
 
 ### Programs ###
 ##
