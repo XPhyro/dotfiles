@@ -246,8 +246,8 @@ nnoremap Z dd
 nnoremap Y y$
 nnoremap yp yyp
 nnoremap yP yyP
-nnoremap <Leader>dg ddgp``
-nnoremap <Leader>yg Ygp``
+nnoremap <Leader>dg ddggP``
+nnoremap <Leader>yg YggP``
 nnoremap <Leader>dG ddGp``
 nnoremap <Leader>yG YGp``
 "nnoremap <C-o> kO<CR>
