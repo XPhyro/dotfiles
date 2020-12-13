@@ -75,8 +75,6 @@ se bdir=~/.cache/vim "backupdir
 se dir=~/.cache/vim
 se wb "writebackup
 
-let mapleader=","
-
 fun! StripTrailingWhitespace()
     if exists('b:noStripWhitespace')
         return
@@ -181,6 +179,8 @@ augroup actiongroup
     au BufWritePre,FileWritePre     locations,files  silent! exe ":sort u" | silent! exe "!genrc"
 augroup END
 
+let mapleader=","
+
 cmap w!! w !sudo tee > /dev/null %
 
 "mute search highlighting and detect filetype (appends to the normal action of clearing+redrawing screen)
@@ -255,7 +255,7 @@ nnoremap <C-o> O<CR><Esc>O
 nnoremap <C-i> O<Esc>O
 nnoremap <C-p> o<Esc>O
 "delete in line everything except selected
-vnoremap <C-d> dO<Esc>pjdd
+vnoremap <C-d> dO<Esc>pjddk
 "insert new line in normal mode
 nnoremap <CR> o<ESC>
 nnoremap <BS> O<ESC>
@@ -275,10 +275,6 @@ noremap <Leader>tb :ToggleBool<CR>
 
 nnoremap ; :
 vnoremap ; :
-"jk acts as escape
-inoremap jk <Esc>
-"kj acts as escape
-inoremap kj <Esc>
 
 nnoremap Q :<CR>
 nnoremap QQ :q<CR>
