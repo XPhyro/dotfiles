@@ -91,6 +91,7 @@ fun! Start()
 
     exec ":r ~/.vim/splash-screen"
     exec ":norm ggdd0"
+    exec ":echo"
 
     setlocal
         \ nomodifiable
