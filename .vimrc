@@ -75,6 +75,36 @@ se bdir=~/.cache/vim "backupdir
 se dir=~/.cache/vim
 se wb "writebackup
 
+fun! Start()
+    enew
+
+    setlocal
+        \ bufhidden=wipe
+        \ buftype=nofile
+        \ nobuflisted
+        \ nocursorcolumn
+        \ nocursorline
+        \ nolist
+        \ nonumber
+        \ noswapfile
+        \ norelativenumber
+
+    exec ":r ~/.vim/splash-screen"
+    exec ":norm ggdd0"
+
+    setlocal
+        \ nomodifiable
+        \ nomodified
+
+    nnoremap <buffer><silent> e :enew<CR>
+    nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
+    nnoremap <buffer><silent> I :enew <bar> startinsert<CR>
+    nnoremap <buffer><silent> o :enew <bar> startinsert<CR>
+    nnoremap <buffer><silent> O :enew <bar> startinsert<CR>
+    nnoremap <buffer><silent> a :enew <bar> startinsert<CR>
+    nnoremap <buffer><silent> A :enew <bar> startinsert<CR>
+endfun
+
 fun! StripTrailingWhitespace()
     if exists('b:noStripWhitespace')
         return
@@ -391,3 +421,7 @@ let g:UltiSnipsJumpBackwardTrigger=";b"
 "set conceallevel=0
 "let g:tex_conceal='abdmg'
 "hi Conceal ctermbg=none
+
+if argc() == 0
+    autocmd VimEnter * call Start()
+endif
