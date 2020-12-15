@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 clr() {
-    printf "$2$1$NC"
+    printf "$2$1%s" "$NC"
 }
 
 clrl() {
@@ -36,11 +36,11 @@ LIST="dotfiles.list"
 LISTST="$BASEST/dotfiles-sensitive.list"
 
 cd "$BASE" || { 
-    echo "Could not cd to $BASE"
+    printf "Could not cd to %s, exiting\n" "$BASE"
     exit 1
 }
 
-echo "Processing $LIST"
+printf "Processing %s\n" "$LIST"
 
 sort -V "$LIST" -o "$LIST"
 
@@ -51,26 +51,26 @@ n=0
 while read -r i
 do
     files="$files$i "
-    locs="$locs$( echo "$i" | sed -e 's/.*~\///' ) "
+    locs="$locs$( printf "%s" "$i" | sed -e 's/.*~\///' ) "
     n=$(( n + 1 ))
 done < "$LIST"
 
 [ "$files" ] || {
-    echo "Nothing in $LIST, exiting"
+    printf "Nothing in %s, exiting\n" "$LIST"
     exit 0
 }
 
-echo "Moving files and directories"
+printf "Moving files and directories\n"
 
 for i in $( seq 1 "$n" )
 do
-    file="$( echo "$files" | awk -v "j=$i" '{print $j}' )"
-    loc="$( echo "$locs" | awk -v "j=$i" '{print $j}' | expandpath )"
+    file="$( printf "%s" "$files" | awk -v "j=$i" '{print $j}' )"
+    loc="$( printf "%s" "$locs" | awk -v "j=$i" '{print $j}' | expandpath )"
 
     locexists=""
     willonlylink=""
     
-    echo "${WS}Moving $file to $loc"
+    printf "%sMoving %s to %s\n" "$WS" "$file" "$loc"
 
     grep -Fxq "$file" "$LISTST" && {
         clrl "${WSS}Source exists in $LISTST" "$RED"
@@ -96,14 +96,14 @@ do
         clrl "${WSS}Source file exists, but is a broken symlink; fixing" "$LRED"
 
         target="$( readlink "$file" )"
-        possibletarget=".$( echo "$target" | sed 's/^.*\.dotfiles\///' )"
+        possibletarget=".$( printf "%s" "$target" | sed 's/^.*\.dotfiles\///' )"
 
         if [ -d "$possibletarget" ] || [ -f "$possibletarget" ]
         then
             rm "$file"
             willonlylink=1
         else
-	    possibletarget=".$( echo "$target" )"
+	    possibletarget=".$( printf "%s" "$target" )"
 
             if [ -d "$possibletarget" ] || [ -f "$possibletarget" ]
 	    then
@@ -122,21 +122,21 @@ do
     }
 
     [ "$locexists" ] && { 
-        echo "${WSS}Target file or directory exists, continuing"
+        printf "%sTarget file or directory exists, continuing\n" "$WSS"
         continue
     }
 
-    [ "$loc" = "$( echo "$loc" | sed -e 's/\(.*\)\/.*$/\1 /' )" ] || mkdir -p "$( echo "$loc" | sed -e 's/\(.*\)\/.*$/\1 /' -e 's/.$//' )"
+    [ "$loc" = "$( printf "%s" "$loc" | sed -e 's/\(.*\)\/.*$/\1 /' )" ] || mkdir -p "$( printf "%s" "$loc" | sed -e 's/\(.*\)\/.*$/\1 /' -e 's/.$//' )"
     mv "$file" "$loc"
     ln -s "$BASE/$loc" "$file"
 done
 
-echo "Creating .gitignore"
+printf "Creating .gitignore\n"
 
 sed 's/~\///' "$LISTST" > .gitignore # just in case something sensitive ends up here
-echo ".gitignore" >> .gitignore # names might also reveal information
+printf ".gitignore\n" >> .gitignore # names might also reveal information
 
-echo "Committing changes"
+printf "Committing changes\n"
 
 git add .
 git remote update
@@ -146,9 +146,9 @@ then
     git commit -m "#$(( $( git rev-list --all --count ) + 1 )): Auto commit by dotfilesbak"
     git push
 else
-    echo "Already up to date"
+    printf "Already up to date\n"
 fi
 
-echo "Removing .gitignore"
+printf "Removing .gitignore\n"
 
 rm .gitignore
