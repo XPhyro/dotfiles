@@ -414,6 +414,7 @@ alias gvb="git version-bump"
 
 alias pdfl="pdflatex -shell-escape"
 alias pdfls="pdflatexstp"
+alias pdflso="pdflatexstp '' -o"
 alias ptm="pdflatex main"
 
 alias protonvpn="sudo protonvpn"
