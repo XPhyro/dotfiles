@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
-# Shebang exists to enable vim syntax highlighting.
+# vim: filetype=sh
 
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
 # TODO: Add yank, open-zoom, dismissnotif and bitwarden.
 # TODO: Add screenkey.
+# TODO: Change mpris bindings.
 
 ### Programs ###
 ##
