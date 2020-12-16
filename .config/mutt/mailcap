@@ -1,9 +1,9 @@
 text/plain; $EDITOR %s ;
-text/html; openfile %s ; nametemplate=%s.html
+text/html; xph-open %s ; nametemplate=%s.html
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput;
-image/*; openfile %s ;
-video/*; setsid mpv --quiet %s &; copiousoutput
-audio/*; mpv %s ;
-application/pdf; openfile %s ;
+image/*; xph-open %s ;
+video/*; xph-open %s &; copiousoutput
+audio/*; xph-open %s ;
+application/pdf; xph-open %s ;
 application/pgp-encrypted; gpg -d '%s'; copiousoutput;
 application/pgp-keys; gpg --import '%s'; copiousoutput;
