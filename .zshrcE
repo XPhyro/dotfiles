@@ -19,8 +19,8 @@ bindkey -v
 
 ### END AUTO CONFIG ###
 
-# Enable colours and change prompt:
-autoload -U colors && colors    # Load colours
+# Enable colors and change prompt:
+autoload -U colors && colors    # Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 setopt autocd       # Automatically cd into typed directory.
 stty stop undef     # Disable ctrl-s to freeze terminal.
@@ -146,6 +146,7 @@ alias bash="HISTFILE= bash"
 alias sh="HISTFILE= sh"
 
 alias cpr="cp -r"
+alias mkd="mkdir"
 alias mkd="mkdir -p"
 alias rmr="rm -r"
 alias mvr="mv -r"
@@ -185,8 +186,8 @@ alias locms="locate -d /var/lib/mlocate/mlocate-mybook.db"
 alias udb="sudo updatedb"
 alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 
-alias ffm="ffmpeg -hide_banner"
-alias ffp="ffprobe -hide_banner"
+alias ffm="ffmpeg"
+alias ffp="ffprobe"
 
 alias gpp="g++"
 alias py="ptpython"
@@ -325,8 +326,6 @@ alias speedtest="speedtestlog"
 alias speedtestp="speedtestlogp"
 alias speedtestpl="speedtestlogpl"
 
-alias myip="curl ipinfo.io/ip"
-
 alias scp="scp -P 14253"
 alias ssh="ssh -p 14253"
 
@@ -424,18 +423,10 @@ alias pvpnc="protonvpn c --cc"
 alias pvpncn="protonvpn c --cc nl"
 alias pvpnd="protonvpn d"
 
-alias base_ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
-alias base_ytdl_log='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
-alias base_ytdl_short='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
-alias base_ytdl_short_log='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
-alias ytdl='base_ytdl_log --merge-output-format mkv'
-alias ytdla='base_ytdl_log -x'
-alias ytdlnolog='base_ytdl --merge-output-format mkv'
-alias ytdlnologa='base_ytdl -x'
-alias ytdlshort='base_ytdl_short_log --merge-output-format mkv'
-alias ytdlshorta='base_ytdl_short_log -x'
-alias ytdlshortnolog='base_ytdl_short --merge-output-format mkv'
-alias ytdlshortnologa='base_ytdl_short -x'
+alias ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" --prefer-free-formats --merge-output-format mkv'
+alias ytdlnolog='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" --prefer-free-formats --merge-output-format mkv'
+alias ytdlshort='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries infinite --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s" mkv --prefer-free-formats --merge-output-format mkv'
+alias ytdlshortnolog='youtube-dl --add-metadata --mark-watched --geo-bypass --retries infinite --fragment-retries -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s" --prefer-free-formats --merge-output-format mkv'
 
 alias rdf="rdfind"
 alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-p-log.XXXXXX )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-log.XXXXXX )" -dryrun false ~/downloads'
@@ -552,10 +543,6 @@ g() {
         echo "No such directory."
         return 1
     fi
-}
-
-grl() {
-    g "$@" && l
 }
 
 gr() {
@@ -695,7 +682,7 @@ gcmmp() {
 }
 
 gacmm() {
-    git add . && gcmm "$@"
+    git add . && gcmm $@
 }
 
 # gpsaa() {
@@ -743,7 +730,7 @@ gressh() {
 md() {
     if [ "$@" ]
     then
-        mdv "$@"
+        mdv $@
     else
         for i in *.md
         do
