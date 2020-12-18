@@ -1,3 +1,5 @@
+[[ $- != *i* ]] && return
+
 ### BEGIN AUTO CONFIG ###
 # The following lines were added by compinstall
 
@@ -113,11 +115,11 @@ alias sudod="/usr/bin/sudo"
 
 alias c="clear"
 
-alias ls="ls --color=auto"
-
 alias diff="colordiff"
 alias grep="grep --color=auto"
+alias ls="ls --color=auto"
 alias vdiff="vimdiff"
+
 alias watch="watch "
 
 alias l1="ls -1"
@@ -189,9 +191,11 @@ alias ffm="ffmpeg -hide_banner"
 alias ffp="ffprobe -hide_banner"
 
 alias gpp="g++"
-alias py="ptpython"
+
+alias ptpy="ptpython"
+alias py="python"
+alias py2="python2"
 alias pypy="pypy3"
-alias pyy="python3"
 
 alias b="broot"
 alias gv="gvim"
