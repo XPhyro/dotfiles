@@ -41,7 +41,6 @@ sxhkd &
 notiflog &
 flameshot &
 nm-applet &
-sudo crond &
 
 tpcycle &
 clplog &
