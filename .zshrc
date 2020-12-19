@@ -298,6 +298,8 @@ alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d 
 alias cmsmic="rm -f config.h; make; sudo make install clean"
 alias hsmic="./autogen.sh && ./configure --prefix=/usr && sudo make install"
 alias msmic="make; sudo make install clean"
+alias sm"sudo make"
+alias smi="sudo make install"
 alias smic="sudo make install clean"
 
 alias S="systemctl --user"
