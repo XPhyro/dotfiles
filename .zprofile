@@ -13,10 +13,11 @@ export DOTNET_CLI_TELEMETRY_OPTOUT="true"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-export TERMINAL="st"
-export EDITOR="vim"
 export BROWSER="brave"
+export EDITOR="vim"
+export PAGER="less"
 export READER="zathura"
+export TERMINAL="st"
 
 export MDV_THEME=663.6093
 

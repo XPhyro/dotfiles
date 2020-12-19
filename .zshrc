@@ -188,6 +188,7 @@ alias udb="sudo updatedb"
 alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 
 alias ffm="ffmpeg -hide_banner"
+alias ffmt="ffmpegthumbnailer"
 alias ffp="ffprobe -hide_banner"
 
 alias gpp="g++"
