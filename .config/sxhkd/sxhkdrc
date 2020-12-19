@@ -1,9 +1,7 @@
 # vim: filetype=sh
 
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
-# TODO: Add yank, open-zoom, dismissnotif and bitwarden.
 # TODO: Add screenkey.
-# TODO: Change mpris bindings.
 
 ### Programs ###
 ##
@@ -27,8 +25,10 @@ ctrl + alt + o; ctrl + alt + p; ctrl + alt + f; ctrl + alt + {i,p}
     {firefox,firefox --private-window}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + c; ctrl + alt + {i,p}
     {google-chrome-stable,google-chrome-stable --incognito}
-ctrl + alt + o; ctrl + alt + p; ctrl + alt + p
-    popcorntime
+ctrl + alt + o; ctrl + alt + p; ctrl + alt + {p,z}
+    {popcorntime,open-zoom}
+ctrl + alt + o; ctrl + alt + p; ctrl + alt + {b}; ctrl + alt + {w}
+    {bitwarden}
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,g,m}
     {steam,open-steam,KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u,r,d,l,c}
@@ -58,34 +58,16 @@ super + ctrl + underscore
     volmicmute; statbarset
 super + alt + {minus,equal,underscore,plus}
     {brightdown,brightup,brightmute,brightset}
-super + alt + ctrl + underscore
-    xtrlock -b & sleep 1; xset dpms force suspend
-super + alt + ctrl + plus
-    xtrlock
+super + alt + ctrl + {underscore,plus,u,k,m}
+    {xtrlock -b & sleep 1; xset dpms force suspend,xtrlock,dmenuunicode,kmcycle,manpdf}
 shift + super + alt + c; shift + super + alt + {h,l,j,k,o}
     mprisctl {prev,next,playpause,stop,open "$( getmprisuri --detect )"}
 # shift + super + p
 #     j4-dmenu-desktop
-shift + super + alt + y; shift + super + alt + {y,u,s,p}
-     {clplogynk,clpfilter uniqs,clpfilter sort,EXEC='clpprint' GREP='sh .*clpprint$' KA='osd_cat' tglapp}
-shift + super + alt + k
-    kasel
-shift + super + alt + F2
-    syu
-shift + super + alt + F3
-    tpcycle
-# shift + super + alt + {F4,F5,F6,F7,F8}
-#     {restart-dotbaktick,setxkb,restart-sxhkd,restart-notifd,restart-paudio}
-shift + super + alt + {F9,F10}
-    {dmenumount,dmenuumount}
-shift + super + alt + {F11,F12}
-   {btccdev,btdcdev}
-ctrl + super + alt + u
-    dmenuunicode
-ctrl + super + alt + k
-    kmcycle
-ctrl + super + alt + m
-    manpdf
+shift + super + alt + y; shift + super + alt + {y,u,s,p,a}
+    {clplogynk,clpfilter uniqs,clpfilter sort,EXEC='clpprint' GREP='sh .*clpprint$' KA='osd_cat' tglapp,yank}
+shift + super + alt + {d,k,F2,F3,F5,F7,F9,F10,F11,F12}
+    {dismissnotif,kasel,syu,tpcycle,EXEC='screenkey' GREP='/usr/bin/python /usr/bin/screenkey' KC='1' tglapp,restart-notifd,dmenumount,dmenuumount,btccdev,btdcdev}
 shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m
