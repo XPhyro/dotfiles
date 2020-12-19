@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 clr() {
-    printf "$2%s$NC" "$1"
+    printf "$2$1$NC"
 }
 
 clrl() {
