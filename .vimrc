@@ -281,6 +281,10 @@ nnoremap <Leader>dg ddggP``
 nnoremap <Leader>yg YggP``
 nnoremap <Leader>dG ddGp``
 nnoremap <Leader>yG YGp``
+vnoremap <Leader>dg dggP``
+vnoremap <Leader>yg yggP``
+vnoremap <Leader>dG dGp``
+vnoremap <Leader>yG yGp``
 "nnoremap <C-o> kO<CR>
 nnoremap <C-o> O<CR><Esc>O
 nnoremap <C-i> O<Esc>O
