@@ -14,7 +14,14 @@ setupaudio() {
     pulseaudio --start
 }
 
+
+wp() {
+    sleep 1
+    wallpaper
+}
+
 openpdfs() {
+    return
     sleep 5
 
     find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
@@ -33,8 +40,8 @@ setxkbtick &
     exit
 }
 
-wallpaper &
 xcompmgr -c -o 0 &
+hsetroot
 
 sxhkd &
 /usr/lib/notification-daemon-1.0/notification-daemon &
@@ -51,4 +58,5 @@ redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
 openpdfs &
 setupaudio &
 setupxr &
+wp &
 exec dwm
