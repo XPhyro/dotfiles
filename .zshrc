@@ -203,7 +203,6 @@ alias Rs="R -s"
 alias mat="matlab &!"
 
 alias b="broot"
-alias gv="gvim"
 alias v="vim"
 
 alias td="todo"
@@ -255,26 +254,24 @@ alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
 
 alias vb="v $BASHRC"
+alias vc="v config.h"
+alias vcd="v config.def.h"
 alias ve="v $ECHOSHRC"
 alias vg="v .gitignore"
 alias vgc="v $GITCONFIG"
 alias viv="v $IDEAVIMRC"
-alias vm="pdflatexstp main > /dev/null 2>&1 &; v main.tex"
+alias vm="latexstp main > /dev/null 2>&1 &; v main.tex"
 alias vma="v Makefile"
 alias vmem="sudo v /sys/power/{mem_sleep,state}"
 alias vmim="v $MIMEAPPS"
 alias vmt="v main.tex"
-alias vr="v README.md"
 alias vra="v $RANGERRC"
 alias vs="v $SXHKDRC"
-alias vt="v TODO.md"
 alias vv="v $VIMRC"
 alias vw="v $WORKOUT"
 alias vx="v $XINITRC"
 alias vxr="v $XRESOURCES"
 alias vz="v $ZSHRC"
-alias vc="v config.h"
-alias vcd="v config.def.h"
 alias vza="v $ZATHURARC"
 alias vzp="v $ZPROFILE"
 
@@ -425,8 +422,8 @@ alias gt="git tag"
 alias gvb="git version-bump"
 
 alias pdfl="pdflatex -shell-escape"
-alias pdfls="pdflatexstp"
-alias pdflso="pdflatexstp '' -o"
+alias pdfls="latexstp"
+alias pdflso="latexstp '' -o"
 alias ptm="pdflatex main"
 
 alias protonvpn="sudo protonvpn"
@@ -690,6 +687,33 @@ cd() {
     else
         dir="$( getloc "$@" )"
         [ "$dir" ] && builtin cd "$dir"
+    fi
+}
+
+vl() {
+    if [ -f "COPYING" ]
+    then
+        v "COPYING"
+    else
+        v "LICENSE"
+    fi
+}
+
+vr() {
+    if [ -f "README" ]
+    then
+        v "README"
+    else
+        v "README.md"
+    fi
+}
+
+vt() {
+    if [ -f "TODO" ]
+    then
+        v "TODO"
+    else
+        v "TODO.md"
     fi
 }
 

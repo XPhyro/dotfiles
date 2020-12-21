@@ -15,14 +15,8 @@ setupaudio() {
 }
 
 
-wp() {
-    sleep 0.6
-    wallpaper
-}
-
 openpdfs() {
-    return
-    sleep 5
+    sleep 2.5
 
     find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
     do
@@ -58,5 +52,5 @@ redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
 openpdfs &
 setupaudio &
 setupxr &
-wp &
+wallpaper 1 0.2s 0.5s 2s 15m &
 exec dwm
