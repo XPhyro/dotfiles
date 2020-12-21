@@ -5,6 +5,9 @@ set recolor true
 set selection-clipboard clipboard
 set sandbox none
 
+set default-bg rgba(0,0,0,0.6)
+set recolor-lightcolor rgba(0,0,0,0)
+
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
