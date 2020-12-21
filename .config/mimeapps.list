@@ -1,6 +1,7 @@
 [Default Applications]
-application/epub+zip=zathura.desktop
+application/epub+zip=org.pwmt.zathura.desktop
 application/json=vim.desktop
+application/pdf=org.pwmt.zathura.desktop
 application/uproject=com.epicgames.UnrealEngineEditor.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
@@ -29,7 +30,6 @@ x-scheme-handler/mailto=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
 
 [Added Associations]
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
 application/x-7z-compressed=org.gnome.Nautilus.desktop;
 application/x-ruby=sonic-pi.desktop;
