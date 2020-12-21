@@ -52,6 +52,9 @@ ctrl + alt + s; ctrl + alt + {c,e,a}
 #    {voldown,volup}; statbarset
 {Caps_Lock,Num_Lock}
     xdotool key {Caps_Lock,Num_Lock}; statbarset
+# TODO:
+# shift + super + alt + {comma,dot}
+#     # PRESS shift + super + {comma,dot} AND super + {comma,dot}
 super + {minus,equal,underscore,plus}
     {voldown,volup,volmute,volset}; statbarset
 super + ctrl + underscore
