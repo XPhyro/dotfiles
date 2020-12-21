@@ -476,7 +476,7 @@ alias unturned-server="~/data/steamlib/steamapps/common/U3DS/GLUK.sh"
 #
 
 fork() {
-    setsid -f "$@" > /dev/null 2>&1
+    ("$@") &!
 }
 
 zsudo() {
@@ -834,4 +834,4 @@ source ~/.autojump/share/autojump/autojump.zsh
 
 sed -e '/^#/d' -e 's/#.*//' ~/.echo.shrc
 
-todo list
+# todo list
