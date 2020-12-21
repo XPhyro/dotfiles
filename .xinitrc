@@ -33,7 +33,7 @@ setxkbtick &
     exit
 }
 
-hsetroot
+wallpaper &
 xcompmgr -c -o 0 &
 
 sxhkd &

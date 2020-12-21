@@ -19,7 +19,8 @@ se sc "showcmd
 se background=dark
 se t_Co=256
 hi Comment ctermfg=darkgrey
-hi Normal ctermfg=white ctermbg=black
+"hi Normal ctermfg=white ctermbg=black
+hi Normal guibg=NONE ctermbg=NONE
 se title
 se wildmenu
 se ruler
