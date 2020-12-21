@@ -113,14 +113,16 @@ alias fuck='sudo $( fc -ln -1 )'
 alias sudo="nocorrect sudo "
 alias sudod="/usr/bin/sudo"
 
+alias fork="setsid -f "
+
 alias c="clear"
+
+alias watch="watch "
 
 alias diff="colordiff"
 alias grep="grep --color=auto"
 alias ls="ls --color=auto"
 alias vdiff="vimdiff"
-
-alias watch="watch "
 
 alias l1="ls -1"
 alias la="ls -A"
