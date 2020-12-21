@@ -222,34 +222,6 @@ PATH_OF_FD_BIN="$( where fd )"
 alias fd='cd "$('"$PATH_OF_FD_BIN"' -t d | fzf )"'
 unset PATH_OF_FD_BIN
 
-alias f="fzfopen"
-alias far="fzfopen ar"
-alias fcc="fzfopen cc"
-alias fco="fzfopen co"
-alias fda="fzfopen da"
-alias fdoc="fzfopen doc"
-alias fdow="fzfopen dow"
-alias fmb="fzfopen mb"
-alias fmn="fzfopen mn"
-alias fpi="fzfopen pi"
-alias fpy="fzfopen py"
-alias fre="fzfopen re"
-alias fsh="fzfopen sh"
-
-alias fq="fzfopen && exit"
-alias fqar="fzfopen ar && exit"
-alias fqcc="fzfopen cc && exit"
-alias fqco="fzfopen co && exit"
-alias fqda="fzfopen da && exit"
-alias fqdoc="fzfopen doc && exit"
-alias fqdow="fzfopen dow && exit"
-alias fqmb="fzfopen mb && exit"
-alias fqmn="fzfopen mn && exit"
-alias fqpi="fzfopen pi && exit"
-alias fqpy="fzfopen py && exit"
-alias fqre="fzfopen re && exit"
-alias fqsh="fzfopen sh && exit"
-
 alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
 
@@ -566,57 +538,20 @@ g() {
     fi
 }
 
-grl() {
-    g "$@" && l
-}
-
-gr() {
-    g "$@" && r
-}
-
-p() {
-    hasopt=0
-
-    for i in "$@"
-    do
-        [ "${i:0:1}" = "-" ] && {
-            hasopt=1
-            break
-        }
-    done
-
-    if [ "$hasopt" = "1" ]
+f() {
+    if [ "$@" ]
     then
-        sudo pacman $@
+        for i
+        do
+            fzfopen "$( getloc "$i" )"
+        done
     else
-        sudo pacman -Syu $@
+        fzfopen
     fi
-
-    statbarsetavlsyu
-    statbarset
 }
 
-# TODO: Make y do -S instead of -Syu when trying to install a package that is not installed.
-y() {
-    hasopt=0
-
-    for i in "$@"
-    do
-        [ "${i:0:1}" = "-" ] && {
-            hasopt=1
-            break
-        }
-    done
-
-    if [ "$hasopt" = "1" ]
-    then
-        yay $@
-    else
-        yay -Syu $@
-    fi
-
-    {statbarsetavlsyu && statbarset} &!
-    # [ -z "$( jobs | grep "$!" )" ] || disown "$!"
+fq() {
+    f "$@" && exit
 }
 
 l() {
@@ -639,6 +574,59 @@ r() {
     }
 }
 
+grl() {
+    g "$@" && l
+}
+
+gr() {
+    g "$@" && r
+}
+
+p() {
+    hasopt=0
+
+    for i in
+    do
+        [ "${i:0:1}" = "-" ] && {
+            hasopt=1
+            break
+        }
+    done
+
+    if [ "$hasopt" = "1" ]
+    then
+        sudo pacman $@
+    else
+        sudo pacman -Syu $@
+    fi
+
+    statbarsetavlsyu
+    statbarset
+}
+
+# TODO: Make y do -S instead of -Syu when trying to install a package that is not installed.
+y() {
+    hasopt=0
+
+    for i in
+    do
+        [ "${i:0:1}" = "-" ] && {
+            hasopt=1
+            break
+        }
+    done
+
+    if [ "$hasopt" = "1" ]
+    then
+        yay $@
+    else
+        yay -Syu $@
+    fi
+
+    {statbarsetavlsyu && statbarset} &!
+    # [ -z "$( jobs | grep "$!" )" ] || disown "$!"
+}
+
 z() {
     if [ "$2" = "" ]
     then
@@ -653,7 +641,7 @@ zd() {
 }
 
 to() {
-    for i in "$@"
+    for i
     do
         [ -d "$i" -o -f "$i" ] && {
             touch "$i"
@@ -666,14 +654,14 @@ to() {
 }
 
 tox() {
-    for i in "$@"
+    for i
     do
         to "$i" && chmod +x "$i"
     done
 }
 
 toxv() {
-    for i in "$@"
+    for i
     do
         tox "$i"
         vim "$i"
@@ -807,6 +795,13 @@ gccc() {
     fi
 
     gcc "$fl" -o "$prg" && "./$prg"
+}
+
+genffmlst() {
+    for i
+    do
+        printf "file '%s'\n" "$i"
+    done
 }
 
 #
