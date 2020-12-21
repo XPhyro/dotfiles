@@ -16,7 +16,7 @@ setupaudio() {
 
 
 wp() {
-    sleep 1
+    sleep 0.6
     wallpaper
 }
 

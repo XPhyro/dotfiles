@@ -113,8 +113,6 @@ alias fuck='sudo $( fc -ln -1 )'
 alias sudo="nocorrect sudo "
 alias sudod="/usr/bin/sudo"
 
-alias fork="setsid -f "
-
 alias c="clear"
 
 alias watch="watch "
@@ -479,6 +477,10 @@ alias unturned-server="~/data/steamlib/steamapps/common/U3DS/GLUK.sh"
 ### BEGIN FUNCTION ###
 ##
 #
+
+fork() {
+    setsid -f "$@" > /dev/null 2>&1
+}
 
 zsudo() {
     sudo zsh -c "$functions[$1]" "$@"
