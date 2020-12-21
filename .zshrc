@@ -194,9 +194,13 @@ alias ffp="ffprobe -hide_banner"
 alias gpp="g++"
 
 alias ptpy="ptpython"
-alias py="python"
 alias py2="python2"
+alias py="python"
 alias pypy="pypy3"
+
+alias R="R -q"
+alias Rs="R -s"
+alias mat="matlab &!"
 
 alias b="broot"
 alias gv="gvim"
