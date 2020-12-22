@@ -156,6 +156,7 @@ alias prM="progress -M"
 
 alias cfd="sudo cfdisk"
 alias cfdn="sudo cfdisk /dev/nvme0n1"
+alias mount="sudo mount"
 alias sfd="sudo fdisk"
 
 alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
