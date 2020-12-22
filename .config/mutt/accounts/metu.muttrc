@@ -1,4 +1,4 @@
-# vim: filetype=neomuttrc
+# vim: ft=neomuttrc
 
 set realname = "Berke Kocaoğlu"
 set from = "berke.kocaoglu@metu.edu.tr"

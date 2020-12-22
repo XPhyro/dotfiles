@@ -1,4 +1,4 @@
-# vim: filetype=neomuttrc
+# vim: ft=neomuttrc
 
 source /home/xphyro/.config/mutt/global.muttrc
 source /home/xphyro/.config/mutt/accounts/metu.muttrc
