@@ -18,7 +18,7 @@ se sc "showcmd
 
 se background=dark
 se t_Co=256
-hi Comment ctermfg=darkgrey
+hi Comment ctermfg=grey
 "hi Normal ctermfg=white ctermbg=black
 hi Normal guibg=NONE ctermbg=NONE
 se title
