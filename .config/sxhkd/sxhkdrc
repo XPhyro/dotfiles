@@ -13,8 +13,8 @@ ctrl + alt + m; ctrl + alt + m
     $TERMINAL -e neomutt; statbarsetmail
 ctrl + alt + w; ctrl + alt + w
     $TERMINAL -e weather
-ctrl + alt + r; ctrl + alt + r
-    $TERMINAL -e ranger ~
+ctrl + alt + r; ctrl + alt + {r,w}
+    {$TERMINAL -e ranger ~,restart-wallpaper}
 ctrl + alt + b; ctrl + alt + b
     $TERMINAL -e bluetoothctl
 ctrl + alt + s; ctrl + alt + s
