@@ -290,6 +290,8 @@ alias xkbd-slow="xset r rate 600 25"
 alias xkbset="setxkb"
 alias xr="xrandr"
 
+alias rwall="restart-wallpaper &!"
+
 alias netstat="sudo netstat"
 alias netstatt="netstat -tulpn"
 
