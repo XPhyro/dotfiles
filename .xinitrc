@@ -52,5 +52,5 @@ redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
 openpdfs &
 setupaudio &
 setupxr &
-wallpaper 1 0.2s 0.5s 2s 15m &
+EXEC="wallpaper 1 0.2s 0.5s 2s 15m" GREP="sh $HOME/code/sh/wallpaper" KC="1" tglapp &
 exec dwm
