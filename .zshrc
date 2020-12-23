@@ -540,15 +540,24 @@ g() {
 }
 
 f() {
-    if [ "$@" ]
-    then
-        for i
-        do
-            fzfopen "$( getloc "$i" )"
-        done
-    else
-        fzfopen
-    fi
+    [ "$1" = "-c" ] && {
+        cont="1"
+        shift
+    }
+
+    fail="0"
+    until [ "$fail" = "1" ]
+    do
+        if [ "$@" ]
+        then
+            for i
+            do
+                fzfopen "$( getloc "$i" )" || fail="1"
+            done
+        else
+            fzfopen || fail="1"
+        fi
+    done
 }
 
 fq() {
