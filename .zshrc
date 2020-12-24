@@ -613,9 +613,12 @@ p() {
 
     if [ "$hasopt" = "1" ]
     then
-        sudo pacman $@
+        sudo pacman "$@"
+    elif [ "$@" ]
+    then
+        sudo pacman -S "$@"
     else
-        sudo pacman -Syu $@
+        sudo pacman -Syu "$@"
     fi
 
     statbarsetavlsyu
@@ -636,9 +639,12 @@ y() {
 
     if [ "$hasopt" = "1" ]
     then
-        yay $@
+        yay "$@"
+    elif [ "$@" ]
+    then
+        yay -S "$@"
     else
-        yay -Syu $@
+        yay -Syu "$@"
     fi
 
     {statbarsetavlsyu && statbarset} &!
@@ -648,14 +654,14 @@ y() {
 z() {
     if [ "$2" = "" ]
     then
-        zathura $@ &
+        zathura "$@" &
     else
-        tabbed -c zathura $@ -e &
+        tabbed -c zathura "$@" -e &
     fi
 }
 
 zd() {
-    z $@ &!
+    z "$@" &!
 }
 
 to() {
@@ -769,11 +775,11 @@ gdo() {
 
 gdoom() {
     git branch -u origin/master
-    gdo $@
+    gdo "$@"
 }
 
 gdoe() {
-    gdo $@
+    gdo "$@"
     exit
 }
 
