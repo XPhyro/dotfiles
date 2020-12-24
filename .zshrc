@@ -390,7 +390,11 @@ alias grests="git restore --staged"
 alias gsma="git submodule add"
 alias gsmuir="git submodule update --init --recursive"
 alias gst="git stash"
+alias gsta="git stash apply"
+alias gstl="git stash list"
 alias gstp="git stash apply"
+alias gstp="git stash pop"
+alias gsts="git stash show"
 alias gsuno="git status -uno"
 alias gt="git tag"
 alias gvb="git version-bump"
@@ -528,7 +532,7 @@ g() {
         return 1
     }
 
-    dir="$( getloc "$1" )"
+    dir="$( getlocall "$1" )"
 
     if [ -d "$dir" ]
     then
@@ -806,13 +810,6 @@ gccc() {
     fi
 
     gcc "$fl" -o "$prg" && "./$prg"
-}
-
-genffmlst() {
-    for i
-    do
-        printf "file '%s'\n" "$i"
-    done
 }
 
 #
