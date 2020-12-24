@@ -399,10 +399,8 @@ alias gsuno="git status -uno"
 alias gt="git tag"
 alias gvb="git version-bump"
 
-alias pdfl="pdflatex -shell-escape"
-alias pdfls="latexstp"
-alias pdflso="latexstp '' -o"
-alias ptm="pdflatex main"
+alias ltxs="latexstp"
+alias ltxso="latexstp '' -o"
 
 alias protonvpn="sudo protonvpn"
 alias pvpn="protonvpn"
@@ -530,6 +528,11 @@ g() {
     [ "$2" ] && { 
         echo "Only one argument is accepted."
         return 1
+    }
+
+    [ "$1" ] || {
+        cd
+        return
     }
 
     dir="$( getlocall "$1" )"
