@@ -6,6 +6,7 @@ set selection-clipboard clipboard
 set sandbox none
 
 set default-bg rgba(0,0,0,0.6)
+set recolor-keephue
 set recolor-lightcolor rgba(0,0,0,0)
 
 map u scroll half-up
