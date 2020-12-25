@@ -802,21 +802,23 @@ md() {
 }
 
 gccc() {
-    if [ "$2" = "" ]
-    then
-        prg="program"
-    else
-        prg="$2"
-    fi
+    # if [ "$2" = "" ]
+    # then
+    #     prg="program"
+    # else
+    #     prg="$2"
+    # fi
 
-    if [ "$1" = "" ]
-    then
-        fl="main.c"
-    else
-        fl="$1"
-    fi
+    # if [ "$1" = "" ]
+    # then
+    #     fl="main.c"
+    # else
+    #     fl="$1"
+    # fi
 
-    gcc "$fl" -o "$prg" && "./$prg"
+    #gcc "$fl" -o "$prg" && "./$prg"
+
+    gcc main.c -o program && ./program "$@"
 }
 
 #
