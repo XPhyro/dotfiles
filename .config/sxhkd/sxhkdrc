@@ -75,6 +75,8 @@ shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m
     view-music -c firefox
+super + {KP_Divide,KP_Multiply}
+    transset-df -a {--dec,--inc} 0.05
 
 #
 ##
