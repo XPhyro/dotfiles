@@ -21,6 +21,7 @@ set reverse_name		# reply as whomever it was to
 set include			# include message in replies
 set mail_check=60 # to avoid lags using IMAP with some email providers (yahoo for example)
 set pager_stop = yes
+set crypt_verify_sig = yes
 auto_view text/html		# automatically show html (mailcap uses lynx)
 auto_view application/pgp-encrypted
 #set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Suppress autoview messages.
