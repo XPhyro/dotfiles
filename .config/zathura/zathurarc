@@ -9,16 +9,23 @@ set default-bg rgba(0,0,0,0.6)
 set recolor-keephue
 set recolor-lightcolor rgba(0,0,0,0)
 
-map u scroll half-up
-map d scroll half-down
-map D toggle_page_mode
+set guioptions ""
+set window-title-basename true
+set statusbar-basename false
 
-map r reload
-map R rotate
-map <A-J> zoom out
-map <A-K> zoom in
+map [normal] u scroll half-up
+map [normal] d scroll half-down
+map [normal] D toggle_page_mode
 
-map i recolor
+map [normal] r reload
+map [normal] R rotate
+map [normal] <A-J> zoom out
+map [normal] <A-K> zoom in
 
-map <A-i> set "first-page-column 1:1"
-map <A-d> set "first-page-column 2:2"
+map [normal] i recolor
+
+map [normal] <A-i> set "first-page-column 1:1"
+map [normal] <A-d> set "first-page-column 2:2"
+
+map [normal] <A-s> set "guioptions s"
+map [normal] <A-g> set "guioptions n"
