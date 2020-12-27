@@ -7,7 +7,8 @@ set folder = "/home/xphyro/.local/share/mail/metu"
 set header_cache = "/home/xphyro/.cache/mutt-wizard/metu/headers"
 set message_cachedir = "/home/xphyro/.cache/mutt-wizard/metu/bodies"
 set signature = "/home/xphyro/.config/mutt/accounts/metu.signature"
-unset sig_dashes
+set sig_dashes = no
+set sig_on_top = yes
 set mbox_type = Maildir
 
 bind index,pager gg noop
