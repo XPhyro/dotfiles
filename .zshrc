@@ -431,7 +431,7 @@ alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -make
 alias rdfp='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfp-log.XXXXXX )" -dryrun false ~/archive/p/p'
 alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
 
-alias syncp="symlinks -cr ~/downloads/p/ && rdfdow && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/"
+alias syncp="symlinks -cr ~/downloads/p/ && rdfdow && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
 
 alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
