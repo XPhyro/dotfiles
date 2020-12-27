@@ -1,8 +1,6 @@
 [user]
 	email = berkekocaoglu360@gmail.com
 	name = Berke Kocaoğlu
-[credential]
-	helper = store
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

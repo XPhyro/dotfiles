@@ -13,7 +13,6 @@
 ~/.config/chrome-flags.conf
 ~/.config/filetypesrc
 ~/.config/fish/fish_variables
-~/.config/flameshotrc
 ~/.config/fontconfig/fonts.conf
 ~/.config/gtkrc
 ~/.config/gtkrc-2.0
@@ -24,7 +23,6 @@
 ~/.config/kritarc
 ~/.config/kritashortcutsrc
 ~/.config/kronometerrc
-~/.config/llpp.conf
 ~/.config/mimeapps.list
 ~/.config/mimeapps.list.bak
 ~/.config/mutt
