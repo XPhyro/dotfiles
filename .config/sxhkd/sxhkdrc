@@ -25,8 +25,8 @@ ctrl + alt + o; ctrl + alt + p; ctrl + alt + f; ctrl + alt + {i,p}
     {firefox,firefox --private-window}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + c; ctrl + alt + {i,p}
     {google-chrome-stable,google-chrome-stable --incognito}
-ctrl + alt + o; ctrl + alt + p; ctrl + alt + {p,z}
-    {popcorntime,open-zoom}
+ctrl + alt + o; ctrl + alt + p; ctrl + alt + {p,z,n}
+    {popcorntime,open-zoom,nestopia}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + {b}; ctrl + alt + {w}
     {bitwarden}
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s,g,m}

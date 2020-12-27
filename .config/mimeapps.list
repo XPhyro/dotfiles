@@ -8,6 +8,7 @@ application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
 application/x-shellscript=vim.desktop
 application/x-wine-extension-ini=vim.desktop
 image/jpeg=sxiv.desktop
+image/png=sxiv.desktop
 image/svg+xml=xsvg.desktop
 image/vnd.adobe.photoshop=org.kde.krita.desktop
 image/webp=sxiv.desktop
