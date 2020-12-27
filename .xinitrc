@@ -29,10 +29,10 @@ xdotool key Num_Lock
 setxkb
 setxkbtick &
 
-[ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" ] && {
-    startplasma-x11
-    exit
-}
+# [ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" ] && {
+#     startplasma-x11
+#     exit
+# }
 
 xcompmgr -c -o 0 &
 hsetroot
