@@ -308,7 +308,7 @@ alias pingn="pingnotif 192.168.1.1 8.8.8.8 google.com &!"
 alias stl="speedtestlog"
 alias stlp="speedtestlogp | less +G"
 
-alias myip="curl ipinfo.io/ip"
+alias myip="curl ipinfo.io/ip && printf '\n'"
 
 alias scp="scp -P 14253"
 alias ssh="ssh -p 14253"
@@ -432,7 +432,7 @@ alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -make
 alias rdfp='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfp-log.XXXXXX )" -dryrun false ~/archive/p/p'
 alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
 
-alias syncp="symlinks -cr ~/downloads/p/ && rdfdow && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
+alias syncp="rdfdow && symlinks -cr ~/downloads/p/ && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
 
 alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
