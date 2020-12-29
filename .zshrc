@@ -405,6 +405,7 @@ alias gvb="git version-bump"
 
 alias ltxs="latexstp"
 alias ltxso="latexstp '' -o"
+alias ltxsoq="latexstp '' -o && exit"
 
 alias protonvpn="sudo protonvpn"
 alias pvpn="protonvpn"
