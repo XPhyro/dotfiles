@@ -22,6 +22,9 @@ set include			# include message in replies
 set mail_check=60 # to avoid lags using IMAP with some email providers (yahoo for example)
 set pager_stop = yes
 set crypt_verify_sig = yes
+set editor = "vim"
+set reflow_wrap = 0
+set wrap = 0
 auto_view text/html		# automatically show html (mailcap uses lynx)
 auto_view application/pgp-encrypted
 #set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Suppress autoview messages.
