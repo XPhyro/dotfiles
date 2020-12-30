@@ -36,7 +36,6 @@ se softtabstop=4
 se expandtab
 se smarttab
 
-"wrap text after 4 chars
 se tw=0
 
 se ai "autoindent
@@ -186,7 +185,7 @@ endfun
 augroup configgroup
     au!
     "fix zsh caret
-    au VimEnter     *                   silent exec "! echo -ne '\e[1 q'"
+    au VimEnter     *                   silent exec "!echo -ne '\e[1 q'"
     au FileType     ruby                setlocal commentstring=#\ %s
     au FileType     python              setlocal commentstring=#\ %s
     au FileType     tex                 setlocal noautoindent
@@ -287,8 +286,9 @@ vnoremap <Leader>yg yggP``
 vnoremap <Leader>dG dGp``
 vnoremap <Leader>yG yGp``
 "nnoremap <C-o> kO<CR>
-nnoremap <C-o> O<CR><Esc>O
-nnoremap <C-i> O<Esc>O
+" TODO: Change the keys of the following two maps, then uncomment them.
+"nnoremap <C-o> O<CR><Esc>O
+"nnoremap <C-i> O<Esc>O
 nnoremap <C-p> o<Esc>O
 "delete in line everything except selected
 vnoremap <C-d> dO<Esc>pjddk
@@ -431,3 +431,7 @@ let g:UltiSnipsJumpBackwardTrigger=";b"
 if argc() == 0
     autocmd VimEnter * call Start()
 endif
+
+augroup overridegroup
+    au BufNewFile,BufRead   /tmp/neomutt*   set tw=0 textwidth=0 wrapmargin=0 wrap noai
+augroup END
