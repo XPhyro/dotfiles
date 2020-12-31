@@ -1,0 +1,9 @@
+[Unit]
+Description=Connect to VPN.
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/sudo /home/xphyro/.local/bin/protonvpn c --p2p
+
+[Install]
+WantedBy=default.target
