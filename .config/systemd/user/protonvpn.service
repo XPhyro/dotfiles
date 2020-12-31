@@ -1,9 +1,0 @@
-[Unit]
-Description=Connect to ProtonVPN.
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/sudo /home/xphyro/.local/bin/protonvpn c --cc nl
-
-[Install]
-WantedBy=default.target
