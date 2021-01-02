@@ -526,7 +526,7 @@ m() {
     do
         mrk="$( echo "$i" | awk '{print $1}' )"
         [ "$mrk" = "$mark" ] && {
-            cd "$( echo "$i" | awk '{print $2}' | expandpath )"
+            cd "$( echo "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
             return
         }
     done
