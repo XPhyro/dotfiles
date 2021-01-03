@@ -270,8 +270,9 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap J <C-d>
 nnoremap K <C-u>
 "add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
-inoremap <C-x> <Esc>BdaWa
-xnoremap <C-x> BdaWa
+"inoremap <C-x> <Esc>BdaWa
+"xnoremap <C-x> BdaWa
+inoremap <C-x> <Esc>dbxa
 nnoremap Z dd
 "unmap ZZ
 nnoremap Y y$
@@ -369,6 +370,8 @@ nnoremap <F5> vip:sort<CR>
 "wipe registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) |
 
+let g:tq_map_keys=0
+
 call plug#begin()
 Plug 'glts/vim-magnum'
 " Plug 'vim-scripts/restore_view.vim' " for some reason, this has lots of clashes when in a tex file
@@ -401,6 +404,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'farmergreg/vim-lastplace'
 " Plug 'joonty/vim-do'
+Plug 'Ron89/thesaurus_query.vim'
 call plug#end()
 
 "set visual-increment types
@@ -427,6 +431,9 @@ let g:UltiSnipsJumpBackwardTrigger=";b"
 "set conceallevel=0
 "let g:tex_conceal='abdmg'
 "hi Conceal ctermbg=none
+
+nnoremap <Leader>the :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <Leader>the y:ThesaurusQueryReplace <C-r>"<CR>
 
 if argc() == 0
     autocmd VimEnter * call Start()
