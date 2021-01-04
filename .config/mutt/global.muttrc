@@ -1,4 +1,4 @@
-# vim: ft = neomuttrc
+# vim: ft=neomuttrc
 
 set mailcap_path = "/home/xphyro/.config/mutt/mailcap"
 set mime_type_query_command = "file --mime-type -b %s"
