@@ -2,7 +2,7 @@
 
 set mailcap_path=/home/xphyro/.config/mutt/mailcap
 set mime_type_query_command="file --mime-type -b %s"
-set date_format="%y/%m/%d %I:%M%p"
+set date_format="%a %y-%m-%d %R"
 set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
 set sort='reverse-date'
 set smtp_authenticators='gssapi:login'
