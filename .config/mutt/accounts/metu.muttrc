@@ -9,7 +9,7 @@ set message_cachedir = "/home/xphyro/.cache/mutt-wizard/metu/bodies"
 set signature = "/home/xphyro/.config/mutt/accounts/metu.signature"
 set sig_dashes = no
 set sig_on_top = yes
-set mbox_type = Maildir
+set mbox_type = "Maildir"
 
 bind index,pager gg noop
 bind index,pager g noop
