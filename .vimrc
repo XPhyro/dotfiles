@@ -75,8 +75,8 @@ se bdir=~/.cache/vim "backupdir
 se dir=~/.cache/vim
 se wb "writebackup
 
-fun! Start()
-    enew
+fun! s:SplashScreen()
+    enew!
 
     setlocal
         \ bufhidden=wipe
@@ -182,6 +182,15 @@ fun! Multiple_cursors_after()
     call s:TempToggleWriteOnInsertLeaveAfter()
 endfun
 
+fun! IsFileEmpty()
+    if IsCurrentFileNew()
+        return 1
+    endif
+    let lines = readfile(@%)
+    let matched_index = match(lines, '')  " find the first entry with a non-space
+    return matched_index == -1              " if no match was found -1 was returned
+endfun
+
 augroup configgroup
     au!
     "fix zsh caret
@@ -189,14 +198,16 @@ augroup configgroup
     au FileType     ruby                setlocal commentstring=#\ %s
     au FileType     python              setlocal commentstring=#\ %s
     au FileType     tex                 setlocal noautoindent
-    au BufNewFile   *.sh                exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>"
+    au BufNewFile   *.sh                call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
+    "for some reason vim does not detect shebangs unless this is here
+    au BufEnter     *                   exe ':filetype detect'
+    au BufEnter     *                   if expand('%:p:h') == "/home/xphyro/code/sh" | se ft=sh
+    au BufEnter     *                   if &ft == 'sh' && IsFileEmpty() | call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
     au BufEnter     *.vimrc             let b:noStripWhitespace=1
     au BufEnter     *.log               let b:noWriteOnInsert=1
     au BufEnter     *.tex               call ToggleYCMAutoComplete()
     au BufEnter     *                   if IsCurrentFileNew() | let b:noWriteOnInsert=1
     au BufEnter     Makefile,marks      set expandtab!
-    "for some reason vim does not detect shebangs unless this is here
-    au BufEnter     *                   exe ':filetype detect'
     "if the user saved a new file, activate auto-save
     au BufWritePre  *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
     au BufWritePre  *.py                silent! exe ":Black"
@@ -436,7 +447,7 @@ nnoremap <Leader>the :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>the y:ThesaurusQueryReplace <C-r>"<CR>
 
 if argc() == 0
-    autocmd VimEnter * call Start()
+    au VimEnter             *               call s:SplashScreen()
 endif
 
 augroup overridegroup
