@@ -25,7 +25,7 @@ set crypt_verify_sig = yes
 set editor = "vim"
 set reflow_wrap = 0
 set wrap = 0
-set postpone = ask-no
+set postpone = no
 
 auto_view text/html
 auto_view application/pgp-encrypted
