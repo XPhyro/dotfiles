@@ -447,9 +447,10 @@ nnoremap <Leader>the :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>the y:ThesaurusQueryReplace <C-r>"<CR>
 
 if argc() == 0
-    au VimEnter             *               call s:SplashScreen()
+    au VimEnter                  *               call s:SplashScreen()
 endif
 
 augroup overridegroup
-    au BufNewFile,BufRead   /tmp/neomutt*   set tw=0 textwidth=0 wrapmargin=0 wrap noai
+    au BufNewFile,BufRead        /tmp/neomutt*   set tw=0 textwidth=0 wrapmargin=0 wrap noai
+    au FileWritePre,BufWritePre  /tmp/neomutt*   silent! %s/\($\n\s*\)\+\%$//e
 augroup END

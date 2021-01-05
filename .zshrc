@@ -298,6 +298,7 @@ alias netstatt="netstat -tulpn"
 alias dhcp="sudo dhcpcd"
 alias wpac="sudo rm /run/wpa_supplicant/wlan0; sudo wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf && sudo dhcpcd; until ping -c1 google.com; do sleep 0.5s; done"
 
+alias ping0="ping 127.0.0.1"
 alias ping100="ping 192.168.1.100"
 alias ping1="ping 192.168.1.1"
 alias ping8="ping 8.8.8.8"
