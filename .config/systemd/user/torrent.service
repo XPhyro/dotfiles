@@ -1,6 +1,6 @@
 [Unit]
 Description=Launch torrent client.
-After=syslog.target network.target vpn.service
+After=vpn.service
 
 [Service]
 Type=simple
