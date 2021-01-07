@@ -1,6 +1,5 @@
 [Unit]
 Description=Connect to VPN.
-After=syslog.target network.target
 
 [Service]
 Type=simple
