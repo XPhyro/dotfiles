@@ -20,13 +20,13 @@ ctrl + alt + r; ctrl + alt + {w,q}
 ctrl + alt + s; ctrl + alt + s
     flameshot gui
 ctrl + alt + o; ctrl + alt + {t,b,i,c,s,j,q,1}
-    {KA='stalonetray' EXEC='stalonetray' GREP='stalonetray$' tglapp,brave,brave --incognito,PROCESS=/opt/discord/Discord tglapp,brave --new-window http://localhost:8989/,brave --new-window http://localhost:9117/,brave --new-window http://localhost:24589,brave --new-window 192.168.1.1}
+    {KA='stalonetray' EXEC='stalonetray' GREP='stalonetray$' tglapp,brave,brave --incognito,PROCESS=/opt/discord/Discord tglapp,brave --new-window "http://localhost:8989/",brave --new-window "http://localhost:9117/",brave --new-window "http://localhost:24589",brave --new-window "192.168.1.1"}
 ctrl + alt + o; ctrl + alt + {d}; ctrl + alt + {i}
     dictionary
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + f; ctrl + alt + {i,p}
     {firefox,firefox --private-window}
-ctrl + alt + o; ctrl + alt + p; ctrl + alt + c; ctrl + alt + {i,p}
-    {google-chrome-stable,google-chrome-stable --incognito}
+ctrl + alt + o; ctrl + alt + p; ctrl + alt + c; ctrl + alt + {i,p,a}
+    {google-chrome-stable,google-chrome-stable --incognito,brave --new-window "https://calendar.google.com/calendar"}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + {p,z,n}
     {popcorntime,open-zoom,nestopia}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + {b}; ctrl + alt + {w}
