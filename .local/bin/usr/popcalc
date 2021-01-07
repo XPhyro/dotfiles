@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# R -s
+# bc -q
+octave --no-gui -q
