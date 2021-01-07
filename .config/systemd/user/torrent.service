@@ -1,0 +1,11 @@
+[Unit]
+Description=Launch torrent client.
+After=syslog.target network.target vpn.service
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/qbittorrent-nox
+
+[Install]
+WantedBy=default.target
