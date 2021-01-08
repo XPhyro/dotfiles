@@ -505,6 +505,16 @@ manb() {
     fi
 }
 
+cd() {
+    if [ -d "$@" ] 
+    then
+        builtin cd "$@"
+    else
+        dir="$( getloc "$@" )"
+        [ "$dir" ] && builtin cd "$dir"
+    fi
+}
+
 changemark() {
     mark="$1"
     val="$2"
@@ -630,34 +640,35 @@ fq() {
 }
 
 l() {
-    tmp="$(mktemp)"
+    tmp="$( mktemp )"
     lf -last-dir-path="$tmp" "$@"
     [ -f "$tmp" ] && {
-        dir="$(cat "$tmp")"
+        dir="$( < "$tmp" )"
         rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+        [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
     }
 }
 
 r() {
-    tmp="$(mktemp)"
+    tmp="$( mktemp )"
     ranger --choosedir="$tmp" "$@"
     [ -f "$tmp" ] && {
-        dir="$(cat "$tmp")"
+        dir="$( < "$tmp" )"
         rm -f "$tmp"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+        [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
     }
 }
 
 sr() {
-    sudo zsh -c "$( declare -f r ); r"
-    # tmp="$(mktemp)"
-    # sudo ranger --choosedir="$tmp" "$@" --confdir="/home/xphyro/.config/ranger" 2> /dev/null
-    # [ -f "$tmp" ] && {
-    #     dir="$(cat "$tmp")"
-    #     rm -f "$tmp"
-    #     [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    # }
+    # sudo zsh -c "$( declare -f r ); r"
+    
+    tmp="$( sudo mktemp )"
+    sudo ranger --choosedir="$tmp" --confdir="$HOME/.config/ranger" . "$@"
+    [ -f "$tmp" ] && {
+        dir="$( sudo cat "$tmp" )"
+        sudo rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
+    }
 }
 
 grl() {
@@ -758,16 +769,6 @@ toxv() {
         tox "$i"
         vim "$i"
     done
-}
-
-cd() {
-    if [ -d "$@" ] 
-    then
-        builtin cd "$@"
-    else
-        dir="$( getloc "$@" )"
-        [ "$dir" ] && builtin cd "$dir"
-    fi
 }
 
 vl() {

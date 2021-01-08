@@ -1,8 +1,6 @@
-#!/usr/bin/env sh
-# Shebang exists to enable vim syntax highlighting.
+# vim: ft=sh
 
-xrdb -merge -I$HOME ~/.Xresources
-# [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources # does not work for some reason
+[ -f "$HOME/.Xresources" ] && xrdb -merge -I"$HOME" "$HOME/.Xresources"
 
 setupxr() {
     sleep 0.5
