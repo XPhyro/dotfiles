@@ -1,6 +1,7 @@
 [Unit]
 Description=Launch torrent client.
 After=vpn.service
+Wants=network-online.target
 
 [Service]
 Type=simple
