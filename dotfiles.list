@@ -26,6 +26,7 @@
 ~/.config/mimeapps.list
 ~/.config/mutt
 ~/.config/neofetch/config.conf
+~/.config/newsboat
 ~/.config/octave/qt-settings
 ~/.config/pavucontrol.ini
 ~/.config/plasmarc
