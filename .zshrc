@@ -285,7 +285,7 @@ alias se="sudo systemctl enable"
 alias sen="sudo systemctl enable --now"
 alias soff="sudo systemctl stop"
 alias son="sudo systemctl start"
-alias sr="sudo systemctl restart"
+alias sre="sudo systemctl restart"
 alias ss="sudo systemctl status"
 alias su="systemctl --user"
 alias sud="systemctl --user disable"
@@ -295,7 +295,7 @@ alias sue="systemctl --user enable"
 alias suen="systemctl --user enable --now"
 alias suoff="systemctl --user stop"
 alias suon="systemctl --user start"
-alias sur="systemctl --user restart"
+alias sure="systemctl --user restart"
 alias sus="systemctl --user status"
 
 alias xc="xclip -sel clip"
@@ -647,6 +647,17 @@ r() {
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     }
+}
+
+sr() {
+    sudo zsh -c "$( declare -f r ); r"
+    # tmp="$(mktemp)"
+    # sudo ranger --choosedir="$tmp" "$@" --confdir="/home/xphyro/.config/ranger" 2> /dev/null
+    # [ -f "$tmp" ] && {
+    #     dir="$(cat "$tmp")"
+    #     rm -f "$tmp"
+    #     [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    # }
 }
 
 grl() {
