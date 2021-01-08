@@ -130,7 +130,7 @@ color bold black default
 color underline black default
 color normal default default
 
-color header blue default ".*"
+color header brightgreen default ".*"
 color header brightmagenta default "^(From)"
 color header brightcyan default "^(Subject)"
 color header brightwhite default "^(CC|BCC)"

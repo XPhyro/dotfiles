@@ -507,17 +507,26 @@ manb() {
 
 changemark() {
     mark="$1"
-    mrk="$( getfl mrk )"
-    #gawk -i inplace -F"\t" -v mrk='¬' -v PWD="$PWD" '$1 == mrk {$2=PWD}1' "$mrk"
-    gawk -i inplace -v mrk="$mark" -v PWD="$PWD" '$1 == mrk {$2=PWD}1' "$mrk"
+    val="$2"
+    mrkfl="$( getfl mrk )"
+
+    [ "$mark" = "¬" ] || {
+        printf "Overwrite mark [$mark]? (y/N)\nCurrent value: $( grep "^$mark\s" "$mrkfl" | sed -E 's/^[^ ]*\s\+|\s*$//' )\nNew value    : $val\n"
+        read -sk
+
+        [ "$REPLY" = "y" ] || return
+    }
+
+    #gawk -i inplace -F"\t" -v mrkfl='¬' -v PWD="$PWD" '$1 == mrkfl {$2=PWD}1' "$mrkfl"
+    gawk -i inplace -v mrkfl="$mark" -v VAL="$VAL" '$1 == mrkfl {$2=VAL}1' "$mrkfl"
 }
 
 ¬() {
-    cat "$( getfl mrk )" | while read -r i
+    catfl mrk | while read -r i
     do
         mrk="$( echo "$i" | awk '{print $1}' )"
         [ "$mrk" = "¬" ] && {
-            changemark ¬
+            changemark ¬ "$PWD"
             cd "$( echo "$i" | awk '{print $2}' | expandpath )"
             return
         }
@@ -528,24 +537,43 @@ changemark() {
 
 m() {
     mark="$1"
-    mrk="$( getfl mrk )"
 
-    grep -Eq "$mark\s" "$mrk" && { 
-        changemark "$mark"
+    mrkfl="$( getfl mrk )"
+
+    if [ "$2" ]
+    then
+        val="$( realpath "$2" )"
+    else
+        val="$PWD"
+    fi
+
+    grep -Eq "$mark\s" "$mrkfl" && { 
+        changemark "$mark" "$val"
         return
     }
 
-    echo "$mark $PWD" >> "$mrk"
+    echo "$mark $val" >> "$mrkfl"
 }
 
 @() {
     mark="$1"
 
-    cat "$( getfl mrk )" | while read -r i
+    catfl mrk | while read -r i
     do
         mrk="$( echo "$i" | awk '{print $1}' )"
         [ "$mrk" = "$mark" ] && {
-            cd "$( echo "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+            val="$( echo "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+
+            if [ -e "$val" ] && [ ! -d "$val" ]
+            then
+                v "$val"
+            elif [ -d "$val" ]
+            then
+                cd "$( echo "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+            else
+                printf "Mark has invalid value: [$val]\n"
+            fi
+
             return
         }
     done
@@ -568,7 +596,7 @@ g() {
 
     if [ -d "$dir" ]
     then
-        changemark ¬
+        changemark ¬ "$PWD"
         cd "$dir"
     else
         echo "No such directory."

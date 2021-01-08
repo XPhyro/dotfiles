@@ -11,6 +11,8 @@ ctrl + alt + {h, n, w, i, s, p, g}; ctrl + alt + t
     $TERMINAL -e sudo {htop, nvtop, jnettop, iotop, slabtop, powertop, glances}
 ctrl + alt + m; ctrl + alt + m
     $TERMINAL -e neomutt; statbarsetmail
+ctrl + alt + m; ctrl + alt + s
+    lcknotiflog; notify-send -t 1000 "Syncing mail"; syncmail && lcknotiflog && notify-send -t 1000 "Synced mail"
 ctrl + alt + r; ctrl + alt + {r, s}
     $TERMINAL -e {ranger ~, newsboat}
 ctrl + alt + {w, b}; ctrl + alt + {w, b}
