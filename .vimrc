@@ -198,15 +198,15 @@ augroup configgroup
     au FileType     ruby                setlocal commentstring=#\ %s
     au FileType     python              setlocal commentstring=#\ %s
     au FileType     tex                 setlocal noautoindent
+    au BufNewFile   *                   let b:noWriteOnInsert=1 "if IsCurrentFileNew() | let b:noWriteOnInsert=1
     au BufNewFile   *.sh                call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
     "for some reason vim does not detect shebangs unless this is here
     au BufEnter     *                   exe ':filetype detect'
-    au BufEnter     *                   if expand('%:p:h') == "/home/xphyro/code/sh" | se ft=sh
+    au BufEnter     *                   if expand('%:p:h') == "/home/xphyro/code/sh" && expand('%:e') == "" | se ft=sh
     au BufEnter     *                   if &ft == 'sh' && IsFileEmpty() | call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
     au BufEnter     *.vimrc             let b:noStripWhitespace=1
     au BufEnter     *.log               let b:noWriteOnInsert=1
     au BufEnter     *.tex               call ToggleYCMAutoComplete()
-    au BufEnter     *                   if IsCurrentFileNew() | let b:noWriteOnInsert=1
     au BufEnter     Makefile,marks      set expandtab!
     "if the user saved a new file, activate auto-save
     au BufWritePre  *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
@@ -215,7 +215,7 @@ augroup configgroup
 augroup END
 
 augroup actiongroup
-    au InsertLeave                  *                call <SID>WriteOnInsertLeave()
+    au InsertLeave                  *                call s:WriteOnInsertLeave()
     au BufWritePost                 sxhkdrc          silent! exe "!setxkb; restart-sxhkd"
     au BufWritePost                 .Xresources      silent! exe "!xrdb -load ~/.Xresources"
     au BufWritePre,FileWritePre     locations,files  silent! exe ":sort u" | silent! exe "!genrc"
@@ -223,15 +223,12 @@ augroup END
 
 let mapleader=","
 
-cmap w!! w !sudo tee > /dev/null %
-
 "mute search highlighting and detect filetype (appends to the normal action of clearing+redrawing screen)
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:<C-u>filetype detect<CR><C-l>
 "open or close folds
 nnoremap <space> za
 "move vertically by visual line if no count given and record the movement if it is more than 5 lines
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-"move vertically by visual line if no count given and record the movement if it is more than 5 lines
 nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 "highlight last insterted text
 nnoremap gV `[v`]
@@ -243,10 +240,6 @@ nnoremap <Leader>ul :later
 nnoremap <Leader>evr :vsp $MYVIMRC<CR>
 "source vimrc
 nnoremap <Leader>svr :source $MYVIMRC<CR>
-"edit vim notes
-nnoremap <Leader>evm :vsp ~/documents/notes/computer-science/vim<CR>
-"edit tmux notes
-nnoremap <Leader>etm :vsp ~/documents/notes/computer-science/tmux<CR>
 "open ack.vim
 nnoremap <Leader>a :Ack 
 nnoremap <Leader>b :Black<CR>
@@ -314,7 +307,7 @@ nnoremap <Leader>cl :se cursorline!<CR>
 nnoremap <Leader>cs :colorscheme DarkDefault<CR>:colorscheme 
 "ycm
 nnoremap <Leader>cm :call ToggleYCMAutoComplete()<CR>
-"fortmat json file
+"format json file
 nnoremap <Leader>fjs :%!python -m json.tool<CR>
 "toggle behaviours
 nnoremap <Leader>ts :call ToggleStripTrailingWhitespace()<CR>
@@ -330,6 +323,7 @@ nnoremap QW :wq<CR>
 nnoremap QE :w<CR>
 nnoremap QF :q!<CR>
 nnoremap <Leader>qe :w !sudo tee > /dev/null %<CR>
+cmap w!! w !sudo tee > /dev/null %
 
 nnoremap <Leader>n :n<CR>
 "nnoremap <Leader>p :p<CR>
@@ -451,6 +445,6 @@ if argc() == 0
 endif
 
 augroup overridegroup
-    au BufNewFile,BufRead        /tmp/neomutt*   set tw=0 textwidth=0 wrapmargin=0 wrap noai
+    au BufNewFile,BufRead        /tmp/neomutt*   set tw=0 textwidth=0 wrapmargin=0 wrap noai | let b:noWriteOnInsert=1
     au FileWritePre,BufWritePre  /tmp/neomutt*   silent! %s/\($\n\s*\)\+\%$//e
 augroup END
