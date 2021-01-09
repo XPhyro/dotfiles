@@ -649,6 +649,16 @@ l() {
     }
 }
 
+sr() {
+    tmp="$( sudo mktemp )"
+    sudo lf -last-dir-path="$tmp" "$@" # TODO: Sync config file like in sr().
+    [ -f "$tmp" ] && {
+        dir="$( sudo cat "$tmp" )"
+        sudo rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
+    }
+}
+
 r() {
     tmp="$( mktemp )"
     ranger --choosedir="$tmp" "$@"
@@ -675,8 +685,16 @@ grl() {
     g "$@" && l
 }
 
+gsrl() {
+    g "$@" && l
+}
+
 gr() {
     g "$@" && r
+}
+
+gsr() {
+    g "$@" && sr
 }
 
 p() {
