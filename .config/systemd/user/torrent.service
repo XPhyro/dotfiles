@@ -1,6 +1,6 @@
 [Unit]
 Description=Launch torrent client.
-After=vpn.service
+After=vpn.service mount.service
 Wants=network-online.target
 
 [Service]
