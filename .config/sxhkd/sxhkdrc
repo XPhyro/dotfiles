@@ -74,7 +74,7 @@ shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
     {clplogynk, clpfilter uniqs, clpfilter sort, EXEC='clpprint' GREP='sh .*clpprint$' KA='osd_cat' tglapp, yank}
 shift + super + alt + {d, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
-    {dismissnotif, kasel, pssusp, syu, tpcycle, EXEC='screenkey' GREP='/usr/bin/python /usr/bin/screenkey' KC='1' tglapp, restart-notifd, dmenumount, dmenuumount, btccdev, btdcdev}
+    {dismissnotif, kasel, pssusp, syu, tpcycle, EXEC='screenkey' GREP='/usr/bin/python /usr/bin/screenkey' KC='1' tglapp, restart-notifd, mountsel, umountsel, btccdev, btdcdev}
 shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m
