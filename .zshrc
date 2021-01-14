@@ -166,6 +166,7 @@ alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \$
 
 alias cgrep="compgen | grep -i"
 alias hgrep="hist | grep -i"
+alias hgrepi="hist | grep"
 # alias hcgrep="hist | awk '{$1=$2=$3=""; print substr($0,2)}' | grep -i" # TODO: Works as standalone, but alias gives error, fix.
 alias hgrepc="hist | grep -iC 3"
 alias lalgrep="lal | grep -i"
