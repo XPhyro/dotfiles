@@ -4,7 +4,7 @@ Wants=network-online.target
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/sudo /home/xphyro/.local/bin/protonvpn c --p2p
+ExecStart=/usr/bin/sudo /home/xphyro/.local/bin/protonvpn c --cc de || /usr/bin/sudo /home/xphyro/.local/bin/protonvpn c --p2p
 Environment=PVPN_WAIT=600
 Environment=PVPN_DEBUG=1
 
