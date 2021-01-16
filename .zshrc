@@ -183,6 +183,9 @@ alias zsgrep="cat $ZSHRC | grep -i"
 
 #alias find="find -regextype grep"
 
+alias sfct="sudo fcrontab -e"
+alias fct="fcrontab -e"
+
 alias loc="locate -i"
 alias locs="locate"
 alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
