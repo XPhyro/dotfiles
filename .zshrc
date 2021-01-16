@@ -790,6 +790,10 @@ toxv() {
     done
 }
 
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
 vl() {
     if [ -f "COPYING" ]
     then
