@@ -21,6 +21,8 @@ bindkey -v
 
 ### END AUTO CONFIG ###
 
+setopt rmstarsilent
+
 # Enable colours and change prompt:
 autoload -U colors && colors    # Load colours
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
