@@ -277,6 +277,7 @@ nnoremap K <C-u>
 "inoremap <C-x> <Esc>BdaWa
 "xnoremap <C-x> BdaWa
 inoremap <C-x> <Esc>dbxa
+nnoremap <C-s> hs
 nnoremap Z dd
 "unmap ZZ
 nnoremap Y y$
