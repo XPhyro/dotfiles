@@ -35,8 +35,8 @@ ctrl + alt + o; ctrl + alt + p; ctrl + alt + {p, z, n}
     {popcorntime, open-zoom, nestopia}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + {b}; ctrl + alt + {w}
     {bitwarden}
-ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, w, t, c}
-    {steam, open-steam, KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp, lutris lutris:rungame/world-of-warcraft, WINEPREFIX=/games/wow-tsm wine '/games/wow-tsm/drive_c/Program Files (x86)/TradeSkillMaster Application/app/TSMApplication.exe', wowsim}
+ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, w, c}
+    {steam, open-steam, KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp, wowstart, wowsim}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a, o}
