@@ -116,8 +116,6 @@ alias sudod="/usr/bin/sudo"
 
 alias c="clear"
 
-alias watch="watch "
-
 alias diff="colordiff"
 alias grep="grep --color=auto"
 alias ls="ls --color=auto"
@@ -596,6 +594,32 @@ m() {
     done
 
     echo "Mark $mark does not exist."
+}
+
+eal() {
+    if [ "$#" = "1" ]
+    then
+        empty=""
+    else
+        empty="\n"
+    fi
+
+    for i
+    do
+        expw="$( where "$i" )"
+        if [ -z "$( printf "%s" "$expw" | sed "s/^$i: aliased to .*//" )" ] && [ "$( whereis "$i" )" = "$i:" ]
+        then
+            printf "%s\n" "$expw" | cut -f 1,2,3 -d ' ' --complement
+        else
+            printf "$empty"
+        fi
+    done
+}
+
+watchal() {
+    expal="$( eal "$1" )"
+    shift
+    watch "$@" $expal
 }
 
 g() {
