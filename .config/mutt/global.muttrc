@@ -53,6 +53,7 @@ bind index h noop
 bind index l display-message
 bind index,query <space> tag-entry
 
+
 macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
 bind index,pager H view-raw-message
 bind browser l select-entry
@@ -73,6 +74,7 @@ macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "ma
 macro index O "<shell-escape>mw -Y<enter>" "run mw -Y to sync all mail"
 macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>printf 'Enter a search term to find with notmuch: '; read x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output = messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a = <>;s/\^id:// for@a;$, = \"|\";print@a' | perl -le '@a = <>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
 macro index A "<limit>all\n" "show all messages (undo limit)"
+macro compose A "<shell-escape>rangermpick<enter><enter-command>source /tmp/ranger-neomutt-pick<enter>" "Attach with Ranger"
 
 set sidebar_visible = yes
 set sidebar_width = 20
