@@ -107,6 +107,8 @@ mpow="EB:06:EF:5D:4F:4D"
 ##
 #
 
+alias bgq="bg && disown && exit"
+
 alias mp="modprobe"
 alias mpr="modprobe -r"
 
