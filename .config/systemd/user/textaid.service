@@ -1,0 +1,10 @@
+[Unit]
+Description=Launch TextAid server.
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/home/xphyro/.local/bin/usr/textaidserver
+
+[Install]
+WantedBy=default.target
