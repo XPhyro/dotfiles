@@ -436,12 +436,15 @@ alias ltxsoq="latexstp '' -o && exit"
 alias vpn="sudo protonvpn"
 alias vpnc="sudo protonvpn c"
 alias vpnd="sudo protonvpn d"
+alias vpnr="sudo protonvpn r"
 alias vpns="sudo protonvpn s"
 
+alias vpncdq="sudo protonvpn c --cc de && exit"
 alias vpncnq="sudo protonvpn c --cc nl && exit"
 alias vpncq="sudo protonvpn c --cc && exit"
 alias vpndq="sudo protonvpn d && exit"
 alias vpnq="sudo protonvpn && exit"
+alias vpnr="sudo protonvpn r && exit"
 alias vpnsq="sudo protonvpn s && exit"
 
 alias base_ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
