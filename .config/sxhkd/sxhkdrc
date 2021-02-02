@@ -65,8 +65,8 @@ super + {minus, equal, underscore, plus}
     {voldown, volup, volmute, volset}; statbarset
 super + ctrl + underscore
     volmicmute; statbarset
-super + F3
-    volmicmute; statbarset
+super + {F1,F3}
+    {todo, volmicmute; statbarset}
 super + alt + {minus, equal, underscore, plus}
     {brightdown, brightup, brightmute, brightset}
 super + alt + ctrl + {underscore, plus, u, k, m}
