@@ -1,0 +1,13 @@
+[Unit]
+Description=A spotify playing daemon
+Documentation=https://github.com/Spotifyd/spotifyd
+Wants=sound.target network-online.target
+After=sound.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/spotifyd --no-daemon --config-path /home/xphyro/.config/spotifyd/spotifyd
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
