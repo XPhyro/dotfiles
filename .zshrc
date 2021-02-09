@@ -947,7 +947,7 @@ gccc() {
 
     #gcc "$fl" -o "$prg" && "./$prg"
 
-    gcc main.c -o program && ./program "$@"
+    gcc main.c -Wall -o program && ./program "$@"
 }
 
 #
