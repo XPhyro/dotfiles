@@ -435,6 +435,8 @@ alias ltxsoq="latexstp '' -o && exit"
 
 alias vpn="sudo protonvpn"
 alias vpnc="sudo protonvpn c"
+alias vpncd="sudo protonvpn c --cc de"
+alias vpncn="sudo protonvpn c --cc nl"
 alias vpnd="sudo protonvpn d"
 alias vpnr="sudo protonvpn r"
 alias vpns="sudo protonvpn s"
