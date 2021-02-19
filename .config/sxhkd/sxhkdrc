@@ -61,7 +61,7 @@ ctrl + alt + s; ctrl + alt + {c, e, a}
 # shift + super + alt + {comma, dot}
 #     # PRESS shift + super + {comma, dot} AND super + {comma, dot}
 super + {minus, equal, underscore, plus}
-    {volch -5%, vol +5%, volmute, volset}; statbarset
+    {volch -5%, volch +5%, volmute, volset}; statbarset
 super + ctrl + underscore
     volmicmute; statbarset
 super + {F1,F3}
