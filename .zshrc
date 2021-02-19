@@ -949,6 +949,12 @@ gccc() {
 
     #gcc "$fl" -o "$prg" && "./$prg"
 
+    if [ "$1" = "clean" ] || [ "$1" = "c" ]
+    then
+        rm -f main.c program
+        return
+    fi
+
     gcc main.c -Wall -o program && ./program "$@"
 }
 
