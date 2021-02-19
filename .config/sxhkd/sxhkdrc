@@ -55,15 +55,13 @@ ctrl + alt + s; ctrl + alt + {c, e, a}
 ##
 #
 
-#{button6, button7}
-#    {voldown, volup}; statbarset
 {Caps_Lock, Num_Lock}
     xdotool key {Caps_Lock, Num_Lock}; statbarset
 # TODO:
 # shift + super + alt + {comma, dot}
 #     # PRESS shift + super + {comma, dot} AND super + {comma, dot}
 super + {minus, equal, underscore, plus}
-    {voldown, volup, volmute, volset}; statbarset
+    {volch -5%, vol +5%, volmute, volset}; statbarset
 super + ctrl + underscore
     volmicmute; statbarset
 super + {F1,F3}
