@@ -64,8 +64,8 @@ super + {minus, equal, underscore, plus}
     {volch -5%, volch +5%, volmute, volset}; statbarset
 super + ctrl + underscore
     volmicmute; statbarset
-super + {F1,F3}
-    {todo, volmicmute; statbarset}
+super + {F1, F2, F3}
+    {todo, wowmacro toggle dmenu, volmicmute; statbarset}
 super + alt + {minus, equal, underscore, plus}
     {brightdown, brightup, brightmute, brightset}
 super + alt + ctrl + {underscore, plus, u, k, m}
