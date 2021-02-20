@@ -878,6 +878,11 @@ gacmm() {
     git add . && gcmm "$@"
 }
 
+gacmc() {
+    # git add "$@" && git commit -m "Create $( printf "%s," "$@" | sed 's/,\([^]*\),$/ and \1./' )" # TODO: Does not work, fix.
+    git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' )"
+}
+
 # gpsaa() {
 #     if [ "$1" ]
 #     then
