@@ -23,8 +23,6 @@ ctrl + alt + s; ctrl + alt + {s,d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
     {KA='stalonetray' EXEC='stalonetray' GREP='stalonetray$' tglapp, $BROWSER, $BROWSER --incognito, PROCESS=/opt/lightcord/lightcord tglapp, $BROWSER --new-window "http://localhost:8989/", $BROWSER --new-window "http://localhost:9117/", $BROWSER --new-window "http://localhost:24589", $BROWSER --new-window "192.168.1.1"}
-# ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
-#    {KA='stalonetray' EXEC='stalonetray' GREP='stalonetray$' tglapp, $BROWSER, $BROWSER --incognito, $BROWSER --new-window "https://lightcord.com/app", $BROWSER --new-window "http://localhost:8989/", $BROWSER --new-window "http://localhost:9117/", $BROWSER --new-window "http://localhost:24589", $BROWSER --new-window "192.168.1.1"}
 ctrl + alt + o; ctrl + alt + {d}; ctrl + alt + {i}
     dictionary
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + f; ctrl + alt + {i, p}
@@ -41,7 +39,6 @@ ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a, o}
     {$TERMINAL -e spt, musescore, matlab, KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
-#    {PROCESS='/opt/spotify/spotify' tglapp, musescore, matlab, KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
 ctrl + super + {o, k, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, pavucontrol}
 ctrl + alt + s; ctrl + alt + {c, e, a}
@@ -62,8 +59,8 @@ ctrl + alt + s; ctrl + alt + {c, e, a}
 #     # PRESS shift + super + {comma, dot} AND super + {comma, dot}
 super + {minus, equal, underscore, plus}
     {volch -5%, volch +5%, volmute, volset}; statbarset
-super + ctrl + underscore
-    volmicmute; statbarset
+super + ctrl + {minus, equal, underscore}
+    {volappch -5%, volappch +5%, volmicmute; statbarset}
 super + {F1, F2, F3}
     {todo, wowmacro toggle dmenu, volmicmute; statbarset}
 super + alt + {minus, equal, underscore, plus}
