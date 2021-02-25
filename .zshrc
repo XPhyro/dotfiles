@@ -186,12 +186,21 @@ alias zsgrep="cat $ZSHRC | grep -i"
 alias sfct="sudo fcrontab -e"
 alias fct="fcrontab -e"
 
-alias loc="locate -i"
-alias locs="locate"
-alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
-alias locms="locate -d /var/lib/mlocate/mlocate-mybook.db"
 alias udb="sudo updatedb"
 alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
+
+alias loc="locate -i"
+alias locd="located -i"
+alias locds="located"
+alias locf="locatef -i"
+alias locfs="locatef"
+alias locm="locate -d /var/lib/mlocate/mlocate-mybook.db -i"
+alias locmd="located -d /var/lib/mlocate/mlocate-mybook.db -i"
+alias locmds="located -d /var/lib/mlocate/mlocate-mybook.db"
+alias locmf="locatef -d /var/lib/mlocate/mlocate-mybook.db -i"
+alias locmfs="locatef -d /var/lib/mlocate/mlocate-mybook.db"
+alias locms="locate -d /var/lib/mlocate/mlocate-mybook.db"
+alias locs="locate"
 
 alias ffm="ffmpeg -hide_banner"
 alias ffmt="ffmpegthumbnailer"
@@ -435,6 +444,7 @@ alias ltxsoq="latexstp '' -o && exit"
 
 alias vpn="sudo protonvpn"
 alias vpnc="sudo protonvpn c"
+alias vpncc="sudo protonvpn c --cc ch"
 alias vpncd="sudo protonvpn c --cc de"
 alias vpncf="sudo protonvpn c -f"
 alias vpncn="sudo protonvpn c --cc nl"
@@ -442,6 +452,7 @@ alias vpnd="sudo protonvpn d"
 alias vpnr="sudo protonvpn r"
 alias vpns="sudo protonvpn s"
 
+alias vpnccq="sudo protonvpn c --cc ch && exit"
 alias vpncdq="sudo protonvpn c --cc de && exit"
 alias vpncfq="sudo protonvpn c -f && exit"
 alias vpncnq="sudo protonvpn c --cc nl && exit"
@@ -881,8 +892,9 @@ gacmm() {
 }
 
 gacmc() {
-    # git add "$@" && git commit -m "Create $( printf "%s," "$@" | sed 's/,\([^]*\),$/ and \1./' )" # TODO: Does not work, fix.
-    git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' )"
+    # git add "$@" && git commit -m "Create $( printf "%s," "$@" | sed 's/,\([^]*\),$/ and \1./' )" # TODO: Does not work, fix. This might be a bug in sed, consider filing a bug report.
+    # git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' )"
+    git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' | sort -n )"
 }
 
 # gpsaa() {
