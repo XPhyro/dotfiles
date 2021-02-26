@@ -871,6 +871,13 @@ vt() {
     fi
 }
 
+gcld() {
+    fl="$( mktemp )"
+    git clone "$@" | tee "$fl"
+    dir="$( head -n 1 "$fl" | sed -e "s/^Cloning into '//" -e "s/'...$//" )"
+    [ -d "$dir" ] && cd "$dir"
+}
+
 gaf() {
     find . -name "$1" -exec git add {} \;
 }
