@@ -16,8 +16,8 @@ ctrl + alt + w; ctrl + alt + w
     $TERMINAL -e weather
 ctrl + alt + b; ctrl + alt + b
     $TERMINAL -e bluetoothctl
-ctrl + alt + r; ctrl + alt + {w, q}
-    {restart-wallpaper, hsetroot}
+ctrl + alt + r; ctrl + alt + w
+    hsetroot; restart-wallpaper
 ctrl + alt + s; ctrl + alt + {s,d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
@@ -38,6 +38,8 @@ ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a}
     {tglapp -K -- $TERMINAL -e spt, tglapp -K musescore, tglapp -K matlab}
+ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
+    tglapp -K freetube
 ctrl + super + {o, k, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, pavucontrol}
 ctrl + alt + s; ctrl + alt + {c, e, a}
