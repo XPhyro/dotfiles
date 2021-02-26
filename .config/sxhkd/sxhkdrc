@@ -1,7 +1,6 @@
 # vim: filetype=sh
 
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
-# TODO: Add screenkey.
 
 ### Programs ###
 ##
@@ -22,7 +21,7 @@ ctrl + alt + r; ctrl + alt + {w, q}
 ctrl + alt + s; ctrl + alt + {s,d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
-    {KA='stalonetray' EXEC='stalonetray' GREP='stalonetray$' tglapp, $BROWSER, $BROWSER --incognito, PROCESS=/opt/lightcord/lightcord tglapp, $BROWSER --new-window "http://localhost:8989/", $BROWSER --new-window "http://localhost:9117/", $BROWSER --new-window "http://localhost:24589", $BROWSER --new-window "192.168.1.1"}
+    {tglapp -K stalonetray, $BROWSER, $BROWSER --incognito, tglapp -K lightcord, $BROWSER --new-window "http://localhost:8989/", $BROWSER --new-window "http://localhost:9117/", $BROWSER --new-window "http://localhost:24589", $BROWSER --new-window "192.168.1.1"}
 ctrl + alt + o; ctrl + alt + {d}; ctrl + alt + {i}
     dictionary
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + f; ctrl + alt + {i, p}
@@ -34,11 +33,11 @@ ctrl + alt + o; ctrl + alt + p; ctrl + alt + {p, z, n}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + {b}; ctrl + alt + {w}
     {bitwarden}
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, w, c}
-    {steam, open-steam, KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp, wowstart, wowsim}
+    {steam, open-steam, tglapp -K ModOrganizer2, wowstart, wowsim}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
-ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a, o}
-    {$TERMINAL -e spt, musescore, matlab, KA='ModOrganizer.exe' EXEC='ModOrganizer2' GREP='ModOrganizer\.exe' tglapp}
+ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a}
+    {tglapp -K -- $TERMINAL -e spt, tglapp -K musescore, tglapp -K matlab}
 ctrl + super + {o, k, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, pavucontrol}
 ctrl + alt + s; ctrl + alt + {c, e, a}
@@ -72,9 +71,9 @@ shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
 # shift + super + p
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
-    {clplogynk, clpfilter uniqs, clpfilter sort, EXEC='clpprint' GREP='sh .*clpprint$' KA='osd_cat' tglapp, yank}
+    {clplogynk, clpfilter uniqs, clpfilter sort, tglapp -K clpprint, yank}
 shift + super + alt + {d, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
-    {dismissnotif, kasel, pssusp, syu, tpcycle, EXEC='screenkey' GREP='/usr/bin/python /usr/bin/screenkey' KC='1' tglapp, restart-notifd, mountsel, umountsel, btccdev, btdcdev}
+    {dismissnotif, kasel, pssusp, syu, tpcycle, tglapp -K screenkey, restart-notifd, mountsel, umountsel, btccdev, btdcdev}
 shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m
