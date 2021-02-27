@@ -508,6 +508,18 @@ fork() {
     ("$@") &!
 }
 
+t() {
+    n="$1"
+    shift
+    time (for _ in {1.."$n"}; do "$@"; done)
+}
+
+tn() {
+    n="$1"
+    shift
+    time (for _ in {1.."$n"}; do {"$@"} > /dev/null; done)
+}
+
 zsudo() {
     sudo zsh -c "$functions[$1]" "$@"
 }
