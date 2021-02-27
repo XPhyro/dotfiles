@@ -484,6 +484,7 @@ alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -make
 alias syncp="rdfdow && symlinks -cr ~/downloads/p/ && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
 
 alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
+alias w2x="waifu2x-converter-cpp"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
 
 alias ggl="googler"
@@ -494,8 +495,6 @@ alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
 alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
 alias ue4genp="~/archive/unreal-engine/GenerateProjectFiles.sh"
 alias uh="~/programs/squashfs-root/unityhub"
-
-alias unturned-server="~/data/steamlib/steamapps/common/U3DS/GLUK.sh"
 
 #
 ##
