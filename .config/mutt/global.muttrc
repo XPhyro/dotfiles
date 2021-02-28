@@ -51,6 +51,9 @@ bind index U undelete-message
 bind index L limit
 bind index h noop
 bind index l display-message
+bind index n search-next
+bind index N search-opposite
+# bind index N sidebar-next-new
 bind index,query <space> tag-entry
 
 
