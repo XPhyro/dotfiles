@@ -52,8 +52,8 @@ bind index L limit
 bind index h noop
 bind index l display-message
 bind index n search-next
-bind index N search-opposite
-# bind index N sidebar-next-new
+bind index d search-opposite
+bind index N toggle-new
 bind index,query <space> tag-entry
 
 
@@ -62,8 +62,8 @@ bind index,pager H view-raw-message
 bind browser l select-entry
 bind pager,browser gg top-page
 bind pager,browser G bottom-page
-bind index,pager,browser d half-down
-bind index,pager,browser u half-up
+bind index,pager,browser J half-down
+bind index,pager,browser K half-up
 bind index,pager S sync-mailbox
 bind index,pager R group-reply
 bind index \031 previous-undeleted
