@@ -806,8 +806,12 @@ y() {
         yay -Syu "$@"
     fi
 
+    yec="$?"
+
     {statbarsetavlsyu && statbarset} &!
     # [ -z "$( jobs | grep "$!" )" ] || disown "$!"
+
+    return "$yec"
 }
 
 z() {
