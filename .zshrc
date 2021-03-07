@@ -220,6 +220,8 @@ alias mat="matlab &!"
 alias b="broot"
 alias v="vim"
 
+alias sv="sudo v"
+
 alias td="todo"
 alias tdc="todo copy"
 alias tdd="todo delete"
