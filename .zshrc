@@ -162,6 +162,7 @@ alias sfd="sudo fdisk"
 
 alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
 alias dffsw="watch -n 5 'df -h | head -n 1; df -h | grep ^/dev/ --color=never'"
+alias du="du -L"
 alias dud="du -ch . | sort -h | less +G"
 
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
