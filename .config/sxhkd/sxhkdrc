@@ -16,8 +16,8 @@ ctrl + alt + w; ctrl + alt + w
     $TERMINAL -e weather
 ctrl + alt + b; ctrl + alt + b
     $TERMINAL -e bluetoothctl
-ctrl + alt + r; ctrl + alt + w
-    hsetroot; restart-wallpaper
+ctrl + alt + r; ctrl + alt + {q, w}
+    {hsetroot; restart-wallpaper, restart-wallpaper -fT on}
 ctrl + alt + s; ctrl + alt + {s,d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
