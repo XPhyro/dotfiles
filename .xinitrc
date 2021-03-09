@@ -44,10 +44,10 @@ tpcycle &
 clplog &
 statbartick &
 syncmailtick &
-redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
+tglapp -T on redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr
 
 openpdfs &
 setupaudio &
 setupxr &
-restart-wallpaper &
+restart-wallpaper -T on &
 exec dwm
