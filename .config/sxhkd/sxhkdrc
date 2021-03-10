@@ -6,6 +6,9 @@
 ##
 #
 
+alt + {1,2,3}
+    xdotool type {2300402, 8640404, 2300307}
+
 ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
     $TERMINAL -e sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
 ctrl + alt + m; ctrl + alt + {m, s}
