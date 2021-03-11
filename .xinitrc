@@ -43,7 +43,7 @@ nm-applet &
 tpcycle &
 clplog &
 statbartick &
-syncmailtick &
+tglapp -T on -- syncmailtick
 tglapp -T on -- redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr
 
 openpdfs &
