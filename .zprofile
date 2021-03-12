@@ -21,4 +21,7 @@ export TERMINAL="st"
 
 export MDV_THEME=663.6093
 
-[ ! "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && startx
+[ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && {
+    export XDG_SESSION_TYPE=x11
+    exec startx
+}
