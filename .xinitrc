@@ -23,6 +23,17 @@ openpdfs() {
     done
 }
 
+statbar() {
+    sleep 3
+
+    find "$( getloc statbar )" -mindepth 1 -maxdepth 1 -type f | while read -r i
+    do
+        eval "$( printf "%s" | sed 's/^[0-9]*_//' )"
+    done
+
+    statbarset
+}
+
 xdotool key Num_Lock
 setxkbtick &
 
@@ -43,11 +54,12 @@ nm-applet &
 tpcycle &
 clplog &
 statbartick &
-tglapp -T on -- syncmailtick
-tglapp -T on -- redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr
+tglapp -T on -- syncmailtick &
+tglapp -T on -- redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
 
 openpdfs &
 setupaudio &
 setupxr &
 restart-wallpaper -T on &
+statbar &
 exec dwm

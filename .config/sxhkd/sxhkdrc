@@ -57,20 +57,20 @@ ctrl + alt + s; ctrl + alt + {c, e, a}
 #
 
 {Caps_Lock, Num_Lock}
-    xdotool key {Caps_Lock, Num_Lock}; statbarset
+    xdotool key {Caps_Lock; statbarcaps, Num_Lock; statbarnum}; statbarset
 # TODO:
 # shift + super + alt + {comma, dot}
 #     # PRESS shift + super + {comma, dot} AND super + {comma, dot}
 super + {minus, equal, underscore, plus}
-    {volch -5%, volch +5%, volmute, volset}; statbarset
+    {volch -5%, volch +5%, volmute, volset}; statbarvol; statbarset
 super + ctrl + {minus, equal, underscore}
-    {volappch -5%, volappch +5%, volmicmute; statbarset}
+    {volappch -5%, volappch +5%, volmicmute; statbarvolmic; statbarset}
 super + {F1, F2, F3}
-    {todo, wowmacro toggle dmenu, volmicmute; statbarset}
+    {todo, wowmacro toggle dmenu, volmicmute; statbarvolmic; statbarset}
 super + alt + {minus, equal, underscore, plus}
     {brightdown, brightup, brightmute, brightset}
 super + alt + ctrl + {underscore, plus, u, k, m}
-    {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, dmenuunicode, kmcycle, manpdf}
+    {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, dmenuunicode, kmcycle; statbarkm; statbarset, manpdf}
 shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
     mprisctl {prev, next, playpause, stop, open "$( getmprisuri --detect )"}
 # shift + super + p
@@ -78,7 +78,7 @@ shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
     {clplogynk, clpfilter uniqs, clpfilter sort, tglapp clpprint, yank}
 shift + super + alt + {d, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
-    {dismissnotif, kasel, pssusp, syu, tpcycle, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev, btdcdev}
+    {dismissnotif, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev, btdcdev}
 shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m
