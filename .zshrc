@@ -817,7 +817,7 @@ y() {
 
     yec="$?"
 
-    {statbarsetavlsyu && statbarset} &!
+    (statbarsetavlsyu && statbaravlsyu && statbarset) &!
     # [ -z "$( jobs | grep "$!" )" ] || disown "$!"
 
     return "$yec"
