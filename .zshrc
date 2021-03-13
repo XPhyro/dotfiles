@@ -112,7 +112,8 @@ alias bgq="bg && disown && exit"
 alias mp="modprobe"
 alias mpr="modprobe -r"
 
-alias fuck='sudo $( fc -ln -1 )'
+alias fck='sudo $( fc -ln -1 )'
+alias fk='sudo !!'
 alias sudo="nocorrect sudo "
 alias sudod="/usr/bin/sudo"
 
