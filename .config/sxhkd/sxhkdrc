@@ -20,7 +20,7 @@ ctrl + alt + w; ctrl + alt + w
 ctrl + alt + b; ctrl + alt + b
     $TERMINAL -e bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}
-    {hsetroot; restart-wallpaper, restart-wallpaper -fT on}
+    {hsetroot; restart-wallpaper -T off, restart-wallpaper -fT on}
 ctrl + alt + s; ctrl + alt + {s,d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
@@ -76,7 +76,7 @@ shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
 # shift + super + p
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
-    {clplogynk, clpfilter uniqs, clpfilter sort, tglapp clpprint, yank}
+    {clplogynk, clpfilter uniqs, clpfilter sort, clpprint, yank}
 shift + super + alt + {d, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
     {dismissnotif, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev, btdcdev}
 shift + super + alt + m

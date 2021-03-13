@@ -411,6 +411,7 @@ alias gl="git log"
 alias gmer="git merge"
 alias gmerab="git merge --abort"
 alias gmercon="git merge --continue"
+alias gnum="git rev-list --all --count"
 alias gpl="git pull"
 alias gplom="git pull origin master"
 alias gps="git push"
@@ -528,6 +529,20 @@ tn() {
     n="$1"
     shift
     time (for _ in {1.."$n"}; do {"$@"} > /dev/null; done)
+}
+
+dountil() {
+    until eval "$@"
+    do
+        :
+    done
+}
+
+dowhile() {
+    while eval "$@"
+    do
+        :
+    done
 }
 
 zsudo() {
