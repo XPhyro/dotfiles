@@ -946,7 +946,7 @@ gacmc() {
 
     # git add "$@" && git commit -m "Create $( printf "%s," "$@" | sed 's/,\([^]*\),$/ and \1./' )" # TODO: Does not work, fix. This might be a bug in sed, consider filing a bug report.
     # git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' )"
-    git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' | sort -n )"
+    git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' | sort -n )"
 }
 
 # gpsaa() {
