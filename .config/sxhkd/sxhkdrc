@@ -46,7 +46,7 @@ ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
 ctrl + super + {o, k, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, pavucontrol}
 ctrl + alt + s; ctrl + alt + {c, e, a}
-    {sxiv ~/course-schedule.png, zathura ~/code/tex/metu/20201/exams/main.pdf, openass}
+    {xdg-open ~/course-schedule.png, xdg-open "$( getloc exam )/main.pdf", openass}
 
 #
 ##
