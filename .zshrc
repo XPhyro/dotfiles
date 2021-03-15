@@ -507,6 +507,8 @@ alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
 alias ue4genp="~/archive/unreal-engine/GenerateProjectFiles.sh"
 alias uh="~/programs/squashfs-root/unityhub"
 
+alias ddad="dragon-drag-and-drop -a -x"
+
 #
 ##
 ### END ALIAS ###
