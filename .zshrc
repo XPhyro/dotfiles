@@ -189,6 +189,7 @@ alias sfct="sudo fcrontab -e"
 alias fct="fcrontab -e"
 
 alias udb="sudo updatedb"
+alias udba="udb; udbm"
 alias udbm="sudo updatedb -U /mnt/mybook -o /var/lib/mlocate/mlocate-mybook.db"
 
 alias loc="locate -i"
@@ -220,6 +221,7 @@ alias Rs="R -s"
 alias mat="matlab &!"
 
 alias b="broot"
+alias me="mapexec"
 alias v="vim"
 
 alias sv="sudo v"
@@ -354,7 +356,7 @@ alias ssh="ssh -p 14253"
 alias ka="sudo killall"
 alias rfk="sudo rfkill"
 
-alias sc="shellcheck"
+alias sc="shellcheck -e SC2188"
 
 alias fum="fusermount"
 alias mount="sudo mount"
