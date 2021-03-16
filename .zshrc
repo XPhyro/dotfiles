@@ -516,6 +516,8 @@ alias uh="~/programs/squashfs-root/unityhub"
 
 alias ddad="dragon-drag-and-drop -a -x"
 
+alias tetris="autoload -Uz tetriscurses && tetriscurses"
+
 #
 ##
 ### END ALIAS ###

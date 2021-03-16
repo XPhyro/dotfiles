@@ -73,7 +73,7 @@ shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
     {clplogynk, clpfilter uniqs, clpfilter sort, clpprint, yank}
 shift + super + alt + {d, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
-    {dismissnotif, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarvol; statbarset, btdcdev; statbarvol; statbarset}
+    {dismissnotif, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
 shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m
