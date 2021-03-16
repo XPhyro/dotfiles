@@ -222,6 +222,10 @@ alias mat="matlab &!"
 
 alias b="broot"
 alias me="mapexec"
+alias mea="mapexec -a"
+alias mem="mapexec -m"
+alias meu="mapexec -u"
+alias mew="mapexec -w"
 alias v="vim"
 
 alias sv="sudo v"
