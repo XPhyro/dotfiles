@@ -573,18 +573,17 @@ manb() {
     then
         man bash | less +/^SHELL\ BUILTIN\ COMMANDS$''/"^       $1"''/"$1"
     else
-        echo "Only one argument is accepted."
+        printf "Only one argument is accepted.\n"
     fi
 }
 
 cd() {
-    if [ -d "$@" ] 
+    dir="$1"
+    if [ -n "$dir" ] && [ ! -d "$dir" ]
     then
-        builtin cd "$@"
-    else
-        dir="$( getloc "$@" )"
-        [ "$dir" ] && builtin cd "$dir"
+        dir="$( getloc "$dir" | inorcmd dirname "$dir" )"
     fi
+    builtin cd "$dir"
 }
 
 changemark() {
@@ -593,28 +592,25 @@ changemark() {
     mrkfl="$( getfl mrk )"
 
     [ "$mark" = "¬" ] || {
-        printf "Overwrite mark [$mark]? (y/N)\nCurrent value: $( grep "^$mark\s" "$mrkfl" | sed -E 's/^[^ ]*\s\+|\s*$//' )\nNew value    : $val\n"
-        read -sk
-
-        [ "$REPLY" = "y" ] || return
+        printf "Overwrite mark [$mark]? (y/N)\nCurrent value: $( grep "^$mark\s" "$mrkfl" | sed 's/^[^ ]*\s*\|\s*$//g' )\nNew value    : $val\n"
+        equals "$( readchar )" Y y || return
     }
 
-    #gawk -i inplace -F"\t" -v mrkfl='¬' -v PWD="$PWD" '$1 == mrkfl {$2=PWD}1' "$mrkfl"
-    gawk -i inplace -v mrkfl="$mark" -v VAL="$VAL" '$1 == mrkfl {$2=VAL}1' "$mrkfl"
+    gawk -i inplace -v mrkfl="$mark" -v val="$val" '$1 == mrkfl {$2=val}1' "$mrkfl"
 }
 
 ¬() {
     catfl mrk | while read -r i
     do
-        mrk="$( echo "$i" | awk '{print $1}' )"
+        mrk="$( printf "%s" "$i" | awk '{print $1}' )"
         [ "$mrk" = "¬" ] && {
             changemark ¬ "$PWD"
-            cd "$( echo "$i" | awk '{print $2}' | expandpath )"
+            cd "$( printf "%s" "$i" | awk '{print $2}' | expandpath )"
             return
         }
     done
 
-    echo "Could not find the previous mark."
+    printf "Could not find the previous mark.\n"
 }
 
 m() {
@@ -634,7 +630,7 @@ m() {
         return
     }
 
-    echo "$mark $val" >> "$mrkfl"
+    printf "%s %s\n" "$mark" "$val" >> "$mrkfl"
 }
 
 @() {
@@ -642,16 +638,16 @@ m() {
 
     catfl mrk | while read -r i
     do
-        mrk="$( echo "$i" | awk '{print $1}' )"
+        mrk="$( printf "%s\n" "$i" | awk '{print $1}' )"
         [ "$mrk" = "$mark" ] && {
-            val="$( echo "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+            val="$( printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
 
             if [ -e "$val" ] && [ ! -d "$val" ]
             then
                 v "$val"
             elif [ -d "$val" ]
             then
-                cd "$( echo "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+                cd "$( printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
             else
                 printf "Mark has invalid value: [$val]\n"
             fi
@@ -660,7 +656,7 @@ m() {
         }
     done
 
-    echo "Mark $mark does not exist."
+    printf "Mark $mark does not exist.\n"
 }
 
 eal() {
@@ -691,7 +687,7 @@ watchal() {
 
 g() {
     [ "$2" ] && { 
-        echo "Only one argument is accepted."
+        printf "Only one argument is accepted.\n"
         return 1
     }
 
@@ -707,7 +703,7 @@ g() {
         changemark ¬ "$PWD"
         cd "$dir"
     else
-        echo "No such directory."
+        printf "No such directory.\n"
         return 1
     fi
 }
@@ -747,7 +743,7 @@ l() {
     }
 }
 
-sr() {
+sl() {
     tmp="$( sudo mktemp )"
     sudo lf -last-dir-path="$tmp" "$@" # TODO: Sync config file like in sr().
     [ -f "$tmp" ] && {
@@ -784,7 +780,7 @@ grl() {
 }
 
 gsrl() {
-    g "$@" && l
+    g "$@" && sl
 }
 
 gr() {
@@ -793,6 +789,22 @@ gr() {
 
 gsr() {
     g "$@" && sr
+}
+
+@rl() {
+    @ "$@" && l
+}
+
+@srl() {
+    @ "$@" && sl
+}
+
+@r() {
+    @ "$@" && r
+}
+
+@sr() {
+    @ "$@" && sr
 }
 
 p() {
@@ -980,7 +992,7 @@ gdo() {
     then
         git add . && git commit -m "$1" && git push
     else
-        echo "No arguments given."
+        printf "No arguments given.\n"
     fi
 }
 
