@@ -531,12 +531,14 @@ fork() {
 }
 
 t() {
+    [ "$#" -eq 0 ] && return 1
     n="$1"
     shift
     time (for _ in {1.."$n"}; do "$@"; done)
 }
 
 tn() {
+    [ "$#" -eq 0 ] && return 1
     n="$1"
     shift
     time (for _ in {1.."$n"}; do {"$@"} > /dev/null; done)
