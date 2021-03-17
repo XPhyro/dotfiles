@@ -404,6 +404,7 @@ alias gcd="git commit --dry-run"
 alias gcdl="git -c color.status=always commit --dry-run | less -r"
 alias gcl="git clone"
 alias gcm="git commit -m"
+alias gcme="git commit --allow-empty -m"
 alias gco="git checkout"
 alias gcod="git checkout -d"
 alias gcoo="git checkout --orphan"
@@ -711,22 +712,16 @@ g() {
 }
 
 f() {
-    [ "$1" = "-c" ] && {
-        cont="1"
-        shift
-    }
-
-    fail="0"
-    until [ "$fail" = "1" ]
+    while true
     do
-        if [ "$@" ]
+        if [ "$#" -ne 0 ]
         then
             for i
             do
-                fzfopen "$( getloc "$i" )" || fail="1"
+                fzfopen "$( getloc "$i" )" || break
             done
         else
-            fzfopen || fail="1"
+            fzfopen || break
         fi
     done
 }
@@ -823,15 +818,18 @@ p() {
     if [ "$hasopt" = "1" ]
     then
         sudo pacman "$@"
-    elif [ "$@" ]
+    elif [ "$#" -ne 0 ]
     then
         sudo pacman -S "$@"
     else
-        sudo pacman -Syu "$@"
+        sudo pacman -Syu
     fi
 
-    statbarsetavlsyu
-    statbarset
+    pec="$?"
+
+    (statbarsetavlsyu && statbaravlsyu && statbarset) &!
+
+    return "$pec"
 }
 
 # TODO: Make y do -S instead of -Syu when trying to install a package that is not installed.
@@ -849,32 +847,27 @@ y() {
     if [ "$hasopt" = "1" ]
     then
         yay "$@"
-    elif [ "$@" ]
+    elif [ "$#" -ne 0 ]
     then
         yay -S "$@"
     else
-        yay -Syu "$@"
+        yay -Syu
     fi
 
     yec="$?"
 
     (statbarsetavlsyu && statbaravlsyu && statbarset) &!
-    # [ -z "$( jobs | grep "$!" )" ] || disown "$!"
 
     return "$yec"
 }
 
 z() {
-    if [ "$2" = "" ]
+    if [ "$#" -lt 2 ]
     then
-        zathura "$@" &
+        zathura "$@" &!
     else
-        tabbed -c zathura "$@" -e &
+        tabbed -c zathura "$@" -e &!
     fi
-}
-
-zd() {
-    z "$@" &!
 }
 
 to() {
@@ -900,8 +893,7 @@ tox() {
 toxv() {
     for i
     do
-        tox "$i"
-        vim "$i"
+        tox "$i" && vim "$i"
     done
 }
 
@@ -963,27 +955,35 @@ gacmm() {
     git add . && gcmm "$@"
 }
 
-# TODO: Make gacmc use this and add variations of gacmc that does Add TODO comment, etc.
-# git_add_and_commit_message_for_all() {
-#     [ "$#" = 1 ] && {
-#         git add "$*" && git commit -m "Create $*"
-#         return
-#     }
-# 
-#     # git add "$@" && git commit -m "Create $( printf "%s," "$@" | sed 's/,\([^]*\),$/ and \1./' )" # TODO: Does not work, fix. This might be a bug in sed, consider filing a bug report.
-#     # git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' )"
-#     git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' | sort -n )"
-# }
-
-gacmc() {
+gacma() {
+    message="$1"
+    shift
     [ "$#" = 1 ] && {
-        git add "$*" && git commit -m "Create $*"
+        git add "$1" && git commit -m "$message $1"
         return
     }
 
-    # git add "$@" && git commit -m "Create $( printf "%s," "$@" | sed 's/,\([^]*\),$/ and \1./' )" # TODO: Does not work, fix. This might be a bug in sed, consider filing a bug report.
-    # git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' )"
-    git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' | sort -n )"
+    git add "$@" && git commit -m "$message $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' )"
+}
+
+gacmc() {
+    gacma Create "$@"
+}
+
+gacmu() {
+    gacma Update "$@"
+}
+
+gacmr() {
+    gacma Refactor "$@"
+}
+
+gacmw() {
+    gacma Rewrite "$@"
+}
+
+gacmf() {
+    gacma Format "$@"
 }
 
 # gpsaa() {
