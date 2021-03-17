@@ -211,9 +211,9 @@ alias ffp="ffprobe -hide_banner"
 
 alias gpp="g++"
 
-alias ptpy="ptpython"
-alias py2="python2"
-alias py="python"
+alias py="ptpython"
+alias pyt2="python2"
+alias pyt="python"
 alias pypy="pypy3"
 
 alias R="R -q"
