@@ -963,6 +963,18 @@ gacmm() {
     git add . && gcmm "$@"
 }
 
+# TODO: Make gacmc use this and add variations of gacmc that does Add TODO comment, etc.
+# git_add_and_commit_message_for_all() {
+#     [ "$#" = 1 ] && {
+#         git add "$*" && git commit -m "Create $*"
+#         return
+#     }
+# 
+#     # git add "$@" && git commit -m "Create $( printf "%s," "$@" | sed 's/,\([^]*\),$/ and \1./' )" # TODO: Does not work, fix. This might be a bug in sed, consider filing a bug report.
+#     # git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1./' )"
+#     git add "$@" && git commit -m "Create $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' | sort -n )"
+# }
+
 gacmc() {
     [ "$#" = 1 ] && {
         git add "$*" && git commit -m "Create $*"
