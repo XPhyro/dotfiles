@@ -582,9 +582,11 @@ manb() {
 
 cd() {
     dir="$1"
-    if [ -n "$dir" ] && [ ! -d "$dir" ]
+    if [ -n "$dir" ]
     then
-        dir="$( getloc "$dir" | inorcmd dirname "$dir" )"
+        [ ! -d "$dir" ] && dir="$( getloc "$dir" | inorcmd dirname "$dir" )"
+    else
+        dir="$HOME"
     fi
     builtin cd "$dir"
 }
@@ -689,14 +691,14 @@ watchal() {
 }
 
 g() {
-    [ "$2" ] && { 
+    [ -n "$2" ] && { 
         printf "Only one argument is accepted.\n"
         return 1
     }
 
-    [ "$1" ] || {
+    [ -z "$1" ] && {
         cd
-        return
+        return 0
     }
 
     dir="$( getlocall "$1" )"
