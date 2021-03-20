@@ -901,7 +901,7 @@ gacma() {
     then
         git add "$1" && git commit -m "$message $1"
     else
-        git add "$@" && git commit -m "$message $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' )"
+        git add "$@" && git commit -m "$message $( printf "%s, \n" "$@" | sort | tr -d '\n' | sed 's/, \([^ ]*\), $/ and \1/' )"
     fi
 }
 
