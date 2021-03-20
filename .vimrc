@@ -11,8 +11,6 @@ colorscheme deus
 "colorscheme jiks
 "colorscheme mojave
 
-se viminfo='10,\"100,:20,%,n~/.viminfo
-
 syntax on
 se nu "number
 se rnu "relativenumber
@@ -214,14 +212,13 @@ augroup configgroup
     au BufWritePre    *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
     au BufWritePre    *.py                silent! exe ":Black"
     au BufWritePre    *                   call StripTrailingWhitespace()
-    au BufWinEnter    *                   if line("'\"") <= line("$") | normal! g`" | endif
 augroup END
 
 augroup actiongroup
     au InsertLeave    *                   call s:WriteOnInsertLeave()
     au FileWritePost  sxhkdrc             silent! exe "!setxkb; restart-sxhkd"
     au BufWritePost   .Xresources         silent! exe "!xrdb -load ~/.Xresources"
-    au FileWritePost  locations,files     silent! exe "!setfl; genrc"
+    au BufWritePost   locations,files     silent! exe "!setfl; genrc"
 augroup END
 
 let mapleader=","
@@ -411,7 +408,7 @@ Plug 'tpope/vim-repeat'
 Plug 'glts/vim-radical'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-" Plug 'farmergreg/vim-lastplace'
+Plug 'farmergreg/vim-lastplace'
 " Plug 'joonty/vim-do'
 Plug 'Ron89/thesaurus_query.vim'
 call plug#end()
