@@ -11,6 +11,8 @@ colorscheme deus
 "colorscheme jiks
 "colorscheme mojave
 
+se viminfo='10,\"100,:20,%,n~/.viminfo
+
 syntax on
 se nu "number
 se rnu "relativenumber
@@ -194,31 +196,32 @@ endfun
 augroup configgroup
     au!
     "fix zsh caret
-    au VimEnter     *                   silent exec "!echo -ne '\e[1 q'"
-    au FileType     ruby                setlocal commentstring=#\ %s
-    au FileType     python              setlocal commentstring=#\ %s
-    au FileType     tex                 setlocal noautoindent
-    au BufNewFile   *                   let b:noWriteOnInsert=1 "if IsCurrentFileNew() | let b:noWriteOnInsert=1
-    au BufNewFile   *.sh                call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
-    "for some reason vim does not detect shebangs unless this is here
-    au BufEnter     *                   exe ':filetype detect'
-    au BufEnter     *                   if expand('%:p:h') == "/home/xphyro/code/sh" && expand('%:e') == "" | se ft=sh
-    au BufEnter     *                   if &ft == 'sh' && IsFileEmpty() | call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
-    au BufEnter     *.vimrc             let b:noStripWhitespace=1
-    au BufEnter     *.log               let b:noWriteOnInsert=1
-    au BufEnter     *.tex               call ToggleYCMAutoComplete()
-    au BufEnter     Makefile,marks      set expandtab!
-    "if the user saved a new file, activate auto-save
-    au BufWritePre  *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
-    au BufWritePre  *.py                silent! exe ":Black"
-    au BufWritePre  *                   call StripTrailingWhitespace()
+    au VimEnter       *                   silent exec "!echo -ne '\e[1 q'"
+    au FileType       ruby                setlocal commentstring=#\ %s
+    au FileType       python              setlocal commentstring=#\ %s
+    au FileType       tex                 setlocal noautoindent
+    au BufNewFile     *                   let b:noWriteOnInsert=1 "if IsCurrentFileNew() | let b:noWriteOnInsert=1
+    au BufNewFile     *.sh                call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
+    "for some reason   vim does not detect shebangs unless this is here
+    au BufEnter       *                   exe ':filetype detect'
+    au BufEnter       *                   if expand('%:p:h') == "/home/xphyro/code/sh" && expand('%:e') == "" | se ft=sh
+    au BufEnter       *                   if &ft == 'sh' && IsFileEmpty() | call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
+    au BufEnter       *.vimrc             let b:noStripWhitespace=1
+    au BufEnter       *.log               let b:noWriteOnInsert=1
+    au BufEnter       *.tex               call ToggleYCMAutoComplete()
+    au BufEnter       Makefile,marks      set expandtab!
+    "if the user sav  ed a new file, activate auto-save
+    au BufWritePre    *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
+    au BufWritePre    *.py                silent! exe ":Black"
+    au BufWritePre    *                   call StripTrailingWhitespace()
+    au BufWinEnter    *                   if line("'\"") <= line("$") | normal! g`" | endif
 augroup END
 
 augroup actiongroup
-    au InsertLeave                  *                call s:WriteOnInsertLeave()
-    au BufWritePost                 sxhkdrc          silent! exe "!setxkb; restart-sxhkd"
-    au BufWritePost                 .Xresources      silent! exe "!xrdb -load ~/.Xresources"
-    au BufWritePre,FileWritePre     locations,files  silent! exe ":sort u" | silent! exe "!genrc"
+    au InsertLeave    *                   call s:WriteOnInsertLeave()
+    au FileWritePost  sxhkdrc             silent! exe "!setxkb; restart-sxhkd"
+    au BufWritePost   .Xresources         silent! exe "!xrdb -load ~/.Xresources"
+    au FileWritePost  locations,files     silent! exe "!setfl; genrc"
 augroup END
 
 let mapleader=","
@@ -408,7 +411,7 @@ Plug 'tpope/vim-repeat'
 Plug 'glts/vim-radical'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-Plug 'farmergreg/vim-lastplace'
+" Plug 'farmergreg/vim-lastplace'
 " Plug 'joonty/vim-do'
 Plug 'Ron89/thesaurus_query.vim'
 call plug#end()

@@ -77,23 +77,6 @@ mnt="/mnt"
 mntmb="/mnt/mybook"
 mntmbssh="/mnt/sshfs"
 
-BASHHIST="$HOME/.bash_history"
-BASHPROF="$HOME/.bash_profile"
-BASHRC="$HOME/.bashrc"
-ECHOSHRC="$HOME/.echo.shrc"
-GITCONFIG="$HOME/.gitconfig"
-IDEAVIMRC="$HOME/.ideavimrc"
-MIMEAPPS="$HOME/.config/mimeapps.list"
-SXHKDRC="$HOME/.config/sxhkd/sxhkdrc"
-VIMRC="$HOME/.vimrc"
-WORKOUT="$HOME/documents/data-dump/workout.log"
-XINITRC="$HOME/.xinitrc"
-XRESOURCES="$HOME/.Xresources"
-ZATHURARC="$HOME/.config/zathura/zathurarc"
-ZPROFILE="$HOME/.zprofile"
-ZSHHIST="$HOME/.zsh_history"
-ZSHRC="$HOME/.zshrc"
-
 pihole="192.168.1.100"
 
 bt="E8:07:BF:1B:A1:CB"
@@ -184,9 +167,7 @@ alias ngrep="netstat -tulpn | grep -i"
 alias pgrep="ps aux | grep -iE"
 alias ppgrep="/usr/bin/pgrep"
 alias ygrep="yay -Q | grep -i"
-alias zsgrep="cat $ZSHRC | grep -i"
-
-#alias find="find -regextype grep"
+alias zsgrep="cat \$( getfl zshrc ) | grep -i"
 
 alias ct="fcrontab -e"
 alias sct="sudo fcrontab -e"
@@ -225,26 +206,11 @@ alias mat="matlab &!"
 
 alias b="broot"
 alias me="mapexec"
-alias mea="mapexec -a"
-alias mem="mapexec -m"
-alias meu="mapexec -u"
-alias mew="mapexec -w"
 alias v="vim"
 
 alias sv="sudo v"
 
-alias td="todo"
-alias tdc="todo copy"
-alias tdd="todo delete"
-alias tddo="todo done"
-alias tde="todo edit"
-alias tdf="todo flush"
-alias tdh="todo --help"
-alias tdl="todo list"
-alias tdm="todo move"
-alias tdn="todo new"
-alias tds="todo show"
-alias tdy="todo cancel"
+alias f="fzfopen"
 
 PATH_OF_FD_BIN="$( where fd )"
 alias fd='cd "$('"$PATH_OF_FD_BIN"' -t d | fzf )"'
@@ -253,27 +219,27 @@ unset PATH_OF_FD_BIN
 alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
 
-alias vb="v $BASHRC"
+alias vb="v \$( getfl bashrc )"
 alias vc="v config.h"
 alias vcd="v config.def.h"
-alias ve="v $ECHOSHRC"
+alias ve="v \$( getfl echoshrc )"
 alias vg="v .gitignore"
-alias vgc="v $GITCONFIG"
-alias viv="v $IDEAVIMRC"
+alias vgc="v \$( getfl gitconfig )"
+alias viv="v \$( getfl ideavimrc )"
 alias vm="latexstp main > /dev/null 2>&1 &; v main.tex"
 alias vma="v Makefile"
 alias vmc="v main.c"
 alias vmem="sudo v /sys/power/{mem_sleep,state}"
-alias vmim="v $MIMEAPPS"
+alias vmim="v \$( getfl mimeapps )"
 alias vmt="v main.tex"
-alias vs="v $SXHKDRC && restart-sxhkd"
-alias vv="v $VIMRC"
-alias vw="v $WORKOUT"
-alias vx="v $XINITRC"
-alias vxr="v $XRESOURCES"
-alias vz="v $ZSHRC"
-alias vza="v $ZATHURARC"
-alias vzp="v $ZPROFILE"
+alias vs="v \$( getfl sxhkdrc ) && restart-sxhkd"
+alias vv="v \$( getfl vimrc )"
+alias vw="v \$( getfl workout )"
+alias vx="v \$( getfl xinitrc )"
+alias vxr="v \$( getfl xresources )"
+alias vz="v \$( getfl zshrc )"
+alias vza="v \$( getfl zathurarc )"
+alias vzp="v \$( getfl zprofile )"
 
 alias u="y && echo && update"
 alias uq="y && echo && update && exit"
@@ -716,21 +682,6 @@ g() {
     fi
 }
 
-f() {
-    while true
-    do
-        if [ "$#" -ne 0 ]
-        then
-            for i
-            do
-                fzfopen "$( getloc "$i" )" || break
-            done
-        else
-            fzfopen || break
-        fi
-    done
-}
-
 fq() {
     f "$@" && exit
 }
@@ -867,7 +818,9 @@ y() {
 }
 
 z() {
-    if [ "$#" -lt 2 ]
+    [ "$#" -eq 0 ] && return
+
+    if [ "$#" -eq 1 ]
     then
         zathura "$@" &!
     else
@@ -1046,22 +999,6 @@ md() {
 }
 
 gccc() {
-    # if [ "$2" = "" ]
-    # then
-    #     prg="program"
-    # else
-    #     prg="$2"
-    # fi
-
-    # if [ "$1" = "" ]
-    # then
-    #     fl="main.c"
-    # else
-    #     fl="$1"
-    # fi
-
-    #gcc "$fl" -o "$prg" && "./$prg"
-
     if [ "$1" = "clean" ] || [ "$1" = "c" ]
     then
         rm -f main.c program
