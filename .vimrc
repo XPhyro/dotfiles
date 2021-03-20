@@ -11,6 +11,8 @@ colorscheme deus
 "colorscheme jiks
 "colorscheme mojave
 
+"se viminfo='10,\"100,:20,%,n~/.viminfo "mark,line-for-register,command-history,save-and-restore-buffer-list,where-to-save-viminfo-viles
+
 syntax on
 se nu "number
 se rnu "relativenumber
@@ -61,6 +63,8 @@ se fileencoding=utf-8
 se wrap
 se nolist
 se linebreak
+
+se ul=10000
 
 se spelllang=en_gb
 setlocal spellfile=~/.vim/spell/en.utf-8.add
