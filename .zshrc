@@ -258,9 +258,9 @@ alias ysc="yes | yay -Sc"
 alias yss="yay -S"
 alias yu="yay -Syu"
 
-alias pacman-autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
+alias pacman-autoremove='sudo pacman -Rcns "$(pacman -Qdtq)"'
 alias pacman-list='LC_ALL=C pacman -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
-alias yay-autoremove="yay -Rcns $(yay -Qdtq)"
+alias yay-autoremove='yay -Rcns "$(yay -Qdtq)"'
 alias yay-list='LC_ALL=C yay -Qi | awk "/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}" | sort -h'
 
 alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
@@ -295,15 +295,8 @@ alias sus="systemctl --user status"
 
 alias xc="xclip -sel clip"
 alias xco="xclip -o -sel clip"
-alias xds="xset dpms force suspend" # TODO: Add a sleep version of this as a function.
-alias xdsq="xset dpms force suspend && exit" # TODO: Add a sleep version of this as a function.
 alias xevv="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\n\", \$5, \$8 }'"
-alias xkbd-fast="xset r rate 250 40"
-alias xkbd-slow="xset r rate 600 25"
-alias xkbset="setxkb"
 alias xr="xrandr"
-
-alias rwall="restart-wallpaper &!"
 
 alias netstat="sudo netstat"
 alias netstatt="netstat -tulpn"
@@ -336,16 +329,10 @@ alias mount="sudo mount"
 alias rc="sudo rclone"
 alias umount="sudo umount"
 
-alias iotop="sudo iotop"
-alias jnettop="sudo jnettop"
-alias powertop="sudo powertop"
-alias slabtop="sudo slabtop"
-
 alias btmon="sudo btmon"
 
 alias btctl="bluetoothctl"
 alias tlmgr="tllocalmgr"
-alias vol="pulseaudio-ctl"
 
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
@@ -471,13 +458,8 @@ alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -make
 
 alias syncp="rdfdow && symlinks -cr ~/downloads/p/ && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
 
-alias faceswap="python3.7 ~/.faceswap/faceswap/faceswap.py"
 alias w2x="waifu2x-converter-cpp"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
-
-alias ggl="googler"
-alias gpupig='gpupdo "$( getloc igg )"'
-alias trickle-gpupig='sudo trickled -d 1000 -u 400 &!; trickle gpupdo "$( getloc igg )"'
 
 alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
 alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
@@ -717,8 +699,6 @@ r() {
 }
 
 sr() {
-    # sudo zsh -c "$( declare -f r ); r"
-    
     tmp="$( sudo mktemp )"
     sudo ranger --choosedir="$tmp" --confdir="$HOME/.config/ranger" . "$@"
     [ -f "$tmp" ] && {
@@ -914,14 +894,15 @@ gacmm() {
 }
 
 gacma() {
+    [ "$#" -lt 2 ] && return 1
     message="$1"
     shift
-    [ "$#" = 1 ] && {
+    if [ "$#" = 1 ]
+    then
         git add "$1" && git commit -m "$message $1"
-        return
-    }
-
-    git add "$@" && git commit -m "$message $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' )"
+    else
+        git add "$@" && git commit -m "$message $( printf "%s, " "$@" | sed 's/, \([^ ]*\), $/ and \1/' )"
+    fi
 }
 
 gacmc() {
