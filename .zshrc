@@ -616,6 +616,35 @@ m() {
     printf "Mark $mark does not exist.\n"
 }
 
+g() {
+    [ -n "$2" ] && { 
+        printf "Only one argument is accepted.\n"
+        return 1
+    }
+
+    [ -z "$1" ] && {
+        cd
+        return 0
+    }
+
+    dir="$( getlocall "$1" )"
+
+    if [ -d "$dir" ]
+    then
+        changemark ¬ "$PWD"
+        cd "$dir"
+    else
+        printf "No such directory.\n"
+        return 1
+    fi
+}
+
+mg() {
+    # TODO: Implement.
+    echo "To be implemented."
+    return 1
+}
+
 eal() {
     if [ "$#" = "1" ]
     then
@@ -640,29 +669,6 @@ watchal() {
     expal="$( eal "$1" )"
     shift
     watch "$@" $expal
-}
-
-g() {
-    [ -n "$2" ] && { 
-        printf "Only one argument is accepted.\n"
-        return 1
-    }
-
-    [ -z "$1" ] && {
-        cd
-        return 0
-    }
-
-    dir="$( getlocall "$1" )"
-
-    if [ -d "$dir" ]
-    then
-        changemark ¬ "$PWD"
-        cd "$dir"
-    else
-        printf "No such directory.\n"
-        return 1
-    fi
 }
 
 fq() {
