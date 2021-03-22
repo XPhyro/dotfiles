@@ -2,8 +2,8 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE="$HOME/.dotfiles-sensitive/.zsh_history"
 export HISTCONTROL="ignorespace"
 
-export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/bin/usr"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/code/sh"
 export PATH="$PATH:$HOME/.vim/bundle/vim-live-latex-preview/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
@@ -18,6 +18,11 @@ export EDITOR="vim"
 export PAGER="less"
 export READER="zathura"
 export TERMINAL="st"
+export VISUAL="vim"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 export MDV_THEME=663.6093
 
