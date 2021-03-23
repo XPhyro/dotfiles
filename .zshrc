@@ -415,8 +415,10 @@ alias gt="git tag"
 alias gvb="git version-bump"
 
 alias ltxs="latexstp"
-alias ltxso="latexstp '' -o"
-alias ltxsoq="latexstp '' -o && exit"
+alias ltxso="latexstp -o main"
+alias ltxsof="latexstp -of main"
+alias ltxsofq="latexstp -of main && exit"
+alias ltxsoq="latexstp -o main && exit"
 
 alias vpn="sudo protonvpn"
 
