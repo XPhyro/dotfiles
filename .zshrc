@@ -936,7 +936,7 @@ gacmf() {
     gacma Format "$@"
 }
 
-gacmf() {
+gacmo() {
     gacma Optimise "$@"
 }
 
