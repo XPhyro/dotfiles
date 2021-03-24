@@ -26,9 +26,11 @@ openpdfs() {
 statbar() {
     sleep 3
 
-    find "$( getloc statbar )" -mindepth 1 -maxdepth 1 -type f | while read -r i
+    cachedir="$XDG_CACHE_HOME"
+    [ -z "$cachedir" ] && cachedir="$HOME/.cache"
+    find "$cachedir/statbar" -mindepth 1 -maxdepth 1 -type f | while read -r i
     do
-        eval "$( printf "%s" | sed 's/^[0-9]*_//' )"
+        eval "$( printf "%s" | sed -E 's/^[0-9]+(\.[0-9]+)?_//' )"
     done
 
     statbarset
@@ -36,11 +38,6 @@ statbar() {
 
 xdotool key Num_Lock
 setxkbtick &
-
-# [ "$( ps aux | grep -E "^xphyro.+tty1.+dwm$" | grep -v grep )" ] && {
-#     startplasma-x11
-#     exit
-# }
 
 xcompmgr -c -o 0 &
 hsetroot
@@ -53,8 +50,6 @@ nm-applet &
 
 tpcycle &
 clplog &
-statbartick &
-tglapp -T on -- syncmailtick &
 tglapp -T on -- redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
 
 openpdfs &

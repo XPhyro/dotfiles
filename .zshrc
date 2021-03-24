@@ -936,6 +936,10 @@ gacmf() {
     gacma Format "$@"
 }
 
+gacmf() {
+    gacma Optimise "$@"
+}
+
 # gpsaa() {
 #     if [ "$1" ]
 #     then
