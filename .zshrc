@@ -774,7 +774,7 @@ p() {
 
     pec="$?"
 
-    (statbarsetavlsyu && statbaravlsyu && statbarset) &!
+    {statbarsetavlsyu && statbaravlsyu && statbarset;} &!
 
     return "$pec"
 }
@@ -803,7 +803,7 @@ y() {
 
     yec="$?"
 
-    (statbarsetavlsyu && statbaravlsyu && statbarset) &!
+    {statbarsetavlsyu && statbaravlsyu && statbarset;} &!
 
     return "$yec"
 }
