@@ -69,7 +69,7 @@ super + alt + {minus, equal, underscore, plus}
 super + alt + ctrl + {underscore, plus, u, k, m}
     {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, dmenuunicode, kmcycle; statbarkm; statbarset, manpdf}
 shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
-    mprisctl {prev, next, playpause, stop, open "$( getmprisuri --detect )"}
+    mprisctl {prev, next, playpause, stop, open "$( etmprisuri --detect )"}
 # shift + super + p
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
@@ -81,6 +81,8 @@ shift + super + alt + m
 ctrl + shift + super + alt + m
     view-music -c firefox
 super + {KP_Divide, KP_Multiply}
+    transset-df -a {--dec, --inc} 0.05
+{XF86AudioLowerVolume, XF86AudioRaiseVolume}
     transset-df -a {--dec, --inc} 0.05
 alt + F4
     xdotool key F12
