@@ -212,14 +212,14 @@ augroup configgroup
     au BufEnter       *.log               let b:noWriteOnInsert=1
     au BufEnter       *.tex               call ToggleYCMAutoComplete()
     au BufEnter       Makefile,marks      set expandtab!
-    "if the user sav  ed a new file, activate auto-save
+    "if the user saved a new file, activate auto-save
     au BufWritePre    *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
     au BufWritePre    *.py                silent! exe ":Black"
     au BufWritePre    *                   call StripTrailingWhitespace()
 augroup END
 
 augroup actiongroup
-    au InsertLeave    *                   call s:WriteOnInsertLeave()
+    "au InsertLeave    *                   call s:WriteOnInsertLeave()
     au FileWritePost  sxhkdrc             silent! exe "!setxkb; restart-sxhkd"
     au BufWritePost   .Xresources         silent! exe "!xrdb -load ~/.Xresources"
     au BufWritePost   locations,files     silent! exe "!setfl; genrc"
@@ -415,6 +415,7 @@ Plug 'tpope/vim-abolish'
 Plug 'farmergreg/vim-lastplace'
 " Plug 'joonty/vim-do'
 Plug 'Ron89/thesaurus_query.vim'
+Plug '907th/vim-auto-save'
 call plug#end()
 
 "set visual-increment types
@@ -435,6 +436,9 @@ let g:ycm_key_list_next_completion=['<C-i>']
 let g:UltiSnipsExpandTrigger=";e"
 let g:UltiSnipsJumpForwardTrigger=";w"
 let g:UltiSnipsJumpBackwardTrigger=";b"
+
+let g:auto_save=1
+let g:auto_save_silent=1
 
 """tex-conceal
 ""set conceallevel=1
