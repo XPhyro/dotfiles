@@ -5,6 +5,10 @@
 ##
 #
 
+super + shift + BackSpace
+    $TERMINAL
+super + p
+    dmenu_run
 ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
     $TERMINAL -e sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
 ctrl + alt + m; ctrl + alt + {m, s}
@@ -75,8 +79,10 @@ shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
     {clplogynk, clpfilter uniqs, clpfilter sort, clpprint, yank}
-shift + super + alt + {d, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
-    {dismissnotif, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
+shift + super + alt + {d, h, n, c, i}
+    dunstctl {close, history-pop, set-paused toggle, context, is-paused}
+shift + super + alt + {k, p, F2, F3, F5, F7, F9, F10, F11, F12}
+    {kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
 shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m

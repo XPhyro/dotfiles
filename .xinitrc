@@ -41,7 +41,7 @@ xcompmgr -c -o 0 &
 hsetroot
 
 sxhkd &
-/usr/lib/notification-daemon-1.0/notification-daemon &
+dunst &
 notiflog &
 flameshot &
 nm-applet &
