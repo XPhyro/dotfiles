@@ -138,6 +138,13 @@ fun! ToggleWriteOnInsertLeave()
     else
         let b:noWriteOnInsert=1
     endif
+    if exists('g:auto_save')
+        if g:auto_save == 1
+            let g:auto_save=0
+        else
+            let g:auto_save=1
+        endif
+    endif
 endfun
 
 fun! s:NextTextObject(motion)
