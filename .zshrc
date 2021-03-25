@@ -940,6 +940,10 @@ gacmo() {
     gacma Optimise "$@"
 }
 
+gacmt() {
+    gacma "Add TODO comment in" "$@"
+}
+
 # gpsaa() {
 #     if [ "$1" ]
 #     then
