@@ -416,6 +416,9 @@ alias gsuno="git status -uno"
 alias gt="git tag"
 alias gvb="git version-bump"
 
+alias w="watson"
+alias wl="watson log"
+
 alias ltxs="latexstp"
 alias ltxso="latexstp -o main"
 alias ltxsof="latexstp -of main"
