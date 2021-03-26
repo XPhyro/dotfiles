@@ -72,15 +72,15 @@ super + {F1, F2, F3}
 super + alt + {minus, equal, underscore, plus}
     {brightdown, brightup, brightmute, brightset}
 super + alt + ctrl + {underscore, plus, u, k, m}
-    {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, dmenuunicode, kmcycle; statbarkm; statbarset, manpdf}
+    {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, yankunicode, kmcycle; statbarkm; statbarset, manpdf}
 shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
     mprisctl {prev, next, playpause, stop, open "$( etmprisuri --detect )"}
 # shift + super + p
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
     {clplogynk, clpfilter uniqs, clpfilter sort, clpprint, yank}
-shift + super + alt + {d, h, n, c, i}
-    dunstctl {close, history-pop, set-paused toggle, context, is-paused}
+shift + super + alt + {d, h, n, c}
+    dunstctl {close, history-pop, set-paused toggle; statbarnotif; statbarset, context}
 shift + super + alt + {k, p, F2, F3, F5, F7, F9, F10, F11, F12}
     {kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
 shift + super + alt + m
