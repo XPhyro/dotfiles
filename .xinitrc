@@ -40,7 +40,7 @@ setxkbtick &
 xcompmgr -c -o 0 &
 hsetroot
 
-sxhkd &
+tglapp -T on -- sxhkd &
 dunst &
 notiflog &
 flameshot &
