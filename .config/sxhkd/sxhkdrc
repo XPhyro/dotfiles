@@ -5,7 +5,7 @@
 ##
 #
 
-super + shift + BackSpace
+super + shift + Return
     $TERMINAL
 super + p
     dmenu_run
