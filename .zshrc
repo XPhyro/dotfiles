@@ -1035,5 +1035,3 @@ source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.autojump/share/autojump/autojump.zsh
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
-
-# todo list
