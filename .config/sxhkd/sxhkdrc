@@ -70,7 +70,7 @@ super + ctrl + {minus, equal, underscore}
 super + {F1, F2, F3}
     {todo, wowmacro toggle dmenu, volmicmute; statbarvolmic; statbarset}
 super + alt + {minus, equal, underscore, plus}
-    {brightdown, brightup, brightmute, brightset}
+    {brightch 5%-, brightch +5%, brightmute, brightset}
 super + alt + ctrl + {underscore, plus, u, k, m}
     {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, yankunicode, kmcycle; statbarkm; statbarset, manpdf}
 shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
