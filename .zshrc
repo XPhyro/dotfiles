@@ -564,6 +564,7 @@ changemark() {
 }
 
 ¬() {
+    # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation.
     catfl mrk | while read -r i
     do
         mrk="$( printf "%s" "$i" | awk '{print $1}' )"
