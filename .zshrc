@@ -417,7 +417,11 @@ alias gt="git tag"
 alias gvb="git version-bump"
 
 alias w="watson"
+alias we="watson edit"
 alias wl="watson log"
+alias woff="watson stop"
+alias won="watson start"
+alias ws="watson status"
 
 alias ltxs="latexstp"
 alias ltxso="latexstp -o main"
