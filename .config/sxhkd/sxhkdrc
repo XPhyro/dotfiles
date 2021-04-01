@@ -46,7 +46,7 @@ ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a}
 ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
     tglapp freetube
 ctrl + super + {o, k, p}
-    {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp pavucontrol}
+    {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp -a pavucontrol}
 ctrl + alt + shift + b
     swp /home/xphyro/.local/share/applications/browser.desktop /home/xphyro/.local/share/applications/browser-other.desktop; statbarbrowser; statbarset
 ctrl + alt + s; ctrl + alt + {c, e, a}
