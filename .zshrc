@@ -345,8 +345,6 @@ alias lpbkon="pactl load-module module-loopback latency_msec=1"
 alias ga.="git add ."
 alias ga="git add"
 alias gacm="git add . && git commit -m"
-alias gacmre='git add . && git commit -m "Update README.md"'
-alias gacmto='git add . && git commit -m "Update TODO.md"'
 alias gb="git branch"
 alias gba="git branch -a"
 alias gbav="git branch -av"
@@ -494,53 +492,9 @@ fork() {
     ("$@") &!
 }
 
-t() {
-    [ "$#" -eq 0 ] && return 1
-    n="$1"
-    shift
-    time (for _ in {1.."$n"}; do "$@"; done)
-}
-
-tn() {
-    [ "$#" -eq 0 ] && return 1
-    n="$1"
-    shift
-    time (for _ in {1.."$n"}; do {"$@"} > /dev/null; done)
-}
-
-dountil() {
-    until eval "$@"
-    do
-        :
-    done
-}
-
-dowhile() {
-    while eval "$@"
-    do
-        :
-    done
-}
-
-zsudo() {
-    sudo zsh -c "$functions[$1]" "$@"
-}
-
 hist() {
     [ "$1" ] && return
     [[ "$@" ]] && fc -li -$@ || fc -li 0
-}
-
-manb() {
-    if [ -z "$1" ]
-    then
-        man bash | less +/^SHELL\ BUILTIN\ COMMANDS$
-    elif [ -z "$2" ]
-    then
-        man bash | less +/^SHELL\ BUILTIN\ COMMANDS$''/"^       $1"''/"$1"
-    else
-        printf "Only one argument is accepted.\n"
-    fi
 }
 
 cd() {
@@ -677,15 +631,6 @@ eal() {
     done
 }
 
-watchal() {
-    expal="$( eal "$1" )"
-    shift
-    watch "$@" $expal
-}
-
-fq() {
-    f "$@" && exit
-}
 
 l() {
     tmp="$( mktemp )"
@@ -727,64 +672,12 @@ sr() {
     }
 }
 
-grl() {
-    g "$@" && l
-}
-
-gsrl() {
-    g "$@" && sl
-}
-
 gr() {
     g "$@" && r
 }
 
-gsr() {
-    g "$@" && sr
-}
-
-@rl() {
-    @ "$@" && l
-}
-
-@srl() {
-    @ "$@" && sl
-}
-
 @r() {
     @ "$@" && r
-}
-
-@sr() {
-    @ "$@" && sr
-}
-
-p() {
-    hasopt=0
-
-    for i in
-    do
-        [ "${i:0:1}" = "-" ] && {
-            hasopt=1
-            break
-        }
-    done
-
-    if [ "$hasopt" = "1" ]
-    then
-        sudo pacman "$@"
-    elif [ "$#" -ne 0 ]
-    then
-        sudo pacman -S "$@"
-    else
-        sudo pacman -Syu
-    fi
-
-    pec="$?"
-
-    {statbarsetavlsyu && statbaravlsyu && statbarset;} &!
-
-    return "$pec"
 }
 
 # TODO: Make y do -S instead of -Syu when trying to install a package that is not installed.
@@ -830,7 +723,7 @@ z() {
 to() {
     for i
     do
-        [ -d "$i" -o -f "$i" ] && {
+        [ -e "$i" ] && {
             touch "$i"
             continue
         }
@@ -892,36 +785,12 @@ gcld() {
     [ -d "$dir" ] && cd "$dir"
 }
 
-gaf() {
-    find . -name "$1" -exec git add {} \;
-}
-
-gcmp() {
-    git commit -m "$1" && git push
-}
-
 gcmm() {
     git commit -m "$1" -m "$2"
 }
 
-gcmmp() {
-    git commit -m "$1" -m "$2" && git push
-}
-
 gacmm() {
     git add . && gcmm "$@"
-}
-
-gacma() {
-    [ "$#" -lt 2 ] && return 1
-    message="$1"
-    shift
-    if [ "$#" = 1 ]
-    then
-        git add "$1" && git commit -m "$message $1"
-    else
-        git add "$@" && git commit -m "$message $( printf "%s, \n" "$@" | sort | tr -d '\n' | sed 's/, \([^ ]*\), $/ and \1/' )"
-    fi
 }
 
 gacmc() {
@@ -952,68 +821,12 @@ gacmt() {
     gacma "Add TODO comment in" "$@"
 }
 
-# gpsaa() {
-#     if [ "$1" ]
-#     then
-#         git push "$1" && git push --tags "$1"
-#     else
-#         git push && git push --tags
-#     fi
-# }
-
-gdo() {
-    if [ "$3" ]
-    then
-        git add "$1" && git commit -m "$2" -m "$3" && git push "$4" "$5" "$6"
-    elif [ "$2" ]
-    then
-        git add . && git commit -m "$1" -m "$2" && git push
-    elif [ "$1" ]
-    then
-        git add . && git commit -m "$1" && git push
-    else
-        printf "No arguments given.\n"
-    fi
-}
-
-gdoom() {
-    git branch -u origin/master
-    gdo "$@"
-}
-
-gdoe() {
-    gdo "$@"
-    exit
-}
-
 greshh() {
     git reset --hard "HEAD~$1"
 }
 
 gressh() {
     git reset --soft "HEAD~$1"
-}
-
-md() {
-    if [ "$@" ]
-    then
-        mdv "$@"
-    else
-        for i in *.md
-        do
-            mdv "$i"
-        done
-    fi
-}
-
-gccc() {
-    if [ "$1" = "clean" ] || [ "$1" = "c" ]
-    then
-        rm -f main.c program
-        return
-    fi
-
-    gcc main.c -Wall -o program && ./program "$@"
 }
 
 #
