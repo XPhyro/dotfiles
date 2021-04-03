@@ -508,26 +508,13 @@ cd() {
     builtin cd "$dir"
 }
 
-changemark() {
-    mark="$1"
-    val="$2"
-    mrkfl="$( getfl mrk )"
-
-    [ "$mark" = "¬" ] || {
-        printf "Overwrite mark [$mark]? (y/N)\nCurrent value: $( grep "^$mark\s" "$mrkfl" | sed 's/^[^ ]*\s*\|\s*$//g' )\nNew value    : $val\n"
-        equals "$( readchar )" Y y || return
-    }
-
-    gawk -i inplace -v mrkfl="$mark" -v val="$val" '$1 == mrkfl {$2=val}1' "$mrkfl"
-}
-
 ¬() {
     # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation.
     catfl mrk | while read -r i
     do
         mrk="$( printf "%s" "$i" | awk '{print $1}' )"
         [ "$mrk" = "¬" ] && {
-            changemark ¬ "$PWD"
+            cm ¬ "$PWD"
             cd "$( printf "%s" "$i" | awk '{print $2}' | expandpath )"
             return
         }
@@ -536,25 +523,6 @@ changemark() {
     printf "Could not find the previous mark.\n"
 }
 
-m() {
-    mark="$1"
-
-    mrkfl="$( getfl mrk )"
-
-    if [ "$2" ]
-    then
-        val="$( realpath "$2" )"
-    else
-        val="$PWD"
-    fi
-
-    grep -Eq "$mark\s" "$mrkfl" && { 
-        changemark "$mark" "$val"
-        return
-    }
-
-    printf "%s %s\n" "$mark" "$val" >> "$mrkfl"
-}
 
 @() {
     mark="$1"
@@ -597,18 +565,12 @@ g() {
 
     if [ -d "$dir" ]
     then
-        changemark ¬ "$PWD"
+        cm ¬ "$PWD"
         cd "$dir"
     else
         printf "No such directory.\n"
         return 1
     fi
-}
-
-mg() {
-    # TODO: Implement.
-    echo "To be implemented."
-    return 1
 }
 
 eal() {
