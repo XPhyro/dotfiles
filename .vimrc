@@ -229,7 +229,7 @@ augroup actiongroup
     "au InsertLeave    *                   call s:WriteOnInsertLeave()
     au FileWritePost  sxhkdrc             silent! exe "!setxkb; restart-sxhkd"
     au BufWritePost   .Xresources         silent! exe "!xrdb -load ~/.Xresources"
-    au BufWritePost   locations,files     silent! exe "!setfl; genrc"
+    au FileWritePost  locations,files     silent! exe "!setfl; genrc"
 augroup END
 
 let mapleader=","

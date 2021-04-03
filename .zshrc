@@ -90,7 +90,7 @@ mpow="EB:06:EF:5D:4F:4D"
 ##
 #
 
-alias bgq="bg && disown && exit"
+alias bgq="bg 2> /dev/null; disown && exit"
 
 alias mp="modprobe"
 alias mpr="modprobe -r"

@@ -7,12 +7,6 @@ setupxr() {
     xrh
 }
 
-setupaudio() {
-    sleep 2
-    pulseaudio --start
-}
-
-
 openpdfs() {
     sleep 2.5
 
