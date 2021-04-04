@@ -422,10 +422,8 @@ alias won="watson start"
 alias ws="watson status"
 
 alias ltxs="latexstp"
-alias ltxso="latexstp -o main"
-alias ltxsof="latexstp -of main"
-alias ltxsofq="latexstp -of main && exit"
-alias ltxsoq="latexstp -o main && exit"
+alias ltxso="ltxs -of main"
+alias ltxsoq="ltxso && exit"
 
 alias vpn="sudo protonvpn"
 
