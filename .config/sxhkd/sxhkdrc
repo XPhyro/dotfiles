@@ -79,8 +79,8 @@ shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
     mprisctl {prev, next, playpause, stop, open "$( etmprisuri --detect )"}
 # shift + super + p
 #     j4-dmenu-desktop
-shift + super + alt + y; shift + super + alt + {y, u, s, p, a}
-    {clplogynk, clpfilter uniqs, clpfilter sort, clpprint, yank}
+shift + super + alt + y; shift + super + alt + {y, u, s, n, r, p, a}
+    {clplogynk, clpfilter uniqs, clpfilter sort, clpfilter tr '\n' ' ', clpfilter tac, clpprint, yank}
 shift + super + alt + {d, h, n, c}
     dunstctl {close, history-pop, set-paused toggle; statbarnotif; statbarset, context}
 shift + super + alt + {s, k, p, F2, F3, F5, F7, F9, F10, F11, F12}

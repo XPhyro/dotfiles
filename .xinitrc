@@ -34,6 +34,7 @@ setxkbtick &
 xcompmgr -c -o 0 &
 hsetroot
 
+setxkb
 tglapp -T on -- sxhkd &
 dunst &
 notiflog &
