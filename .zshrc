@@ -207,6 +207,7 @@ alias mat="matlab &!"
 alias b="broot"
 alias me="mapexec"
 alias v="vim"
+alias nv='nvim -u "$( getfl vimrc )"'
 
 alias sv="sudo v"
 
