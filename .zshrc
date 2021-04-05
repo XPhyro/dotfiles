@@ -462,7 +462,7 @@ alias rdf="rdfind"
 alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-p-log.XXXXXX )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-log.XXXXXX )" -dryrun false ~/downloads'
 alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfl-log.XXXXXX )" -dryrun false'
 alias rdfp='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfp-log.XXXXXX )" -dryrun false ~/archive/p/p'
-alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates false -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
+alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
 
 alias syncp="rdfdow && symlinks -cr ~/downloads/p/ && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
 
