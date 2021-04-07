@@ -83,8 +83,8 @@ shift + super + alt + y; shift + super + alt + {y, u, s, n, r, p, a}
     {clplogynk, clpfilter uniqs, clpfilter sort, clpfilter tr '\n' ' ', clpfilter tac, clpprint, yank}
 shift + super + alt + {d, h, n, c}
     dunstctl {close, history-pop, set-paused toggle; statbarnotif; statbarset, context}
-shift + super + alt + {s, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
-    {search, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
+shift + super + alt + {u, s, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
+    {tglapp -- unclutter --idle 1, search, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
 shift + super + alt + m
     view-music
 ctrl + shift + super + alt + m
