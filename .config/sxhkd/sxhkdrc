@@ -42,9 +42,9 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, w, c}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a}
-    {tglapp -- $TERMINAL -e spt, tglapp musescore, tglapp matlab}
+    {tglapp -a -- $TERMINAL -e spt, tglapp -a musescore, tglapp -a matlab}
 ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
-    tglapp freetube
+    tglapp -a freetube
 ctrl + super + {o, i, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp -a pavucontrol}
 ctrl + alt + shift + b
