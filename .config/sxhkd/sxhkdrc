@@ -24,7 +24,7 @@ ctrl + alt + r; ctrl + alt + {q, w}
 ctrl + alt + s; ctrl + alt + {s, d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
-    {tglapp stalonetray, $BROWSER, $BROWSER --incognito, tglapp lightcord, $BROWSER --new-window "http://localhost:8989/", $BROWSER --new-window "http://localhost:9117/", $BROWSER --new-window "http://localhost:24589", $BROWSER --new-window "192.168.1.1"}
+    {tglapp stalonetray, $BROWSER, $BROWSER --incognito, tglapp -a lightcord, $BROWSER --new-window "http://localhost:8989/", $BROWSER --new-window "http://localhost:9117/", $BROWSER --new-window "http://localhost:24589", $BROWSER --new-window "192.168.1.1"}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + f; ctrl + alt + {i, p}
     firefox {_, --private-window}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + c; ctrl + alt + {i, p, a}
@@ -38,14 +38,14 @@ ctrl + alt + o; ctrl + alt + p; ctrl + alt + b; ctrl + alt + {w}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + r; ctrl + alt + {e}
     {xdg-reopen}
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, w, c}
-    {steam, open-steam, tglapp ModOrganizer2, wowstart, wowsim}
+    {tglapp -a steam, open-steam, tglapp ModOrganizer2, wowstart, wowsim}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a}
     {tglapp -- $TERMINAL -e spt, tglapp musescore, tglapp matlab}
 ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
     tglapp freetube
-ctrl + super + {o, k, p}
+ctrl + super + {o, i, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp -a pavucontrol}
 ctrl + alt + shift + b
     swp /home/xphyro/.local/share/applications/browser.desktop /home/xphyro/.local/share/applications/browser-other.desktop; statbarbrowser; statbarset
@@ -75,8 +75,8 @@ super + alt + {minus, equal, underscore, plus}
     {brightch 5%-, brightch +5%, brightmute, brightset}
 super + alt + ctrl + {underscore, plus, u, k, m}
     {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, yankunicode, kmcycle; statbarkm; statbarset, manpdf}
-shift + super + alt + c; shift + super + alt + {h, l, j, k, o}
-    mprisctl {prev, next, playpause, stop, open "$( etmprisuri --detect )"}
+ctrl + super + {h, l, j, k}
+    mprisctl {prev, next, playpause, stop}
 # shift + super + p
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, n, r, p, a}
