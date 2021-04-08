@@ -26,6 +26,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CURRENT_DESKTOP=kde
 
 export MDV_THEME=663.6093
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && {
     export XDG_SESSION_TYPE=x11
