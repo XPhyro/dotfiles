@@ -779,7 +779,9 @@ gacmo() {
 }
 
 gacmt() {
-    gacma "Add TODO comment in" "$@"
+    plural=""
+    [ "$#" -gt 1 ] && plural="s"
+    gacma "Add TODO comment$plural in" "$@"
 }
 
 greshh() {
