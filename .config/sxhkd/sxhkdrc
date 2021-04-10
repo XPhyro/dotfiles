@@ -1,5 +1,6 @@
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
 # TODO: Use fn+KEY on k380.
+# TODO: Add yay -Syu and yay -Syu && update as shortcuts with dwmpad.
 
 ### Programs ###
 ##
@@ -44,7 +45,7 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, w, c}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a}
-    {tglapp -a -- $TERMINAL -e spt, tglapp -a musescore, tglapp -a matlab}
+    {dwmpad spt, tglapp -a musescore, tglapp -a matlab}
 ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
     tglapp -a freetube
 ctrl + super + {o, i, p}
@@ -77,8 +78,8 @@ super + alt + {minus, equal, underscore, plus}
     {brightch 5%-, brightch +5%, brightmute, brightset}
 super + alt + ctrl + {underscore, plus, u, k, m}
     {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, yankunicode, kmcycle; statbarkm; statbarset, manpdf}
-ctrl + super + {h, l, j, k}
-    mprisctl {prev, next, playpause, stop}
+ctrl + super + {h, j, k, l}
+    stp pb {--previous, --toggle, --like, --next}
 # shift + super + p
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, n, r, p, a}
