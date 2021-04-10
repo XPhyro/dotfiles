@@ -146,6 +146,7 @@ alias cfd="sudo cfdisk"
 alias cfdn="sudo cfdisk /dev/nvme0n1"
 alias mount="sudo mount"
 alias sfd="sudo fdisk"
+alias sfdl="sudo fdisk -l"
 
 alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
 alias dffsw="watch -n 5 'df -h | head -n 1; df -h | grep ^/dev/ --color=never'"
@@ -206,6 +207,7 @@ alias mat="matlab &!"
 
 alias b="broot"
 alias me="mapexec"
+alias ce="contexec"
 alias v="vim"
 alias nv='nvim -u "$( getfl vimrc )"'
 
@@ -233,7 +235,7 @@ alias vmc="v main.c"
 alias vmem="sudo v /sys/power/{mem_sleep,state}"
 alias vmim="v \$( getfl mimeapps )"
 alias vmt="v main.tex"
-alias vs="v \$( getfl sxhkdrc ) && restart-sxhkd"
+alias vs="v \$( getfl sxhkdrc ) && killall sxhkd && restart-sxhkd"
 alias vv="v \$( getfl vimrc )"
 alias vw="v \$( getfl workout )"
 alias vx="v \$( getfl xinitrc )"
@@ -293,6 +295,8 @@ alias suoff="systemctl --user stop"
 alias suon="systemctl --user start"
 alias sure="systemctl --user restart"
 alias sus="systemctl --user status"
+
+alias rs="ka sxhkd 2> /dev/null; setxkb; restart-sxhkd"
 
 alias xc="xclip -sel clip"
 alias xco="xclip -o -sel clip"
