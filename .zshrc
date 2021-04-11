@@ -35,26 +35,26 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zmodload zsh/complist
 _comp_options+=(globdots)       # Include hidden files.
 
-# # vi mode
-# KEYTIMEOUT=5
-# 
-# # Use vim keys in tab complete menu:
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -v '^?' backward-delete-char
-# 
-# # Change cursor shape for different vi modes.
-# function zle-keymap-select {
-#     if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]
-#     then
-#         echo -ne '\e[1 q'
-#     elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]
-#     then
-#         echo -ne '\e[5 q'
-#     fi
-# }
+# vi mode
+KEYTIMEOUT=5
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]
+    then
+        echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]
+    then
+        echo -ne '\e[5 q'
+    fi
+}
 
 zle -N zle-keymap-select
 
@@ -214,6 +214,7 @@ alias nv='nvim -u "$( getfl vimrc )"'
 alias sv="sudo v"
 
 alias f="fzfopen"
+alias fx="fzfx"
 
 PATH_OF_FD_BIN="$( where fd )"
 alias fd='cd "$('"$PATH_OF_FD_BIN"' -t d | fzf )"'
@@ -482,6 +483,8 @@ alias uh="~/programs/squashfs-root/unityhub"
 alias ddad="dragon-drag-and-drop -a -x"
 
 alias tetris="autoload -Uz tetriscurses && tetriscurses"
+
+alias antigen="echo n | antigen-hs-setup"
 
 #
 ##
@@ -817,39 +820,28 @@ bindkey '^v' edit-command-line
 ### END KEYMAP ###
 
 source ~/.autojump/share/autojump/autojump.zsh
+source ~/.zsh/antigen-hs/init.zsh
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-source /usr/share/zsh/share/antigen.zsh
-    antigen use oh-my-zsh
-    antigen bundle command-not-found
-    antigen bundle git
-    antigen bundle heroku
-    antigen bundle lein
-    antigen bundle pip
-    antigen bundle zsh-users/zsh-completions
-    # antigen bundle zsh-users/zsh-syntax-highlighting
-    # antigen theme robbyrussell
-antigen apply
-
-# vi mode
-KEYTIMEOUT=5
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -v '^?' backward-delete-char
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-    if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]
-    then
-        echo -ne '\e[1 q'
-    elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]
-    then
-        echo -ne '\e[5 q'
-    fi
-}
+# # vi mode
+# KEYTIMEOUT=5
+# 
+# # Use vim keys in tab complete menu:
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
+# bindkey -v '^?' backward-delete-char
+# 
+# # Change cursor shape for different vi modes.
+# function zle-keymap-select {
+#     if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]
+#     then
+#         echo -ne '\e[1 q'
+#     elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]
+#     then
+#         echo -ne '\e[5 q'
+#     fi
+# }
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
