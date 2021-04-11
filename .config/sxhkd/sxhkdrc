@@ -79,7 +79,7 @@ super + alt + {minus, equal, underscore, plus}
 super + alt + ctrl + {underscore, plus, u, k, m}
     {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, yankunicode, kmcycle; statbarkm; statbarset, manpdf}
 ctrl + super + {h, j, k, l}
-    stp pb {--previous, --toggle, --like, --next}
+    spt pb {--previous, --toggle, --like, --next}
 # shift + super + p
 #     j4-dmenu-desktop
 shift + super + alt + y; shift + super + alt + {y, u, s, n, r, p, a}
