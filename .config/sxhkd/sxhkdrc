@@ -1,6 +1,6 @@
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
 # TODO: Use fn+KEY on k380.
-# TODO: Add yay -Syu and yay -Syu && update as shortcuts with dwmpad.
+# TODO: Merge yay -Syu and update into a single dwmpad. Currently dwmpad does not support ';'.
 
 ### Programs ###
 ##
@@ -12,6 +12,8 @@ super + p
     dmenu_run
 super + {apostrophe, numbersign, Menu}
     dwmpad {scratchpad, popcalc, popcal}
+ctrl + alt + y; ctrl + alt + {y, u}
+    dwmpad {yay -Syu, update}
 ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
     $TERMINAL -e sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
 ctrl + alt + m; ctrl + alt + {m, s}
