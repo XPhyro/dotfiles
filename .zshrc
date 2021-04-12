@@ -304,6 +304,8 @@ alias xco="xclip -o -sel clip"
 alias xevv="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\n\", \$5, \$8 }'"
 alias xr="xrandr"
 
+alias pmap="sudo pmap"
+
 alias netstat="sudo netstat"
 alias netstatt="netstat -tulpn"
 
@@ -407,6 +409,7 @@ alias grests.="git restore --staged ."
 alias grests="git restore --staged"
 alias grm="git rm"
 alias grmc="git rm --cached"
+alias gsh="git show"
 alias gsma="git submodule add"
 alias gsmuir="git submodule update --init --recursive"
 alias gst="git stash"
