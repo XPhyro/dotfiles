@@ -319,12 +319,13 @@ nnoremap <Leader>cl :se cursorline!<CR>
 nnoremap <Leader>cs :colorscheme DarkDefault<CR>:colorscheme 
 "ycm
 nnoremap <Leader>cm :call ToggleYCMAutoComplete()<CR>
+nnoremap <Leader>cmf :YcmCompleter FixIt<CR>
 "format json file
 nnoremap <Leader>fjs :%!python -m json.tool<CR>
 "toggle behaviours
 nnoremap <Leader>ts :call ToggleStripTrailingWhitespace()<CR>
 nnoremap <Leader>tw :call ToggleWriteOnInsertLeave()<CR>
-noremap <Leader>tb :ToggleBool<CR>
+nnoremap <Leader>tb :ToggleBool<CR>
 
 nnoremap ; :
 vnoremap ; :
