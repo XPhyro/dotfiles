@@ -12,17 +12,17 @@ super + p
 super + {apostrophe, numbersign, Menu}
     dwmpad -- {scratchpad, popcalc, popcal}
 ctrl + alt + y; ctrl + alt + {y, u}
-    dwmpad -- {yay -Syu, sh -c 'yay -Syu\; update'}
+    dwmpad -- {yay -Syu, sh -c 'yay -Syu && update'}
 ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
-    $TERMINAL -e sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
+    dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
 ctrl + alt + m; ctrl + alt + {m, s}
-    {$TERMINAL -e neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
+    {dwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
 ctrl + alt + r; ctrl + alt + {r, s}
-    $TERMINAL -e {ranger "$HOME", newsboat}
+    dwmpad -g 160x50 -- {ranger "$HOME", newsboat}
 ctrl + alt + w; ctrl + alt + w
-    $TERMINAL -e weather
+    dwmpad -g 160x50 -- weather
 ctrl + alt + b; ctrl + alt + b
-    $TERMINAL -e bluetoothctl
+    dwmpad -- bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}
     {hsetroot; restart-wallpaper -T off, restart-wallpaper -fT on}
 ctrl + alt + s; ctrl + alt + {s, d}
@@ -46,7 +46,7 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, w, c}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, s, a}
-    {dwmpad -- spt, tglapp -a musescore, tglapp -a matlab}
+    {dwmpad -g 160x50 -- spt, tglapp -a musescore, tglapp -a matlab}
 ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
     tglapp -a freetube
 ctrl + super + {o, i, p}
