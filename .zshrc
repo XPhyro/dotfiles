@@ -517,11 +517,16 @@ cd() {
     else
         dir="$HOME"
     fi
+    cm ¬ "$PWD"
     builtin cd "$dir"
 }
 
+cdw() {
+    cd "$( where "$1" )"
+}
+
 ¬() {
-    # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation.
+    # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation. Before exiting, cp -f "$somedir/$$" "$somedir/0" and when initialising, cp "$somedir/0" "$somedir/$$" can respectively be used to save and load.
     catfl mrk | while read -r i
     do
         mrk="$( printf "%s" "$i" | awk '{print $1}' )"
@@ -569,6 +574,7 @@ g() {
     }
 
     [ -z "$1" ] && {
+        cm ¬ "$PWD"
         cd
         return 0
     }
@@ -828,26 +834,5 @@ bindkey '^v' edit-command-line
 source ~/.autojump/share/autojump/autojump.zsh
 source ~/.zsh/antigen-hs/init.zsh
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# # vi mode
-# KEYTIMEOUT=5
-# 
-# # Use vim keys in tab complete menu:
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -v '^?' backward-delete-char
-# 
-# # Change cursor shape for different vi modes.
-# function zle-keymap-select {
-#     if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]
-#     then
-#         echo -ne '\e[1 q'
-#     elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]
-#     then
-#         echo -ne '\e[5 q'
-#     fi
-# }
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
