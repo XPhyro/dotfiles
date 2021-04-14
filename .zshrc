@@ -614,7 +614,7 @@ eal() {
 
 l() {
     tmp="$( mktemp )"
-    lf -last-dir-path="$tmp" "$@"
+    lfrun -last-dir-path="$tmp" "$@"
     [ -f "$tmp" ] && {
         dir="$( < "$tmp" )"
         rm -f "$tmp"
@@ -624,7 +624,7 @@ l() {
 
 sl() {
     tmp="$( sudo mktemp )"
-    sudo lf -last-dir-path="$tmp" "$@" # TODO: Sync config file like in sr().
+    sudo lfrun -last-dir-path="$tmp" "$@" # TODO: Sync config file like in sr().
     [ -f "$tmp" ] && {
         dir="$( sudo cat "$tmp" )"
         sudo rm -f "$tmp"
@@ -836,3 +836,5 @@ source ~/.zsh/antigen-hs/init.zsh
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
+
+date +"%s" >> ~/documents/data-dump/terminal.log
