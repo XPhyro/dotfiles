@@ -6,7 +6,7 @@
 #
 
 super + shift + Return
-    $TERMINAL
+    "$TERMINAL"
 super + p
     dmenu_run
 super + {apostrophe, numbersign, Menu}
@@ -28,11 +28,11 @@ ctrl + alt + r; ctrl + alt + {q, w}
 ctrl + alt + s; ctrl + alt + {s, d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}
-    {tglapp stalonetray, $BROWSER, $BROWSER --incognito, tglapp -a lightcord, $BROWSER --new-window "http://localhost:8989/", $BROWSER --new-window "http://localhost:9117/", $BROWSER --new-window "http://localhost:24589", $BROWSER --new-window "192.168.1.1"}
+    {tglapp stalonetray, "$BROWSER", "$BROWSER" --incognito, tglapp -a lightcord, "$BROWSER" --new-window "http://localhost:8989/", "$BROWSER" --new-window "http://localhost:9117/", "$BROWSER" --new-window "http://localhost:24589", "$BROWSER" --new-window "192.168.1.1"}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + f; ctrl + alt + {i, p}
     firefox {_, --private-window}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + c; ctrl + alt + {i, p, a}
-    {google-chrome-stable, google-chrome-stable --incognito, $BROWSER --new-window "https://calendar.google.com/calendar"}
+    {google-chrome-stable, google-chrome-stable --incognito, "$BROWSER" --new-window "https://calendar.google.com/calendar"}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + {p, z, n}
     {popcorntime, open-zoom, nestopia}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + d; ctrl + alt + {i}
