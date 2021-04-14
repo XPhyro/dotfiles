@@ -10,7 +10,7 @@ super + shift + Return
 super + p
     dmenu_run
 super + {apostrophe, numbersign, Menu}
-    dwmpad -- {scratchpad, popcalc, popcal}
+    dwmpad -- {scratchpad, octave --no-gui -q, popcal}
 ctrl + alt + y; ctrl + alt + {y, u}
     dwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && update || readstr'}
 ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
