@@ -490,6 +490,8 @@ alias tetris="autoload -Uz tetriscurses && tetriscurses"
 
 alias antigen="echo n | antigen-hs-setup"
 
+alias re="builtin r"
+
 #
 ##
 ### END ALIAS ###
