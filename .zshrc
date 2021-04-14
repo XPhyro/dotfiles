@@ -433,7 +433,7 @@ alias ws="watson status"
 alias ltxs="latexstp --shell-escape"
 alias ltxso="ltxs -of --shell-escape main"
 alias ltxsoq="ltxso && exit"
-alias vms="latexstp --shell-escape main"
+alias vm="latexstp --shell-escape main"
 
 alias vpn="sudo protonvpn"
 
