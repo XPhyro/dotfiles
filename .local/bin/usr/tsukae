@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
 cd "$( getloc rep )/tsukae" || exit 1
-go run main.go zsh "$@"
+go run main.go zsh "${@:-"15"}"
