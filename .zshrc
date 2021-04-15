@@ -1,27 +1,19 @@
 [[ $- != *i* ]] && return
 
-### BEGIN AUTO CONFIG ###
-# The following lines were added by compinstall
-
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=** l:|=*'
 zstyle :compinstall filename '$HOME/.zshrc'
 
+FPATH="$HOME/.zsh/completions:$FPATH"
+fpath=("$HOME/.zsh/completions" $fpath)
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.dotfiles-sensitive/.zsh_history
 HISTSIZE=1000000000
 SAVEHIST=1000000000
-setopt nomatch
+setopt nomatch autocd extendedglob rmstarsilent
 unsetopt beep notify
 bindkey -v
-# End of lines configured by zsh-newuser-install
-
-### END AUTO CONFIG ###
-
-setopt autocd extendedglob rmstarsilent
 
 # Enable colours and change prompt:
 autoload -U colors && colors    # Load colours
@@ -301,8 +293,8 @@ alias sus="systemctl --user status"
 
 alias rs="ka sxhkd 2> /dev/null; setxkb; restart-sxhkd"
 
-alias xc="xclip -sel clip"
-alias xco="xclip -o -sel clip"
+alias xc="xclip -se c"
+alias xco="xclip -o -se c"
 alias xevv="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf \"%-3s %s\n\", \$5, \$8 }'"
 alias xr="xrandr"
 
@@ -626,7 +618,7 @@ l() {
 
 sl() {
     tmp="$( sudo mktemp )"
-    sudo lfrun -last-dir-path="$tmp" "$@" # TODO: Sync config file like in sr().
+    sudo lfrun -last-dir-path="$tmp" -config="$XDG_CONFIG_HOME/lf/lfrc" "$@"
     [ -f "$tmp" ] && {
         dir="$( sudo cat "$tmp" )"
         sudo rm -f "$tmp"
@@ -646,7 +638,7 @@ r() {
 
 sr() {
     tmp="$( sudo mktemp )"
-    sudo ranger --choosedir="$tmp" --confdir="$HOME/.config/ranger" . "$@"
+    sudo ranger --choosedir="$tmp" --confdir="$XDG_CONFIG_HOME/ranger" . "$@"
     [ -f "$tmp" ] && {
         dir="$( sudo cat "$tmp" )"
         sudo rm -f "$tmp"
@@ -836,6 +828,8 @@ bindkey '^v' edit-command-line
 source ~/.autojump/share/autojump/autojump.zsh
 source ~/.zsh/antigen-hs/init.zsh
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+eval "$( fasd --init auto )"
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
 

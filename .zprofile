@@ -2,7 +2,6 @@ export HISTCONTROL="ignorespace"
 export HISTFILE="$HOME/.dotfiles-sensitive/.zsh_history"
 export HISTTIMEFORMAT="[%F %T] "
 
-export FPATH="$FPATH:$HOME/.zsh/completions"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.local/bin/usr:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -15,6 +14,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export BROWSER="brave"
 export EDITOR="vim"
+export OPENER="xdg-open"
 export PAGER="less"
 export READER="zathura"
 export TERMINAL="st"
