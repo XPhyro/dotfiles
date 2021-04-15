@@ -17,8 +17,8 @@ ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
     dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
 ctrl + alt + m; ctrl + alt + {m, s}
     {dwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
-ctrl + alt + r; ctrl + alt + {r, s}
-    dwmpad -g 160x50 -- {ranger "$HOME/downloads", newsboat}
+ctrl + alt + r; ctrl + alt + {r, s, d}
+    dwmpad -g 160x50 -- {ranger "$HOME/downloads", newsboat, refreshdocs}
 ctrl + alt + w; ctrl + alt + w
     dwmpad -g 160x50 -- weather
 ctrl + alt + b; ctrl + alt + b
