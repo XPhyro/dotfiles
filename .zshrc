@@ -115,6 +115,8 @@ alias ll="ls -lh"
 alias lr="ls -lRh"
 alias lsd="ls -d"
 
+alias bat="bat -p"
+
 alias ..........="cd ../../../../../../../../.."
 alias .........="cd ../../../../../../../.."
 alias ........="cd ../../../../../../.."
