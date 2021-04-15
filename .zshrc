@@ -359,7 +359,6 @@ alias gca="git commit --amend"
 alias gcd="git commit --dry-run"
 alias gcdl="git -c color.status=always commit --dry-run | less -r"
 alias gcl="git clone"
-alias gcm="git commit -m"
 alias gcme="git commit --allow-empty -m"
 alias gco="git checkout"
 alias gcod="git checkout -d"
@@ -605,9 +604,10 @@ eal() {
     done
 }
 
-
-l() {
+# TODO: Merge @r, gr and r into r. Check whether the key exists in @, then g, then fallback to plain r. sr should stay the same.
+r() {
     tmp="$( mktemp )"
+    # TODO: lfrun basically disables the asynchronouity, maybe don't use lfrun or have an alternate function where lf is used instead of lfrun. Maybe try to make lfrun more asynchronous?
     lfrun -last-dir-path="$tmp" "$@"
     [ -f "$tmp" ] && {
         dir="$( < "$tmp" )"
@@ -616,8 +616,9 @@ l() {
     }
 }
 
-sl() {
+sr() {
     tmp="$( sudo mktemp )"
+    # TODO: lfrun basically disables the asynchronouity, maybe don't use lfrun or have an alternate function where lf is used instead of lfrun. Maybe try to make lfrun more asynchronous?
     sudo lfrun -last-dir-path="$tmp" -config="$XDG_CONFIG_HOME/lf/lfrc" "$@"
     [ -f "$tmp" ] && {
         dir="$( sudo cat "$tmp" )"
@@ -626,7 +627,7 @@ sl() {
     }
 }
 
-r() {
+l() {
     tmp="$( mktemp )"
     ranger --choosedir="$tmp" "$@"
     [ -f "$tmp" ] && {
@@ -636,7 +637,7 @@ r() {
     }
 }
 
-sr() {
+sl() {
     tmp="$( sudo mktemp )"
     sudo ranger --choosedir="$tmp" --confdir="$XDG_CONFIG_HOME/ranger" . "$@"
     [ -f "$tmp" ] && {
@@ -647,11 +648,15 @@ sr() {
 }
 
 gr() {
-    g "$@" && r
+    g "$1" && r "${@:2}"
 }
 
 @r() {
-    @ "$@" && r
+    @ "$1" && r "${@:2}"
+}
+
+@l() {
+    @ "$1" && l "${@:2}"
 }
 
 # TODO: Make y do -S instead of -Syu when trying to install a package that is not installed.
@@ -759,8 +764,13 @@ gcld() {
     [ -d "$dir" ] && cd "$dir"
 }
 
-gcmm() {
-    git commit -m "$1" -m "$2"
+gcm() {
+    if [ "$#" -eq 1 ]
+    then
+        git commit -m "$1"
+    else
+        git commit -m "$1" -m "${@:2}"
+    fi
 }
 
 gacmm() {

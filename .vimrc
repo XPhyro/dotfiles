@@ -202,6 +202,26 @@ fun! IsFileEmpty()
     return matched_index == -1              " if no match was found -1 was returned
 endfun
 
+function! LF()
+    let temp = tempname()
+    exec 'silent !lf -selection-path=' . shellescape(temp)
+    if !filereadable(temp)
+        redraw!
+        return
+    endif
+    let names = readfile(temp)
+    if empty(names)
+        redraw!
+        return
+    endif
+    exec 'edit ' . fnameescape(names[0])
+    for name in names[1:]
+        exec 'argadd ' . fnameescape(name)
+    endfor
+    redraw!
+endfunction
+command! -bar LF call LF()
+
 augroup configgroup
     au!
     "fix zsh caret
@@ -384,6 +404,8 @@ xnoremap in :<c-u>call <SID>NextTextObject('i')<CR>
 vnoremap <F3> :sort<CR>
 vnoremap <F4> d:execute 'normal a' . join(sort(split(getreg('"'))), ' ')<CR>
 nnoremap <F5> vip:sort<CR>
+
+nnoremap <Leader>lf :LF<CR>
 
 "wipe registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) |
