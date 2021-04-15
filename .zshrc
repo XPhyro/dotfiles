@@ -15,13 +15,13 @@ HISTFILE=~/.dotfiles-sensitive/.zsh_history
 HISTSIZE=1000000000
 SAVEHIST=1000000000
 setopt nomatch
-unsetopt autocd beep extendedglob notify
+unsetopt beep notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
 ### END AUTO CONFIG ###
 
-setopt rmstarsilent
+setopt autocd extendedglob rmstarsilent
 
 # Enable colours and change prompt:
 autoload -U colors && colors    # Load colours
