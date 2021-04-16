@@ -5,7 +5,6 @@ export HISTTIMEFORMAT="[%F %T] "
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.local/bin/usr:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.vim/bundle/vim-live-latex-preview/bin:$PATH"
 export PATH="$HOME/code/sh:$PATH"
 export PYTHONPATH="$PYTHONPATH:$HOME/code/py/_modules"
 
