@@ -15,6 +15,8 @@ openpdfs() {
         xph-open "$i" &
         sleep 0.1
     done
+
+    firefox 'https://en.wikipedia.org/wiki/Special:Random' &
 }
 
 statbar() {
