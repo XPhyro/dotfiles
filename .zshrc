@@ -291,7 +291,7 @@ alias suon="systemctl --user start"
 alias sure="systemctl --user restart"
 alias sus="systemctl --user status"
 
-alias rs="ka sxhkd 2> /dev/null; setxkb; restart-sxhkd"
+alias rs="ka sxhkd 2> /dev/null; setxkb"
 
 alias xc="xclip -se c"
 alias xco="xclip -o -se c"
