@@ -142,8 +142,8 @@ alias mount="sudo mount"
 alias sfd="sudo fdisk"
 alias sfdl="sudo fdisk -l"
 
-alias dffs="df -h | head -n 1; df -h | grep ^/dev/ --color=never"
-alias dffsw="watch -n 5 'df -h | head -n 1; df -h | grep ^/dev/ --color=never'"
+alias dffs="df -h | head -n 1; df -h | grep \\^/dev/ --color=never"
+alias dffsw="watch -n 5 'df -h | head -n 1; df -h | grep \\^/dev/ --color=never'"
 alias du="du -L"
 alias dud="du -ch . | sort -h | less +G"
 
@@ -843,4 +843,4 @@ eval "$( fasd --init auto )"
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
 
-date +"%s" >> ~/documents/data-dump/terminal.log
+date +"%s" >> "$( getfl terminallog )"
