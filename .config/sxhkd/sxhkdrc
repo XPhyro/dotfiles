@@ -77,14 +77,14 @@ super + {F1, F2, F3}
     {todo, wowmacro toggle dmenu, volmicmute; statbarvolmic; statbarset}
 super + alt + {minus, equal, underscore, plus}
     {brightch 5%-, brightch +5%, brightmute, brightset}
-super + alt + ctrl + {underscore, plus, u, k, m}
-    {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, yankunicode, kmcycle; statbarkm; statbarset, manpdf}
+super + alt + ctrl + {underscore, plus, k, m}
+    {xtrlock -b & sleep 1; xset dpms force suspend, xtrlock, kmcycle; statbarkm; statbarset, manpdf}
 ctrl + super + {h, j, k, l}
     spt pb {--previous, --toggle, --like, --next}
 # shift + super + p
 #     j4-dmenu-desktop
-shift + super + alt + y; shift + super + alt + {y, u, s, n, r, p, a}
-    {clplogynk, clpfilter uniqs, clpfilter sort, clpfilter tr '\n' ' ', clpfilter tac, clpprint, yank}
+shift + super + alt + y; shift + super + alt + {y, d, s, n, r, p, a, u}
+    {clplogynk, clpfilter uniqs, clpfilter sort, clpfilter tr '\n' ' ', clpfilter tac, clpprint, yank, yankunicode}
 shift + super + alt + {d, h, n, c}
     dunstctl {close, history-pop, set-paused toggle; statbarnotif; statbarset, context}
 shift + super + alt + {u, s, w, m, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
