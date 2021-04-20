@@ -25,6 +25,7 @@ export XDG_CURRENT_DESKTOP="KDE"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export GIT_PAGER="bat --style=plain"
 
 export LS_COLORS="$( vivid generate molokai )"
 export MDV_THEME=663.6093

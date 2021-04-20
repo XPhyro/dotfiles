@@ -19,3 +19,10 @@
     textconv = unzip -v
 [diff "bin"]
     textconv = hexdump -v -C
+[color]
+	# ui = false
+	# branch = false
+	diff = false
+	# interactive = false
+	# status = false
+	# log = false

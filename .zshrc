@@ -211,9 +211,7 @@ alias sv="sudo v"
 alias f="fzfopen"
 alias fx="fzfx"
 
-PATH_OF_FD_BIN="$( where fd )"
-alias fd='cd "$('"$PATH_OF_FD_BIN"' -t d | fzf )"'
-unset PATH_OF_FD_BIN
+alias fd='cd "$( env fd -t d | fzf )"'
 
 alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
@@ -356,9 +354,7 @@ alias gbv="git branch -v"
 alias gbva="git branch -av"
 alias gc="git commit"
 alias gca="git commit --amend"
-alias gcd="git commit --dry-run"
 alias gcdl="git -c color.status=always commit --dry-run | less -r"
-alias gcl="git clone"
 alias gcme="git commit --allow-empty -m"
 alias gco="git checkout"
 alias gcod="git checkout -d"
@@ -402,6 +398,7 @@ alias grests.="git restore --staged ."
 alias grests="git restore --staged"
 alias grm="git rm"
 alias grmc="git rm --cached"
+alias gs="git status"
 alias gsh="git show"
 alias gsma="git submodule add"
 alias gsmuir="git submodule update --init --recursive"
@@ -422,6 +419,8 @@ alias wl="watson log"
 alias woff="watson stop"
 alias won="watson start"
 alias ws="watson status"
+
+alias ghost="env gs"
 
 alias ltxs="latexstp --shell-escape"
 alias ltxso="ltxs -of --shell-escape main"
@@ -757,11 +756,8 @@ vt() {
     fi
 }
 
-gcld() {
-    fl="$( mktemp )"
-    git clone "$@" | tee "$fl"
-    dir="$( head -n 1 "$fl" | sed -e "s/^Cloning into '//" -e "s/'...$//" )"
-    [ -d "$dir" ] && cd "$dir"
+gcl() {
+    git clone "$@" && cd "$( find . -mindepth 1 -maxdepth 1 -type d -printf "%T@ %p\n" | sort -n | cut -d ' ' -f 2 | tail -n 1 )"
 }
 
 gcm() {
