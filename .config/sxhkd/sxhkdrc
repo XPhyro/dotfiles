@@ -1,5 +1,6 @@
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
 # TODO: Use fn+KEY on k380.
+# TODO: Add ipython as a dwmpad.
 
 ### Programs ###
 ##
@@ -18,7 +19,7 @@ ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
 ctrl + alt + m; ctrl + alt + {m, s}
     {dwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
 ctrl + alt + r; ctrl + alt + {r, s, d}
-    dwmpad -g 160x50 -- {ranger "$HOME/downloads", newsboat, refreshdocs}
+    dwmpad -g 160x50 -- {lfrun "$HOME/downloads", newsboat, refreshdocs} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
 ctrl + alt + w; ctrl + alt + w
     dwmpad -g 160x50 -- weather
 ctrl + alt + b; ctrl + alt + b

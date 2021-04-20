@@ -28,6 +28,7 @@ se wildmenu
 se ruler
 
 filetype plugin indent on
+se smartindent
 "show existing tab with 4 spaces width
 se tabstop=4
 "when indenting with '>', use 4 spaces width
@@ -109,6 +110,21 @@ fun! s:SplashScreen()
     nnoremap <buffer><silent> a :enew <bar> startinsert<CR>
     nnoremap <buffer><silent> A :enew <bar> startinsert<CR>
 endfun
+
+function ConfigureTabBehaviour()
+    " Determines whether to use spaces or tabs on the current buffer.
+    if getfsize(bufname("%")) > 256000
+        " File is very large, just use the default.
+        return
+    endif
+
+    let numTabs=len(filter(getbufline(bufname("%"), 1, 250), 'v:val =~ "^\\t"'))
+    let numSpaces=len(filter(getbufline(bufname("%"), 1, 250), 'v:val =~ "^ "'))
+
+    if numTabs > numSpaces
+        setlocal noexpandtab
+    endif
+endfunction
 
 fun! StripTrailingWhitespace()
     if exists('b:noStripWhitespace')
@@ -239,6 +255,7 @@ augroup configgroup
     au BufEnter       *.log               let b:noWriteOnInsert=1
     au BufEnter       *.tex               call ToggleYCMAutoComplete()
     au BufEnter       Makefile,marks      set expandtab!
+    au BufReadPost    *                   call ConfigureTabBehaviour()
     "if the user saved a new file, activate auto-save
     au BufWritePre    *                   if IsCurrentFileNew() | call ToggleWriteOnInsertLeave()
     au BufWritePre    *.py                silent! exe ":Black"
