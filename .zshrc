@@ -84,6 +84,8 @@ mpow="EB:06:EF:5D:4F:4D"
 
 alias bgq="bg 2> /dev/null; disown && exit"
 
+alias o="$OPENER"
+
 alias mp="modprobe"
 alias mpr="modprobe -r"
 
