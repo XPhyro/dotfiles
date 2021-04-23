@@ -13,7 +13,7 @@ super + p
 super + {apostrophe, numbersign, Menu}
     dwmpad -- {scratchpad, octave --no-gui -q, popcal}
 ctrl + alt + y; ctrl + alt + {y, u}
-    dwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && update || readstr'}
+    dwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && update || readstr'}; statbarsetavlsyu; statbaravlsyu && statbarset
 ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
     dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
 ctrl + alt + m; ctrl + alt + {m, s}
