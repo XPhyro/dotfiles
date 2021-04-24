@@ -98,6 +98,7 @@ alias c="clear"
 
 alias diff="colordiff"
 alias grep="grep --color=auto"
+alias grepr="grep --exclude-dir=.git -R"
 alias ls="ls --color=auto"
 alias vdiff="vimdiff"
 
@@ -545,21 +546,25 @@ cdw() {
         [ "$mrk" = "$mark" ] && {
             val="$( printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
 
-            if [ -e "$val" ] && [ ! -d "$val" ]
+            if [ ! -e "$val" ] 
             then
-                v "$val"
-            elif [ -d "$val" ]
-            then
-                cd "$( printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
-            else
                 printf "Mark has invalid value: [$val]\n"
+                return 1
             fi
 
-            return
+            if [ ! -d "$val" ]
+            then
+                v "$val"
+            else
+                cd "$( printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+            fi
+
+            return 0
         }
     done
 
     printf "Mark $mark does not exist.\n"
+    return 1
 }
 
 g() {

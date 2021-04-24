@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+~/programs/MATLAB/R2018a/bin/matlab -desktop -nosplash
