@@ -146,7 +146,7 @@ alias sfd="sudo fdisk"
 alias sfdl="sudo fdisk -l"
 
 alias dffs="df -h | head -n 1; df -h | grep \\^/dev/ --color=never"
-alias dffsw="watch -n 5 'df -h | head -n 1; df -h | grep \\^/dev/ --color=never'"
+alias dffsw='watch "$( eal dffs )"'
 alias du="du -L"
 alias dud="du -ch . | sort -h | less +G"
 

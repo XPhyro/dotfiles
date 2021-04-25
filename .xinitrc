@@ -7,7 +7,7 @@ setupxr() {
     xrh
 }
 
-openpdfs() {
+opendocs() {
     sleep 2.5
 
     find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
@@ -17,6 +17,9 @@ openpdfs() {
     done
 
     firefox 'https://en.wikipedia.org/wiki/Special:Random' &
+
+    fl="$( catfl mrk | grep "^¬" )"
+    st -d "${fl#"¬ "}" # make this into a more comprehensive framework
 }
 
 statbar() {
@@ -28,6 +31,7 @@ statbar() {
     done
 
     statbarset
+    restart-wallpaper -T on
 }
 
 xdotool key Num_Lock
@@ -48,9 +52,8 @@ tpcycle &
 clplog &
 tglapp -T on -- redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
 
-openpdfs &
-setupaudio &
+opendocs &
+steam &
 setupxr &
-restart-wallpaper -T on &
 statbar &
 exec dwm
