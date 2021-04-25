@@ -110,7 +110,8 @@ alias ll="ls -lh"
 alias lr="ls -lRh"
 alias lsd="ls -d"
 
-alias bat="bat -p"
+alias bat="bat --plain"
+alias cat="bat --paging=never"
 
 alias ..........="cd ../../../../../../../../.."
 alias .........="cd ../../../../../../../.."
