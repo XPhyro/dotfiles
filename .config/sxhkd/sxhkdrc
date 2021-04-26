@@ -2,6 +2,7 @@
 # TODO: Use fn+KEY on k380.
 # TODO: Add ipython as a dwmpad.
 # TODO: Add bindings for moving the cursor left/right/down/up and for left/right/middle/backward/forward clicks.
+# TODO: Limit the CPU usage of `update`.
 
 ### Programs ###
 ##
