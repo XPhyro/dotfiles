@@ -100,6 +100,36 @@ super + {KP_Divide, KP_Multiply}
     transset-df -a {--dec, --inc} 0.05
 alt + F4
     xdotool key F12
+super + Down
+    xdotool mousemove_relative -- 0 5
+super + Up
+    xdotool mousemove_relative -- 0 -5
+super + Left
+    xdotool mousemove_relative -- -5 0
+super + Right
+    xdotool mousemove_relative -- 5 0
+shift + super + Down
+    xdotool mousemove_relative -- 0 30
+shift + super + Up
+    xdotool mousemove_relative -- 0 -30
+shift + super + Left
+    xdotool mousemove_relative -- -30 0
+shift + super + Right
+    xdotool mousemove_relative -- 30 0
+shift + alt + super + Down
+    xdotool mousemove_relative -- 0 60
+shift + alt + super + Up
+    xdotool mousemove_relative -- 0 -60
+shift + alt + super + Left
+    xdotool mousemove_relative -- -60 0
+shift + alt + super + Right
+    xdotool mousemove_relative -- 60 0
+super + slash
+    xdotool keyup super; xdotool click 1; xdotool keydown super
+shift + super + question
+    xdotool keyup super; xdotool click 2; xdotool keydown super
+shift + alt + super + question
+    xdotool keyup super; xdotool click 3; xdotool keydown super
 
 #
 ##
