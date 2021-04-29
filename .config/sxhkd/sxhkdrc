@@ -3,6 +3,7 @@
 # TODO: Add ipython as a dwmpad.
 # TODO: Add bindings backward/forward clicks.
 # TODO: Limit the CPU usage of `update`.
+# TODO: Make mouse emulation bindings single-handed or add alternate bindings suitable for single hand. The latter option probably makes more sense as if one is using only one hand, they are likely using the mouse anyways. The bindings are still beneficial for the rare occasion.
 
 ### Programs ###
 ##
