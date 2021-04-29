@@ -255,6 +255,7 @@ alias yr="yay -R"
 alias yrn="yay -Rns"
 alias ys="yay -Ss"
 alias ysc="yes | yay -Sc"
+alias ysc="yes | yay -Scc"
 alias yss="yay -S"
 alias yu="yay -Syu"
 
