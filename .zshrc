@@ -90,7 +90,7 @@ alias mp="modprobe"
 alias mpr="modprobe -r"
 
 alias fck='sudo !!'
-alias fuck='sudo $( fc -ln -1 )'
+alias fuck='sudo $(fc -ln -1)'
 alias sudo="nocorrect sudo "
 alias sudod="/usr/bin/sudo"
 
@@ -147,7 +147,7 @@ alias sfd="sudo fdisk"
 alias sfdl="sudo fdisk -l"
 
 alias dffs="df -h | head -n 1; df -h | grep \\^/dev/ --color=never"
-alias dffsw='watch "$( eal dffs )"'
+alias dffsw='watch "$(eal dffs)"'
 alias du="du -L"
 alias dud="du -ch . | sort -h | less +G"
 
@@ -166,7 +166,7 @@ alias ngrep="netstat -tulpn | grep -i"
 alias pgrep="ps aux | grep -iE"
 alias ppgrep="/usr/bin/pgrep"
 alias ygrep="yay -Q | grep -i"
-alias zsgrep="cat \$( getfl zshrc ) | grep -i"
+alias zsgrep="cat \$(getfl zshrc) | grep -i"
 
 alias ct="fcrontab -e"
 alias sct="sudo fcrontab -e"
@@ -208,38 +208,38 @@ alias b="broot"
 alias me="mapexec"
 alias ce="contexec"
 alias v="vim"
-alias nv='nvim -u "$( getfl vimrc )"'
+alias nv='nvim -u "$(getfl vimrc)"'
 
 alias sv="sudo v"
 
 alias f="fzfopen"
 alias fx="fzfx"
 
-alias fd='cd "$( env fd -t d | fzf )"'
+alias fd='cd "$(env fd -t d | fzf)"'
 
 alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
 
-alias vb="v \$( getfl bashrc )"
+alias vb="v \$(getfl bashrc)"
 alias vc="v config.h"
 alias vcd="v config.def.h"
-alias ve="v \$( getfl echoshrc )"
+alias ve="v \$(getfl echoshrc)"
 alias vg="v .gitignore"
-alias vgc="v \$( getfl gitconfig )"
-alias viv="v \$( getfl ideavimrc )"
+alias vgc="v \$(getfl gitconfig)"
+alias viv="v \$(getfl ideavimrc)"
 alias vma="v Makefile"
 alias vmc="v main.c"
 alias vmem="sudo v /sys/power/{mem_sleep,state}"
-alias vmim="v \$( getfl mimeapps )"
+alias vmim="v \$(getfl mimeapps)"
 alias vmt="v main.tex"
-alias vs="v \$( getfl sxhkdrc ) && killall sxhkd && restart-sxhkd"
-alias vv="v \$( getfl vimrc )"
-alias vw="v \$( getfl workout )"
-alias vx="v \$( getfl xinitrc )"
-alias vxr="v \$( getfl xresources )"
-alias vz="v \$( getfl zshrc )"
-alias vza="v \$( getfl zathurarc )"
-alias vzp="v \$( getfl zprofile )"
+alias vs="v \$(getfl sxhkdrc) && killall sxhkd && restart-sxhkd"
+alias vv="v \$(getfl vimrc)"
+alias vw="v \$(getfl workout)"
+alias vx="v \$(getfl xinitrc)"
+alias vxr="v \$(getfl xresources)"
+alias vz="v \$(getfl zshrc)"
+alias vza="v \$(getfl zathurarc)"
+alias vzp="v \$(getfl zprofile)"
 
 alias u="y && echo && update"
 alias uq="y && echo && update && exit"
@@ -467,10 +467,10 @@ alias ytdlshortnolog='base_ytdl_short --merge-output-format mkv'
 alias ytdlshortnologa='base_ytdl_short -x'
 
 alias rdf="rdfind"
-alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-p-log.XXXXXX )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-log.XXXXXX )" -dryrun false ~/downloads'
-alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfl-log.XXXXXX )" -dryrun false'
-alias rdfp='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfp-log.XXXXXX )" -dryrun false ~/archive/p/p'
-alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfr-log.XXXXXX )" -dryrun false'
+alias rdfdow='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$(mktemp /tmp/rdfind-rdfdow-p-log.XXXXXX )" -dryrun false ~/downloads/p; echo; rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$( mktemp /tmp/rdfind-rdfdow-log.XXXXXX)" -dryrun false ~/downloads'
+alias rdfl='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$(mktemp /tmp/rdfind-rdfl-log.XXXXXX)" -dryrun false'
+alias rdfp='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks true -deleteduplicates true -outputname "$(mktemp /tmp/rdfind-rdfp-log.XXXXXX)" -dryrun false ~/archive/p/p'
+alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -makesymlinks false -deleteduplicates true -outputname "$(mktemp /tmp/rdfind-rdfr-log.XXXXXX)" -dryrun false'
 
 alias syncp="rdfdow && symlinks -cr ~/downloads/p/ && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
 
@@ -511,7 +511,7 @@ cd() {
     dir="$1"
     if [ -n "$dir" ]
     then
-        [ ! -d "$dir" ] && dir="$( getloc "$dir" | inorcmd dirname "$dir" )"
+        [ ! -d "$dir" ] && dir="$(getloc "$dir" | inorcmd dirname "$dir")"
     else
         dir="$HOME"
     fi
@@ -520,17 +520,17 @@ cd() {
 }
 
 cdw() {
-    cd "$( where "$1" )"
+    cd "$(where "$1")"
 }
 
 ¬() {
     # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation. Before exiting, cp -f "$somedir/$$" "$somedir/0" and when initialising, cp "$somedir/0" "$somedir/$$" can respectively be used to save and load.
     catfl mrk | while read -r i
     do
-        mrk="$( printf "%s" "$i" | awk '{print $1}' )"
+        mrk="$(printf "%s" "$i" | awk '{print $1}')"
         [ "$mrk" = "¬" ] && {
             cm ¬ "$PWD"
-            cd "$( printf "%s" "$i" | awk '{print $2}' | expandpath )"
+            cd "$(printf "%s" "$i" | awk '{print $2}' | expandpath)"
             return
         }
     done
@@ -544,9 +544,9 @@ cdw() {
 
     catfl mrk | while read -r i
     do
-        mrk="$( printf "%s\n" "$i" | awk '{print $1}' )"
+        mrk="$(printf "%s\n" "$i" | awk '{print $1}')"
         [ "$mrk" = "$mark" ] && {
-            val="$( printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+            val="$(printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath)"
 
             if [ ! -e "$val" ] 
             then
@@ -558,7 +558,7 @@ cdw() {
             then
                 v "$val"
             else
-                cd "$( printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath )"
+                cd "$(printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath)"
             fi
 
             return 0
@@ -581,7 +581,7 @@ g() {
         return 0
     }
 
-    dir="$( getlocall "$1" )"
+    dir="$(getlocall "$1")"
 
     if [ -d "$dir" ]
     then
@@ -603,8 +603,8 @@ eal() {
 
     for i
     do
-        expw="$( where "$i" )"
-        if [ -z "$( printf "%s" "$expw" | sed "s/^$i: aliased to .*//" )" ] && [ "$( whereis "$i" )" = "$i:" ]
+        expw="$(where "$i")"
+        if [ -z "$(printf "%s" "$expw" | sed "s/^$i: aliased to .*//" )" ] && [ "$( whereis "$i")" = "$i:" ]
         then
             printf "%s\n" "$expw" | cut -f 1,2,3 -d ' ' --complement
         else
@@ -615,42 +615,42 @@ eal() {
 
 # TODO: Merge @r, gr and r into r. Check whether the key exists in @, then g, then fallback to plain r. sr should stay the same.
 r() {
-    tmp="$( mktemp )"
+    tmp="$(mktemp)"
     # TODO: lfrun basically disables the asynchronouity, maybe don't use lfrun or have an alternate function where lf is used instead of lfrun. Maybe try to make lfrun more asynchronous?
     lfrun -last-dir-path="$tmp" "$@"
     [ -f "$tmp" ] && {
-        dir="$( < "$tmp" )"
+        dir="$(< "$tmp")"
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
     }
 }
 
 sr() {
-    tmp="$( sudo mktemp )"
+    tmp="$(sudo mktemp)"
     # TODO: lfrun basically disables the asynchronouity, maybe don't use lfrun or have an alternate function where lf is used instead of lfrun. Maybe try to make lfrun more asynchronous?
     sudo lfrun -last-dir-path="$tmp" -config="$XDG_CONFIG_HOME/lf/lfrc" "$@"
     [ -f "$tmp" ] && {
-        dir="$( sudo cat "$tmp" )"
+        dir="$(sudo cat "$tmp")"
         sudo rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
     }
 }
 
 l() {
-    tmp="$( mktemp )"
+    tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
     [ -f "$tmp" ] && {
-        dir="$( < "$tmp" )"
+        dir="$(< "$tmp")"
         rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
     }
 }
 
 sl() {
-    tmp="$( sudo mktemp )"
+    tmp="$(sudo mktemp)"
     sudo ranger --choosedir="$tmp" --confdir="$XDG_CONFIG_HOME/ranger" . "$@"
     [ -f "$tmp" ] && {
-        dir="$( sudo cat "$tmp" )"
+        dir="$(sudo cat "$tmp")"
         sudo rm -f "$tmp"
         [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"
     }
@@ -715,7 +715,7 @@ to() {
             touch "$i"
             continue
         }
-        dir="$( dirname "$i" )"
+        dir="$(dirname "$i")"
         [ -d "$dir" ] || mkdir -p "$dir"
         touch "$i"
     done
@@ -767,7 +767,7 @@ vt() {
 }
 
 gcl() {
-    git clone "$@" && cd "$( find . -mindepth 1 -maxdepth 1 -type d -printf "%T@ %p\n" | sort -n | cut -d ' ' -f 2 | tail -n 1 )"
+    git clone "$@" && cd "$(find . -mindepth 1 -maxdepth 1 -type d -printf "%T@ %p\n" | sort -n | cut -d ' ' -f 2 | tail -n 1)"
 }
 
 gcm() {
@@ -845,11 +845,11 @@ source ~/.autojump/share/autojump/autojump.zsh
 source ~/.zsh/antigen-hs/init.zsh
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-oldf="$( eal f )"
-eval "$( fasd --init auto )"
+oldf="$(eal f)"
+eval "$(fasd --init auto)"
 alias f="$oldf"
 unset oldf
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
 
-date +"%s" >> "$( getfl terminallog )"
+date +"%s" >> "$(getfl terminallog)"
