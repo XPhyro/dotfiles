@@ -404,7 +404,7 @@ alias grests="git restore --staged"
 alias grm="git rm"
 alias grmc="git rm --cached"
 alias gs="git status"
-alias gsh="git show"
+alias gsh="git show --color=always"
 alias gsma="git submodule add"
 alias gsmuir="git submodule update --init --recursive"
 alias gst="git stash"
@@ -845,7 +845,10 @@ source ~/.autojump/share/autojump/autojump.zsh
 source ~/.zsh/antigen-hs/init.zsh
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
+oldf="$( eal f )"
 eval "$( fasd --init auto )"
+alias f="$oldf"
+unset oldf
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
 
