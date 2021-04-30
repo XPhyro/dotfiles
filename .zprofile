@@ -112,4 +112,5 @@ ex=🎯:
     export XDG_SESSION_TYPE=x11
     startx
     tglapp --clean
+    [ "$(brightnessctl g)" = "0" ] && brightmute
 }
