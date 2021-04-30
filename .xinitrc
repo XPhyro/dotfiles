@@ -18,16 +18,16 @@ opendocs() {
 
     firefox 'https://en.wikipedia.org/wiki/Special:Random' &
 
-    fl="$( catfl mrk | grep "^¬" )"
+    fl="$(catfl mrk | grep "^¬")"
     st -d "${fl#"¬ "}" # make this into a more comprehensive framework
 }
 
 statbar() {
     sleep 3
 
-    find "$( getloc statbar )" -mindepth 1 -maxdepth 1 -type f | while read -r i
+    find "$(getloc statbar)" -mindepth 1 -maxdepth 1 -type f | while read -r i
     do
-        eval "$( printf "%s" | sed -E 's/^[0-9]+(\.[0-9]+)?_//' )"
+        eval "$(printf "%s" | sed -E 's/^[0-9]+(\.[0-9]+)?_//')"
     done
 
     statbarset
@@ -50,9 +50,9 @@ syncmailtick 60 &
 
 tpcycle &
 clplog &
-tglapp -T on -- redshift -l "$( catfl gpsloc )" -t 5800:3900 -g 0.8 -m randr &
+tglapp -T on -- redshift -l "$(catfl gpsloc)" -t 5800:3900 -g 0.8 -m randr &
 
-# opendocs &
+opendocs &
 tglapp -T on -- steam &
 setupxr &
 statbar &
