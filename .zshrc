@@ -149,7 +149,7 @@ alias sfdl="sudo fdisk -l"
 alias dffs="df -h | head -n 1; df -h | grep \\^/dev/ --color=never"
 alias dffsw='watch "$(eal dffs)"'
 alias du="du -L"
-alias dud="du -ch . | sort -h | less +G"
+alias dud="du -ch . | sort -h"
 
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 
@@ -349,7 +349,7 @@ alias lpbkon="pactl load-module module-loopback latency_msec=1"
 
 alias ga.="git add ."
 alias ga="git add"
-alias gacm="git add . && git commit -m"
+alias gacm="git add . && gcm"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gbav="git branch -av"
@@ -777,10 +777,6 @@ gcm() {
     else
         git commit -m "$1" -m "${@:2}"
     fi
-}
-
-gacmm() {
-    git add . && gcmm "$@"
 }
 
 gacmc() {
