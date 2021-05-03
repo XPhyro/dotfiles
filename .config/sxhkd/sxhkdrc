@@ -18,8 +18,8 @@ super + {apostrophe, numbersign, Menu}
     dwmpad -- {scratchpad, octave --no-gui -q, popcal}
 ctrl + alt + y; ctrl + alt + {y, u}
     dwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && update || readstr'} && statbarsetavlsyu && statbaravlsyu && statbarset
-ctrl + alt + {h, n, w, f, t, i, s, p, g}; ctrl + alt + t
-    dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances}
+ctrl + alt + {h, n, w, f, t, i, s, p, g, c}; ctrl + alt + t
+    dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances, watch conky -i 1}
 ctrl + alt + m; ctrl + alt + {m, s}
     {dwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
 ctrl + alt + r; ctrl + alt + {r, s, d}
