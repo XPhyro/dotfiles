@@ -25,92 +25,18 @@ export XDG_CURRENT_DESKTOP="KDE"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export GIT_PAGER="bat --style=plain"
+export GIT_PAGER="bat -p"
 
-export LS_COLORS="$( vivid generate molokai )"
+export LS_COLORS="$(vivid generate molokai)"
 export MDV_THEME=663.6093
 
 # adapted from LukeSmith/voidrice
-export LF_ICONS="di=📁:
-fi=📃:
-tw=🤝:
-ow=📂:
-ln=⛓:
-or=❌:
-ex=🎯:
-*.txt=✍:
-*.mom=✍:
-*.me=✍:
-*.ms=✍:
-*.png=🖼:
-*.webp=🖼:
-*.ico=🖼:
-*.jpg=📸:
-*.jpe=📸:
-*.jpeg=📸:
-*.gif=🖼:
-*.svg=🗺:
-*.tif=🖼:
-*.tiff=🖼:
-*.xcf=🖌:
-*.html=🌎:
-*.xml=📰:
-*.gpg=🔒:
-*.css=🎨:
-*.pdf=📚:
-*.djvu=📚:
-*.epub=📚:
-*.csv=📓:
-*.xlsx=📓:
-*.tex=📜:
-*.md=📘:
-*.r=📊:
-*.R=📊:
-*.rmd=📊:
-*.Rmd=📊:
-*.m=📊:
-*.mp3=🎵:
-*.opus=🎵:
-*.ogg=🎵:
-*.m4a=🎵:
-*.flac=🎼:
-*.wav=🎼:
-*.mkv=🎥:
-*.mp4=🎥:
-*.webm=🎥:
-*.mpeg=🎥:
-*.avi=🎥:
-*.mov=🎥:
-*.mpg=🎥:
-*.wmv=🎥:
-*.m4b=🎥:
-*.flv=🎥:
-*.zip=📦:
-*.rar=📦:
-*.7z=📦:
-*.tar.gz=📦:
-*.z64=🎮:
-*.v64=🎮:
-*.n64=🎮:
-*.gba=🎮:
-*.nes=🎮:
-*.gdi=🎮:
-*.1=ℹ:
-*.nfo=ℹ:
-*.info=ℹ:
-*.log=📙:
-*.iso=📀:
-*.img=📀:
-*.bib=🎓:
-*.ged=👪:
-*.part=💔:
-*.torrent=🔽:
-*.jar=♨:
-*.java=♨:"
+export LF_ICONS="di=📁:fi=📃:tw=🤝:ow=📂:ln=⛓:or=❌:ex=🎯:*.txt=✍:*.mom=✍:*.me=✍:*.ms=✍:*.png=🖼:*.webp=🖼:*.ico=🖼:*.jpg=📸:*.jpe=📸:*.jpeg=📸:*.gif=🖼:*.svg=🗺:*.tif=🖼:*.tiff=🖼:*.xcf=🖌:*.html=🌎:*.xml=📰:*.gpg=🔒:*.css=🎨:*.pdf=📚:*.djvu=📚:*.epub=📚:*.csv=📓:*.xlsx=📓:*.tex=📜:*.md=📘:*.r=📊:*.R=📊:*.rmd=📊:*.Rmd=📊:*.m=📊:*.mp3=🎵:*.opus=🎵:*.ogg=🎵:*.m4a=🎵:*.flac=🎼:*.wav=🎼:*.mkv=🎥:*.mp4=🎥:*.webm=🎥:*.mpeg=🎥:*.avi=🎥:*.mov=🎥:*.mpg=🎥:*.wmv=🎥:*.m4b=🎥:*.flv=🎥:*.zip=📦:*.rar=📦:*.7z=📦:*.tar.gz=📦:*.z64=🎮:*.v64=🎮:*.n64=🎮:*.gba=🎮:*.nes=🎮:*.gdi=🎮:*.1=ℹ:*.nfo=ℹ:*.info=ℹ:*.log=📙:*.iso=📀:*.img=📀:*.bib=🎓:*.ged=👪:*.part=💔:*.torrent=🔽:*.jar=♨:*.java=♨:"
 
 [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && {
     export XDG_SESSION_TYPE=x11
     startx
     tglapp --clean
     [ "$(brightnessctl g)" = "0" ] && brightmute
+    [ "$(brightnessctl g)" = "0" ] && brightnessctl s "20%"
 }
