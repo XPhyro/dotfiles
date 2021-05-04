@@ -266,13 +266,12 @@ alias yay-list='LC_ALL=C yay -Qi | awk "/^Name/{name=\$3} /^Installed Size/{prin
 
 alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
-alias cmsmic="rm -f config.h; make; sudo make install clean"
-alias hsmic="./autogen.sh && ./configure --prefix=/usr && sudo make install"
-alias mi="make install"
-alias msmic="make; sudo make install clean"
+alias cmsmic="rm -f config.h; make -j12; sudo make install clean"
+alias hsmic="./autogen.sh && ./configure --prefix=/usr && sudo make -j12 install"
+alias mi="make -j12; make install"
 alias sm="sudo make"
-alias smi="sudo make install"
-alias smic="sudo make install clean"
+alias smi="sudo make -j12; sudo make install"
+alias smic="sudo make -j12; sudo make install clean"
 alias smu="sudo make uninstall"
 
 alias s="sudo systemctl"

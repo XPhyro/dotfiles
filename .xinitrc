@@ -53,7 +53,7 @@ clplog &
 tglapp -T on -- redshift -l "$(catfl gpsloc)" -t 5800:3900 -g 0.8 -m randr &
 
 opendocs &
-tglapp -T on -- steam &
+# tglapp -T on -- steam &
 setupxr &
 statbar &
 exec dwm
