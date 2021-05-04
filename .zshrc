@@ -316,7 +316,7 @@ alias ping100="ping 192.168.1.100"
 alias ping1="ping 192.168.1.1"
 alias ping8="ping 8.8.8.8"
 alias pingg="ping google.com"
-alias pingn="pingnotif 192.168.1.1 8.8.8.8 google.com &!"
+alias pingn="pingnotif 8.8.8.8 google.com &!"
 
 alias stl="speedtestlog"
 alias stlp="speedtestlogp | less +G"
