@@ -6,6 +6,7 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/.local/bin/usr:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/code/sh:$PATH"
+export PATH="$HOME/code/go/bin:$PATH"
 export PYTHONPATH="$PYTHONPATH:$HOME/code/py/_modules"
 export GOPATH="$HOME/code/go"
 
@@ -38,6 +39,8 @@ export LF_ICONS="di=📁:fi=📃:tw=🤝:ow=📂:ln=⛓:or=❌:ex=🎯:*.txt=✍
     export XDG_SESSION_TYPE=x11
     startx
     tglapp --clean
-    [ "$(brightnessctl g)" = "0" ] && brightmute
-    [ "$(brightnessctl g)" = "0" ] && brightnessctl s "20%"
+    [ "$(brightnessctl g)" = "0" ] && {
+        brightmute
+        [ "$(brightnessctl g)" = "0" ] && brightnessctl s "20%"
+    }
 }
