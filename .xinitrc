@@ -46,7 +46,7 @@ dunst &
 notiflog &
 flameshot &
 nm-applet &
-syncmailtick 60 &
+tglapp -T on -k syncmailtick -- syncmailtick 120 &
 
 tpcycle &
 clplog &
