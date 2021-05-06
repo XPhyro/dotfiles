@@ -74,6 +74,8 @@ pihole="192.168.1.100"
 bt="E8:07:BF:1B:A1:CB"
 mpow="EB:06:EF:5D:4F:4D"
 
+ca="--color=always"
+
 #
 ##
 ### END VARIABLE ###
@@ -110,8 +112,8 @@ alias ll="ls -lh"
 alias lr="ls -lRh"
 alias lsd="ls -d"
 
-alias bat="bat --plain"
-alias cat="bat --paging=never"
+alias bat="bat --style=plain --paging=always"
+alias cat="bat --style=plain --paging=never"
 
 alias ..........="cd ../../../../../../../../.."
 alias .........="cd ../../../../../../../.."
