@@ -57,9 +57,9 @@ ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
 ctrl + super + {o, i, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp -a pavucontrol}
 ctrl + alt + shift + b
-    swp /home/xphyro/.local/share/applications/browser.desktop /home/xphyro/.local/share/applications/browser-other.desktop; statbarbrowser; statbarset
+    swp "/home/xphyro/.local/share/applications/browser.desktop" "/home/xphyro/.local/share/applications/browser-other.desktop"; statbarbrowser; statbarset
 ctrl + alt + s; ctrl + alt + {c, e, a}
-    {xdg-open ~/course-schedule.png, xdg-open "$( getloc exam )/main.pdf", openass}
+    {xdg-open ~/course-schedule.png, xdg-open "$(getloc exam)/main.pdf", openass}
 
 #
 ##
