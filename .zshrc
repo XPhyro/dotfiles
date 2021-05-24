@@ -197,7 +197,7 @@ alias ffp="ffprobe -hide_banner"
 
 alias gpp="g++"
 
-alias ipy="ipython"
+# alias ipy="ipython"
 alias ptpy="ptpython"
 alias py2="python2"
 alias py="python"
@@ -574,6 +574,7 @@ cdw() {
     return 1
 }
 
+# TODO: Implement a version of g() that presents the options with fzf.
 g() {
     [ -n "$2" ] && { 
         printf "Only one argument is accepted.\n"
