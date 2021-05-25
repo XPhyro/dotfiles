@@ -12,6 +12,8 @@
 
 super + shift + Return
     "$TERMINAL"
+super + ctrl + Return
+    "$TERMINAL" -e lf
 super + p
     dmenu_run
 super + {apostrophe, numbersign, Menu}
