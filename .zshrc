@@ -373,7 +373,6 @@ alias gdas="git diff Assets/Scripts"
 alias gdc="git diff --cached"
 alias gdw="git diff --color=always --word-diff"
 alias gf="git fetch"
-alias gi="git init"
 alias gl="git log"
 alias glp="git log --color=always --follow -p"
 alias glps="git log --color=always --follow -p --stat"
@@ -574,29 +573,19 @@ cdw() {
     return 1
 }
 
-# TODO: Implement a version of g() that presents the options with fzf.
+@i() {
+    dir="$(_@i "$@")"
+    [ -n "$dir" ] && cd "$dir"
+}
+
 g() {
-    [ -n "$2" ] && { 
-        printf "Only one argument is accepted.\n"
-        return 1
-    }
+    dir="$(_g "$@")"
+    [ -n "$dir" ] && cd "$dir"
+}
 
-    [ -z "$1" ] && {
-        cm ¬ "$PWD"
-        cd
-        return 0
-    }
-
-    dir="$(getlocall "$1")"
-
-    if [ -d "$dir" ]
-    then
-        cm ¬ "$PWD"
-        cd "$dir"
-    else
-        printf "No such directory.\n"
-        return 1
-    fi
+gi() {
+    dir="$(_gi "$@")"
+    [ -n "$dir" ] && cd "$dir"
 }
 
 eal() {
