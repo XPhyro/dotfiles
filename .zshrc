@@ -215,10 +215,7 @@ alias nv='nvim -u "$(getfl vimrc)"'
 
 alias sv="sudo v"
 
-alias f="fzfopen"
 alias fx="fzfx"
-
-alias fd='cd "$(env fd -t d | fzf)"'
 
 alias mdr="mdv README.md"
 alias mdt="mdv TODO.md"
@@ -588,6 +585,16 @@ gi() {
     [ -n "$dir" ] && cd "$dir"
 }
 
+fd() {
+    dir="$(env _fd "$@")"
+    [ -n "$dir" ] && cd "$dir"
+}
+
+ff() {
+    dir="$(_ff "$@")"
+    [ -n "$dir" ] && cd "$dir"
+}
+
 eal() {
     if [ "$#" = "1" ]
     then
@@ -832,14 +839,14 @@ bindkey '^v' edit-command-line
 ##
 ### END KEYMAP ###
 
-source ~/.autojump/share/autojump/autojump.zsh
+# source ~/.autojump/share/autojump/autojump.zsh
 source ~/.zsh/antigen-hs/init.zsh
 source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-oldf="$(eal f)"
-eval "$(fasd --init auto)"
-alias f="$oldf"
-unset oldf
+# oldf="$(eal f)"
+# eval "$(fasd --init auto)"
+# alias f="$oldf"
+# unset oldf
 
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
 
