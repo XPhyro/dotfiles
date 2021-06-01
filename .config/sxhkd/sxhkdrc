@@ -28,7 +28,7 @@ ctrl + alt + m; ctrl + alt + {m, s}
 ctrl + alt + r; ctrl + alt + {r, s, d}
     dwmpad -g 160x50 -- {lfrun "$HOME/downloads", newsboat, refreshdocs} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
 ctrl + alt + w; ctrl + alt + w
-    dwmpad -g 202x50 -- weather
+    dwmpad -g 203x50 -- weather
 ctrl + alt + b; ctrl + alt + b
     dwmpad -- bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}
