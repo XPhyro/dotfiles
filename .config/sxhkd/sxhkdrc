@@ -32,7 +32,7 @@ ctrl + alt + w; ctrl + alt + w
 ctrl + alt + b; ctrl + alt + b
     dwmpad -- bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}
-    {hsetroot; restart-wallpaper -T off, restart-wallpaper -fT on}
+    {hsetroot; restart-wallpaper -ST off, restart-wallpaper -fST on}
 ctrl + alt + s; ctrl + alt + {s, d}
     {cpscr, flameshot gui}
 ctrl + alt + o; ctrl + alt + {t, b, i, c, s, j, q, 1}

@@ -504,8 +504,11 @@ fork() {
     ("$@") &!
 }
 
+kill2() {
+    ps aux | grep -iE "$1" | awk '{print $2}' | xargs -rn 1 kill "${@:2}"
+}
+
 hist() {
-    [ "$1" ] && return
     [[ "$@" ]] && fc -li -$@ || fc -li 0
 }
 
