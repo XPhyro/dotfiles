@@ -13,6 +13,9 @@ set guioptions ""
 set window-title-basename true
 set statusbar-basename false
 
+set synctex true
+set synctex-editor-command "st -e vim --remote-silent +%{line} %{input}"
+
 map [normal] u scroll half-up
 map [normal] d scroll half-down
 map [normal] D toggle_page_mode

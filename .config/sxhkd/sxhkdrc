@@ -59,8 +59,8 @@ ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
     tglapp -a freetube
 ctrl + super + {o, i, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp -a pavucontrol}
-ctrl + alt + shift + b
-    swp "/home/xphyro/.local/share/applications/browser.desktop" "/home/xphyro/.local/share/applications/browser-other.desktop"; statbarbrowser; statbarset
+ctrl + alt + shift + {b, v}
+    swp {"$HOME/.local/share/applications/browser.desktop" "$HOME/.local/share/applications/browser-other.desktop"; statbarbrowser; statbarset, "$HOME/.config/mpv/mpv.conf" "$HOME/.config/mpv/mpv-other.conf"}
 ctrl + alt + s; ctrl + alt + {c, e, a}
     {xdg-open ~/course-schedule.png, xdg-open "$(getloc exam)/main.pdf", openass}
 
