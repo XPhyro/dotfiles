@@ -25,7 +25,6 @@ export VISUAL="vim"
 
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CURRENT_DESKTOP="KDE"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -39,6 +38,7 @@ export LF_ICONS="di=📁:fi=📃:tw=🤝:ow=📂:ln=⛓:or=❌:ex=🎯:*.txt=✍
 
 [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && {
     export XDG_SESSION_TYPE=x11
+    export XDG_CURRENT_DESKTOP=KDE
     startx
     tglapp --clean
     [ "$(brightnessctl g)" = "0" ] && {
