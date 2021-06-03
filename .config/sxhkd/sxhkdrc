@@ -14,7 +14,7 @@
 super + shift + Return
     "$TERMINAL"
 super + ctrl + Return
-    "$TERMINAL" -e lf
+    "$TERMINAL" -e zsh -c 'lfrun "$HOME/downloads"; exec zsh -i'
 super + p
     dmenu_run
 super + {apostrophe, numbersign, Menu}
@@ -25,10 +25,12 @@ ctrl + alt + {h, n, w, f, t, i, s, p, g, c}; ctrl + alt + t
     dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances, watch conky -i 1}
 ctrl + alt + m; ctrl + alt + {m, s}
     {dwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
-ctrl + alt + r; ctrl + alt + {r, s, d, v}
-    dwmpad -g 160x50 -- {lfrun "$HOME/downloads", newsboat, refreshdocs, dvtm} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
-ctrl + alt + w; ctrl + alt + w
-    dwmpad -g 203x50 -- weather
+ctrl + alt + r; ctrl + alt + {s, d, v}
+    dwmpad -g 160x50 -- {newsboat, refreshdocs, dvtm} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
+ctrl + alt + r; ctrl + alt + r
+    dwmpad -g 220x50 -- tmux new-session -x "$(tput cols)" -y "$(tput lines)" "lfrun '$HOME/downloads'" \; split-window -h -p 50 "lfrun '$HOME/downloads'" \; select-pane -t left \; new-window "sudo lfrun -config='$XDG_CONFIG_HOME/lf/lfrc' '$HOME/downloads'" \; select-window -t 1 \;
+ctrl + alt + w; ctrl + alt + {w, a}
+    {dwmpad -g 203x50 -- weather, whatsapp-nativefier-dark}
 ctrl + alt + b; ctrl + alt + b
     dwmpad -- bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}

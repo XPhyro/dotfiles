@@ -338,7 +338,7 @@ alias umount="sudo umount"
 alias btmon="sudo btmon"
 
 alias btctl="bluetoothctl"
-alias tlmgr="tllocalmgr"
+# alias tlmgr="tllocalmgr"
 
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
