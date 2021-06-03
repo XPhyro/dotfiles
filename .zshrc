@@ -197,11 +197,8 @@ alias ffp="ffprobe -hide_banner"
 
 alias gpp="g++"
 
-# alias ipy="ipython"
-alias ptpy="ptpython"
-alias py2="python2"
-alias py="python"
-alias pypy="pypy3"
+alias py2="python2 -q"
+alias pypy="pypy3 -q"
 
 alias R="R -q"
 alias Rs="R -s"
@@ -742,6 +739,15 @@ toxv() {
 
 mkcd() {
     mkdir -p "$1" && cd "$1"
+}
+
+py() {
+    if [ "$#" -eq 0 ]
+    then
+        ptpython
+    else
+        python "$@"
+    fi
 }
 
 vl() {
