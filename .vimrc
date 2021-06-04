@@ -464,6 +464,7 @@ Plug 'farmergreg/vim-lastplace'
 " Plug 'joonty/vim-do'
 Plug 'Ron89/thesaurus_query.vim'
 Plug '907th/vim-auto-save'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 "set visual-increment types
