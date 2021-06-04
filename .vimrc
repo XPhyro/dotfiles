@@ -249,7 +249,7 @@ augroup configgroup
     au BufNewFile     *.sh                call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
     "for some reason   vim does not detect shebangs unless this is here
     au BufEnter       *                   exe ':filetype detect'
-    au BufEnter       *                   if expand('%:p:h') == "/home/xphyro/code/sh" && expand('%:e') == "" | se ft=sh
+    au BufEnter       *                   if expand('%:p:h') == "/home/xphyro/code/sh/sh" && expand('%:e') == "" | se ft=sh
     au BufEnter       *                   if &ft == 'sh' && IsFileEmpty() | call s:TempToggleWriteOnInsertLeaveBefore() | exe 'normal' "i#!/usr/bin/env sh\<CR>\<CR>\<ESC>" | call s:TempToggleWriteOnInsertLeaveAfter()
     au BufEnter       *.vimrc             let b:noStripWhitespace=1
     au BufEnter       *.log               let b:noWriteOnInsert=1
@@ -265,6 +265,7 @@ augroup END
 augroup actiongroup
     "au InsertLeave    *                   call s:WriteOnInsertLeave()
     au FileWritePost  sxhkdrc             silent! exe "!setxkb; restart-sxhkd"
+    au FileWritePost  *                   if expand('%:p:h') == "/home/xphyro/code/sh/sh" | silent! exe "!sudo make install"
     au BufWritePost   .Xresources         silent! exe "!xrdb -load ~/.Xresources"
     au FileWritePost  locations,files     silent! exe "!setfl; genrc"
 augroup END
