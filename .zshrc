@@ -473,13 +473,8 @@ alias rdfr='rdfind -minsize 1 -removeidentinode false -makehardlinks false -make
 
 alias syncp="rdfdow && symlinks -cr ~/downloads/p/ && rsync -abviuzP --remove-source-files ~/downloads/p/ ~/archive/p/p/ && rdfp"
 
-alias w2x="waifu2x-converter-cpp"
+alias w2="waifu2x-converter-cpp"
 alias ycmgen="~/repo/YCM-Generator/config_gen.py"
-
-alias ue4="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor"
-alias ue4c="~/archive/unreal-engine/Engine/Binaries/Linux/UE4Editor-Cmd"
-alias ue4genp="~/archive/unreal-engine/GenerateProjectFiles.sh"
-alias uh="~/programs/squashfs-root/unityhub"
 
 alias ddad="dragon-drag-and-drop -a -x"
 
