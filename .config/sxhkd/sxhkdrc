@@ -29,8 +29,8 @@ ctrl + alt + r; ctrl + alt + {s, d, v}
     dwmpad -g 160x50 -- {newsboat, refreshdocs, dvtm} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
 ctrl + alt + r; ctrl + alt + r
     dwmpad -g 220x50 -- tmux new-session -x "$(tput cols)" -y "$(tput lines)" "lfrun '$HOME/downloads'" \; split-window -h -p 50 "lfrun '$HOME/downloads'" \; select-pane -t left \; new-window "sudo lfrun -config='$XDG_CONFIG_HOME/lf/lfrc' '$HOME/downloads'" \; select-window -t 1 \;
-ctrl + alt + w; ctrl + alt + w
-    dwmpad -g 203x50 -- weather
+ctrl + alt + w; ctrl + alt + {w, a}
+    {dwmpad -g 203x50 -- weather, "$BROWSER" --new-window "https://web.whatsapp.com"}
 ctrl + alt + b; ctrl + alt + b
     dwmpad -- bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}
