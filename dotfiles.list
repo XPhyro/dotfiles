@@ -36,6 +36,7 @@
 ~/.config/sonic-pi.net/gui-keys-bindings.conf
 ~/.config/sonic-pi.net/gui-keys-bindings.ini
 ~/.config/sxhkd/sxhkdrc
+~/.config/sxiv
 ~/.config/systemd/user
 ~/.config/user-dirs.dirs
 ~/.config/vlc/vlcrc
