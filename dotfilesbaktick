@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Run dotfilesbak when a dot file is modified.
+
+while inotifywait -e modify -r -q -q "@$HOME/.dotfiles/.git" "$HOME/.dotfiles"
+do
+    sleep 1.5h
+    "$HOME/.dotfiles/dotfilesbak"
+done
