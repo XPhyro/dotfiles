@@ -17,9 +17,12 @@ bindkey -v
 
 # Enable colours and change prompt:
 autoload -U colors && colors    # Load colours
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+psprefix=
+[ -n "$LF_LEVEL" ] && psprefix="%{$fg[red]%}[$LF_LEVEL] "
+PS1="%B$psprefix%{$fg[cyan]%}%~%{$fg[yellow]%}$%{$reset_color%}%b "
 setopt autocd       # Automatically cd into typed directory.
-stty stop undef     # Disable ctrl-s to freeze terminal.
+# stty stop undef     # Disable ctrl-s to freeze terminal.
 
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select
