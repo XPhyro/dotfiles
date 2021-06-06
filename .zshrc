@@ -264,6 +264,7 @@ alias yay-list='LC_ALL=C yay -Qi | awk "/^Name/{name=\$3} /^Installed Size/{prin
 alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
 
 alias cmsmic="rm -f config.h; make -j12; sudo make install clean"
+alias gobi="go build && go install"
 alias hsmic="./autogen.sh && ./configure --prefix=/usr && sudo make -j12 install"
 alias mi="make -j12; make install"
 alias sm="sudo make"
@@ -614,7 +615,7 @@ eal() {
 r() {
     tmp="$(mktemp)"
     # TODO: lfrun basically disables the asynchronouity, maybe don't use lfrun or have an alternate function where lf is used instead of lfrun. Maybe try to make lfrun more asynchronous?
-    lfrun -last-dir-path="$tmp" "$@"
+    lfrun -last-dir-path="$tmp" "$@" 2>> ~/lf-error
     [ -f "$tmp" ] && {
         dir="$(< "$tmp")"
         rm -f "$tmp"
