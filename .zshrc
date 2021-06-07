@@ -859,3 +859,5 @@ source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 # sed -e '/^#/d' -e 's/#.*//' -e 's/\\//g' ~/.echo.shrc
 
 date +"%s" >> "$(getfl terminallog)"
+
+[ -z "$LF_LEVEL" ] && r
