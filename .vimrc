@@ -265,7 +265,7 @@ augroup END
 augroup actiongroup
     "au InsertLeave    *                   call s:WriteOnInsertLeave()
     au FileWritePost  sxhkdrc             silent! exe "!setxkb; restart-sxhkd"
-    au FileWritePost  *                   if expand('%:p:h') == "/home/xphyro/code/sh/sh" | silent! exe "!sudo make install"
+    au FileWritePost  *                   if getcwd() == "/home/xphyro/code/sh/sh" | silent! exe "!sudo make install"
     au BufWritePost   .Xresources         silent! exe "!xrdb -load ~/.Xresources"
     au FileWritePost  locations,files     silent! exe "!setfl; genrc"
 augroup END
