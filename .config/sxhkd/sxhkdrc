@@ -66,7 +66,7 @@ ctrl + super + {o, i, p}
 ctrl + alt + shift + {b, v}
     swp {"$HOME/.local/share/applications/browser.desktop" "$HOME/.local/share/applications/browser-other.desktop"; statbarbrowser; statbarset, "$HOME/.config/mpv/mpv.conf" "$HOME/.config/mpv/mpv-other.conf"}
 ctrl + alt + s; ctrl + alt + {c, e, a}
-    {xdg-open ~/course-schedule.png, xdg-open "$(getloc exam)/main.pdf", openass}
+    {xdg-open ~/course-schedule.png, xdg-open "$(getlocall exam)/main.pdf", openass}
 
 #
 ##
