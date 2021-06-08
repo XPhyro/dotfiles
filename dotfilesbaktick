@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 # Run dotfilesbak when a dot file is modified.
+# Designed to be used with cron or systemd timers.
 
-while inotifywait -e modify -r -q -q "@$HOME/.dotfiles/.git" "$HOME/.dotfiles"
-do
-    sleep 1.5h
-    "$HOME/.dotfiles/dotfilesbak"
-done
+[ "$(stat --format="%Y" -- "$HOME/.dotfiles")" -gt "$(($(date +"%s") - 7200))" ] && exec "$HOME/.dotfiles/dotfilesbak"
+exit 0
