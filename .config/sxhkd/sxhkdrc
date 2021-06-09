@@ -16,7 +16,7 @@ super + shift + Return
 # super + ctrl + Return
 #     "$TERMINAL" -e zsh -c 'tmp="$(mktemp)"; lfrun -last-dir-path="$tmp" "$HOME/downloads"; [ -f "$tmp" ] && { dir="$(< "$tmp")"; rm -f "$tmp"; [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"; exec zsh -i'
 super + ctrl + Return
-    "$TERMINAL" -e lfrun "$HOME/downloads"
+    cdexec "$HOME/downloads" "$TERMINAL" -e lfrun
 super + p
     dmenu_run
 super + {apostrophe, numbersign, Menu}
