@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+tmp="$(mktemp)"
+cp -f -- /dev/stdin "$tmp"
+cat "$tmp"
+
+exit 0

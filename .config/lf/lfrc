@@ -1,0 +1,256 @@
+# vim: ft=sxhkdrc
+
+# TODO: Copy file, copy file as mimetype.
+# TODO: Everything applicable from rc.conf.
+# TODO: Sort in reverse with uppercase letter. Other sorting stuff.
+# TODO: Searching stuff.
+# TODO: fzf stuff.
+# TODO: mapexec stuff.
+# TODO: contexec and latexstp.
+# TODO: du/df stuff.
+# TODO: zips/unzips.
+# TODO: Name, path, etc. copying of files.
+# TODO: Integrate the trash functionality after it is implemented in the sh repository.
+# TODO: Implement 'map <a-m> mkcd'
+# TODO: Impelement a version of gXXX that presents the options with fzf.
+# TODO: Implement chmod and chown.
+# TODO: sxiv stuff.
+# TODO: Make 'map i' into a dynamic pager. Say, if the file is a video file, execute ffprobe on it and show its output. Add these sorts of details for the dynamic pager. Also make it such that the pager can be stopped with the same key, i.e. 'i'.
+# TODO: Add interactive zsh.
+# TODO: gi, @, @i. (names can be different)
+# TODO: Find a way to effectively use git with lf.
+# TODO: Just replace the interactive shell with lf.
+# TODO: Share or shorten URL with 0x0.st
+# TODO: Sync "$XDG_DATA_HOME/lf/marks" and "$(getfl mrk)".
+# TODO: Relative symlink.
+
+cmd recol &{{
+    w="$(tput cols)"
+    if [ "$w" -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
+    elif [ "$w" -le 160 ]; then
+        lf -remote "send $id set ratios 1:2:3"
+    elif [ "$w" -le 240 ]; then
+        lf -remote "send $id set ratios 1:2:3:5"
+    else
+        lf -remote "send $id set ratios 1:2:3:5:7"
+    fi
+}}
+
+recol
+&[ "$PWD" = "$HOME/downloads" ] && lf -remote "send $id push sm"
+
+set cleaner ~/.config/lf/cleaner
+set previewer ~/.config/lf/preview
+# set sorter ~/.config/lf/sorter
+set shell zsh
+set shellopts "-ey" # '-euy'
+set ifs "\n"
+set filesep "\n"
+set scrolloff 1000
+set icons
+set period 1
+set number
+set relativenumber
+set incsearch
+# set drawbox
+# set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set errorfmt "\033[1;37;41m%s\033[0m"
+
+cmd remove ${{
+    { printf "%s\n" $fx; printf "Remove? [y/N]"; } | sless
+    equals "$(readchar)" Y y && rm -rf -- $fx 2> /dev/null &
+    exit 0
+}}
+
+cmd open ${{
+    ft="$(file --mime-type --brief "$(realpath -P "$f")")"
+
+    wid="$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')"
+
+    [ "$ft" = "application/pdf" ] && {
+        tmp="$(mktemp -d)"
+        pdftoppm "$f" "$tmp/out" -png
+        mpv --no-terminal --wid="$wid" -- "${tmp-?}"/*
+        exit 0
+    }
+    grep "^MimeType=" "$HOME/.local/share/applications/mpv.desktop" | sed 's/^MimeType=//' | tr ';' '\n' | head -n -1 | xargs equals "$ft" && defapp="mpv.desktop" || defapp="$(xdg-mime query default "$ft")"
+
+    case "$defapp"
+    in
+        vim.desktop) vim -- "$f";;
+        # org.pwmt.zathura.desktop) zathura -e "$wid" -- "$f";; # TODO: Does not work, fix.
+        mpv.desktop) mpv --no-terminal --wid="$wid" -- "$f";;
+        # sxiv.desktop) sxiv -e "$wid" -- "$f";; # TODO: Does not work, fix.
+        *) setsid --fork -- xdg-open "$f" &> /dev/null;;
+    esac
+}}
+
+cmd bulkrename ${{
+    if [ -z "$fs" ]
+    then
+        find -mindepth 1 -maxdepth 1 -not -name ".*" -printf "%P\n"
+    else
+        printf "%s\n" "$fs"
+    fi | mapexec -m 'if [ -e "$f" ]; then printf "Not moving %s to %s as the destination already exists.\n" "$i" "$f"; else mv --backup=numbered -- "$i" "$f"; fi'
+    # TODO: If any file is not moved, read a line to show the errors.
+}}
+
+cmd symlink %{{
+    tail -n +2 "$XDG_DATA_HOME/lf/files" | xargs -r ln -s --backup=numbered -t "$(realpath .)"
+    lf -remote 'send clear'
+}}
+
+cmd du ${{
+    if [ -z "$fs" ]
+    then
+        du -ch .
+    else
+        du -ch $fs
+    fi | sort -h | less +Gj
+}}
+
+cmd df !{{
+    df="$(df -h)"
+    {
+        printf "%s\n" "$df" | head -n 1
+        printf "%s\n" "$df" | grep '^/dev/' --color=never
+    } | sless
+}}
+
+cmd countdir %find -mindepth 1 -maxdepth 1 | wc -l
+
+cmd countpath %printf "%s\n" "$fx" | stest -d | xargs -rI {} find {} -mindepth 1 -maxdepth 1 | wc -l
+
+cmd countdirrec %find -mindepth 1 | wc -l
+
+cmd countpathrec %printf "%s\n" "$fx" | stest -d | xargs -rI {} find {} -mindepth 1 | wc -l
+
+cmd selectload %{{
+    tail -n +2 "$XDG_DATA_HOME/lf/files" | while IFS= read -r i; do
+        lf -remote "send $id select '$i'" && lf -remote "send $id toggle"
+    done
+    lf -remote "send $id select '$f'"
+    lf -remote 'send clear'
+}}
+
+cmd selectsxiv ${{
+    outfl="$(getfl sxivout)"
+    truncate -s 0 -- "$outfl"
+    sxiv .
+    # [ -s "$outfl" ] || exit 0
+    # lf -remote "send $id unselect"
+    cat "$outfl" | xargs -r realpath | while IFS= read -r i; do
+        lf -remote "send $id select '$i'" && lf -remote "send $id toggle"
+    done
+    lf -remote "send $id select '$f'"
+}}
+
+cmd zip &{{
+    # TODO
+    exit 1
+}}
+
+cmd unzip &{{
+    printf "%s\n" $fx | while IFS= read -r i; do
+        fb="$(basename "$i")"
+        fn="$(rawname "$fb")"
+        mkdir -p -- "unzipped-$fn"
+        cd "unzipped-$fn"
+        cp -- "$i" "$fb"
+        { unzips "$fb"; rm -f -- "$fb"; } &
+        cd ..
+    done
+}}
+
+cmd share %{{
+    [ "$(stat --format="%s" -- "$f")" -gt 53687912 ] && {
+        printf "File size is greater than 512 MiB.\n"
+        exit 1
+    }
+    curl -F"file=@$f" "https://0x0.st" | xclip -se c
+}}
+
+cmd yankdir &printf "%s\n" "$PWD" | xclip -se c
+cmd yankpath &printf "%s\n" "$fx" | xclip -se c
+cmd yankname &printf "%s\n" "$fx" | xargs -rn 1 basename | xclip -se c
+cmd yankpathcurr &printf "%s\n" "$f" | xclip -se c
+cmd yanknamecurr &printf "%s\n" "$f" | xargs -rn 1 basename | xclip -se c
+
+cmd prevsel &{{
+    [ "$(printf "%s\n" "$fx" | head -n 1)" = "$f" ] && prev="$(printf "%s\n" "$fx" | tail -n 1)"
+    [ -z "$prev" ] && prev="$(printf "%s\n" "$fx" | grep -Fx -B 1 "$f" | head -n 1)"
+    [ -z "$prev" ] && prev="$(printf "%s\n" "$fx" | tail -n 1)"
+    lf -remote "send $id select '$prev'"
+}}
+
+cmd nextsel &{{
+    [ "$(printf "%s\n" "$fx" | tail -n 1)" = "$f" ] && next="$(printf "%s\n" "$fx" | head -n 1)"
+    [ -z "$next" ] && next="$(printf "%s\n" "$fx" | grep -Fx -A 1 "$f" | tail -n 1)"
+    [ -z "$next" ] && next="$(printf "%s\n" "$fx" | head -n 1)"
+    lf -remote "send $id select '$next'"
+}}
+
+cmd page $LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey" LESS="+k" bat --color=always --paging=always -- $fx
+cmd pagesingle $LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey" LESS="+k" bat --color=always --paging=always -- "$f"
+
+map _ prevsel
+map + nextsel
+
+# map <a-j> $lf -remote "send $id cd $(cut -d'    ' -f2 "$(getfl loc)" | fzf)"
+map K half-up
+map J half-down
+map <c-f> $lf -remote "send $id select '$(fzf)'"
+map <c-d> &dragon-drag-and-drop -a -x $fx
+map M push %mkdir<space>-p<space>--<space>
+map t push %touch<space>--<space>
+map <c-space> :toggle
+
+map gh
+map gg top
+map D remove
+map I page
+map i pagesingle
+map R :reload; recol; source ~/.config/lf/lfrc
+map C clear
+map U selectload
+map L symlink
+map Yd yankdir
+map Yp yankpath
+map Yn yankname
+map YP yankpathcurr
+map YN yanknamecurr
+map <a-h> set hidden!
+map sf !"$f"
+map sF &"$f"
+map szx unzip
+map szc zip
+map sdu du
+map sdf df
+map sdd countdir
+map sdp countpath
+map sdD countdirrec
+map sdP countpathrec
+map SSH share
+map sh $"$SHELL" -i
+map sr $export LF_LEVEL=; setsid --fork -- "$TERMINAL"
+map o &setsid --fork -- xdg-open "$f" &> /dev/null
+# map O $mimeopen --ask "$f"
+map O $setsid --fork -- xdg-open $fx &> /dev/null
+
+map r
+map rA rename
+map rI push rA<c-a>
+map ri push rA<a-b><a-b><a-f> # before extension
+map rb bulkrename
+map rr push rA<c-u>
+map ra push rA<a-b>
+
+map sx selectsxiv
+
+map e $vim -- "$f"
+map sm :set reverse; set sortby time; set info time
+
+map gG bottom
+
+source ~/.config/lf/lfrc-sensitive
