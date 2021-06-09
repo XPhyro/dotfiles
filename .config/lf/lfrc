@@ -204,7 +204,8 @@ map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-d> &dragon-drag-and-drop -a -x $fx
 map M push %mkdir<space>-p<space>--<space>
 map t push %touch<space>--<space>
-map <c-space> :toggle
+map <c-space> toggle
+map B set drawbox!
 
 map gh
 map gg top
