@@ -862,4 +862,4 @@ source ~/repo/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 date +"%s" >> "$(getfl terminallog)"
 
-[ -n "$XDG_CURRENT_DESKTOP" ] && [ -z "$LF_LEVEL" ] && r
+# [ -n "$XDG_CURRENT_DESKTOP" ] && [ -z "$LF_LEVEL" ] && r
