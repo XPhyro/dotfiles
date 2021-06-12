@@ -146,7 +146,7 @@ git remote update > /dev/null 2>&1
 if [ -n "$(git status -uno -s)" ]; then
     git pull > /dev/null 2>&1
     # TODO: Change the author.
-    git commit -m "#$(($(git rev-list --all --count) + 1)): Automatic commit by $execname." > /dev/null 2>&1
+    GIT_COMMITTER_NAME="backup" GIT_COMMITTER_EMAIL="" git commit --author="backup <>" -m "#$(($(git rev-list --all --count) + 1)): Automatic commit by $execname." > /dev/null 2>&1
     git push > /dev/null 2>&1 || logwarn '`git push` failed.'
 else
     loginfo "No changes to commit."
