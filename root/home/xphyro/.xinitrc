@@ -3,7 +3,7 @@
 [ -f "$HOME/.Xresources" ] && xrdb -merge -I"$HOME" "$HOME/.Xresources"
 
 setupxr() {
-    sleep 0.5
+    sleep 1.0
     xrh
 }
 

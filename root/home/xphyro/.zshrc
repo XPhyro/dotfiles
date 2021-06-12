@@ -8,7 +8,7 @@ FPATH="$HOME/.zsh/completions:$FPATH"
 fpath=("$HOME/.zsh/completions" $fpath)
 autoload -Uz compinit
 compinit
-HISTFILE=~/.dotfiles-sensitive/.zsh_history
+HISTFILE="$HOME/.dotfiles-sensitive/root$HOME/.zsh_history"
 HISTSIZE=1000000000
 SAVEHIST=1000000000
 setopt nomatch autocd extendedglob rmstarsilent
@@ -528,6 +528,7 @@ cdw() {
 
 ¬() {
     # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation. Before exiting, cp -f "$somedir/$$" "$somedir/0" and when initialising, cp "$somedir/0" "$somedir/$$" can respectively be used to save and load.
+    # TODO: This fails to work correctly if there is whitespace in the path.
     catfl mrk | while read -r i
     do
         mrk="$(printf "%s" "$i" | awk '{print $1}')"
@@ -542,58 +543,27 @@ cdw() {
 }
 
 @() {
-    mark="$1"
-
-    catfl mrk | while read -r i
-    do
-        mrk="$(printf "%s\n" "$i" | awk '{print $1}')"
-        [ "$mrk" = "$mark" ] && {
-            val="$(printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath)"
-
-            if [ ! -e "$val" ] 
-            then
-                printf "Mark has invalid value: [$val]\n"
-                return 1
-            fi
-
-            if [ ! -d "$val" ]
-            then
-                v "$val"
-            else
-                cd "$(printf "%s\n" "$i" | sed 's/^[^ ]\+\s\+//' | expandpath)"
-            fi
-
-            return 0
-        }
-    done
-
-    printf "Mark $mark does not exist.\n"
-    return 1
+    dir="$(_@ "$@")" && [ -n "$dir" ] && cd "$dir"
 }
 
 @i() {
-    dir="$(_@i "$@")"
-    [ -n "$dir" ] && cd "$dir"
+    dir="$(_@i "$@")" && [ -n "$dir" ] && cd "$dir"
 }
 
 g() {
-    dir="$(_g "$@")"
-    [ -n "$dir" ] && cd "$dir"
+    dir="$(_g "$@")" && [ -n "$dir" ] && cd "$dir"
 }
 
 gi() {
-    dir="$(_gi "$@")"
-    [ -n "$dir" ] && cd "$dir"
+    dir="$(_gi "$@")" && [ -n "$dir" ] && cd "$dir"
 }
 
 fd() {
-    dir="$(env _fd "$@")"
-    [ -n "$dir" ] && cd "$dir"
+    dir="$(env _fd "$@")" && [ -n "$dir" ] && cd "$dir"
 }
 
 ff() {
-    dir="$(_ff "$@")"
-    [ -n "$dir" ] && cd "$dir"
+    dir="$(_ff "$@")" && [ -n "$dir" ] && cd "$dir"
 }
 
 eal() {
