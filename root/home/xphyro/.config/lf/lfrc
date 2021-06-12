@@ -7,7 +7,6 @@
 # TODO: fzf stuff.
 # TODO: mapexec stuff.
 # TODO: contexec and latexstp.
-# TODO: du/df stuff.
 # TODO: zips/unzips.
 # TODO: Name, path, etc. copying of files.
 # TODO: Integrate the trash functionality after it is implemented in the sh repository.
@@ -23,6 +22,7 @@
 # TODO: Share or shorten URL with 0x0.st
 # TODO: Sync "$XDG_DATA_HOME/lf/marks" and "$(getfl mrk)".
 # TODO: Relative symlink.
+# TODO: When paging binary files, pipe exiftool to less instead of using bat.
 
 cmd recol &{{
     w="$(tput cols)"
@@ -248,6 +248,7 @@ map rr push rA<c-u>
 map ra push rA<a-b>
 
 map sx selectsxiv
+map zi &mkdir "$XDG_CACHE_HOME/lf/preview.lck" || rm -rf "$XDG_CACHE_HOME/lf/preview.lck"; lf -remote "send $id reload"
 
 map e $vim -- "$f"
 map sm :set reverse; set sortby time; set info time
