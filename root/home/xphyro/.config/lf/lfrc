@@ -234,7 +234,7 @@ map sdD countdirrec
 map sdP countpathrec
 map SSH share
 map sh $"$SHELL" -i
-map sr $export LF_LEVEL=; setsid --fork -- "$TERMINAL"
+map sl $export LF_LEVEL=; setsid --fork -- "$TERMINAL"
 map o &setsid --fork -- xdg-open "$f" &> /dev/null
 # map O $mimeopen --ask "$f"
 map O $setsid --fork -- xdg-open $fx &> /dev/null
@@ -251,6 +251,7 @@ map sx selectsxiv
 
 map e $vim -- "$f"
 map sm :set reverse; set sortby time; set info time
+map sr set reverse!
 
 map gG bottom
 
