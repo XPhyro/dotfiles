@@ -259,5 +259,6 @@ map sm :set reverse; set sortby time; set info time
 map sr set reverse!
 
 map gG bottom
+map g/ :cd /
 
 source ~/.config/lf/lfrc-sensitive
