@@ -18,6 +18,7 @@ text/html=brave-browser.desktop
 text/markdown=vim.desktop
 text/plain=vim.desktop
 text/x-csrc=vim.desktop
+text/x-env=vim.desktop
 text/x-log=vim.desktop
 text/x-python=vim.desktop
 video/mp4=vlc.desktop

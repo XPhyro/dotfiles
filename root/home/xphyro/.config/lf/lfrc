@@ -235,6 +235,7 @@ map sdd countdir
 map sdp countpath
 map sdD countdirrec
 map sdP countpathrec
+map swc %wc -l $fx
 map SSH share
 map sh $"$SHELL" -i
 map sl &export LF_LEVEL=; setsid --fork -- "$TERMINAL"
