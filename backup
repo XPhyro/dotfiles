@@ -37,30 +37,8 @@ lnsafe() {
     ln "$@" 2> /dev/null || sudo ln "$@" || logerr '----`ln '"$*"'` failed.'
 }
 
-mvsafeinternal() {
-    mv -- "$1" "$2" 2> /dev/null || sudo mv -- "$1" "$2" || logerr '----`mv -- '"$*"'` failed.'
-}
-
 mvsafe() {
-    newdir="${2%/*}"
-    newdir="${newdir#"$basedir/root"}"
-    basenewdir="$dir"
-    while [ ! -d "$basenewdir" ]; do
-        basenewdir="${basenewdir%/*}"
-        [ -z "$basenewdir" ] && {
-            mvsafeinternal "$@"
-            return "$?"
-        }
-    done
-    mkdir -p -- "$newdir"
-    olddir="${1%/*}"
-    while [ -n "$newdir" ]; do
-        stat --printf='%a\0%U\0%G\0' -- "$olddir" | xargs -0r -n 3 sh -c 'sudo chmod "$2" -- "$1"; sudo chown "$3:$4" -- "$1";' "$newdir"
-        newdir="${newdir%/*}"
-        olddir="${olddir%/*}"
-    done
-
-    mvsafeinternal "$@"
+    mv "$@" 2> /dev/null || sudo mv "$@" || logerr '----`mv -- '"$*"'` failed.'
 }
 
 dotdir="$HOME/.dotfiles"
@@ -136,7 +114,8 @@ while IFS= read -r srcfl; do
         fi
     else
         logwarn "----Source file exists but target does not, moving and linking."
-        mvsafe "$srcfl" "$targetfl"
+        mkdir -p -- "${targetfl%/*}"
+        mvsafe -- "$srcfl" "$targetfl"
         lnsafe -s -- "$realtargetfl" "$srcfl"
     fi
 done < "$listfl"
