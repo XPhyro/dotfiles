@@ -58,9 +58,6 @@ if issensitive; then
     listfl="$dotlistfls"
     listflother="$dotdir/$dotlistfl"
     logprefix="[BACKUP-SENSITIVE]: "
-
-    loginfo "Initiating non-sensitive backup."
-    "$dotdir/backup" || logerrq "Non-sensitive backup failed"
 else
     # [ -d "$dotdirs/$dotlckdirs" ] || logerrq "Non-sensitive backup must be initiated by sensitive backup"
     mkdir -- "$dotdir/$dotlck" || logerrq "Could not acquire lock"
@@ -68,6 +65,9 @@ else
     listfl="$dotlistfl"
     listflother="$dotdirs/$dotlistfls"
     logprefix="[BACKUP]: "
+
+    loginfo "Initiating sensitive backup."
+    "$dotdirs/backup" || logerrq "Sensitive backup failed"
 fi
 
 cdsafe "$basedir"
