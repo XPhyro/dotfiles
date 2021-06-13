@@ -156,8 +156,6 @@ gitfailed=0
 if git restore --staged . && sudo git add root .file-properties "$listfl" && git remote update; then
     if issensitive; then
         git add pac.list
-    else
-        git add .gitignore
     fi && if [ -n "$(git status -uno -s)" ]; then
         git fetch && GIT_COMMITTER_NAME="backup" GIT_COMMITTER_EMAIL="" sudo git commit --author="backup <>" -m "#$(($(git rev-list --all --count) + 1)): Automatic commit by $execname." && git push || gitfailed=1
     else
