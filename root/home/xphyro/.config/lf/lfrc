@@ -74,7 +74,10 @@ cmd open ${{
         mpv --no-terminal --wid="$wid" -- "${tmp-?}"/*
         exit 0
     }
-    grep "^MimeType=" "$HOME/.local/share/applications/mpv.desktop" | sed 's/^MimeType=//' | tr ';' '\n' | head -n -1 | xargs equals "$ft" && defapp="mpv.desktop" || defapp="$(xdg-mime query default "$ft")"
+
+    grep "^MimeType=" "$HOME/.local/share/applications/mpv.desktop" | sed 's/^MimeType=//' | tr ';' '\n' | head -n -1 | xargs equals "$ft" && defapp="mpv.desktop" || {
+        printf "%s\n" "$ft" | grep -Fq "text/" && defapp="vim.desktop" || defapp="$(xdg-mime query default "$ft")"
+    }
 
     case "$defapp"
     in
@@ -234,10 +237,10 @@ map sdD countdirrec
 map sdP countpathrec
 map SSH share
 map sh $"$SHELL" -i
-map sl $export LF_LEVEL=; setsid --fork -- "$TERMINAL"
-map o &setsid --fork -- xdg-open "$f" &> /dev/null
-# map O $mimeopen --ask "$f"
-map O $setsid --fork -- xdg-open $fx &> /dev/null
+map sl &export LF_LEVEL=; setsid --fork -- "$TERMINAL"
+map o &setsid --fork -- xdg-open "$f"
+map <c-o> &setsid --fork -- mimeopen --ask "$f"
+map O &setsid --fork -- xdg-open $fx
 
 map r
 map rA rename
