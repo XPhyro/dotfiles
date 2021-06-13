@@ -38,7 +38,14 @@ lnsafe() {
 }
 
 mvsafe() {
-    mv "$@" 2> /dev/null || sudo mv "$@" || logerr '----`mv -- '"$*"'` failed.'
+    mkdir -p -- "${2%/*}"
+    if mv -- "$1" "$2" 2> /dev/null; then
+        ln -s -- "$3" "$1"
+    elif sudo mv -- "$1" "$2"; then
+        sudo ln -s -- "$3" "$1"
+    else
+        logerr '----`mv -- '"$*"'` failed.'
+    fi
 }
 
 dotdir="$HOME/.dotfiles"
@@ -97,7 +104,7 @@ while IFS= read -r srcfl; do
         continue
     }
 
-    realtargetfl="$(realpath -- "$targetfl")"
+    realtargetfl="$(realpath -m -- "$targetfl")"
     if ! stat -- "$srcfl" > /dev/null 2>&1; then
         if [ ! -e "$targetfl" ]; then
             logwarn "----Source and target files do not exist, ignoring."
@@ -114,9 +121,7 @@ while IFS= read -r srcfl; do
         fi
     else
         logwarn "----Source file exists but target does not, moving and linking."
-        mkdir -p -- "${targetfl%/*}"
-        mvsafe -- "$srcfl" "$targetfl"
-        lnsafe -s -- "$realtargetfl" "$srcfl"
+        mvsafe "$srcfl" "$targetfl" "$realtargetfl"
     fi
 done < "$listfl"
 
@@ -141,20 +146,30 @@ fi
 
 loginfo "Recording file properties ignored by Git."
 
-find root -print0 | sort -Vz | xargs -0r stat --printf='%n\0%G\0%U\0%a\0\n' -- > .file-properties
+cdsafe root
+find -print0 | sort -Vz | xargs -0r stat --printf='%n\0%G\0%U\0%a\0\n' -- > ../.file-properties
+cdsafe ..
 
 loginfo "Committing changes."
 
-git add . > /dev/null 2>&1
-git remote update > /dev/null 2>&1
-
-if [ -n "$(git status -uno -s)" ]; then
-    git pull > /dev/null 2>&1
-    GIT_COMMITTER_NAME="backup" GIT_COMMITTER_EMAIL="" git commit --author="backup <>" -m "#$(($(git rev-list --all --count) + 1)): Automatic commit by $execname." > /dev/null 2>&1
-    git push > /dev/null 2>&1 || logwarn '`git push` failed.'
+gitfailed=0
+if git restore --staged . && sudo git add root .file-properties "$listfl" && git remote update; then
+    if issensitive; then
+        git add pac.list
+    else
+        git add .gitignore
+    fi && if [ -n "$(git status -uno -s)" ]; then
+        git fetch && GIT_COMMITTER_NAME="backup" GIT_COMMITTER_EMAIL="" sudo git commit --author="backup <>" -m "#$(($(git rev-list --all --count) + 1)): Automatic commit by $execname." && git push || gitfailed=1
+    else
+        loginfo "No changes to commit."
+    fi
 else
-    loginfo "No changes to commit."
+    gitfailed=1
 fi
+
+[ "$gitfailed" = "1" ] && logerr "Some Git operation(s) failed."
+
+sudo chown -Rh "$(id -un):$(id -gn)" -- .git
 
 loginfo "Releasing lock."
 
