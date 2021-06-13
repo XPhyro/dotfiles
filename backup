@@ -34,11 +34,11 @@ cdsafe() {
 }
 
 lnsafe() {
-    ln "$@" || logerr '----`ln '"$*"'` failed.'
+    ln "$@" 2> /dev/null || sudo ln "$@" || logerr '----`ln '"$*"'` failed.'
 }
 
 mvsafe() {
-    mv "$@" || logerr '----`mv '"$*"'` failed.'
+    mv "$@" 2> /dev/null || sudo mv "$@" || logerr '----`mv '"$*"'` failed.'
 }
 
 dotdir="$HOME/.dotfiles"
@@ -103,7 +103,7 @@ while IFS= read -r srcfl; do
             logwarn "----Source and target files do not exist, ignoring."
         else
             logwarn "----Source file does not exist but target does, linking."
-            lnsafe -s -- "$targetfl" "$srcfl"
+            lnsafe -s -- "$realtargetfl" "$srcfl"
         fi
     elif [ -e "$targetfl" ]; then
         if [ ! -e "$srcfl" ]; then
