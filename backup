@@ -138,6 +138,10 @@ else
     printf ".gitignore\n" >> .gitignore
 fi
 
+loginfo "Recording file properties ignored by Git."
+
+find root -print0 | sort -Vz | xargs -0r stat --printf='%n\0%G\0%U\0%a\0\n' -- > .file-properties
+
 loginfo "Committing changes."
 
 git add . > /dev/null 2>&1
