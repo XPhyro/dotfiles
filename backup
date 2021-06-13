@@ -38,7 +38,26 @@ lnsafe() {
 }
 
 mvsafe() {
-    mv "$@" 2> /dev/null || sudo mv "$@" || logerr '----`mv '"$*"'` failed.'
+    dir="${3%/*}"
+    while true; do
+        dir="${dir%/*}"
+        [ -d "$dir" ] && {
+            dir="${3##"$dir"}"
+            dir="${dir#/}"
+            dir="${dir%/*}"
+            prevpwd="$PWD"
+            while [ -n "$dir" ]; do
+                i="${dir%%/*}"
+                mkdir -- "$i" || logerrq "Error code 1"
+                cdsafe "$i"
+                reali="${PWD#"$basedir/root"}"
+                stat --printf='%a\0%U:%G\0' -- "$reali" | xargs -0r -n 2 sh -c 'sudo chmod "$2" -- "$1"; sudo chown "$3:$4" -- "$1";' "$i" || logerrq "Error code 2"
+            done
+            break
+        }
+    done
+    cdsafe "$prevpwd"
+    mv "$@" 2> /dev/null || sudo mv "$@" || logerr '----`mv -- '"$*"'` failed.'
 }
 
 dotdir="$HOME/.dotfiles"
