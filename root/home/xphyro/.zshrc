@@ -116,6 +116,8 @@ alias ll="ls -lh"
 alias lr="ls -lRh"
 alias lsd="ls -d"
 
+alias less="less -R"
+alias lessr="less -r"
 alias bat="bat --style=plain --paging=always"
 alias cat="bat --style=plain --paging=never"
 

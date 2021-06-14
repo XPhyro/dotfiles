@@ -195,7 +195,7 @@ cmd nextsel &{{
 }}
 
 cmd page $LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey" LESS="+k" bat --color=always --paging=always -- $fx
-cmd pagesingle $LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey" LESS="+k" bat --color=always --paging=always -- "$f"
+cmd pagesingle $bin=; grep -Iq '' "$f" || bin="-A"; LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey" LESS="+k" bat $bin --color=always --paging=always -- "$f"
 
 map _ prevsel
 map + nextsel

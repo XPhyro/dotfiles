@@ -1,3 +1,5 @@
+" TODO: gj/gk for non-visual moving. This can likely be achieved with : commands.
+
 se nocompatible
 
 filetype plugin on
