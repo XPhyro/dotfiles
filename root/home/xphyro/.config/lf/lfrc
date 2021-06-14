@@ -141,7 +141,7 @@ cmd selectload %{{
     lf -remote 'send clear'
 }}
 
-cmd selectsxiv ${{
+cmd selectsxiv &{{
     outfl="$(getfl sxivout)"
     truncate -s 0 -- "$outfl"
     sxiv .
