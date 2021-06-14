@@ -16,8 +16,8 @@
 /home/xphyro/.config/fontconfig/fonts.conf
 /home/xphyro/.config/gtkrc
 /home/xphyro/.config/gtkrc-2.0
-/home/xphyro/.config/gtk-2.0/gtkfilechooser.ini
-/home/xphyro/.config/gtk-3.0/settings.ini
+/home/xphyro/.config/gtk-2.0
+/home/xphyro/.config/gtk-3.0
 /home/xphyro/.config/htop/htoprc
 /home/xphyro/.config/kritadisplayrc
 /home/xphyro/.config/kritarc

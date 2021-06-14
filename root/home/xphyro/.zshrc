@@ -87,7 +87,8 @@ ca="--color=always"
 ##
 #
 
-alias bgq="bg 2> /dev/null; disown && exit"
+alias bgd="bg 2> /dev/null && disown"
+alias bgq="bg 2> /dev/null && disown && exit"
 
 alias o="$OPENER"
 

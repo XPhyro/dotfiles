@@ -324,10 +324,6 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 "navigation
 nnoremap J <C-d>
 nnoremap K <C-u>
-"add ctrl-backspace functionality (<c-bs> does not work with terminal vim)
-"inoremap <C-x> <Esc>BdaWa
-"xnoremap <C-x> BdaWa
-inoremap <C-x> <Esc>dbxa
 nnoremap <C-s> hs
 nnoremap Z dd
 "unmap ZZ
@@ -426,6 +422,31 @@ vnoremap <F4> d:execute 'normal a' . join(sort(split(getreg('"'))), ' ')<CR>
 nnoremap <F5> vip:sort<CR>
 
 nnoremap <Leader>lf :LF<CR>
+
+"emacs maps for i and c
+inoremap <c-a> <Home>
+inoremap <c-e> <End>
+inoremap <c-b> <Left>
+inoremap <c-f> <Right>
+inoremap <c-p> <Up>
+inoremap <c-n> <Down>
+inoremap <c-d> <Del>
+inoremap <c-h> <BS>
+cnoremap <c-a> <Home>
+cnoremap <c-e> <End>
+cnoremap <c-b> <Left>
+cnoremap <c-f> <Right>
+cnoremap <c-p> <Up>
+cnoremap <c-n> <Down>
+cnoremap <c-d> <Del>
+cnoremap <c-h> <BS>
+"more i maps
+inoremap <c-k> <ESC>lDa
+inoremap <c-u> <ESC>2BEa
+inoremap <c-r> <ESC>Ea
+inoremap <c-c> <ESC>~a
+inoremap <C-x> <Esc>dBxi
+inoremap <C-l> <Esc>dEi
 
 "wipe registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) |

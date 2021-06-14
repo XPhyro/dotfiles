@@ -75,9 +75,13 @@ cmd open ${{
         exit 0
     }
 
-    grep "^MimeType=" "$HOME/.local/share/applications/mpv.desktop" | sed 's/^MimeType=//' | tr ';' '\n' | head -n -1 | xargs equals "$ft" && defapp="mpv.desktop" || {
-        printf "%s\n" "$ft" | grep -Fq "text/" && defapp="vim.desktop" || defapp="$(xdg-mime query default "$ft")"
-    }
+    if [ -s "$f" ]; then
+        grep "^MimeType=" "$HOME/.local/share/applications/mpv.desktop" | sed 's/^MimeType=//' | tr ';' '\n' | head -n -1 | xargs equals "$ft" && defapp="mpv.desktop" || {
+            printf "%s\n" "$ft" | grep -Fq "text/" && defapp="vim.desktop" || defapp="$(xdg-mime query default "$ft")"
+        }
+    else
+        defapp="vim.desktop"
+    fi
 
     case "$defapp"
     in
@@ -176,9 +180,9 @@ cmd share %{{
 
 cmd yankdir &printf "%s\n" "$PWD" | xclip -se c
 cmd yankpath &printf "%s\n" "$fx" | xclip -se c
-cmd yankname &printf "%s\n" "$fx" | xargs -rn 1 basename | xclip -se c
+cmd yankname &printf "%s\n" "$fx" | xargs -r -d '\n' -n 1 basename | xclip -se c
 cmd yankpathcurr &printf "%s\n" "$f" | xclip -se c
-cmd yanknamecurr &printf "%s\n" "$f" | xargs -rn 1 basename | xclip -se c
+cmd yanknamecurr &printf "%s\n" "$f" | xargs -r -d '\n' -n 1 basename | xclip -se c
 
 cmd prevsel &{{
     [ "$(printf "%s\n" "$fx" | head -n 1)" = "$f" ] && prev="$(printf "%s\n" "$fx" | tail -n 1)"

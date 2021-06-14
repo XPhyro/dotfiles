@@ -58,7 +58,7 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, m, b, w, c}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, k, s, a}
-    {dwmpad -g 160x50 -- spt, sptkeys, tglapp -a musescore, tglapp -a matlab}
+    {dwmpad -gn 160x50 9 -- spt, sptkeys, tglapp -a musescore, tglapp -a matlab}
 ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
     tglapp -a freetube
 ctrl + super + {o, i, p}
