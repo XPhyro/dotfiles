@@ -793,6 +793,24 @@ gacmt() {
     gacma "Add TODO comment$plural in" "$@"
 }
 
+gacmut() {
+    if [ -f "TODO" ]
+    then
+        gacmu "TODO"
+    else
+        gacmu "TODO.md"
+    fi
+}
+
+gacmur() {
+    if [ -f "README" ]
+    then
+        gacmu "README"
+    else
+        gacmu "README.md"
+    fi
+}
+
 greshh() {
     git reset --hard "HEAD~$1"
 }
