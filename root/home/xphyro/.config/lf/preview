@@ -14,13 +14,41 @@ image() {
 batorcat() {
 	file="$1"
 	shift
-	if command -v vimcat > /dev/null 2>&1; then
-		vimcat -o - -- "$file"
-	elif command -v bat > /dev/null 2>&1; then
-		bat --color=always --style=plain --pager=never "$file" "$@"
-	else
-		cat "$file"
-	fi
+
+	[ ! -s "$file" ] && {
+		tput setaf 3
+		printf "[preview]: File is empty.\n"
+		tput op
+		return 0
+	}
+
+	willprint=0
+	case "$(file --mime-type --brief "$file")" in
+		text/*) willprint=1;;
+		*/xml ) willprint=1;;
+	esac
+
+	# TODO: Add size limit like in ranger's scope.sh.
+
+	[ "$willprint" != "1" ] && {
+		tput setaf 1
+		printf "[preview]: Cannot print file.\n"
+		tput op
+		return 1
+	}
+
+	tmp="$(mktemp)"
+	bat -L | sed -e 's/^.*://' -e 's/,/\n/g' | grep -Fxq "${file%.*}" && \
+		bat --color=always --style=plain --pager=never --decorations=never "$@" -- "$file" > "$tmp" && \
+		sed -i -E 's/\[38;5;231m(.*)\[0m$/\1/' "$tmp" && \
+		grep -Pq '\033\[[^5][;m]' "$tmp" || {
+			highlight --replace-tabs=4 --out-format=truecolor --force --style=candy -- "$file" > "$tmp"
+			grep -Pq '\033\[[^5][;m]' "$tmp" || {
+				vimcat -o "$tmp" -- "$file"
+			}
+		}
+	cat -- "$tmp"
+	rm -- "$tmp"
 }
 
 [ -d "$XDG_CACHE_HOME/lf/preview.lck" ] && {

@@ -298,15 +298,19 @@ nnoremap <Leader>b :Black<CR>
 nnoremap <Leader>n :se rnu!<CR>
 "copy, paste to actual clips
 nnoremap <Leader>y "+y
+nnoremap <Leader>d "+y`[v`]d
 nnoremap <Leader>p "+p
 nnoremap <Leader>op o<Esc>"+p
 nnoremap <Leader>Op O<Esc>"+p
 nnoremap <Leader>Y "*y
+nnoremap <Leader>D "*y`[v`]d
 nnoremap <Leader>P "*p
 nnoremap <Leader>oP o<Esc>"+p
 nnoremap <Leader>OP O<Esc>"+p
 vnoremap <Leader>y "+y
+vnoremap <Leader>y "+y`[v`]d
 vnoremap <Leader>Y "*y
+vnoremap <Leader>Y "*y`[v`]d
 "execute wc on the file
 nnoremap <Leader>wc :w !wc<CR>
 ""window navigations
