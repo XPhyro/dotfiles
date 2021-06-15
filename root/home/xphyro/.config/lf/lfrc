@@ -76,7 +76,7 @@ cmd open ${{
     }
 
     if [ -s "$f" ]; then
-        grep "^MimeType=" "$HOME/.local/share/applications/mpv.desktop" | sed 's/^MimeType=//' | tr ';' '\n' | head -n -1 | xargs equals "$ft" && defapp="mpv.desktop" || {
+        grep "^MimeType=" "$HOME/.local/share/applications/mpv.desktop" | sed 's/^MimeType=//' | tr ';' '\n' | head -n -1 | xargs -d '\n' equals "$ft" && defapp="mpv.desktop" || {
             printf "%s\n" "$ft" | grep -Fq "text/" && defapp="vim.desktop" || defapp="$(xdg-mime query default "$ft")"
         }
     else
@@ -104,7 +104,7 @@ cmd bulkrename ${{
 }}
 
 cmd symlink %{{
-    tail -n +2 "$XDG_DATA_HOME/lf/files" | xargs -r ln -s --backup=numbered -t "$(realpath .)"
+    tail -n +2 "$XDG_DATA_HOME/lf/files" | xargs -d '\n' -r ln -s --backup=numbered -t "$(realpath .)"
     lf -remote 'send clear'
 }}
 
@@ -127,11 +127,11 @@ cmd df !{{
 
 cmd countdir %find -mindepth 1 -maxdepth 1 | wc -l
 
-cmd countpath %printf "%s\n" "$fx" | stest -d | xargs -rI {} find {} -mindepth 1 -maxdepth 1 | wc -l
+cmd countpath %printf "%s\n" "$fx" | stest -d | xargs -d '\n' -rI {} find {} -mindepth 1 -maxdepth 1 | wc -l
 
 cmd countdirrec %find -mindepth 1 | wc -l
 
-cmd countpathrec %printf "%s\n" "$fx" | stest -d | xargs -rI {} find {} -mindepth 1 | wc -l
+cmd countpathrec %printf "%s\n" "$fx" | stest -d | xargs -d '\n' -rI {} find {} -mindepth 1 | wc -l
 
 cmd selectload %{{
     tail -n +2 "$XDG_DATA_HOME/lf/files" | while IFS= read -r i; do
@@ -147,7 +147,7 @@ cmd selectsxiv &{{
     sxiv .
     # [ -s "$outfl" ] || exit 0
     # lf -remote "send $id unselect"
-    cat "$outfl" | xargs -r realpath | while IFS= read -r i; do
+    cat "$outfl" | xargs -d '\n' -r realpath | while IFS= read -r i; do
         lf -remote "send $id select '$i'" && lf -remote "send $id toggle"
     done
     lf -remote "send $id select '$f'"
@@ -211,6 +211,8 @@ map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-d> &dragon-drag-and-drop -a -x $fx
 map M push %mkdir<space>-p<space>--<space>
 map t push %touch<space>--<space>
+map = push %chmod<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
+map - push %chown<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
 map <c-space> toggle
 map B set drawbox!
 
