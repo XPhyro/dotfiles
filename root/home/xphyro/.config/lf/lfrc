@@ -144,10 +144,8 @@ cmd selectload %{{
 cmd selectsxiv &{{
     outfl="$(getfl sxivout)"
     truncate -s 0 -- "$outfl"
-    sxiv .
-    # [ -s "$outfl" ] || exit 0
-    # lf -remote "send $id unselect"
-    cat "$outfl" | xargs -d '\n' -r realpath | while IFS= read -r i; do
+    sxiv -- .
+    cat -- "$outfl" | xargs -d '\n' -r realpath | while IFS= read -r i; do
         lf -remote "send $id select '$i'" && lf -remote "send $id toggle"
     done
     lf -remote "send $id select '$f'"
@@ -198,8 +196,17 @@ cmd nextsel &{{
     lf -remote "send $id select '$next'"
 }}
 
-cmd page $LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey" LESS="+k" bat --color=always --paging=always -- $fx
-cmd pagesingle $bin=; grep -Iq '' "$f" || bin="-A"; LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey" LESS="+k" bat $bin --color=always --paging=always -- "$f"
+cmd page $bat --color=always --decorations=always --paging=always -- $fx
+# cmd pagesingle $bat --color=always --paging=always -- "$f"
+cmd pagesingle ${{
+    # if [ "$(file --mime-type --brief "$f")" = "text/plain" ]; then
+    #     less -- "$f"
+    if grep -Iq '' "$f"; then
+        vimcat -o - -- "$f" | sponge | less -R
+    else
+        exiftool -- "$f" | sponge | less
+    fi
+}}
 
 map _ prevsel
 map + nextsel

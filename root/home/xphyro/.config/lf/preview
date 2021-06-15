@@ -14,8 +14,9 @@ image() {
 batorcat() {
 	file="$1"
 	shift
-	if command -v bat > /dev/null 2>&1
-	then
+	if command -v vimcat > /dev/null 2>&1; then
+		vimcat -o - -- "$file"
+	elif command -v bat > /dev/null 2>&1; then
 		bat --color=always --style=plain --pager=never "$file" "$@"
 	else
 		cat "$file"
