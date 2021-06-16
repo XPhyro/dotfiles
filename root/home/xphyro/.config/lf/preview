@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # TODO: Add support for CR2. See scope.sh of lf.
+# TODO: For main.tex, bat is not used, fix.
 
 image() {
 	if [ -n "$DISPLAY" ]; then
