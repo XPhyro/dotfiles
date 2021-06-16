@@ -158,7 +158,7 @@ alias sfdl="sudo fdisk -l"
 alias dffs="df -h | head -n 1; df -h | grep \\^/dev/ --color=never"
 alias dffsw='watch "$(eal dffs)"'
 alias du="du -L"
-alias dud="du -ch . | sort -h"
+alias dud="du -chx . | sort -h | less -F +G"
 
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 

@@ -24,6 +24,7 @@
 # TODO: Relative symlink.
 # TODO: When paging binary files, pipe exiftool to less instead of using bat.
 # TODO: Make 'map zi' instance specific.
+# TODO: Make 'map V' select all files inside the selected directories, then unselect the initial directories. Do not unselect the initial files.
 
 cmd recol &{{
     w="$(tput cols)"
@@ -112,9 +113,9 @@ cmd symlink %{{
 cmd du ${{
     if [ -z "$fs" ]
     then
-        du -ch .
+        du -chx .
     else
-        du -ch $fs
+        du -chx $fs
     fi | sort -h | less +Gj
 }}
 

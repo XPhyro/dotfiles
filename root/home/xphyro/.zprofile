@@ -25,7 +25,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 export GIT_PAGER="bat -p"
-export LESS="+k"
+export LESS="-F +k"
 export LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
