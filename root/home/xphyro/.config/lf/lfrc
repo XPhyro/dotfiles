@@ -23,6 +23,7 @@
 # TODO: Sync "$XDG_DATA_HOME/lf/marks" and "$(getfl mrk)".
 # TODO: Relative symlink.
 # TODO: When paging binary files, pipe exiftool to less instead of using bat.
+# TODO: Make 'map zi' instance specific.
 
 cmd recol &{{
     w="$(tput cols)"
