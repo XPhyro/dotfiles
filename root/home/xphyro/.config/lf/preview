@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # TODO: Add support for CR2. See scope.sh of lf.
-# TODO: For main.tex, bat is not used, fix.
 
 image() {
 	if [ -n "$DISPLAY" ]; then
@@ -40,7 +39,7 @@ batorcat() {
 	}
 
 	tmp="$(mktemp)"
-	{ [ "${file%.*}" = "$file" ] || bat -L | sed -e 's/^.*://' -e 's/,/\n/g' | grep -Fxq "${file%.*}"; } \
+	{ [ "${file%.*}" = "$file" ] || bat -L | sed -e 's/^.*://' -e 's/,/\n/g' | grep -Fxq "${file##*.}"; } \
 		&& bat --color=always --style=plain --pager=never --decorations=never "$@" -- "$file" > "$tmp" \
 		&& sed -i -E 's/\[38;5;231m(.*)\[0m$/\1/' "$tmp" \
 		&& grep -Pq '\033\[[^5][;m]' "$tmp" || {
@@ -59,7 +58,7 @@ batorcat() {
 	exit 1
 }
 
-CACHE="$HOME/.cache/lf/thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}'))"
+CACHE="$HOME/.cache/lf/thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(realpath -P -- "$1")" | sha256sum | awk '{print $1}'))"
 
 case "$(printf "%s\n" "$1" | awk '{print tolower($0)}')" in
 	*.tgz|*.tar.gz) tar tzf "$1" ;;
