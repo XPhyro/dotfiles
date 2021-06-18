@@ -532,7 +532,7 @@ cdw() {
 ¬() {
     # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation. Before exiting, cp -f "$somedir/$$" "$somedir/0" and when initialising, cp "$somedir/0" "$somedir/$$" can respectively be used to save and load.
     # TODO: This fails to work correctly if there is whitespace in the path.
-    catfl mrk | while read -r i
+    catfl mrk | while IFS= read -r i
     do
         mrk="$(printf "%s" "$i" | awk '{print $1}')"
         [ "$mrk" = "¬" ] && {

@@ -201,8 +201,6 @@ cmd nextsel &{{
 cmd page $bat --color=always --decorations=always --paging=always -- $fx
 # cmd pagesingle $bat --color=always --paging=always -- "$f"
 cmd pagesingle ${{
-    # if [ "$(file --mime-type --brief "$f")" = "text/plain" ]; then
-    #     less -- "$f"
     if grep -Iq '' "$f"; then
         vimcat -o - -- "$f" | sponge | less -R
     else
@@ -231,7 +229,7 @@ map D remove
 map I page
 map i pagesingle
 map R :reload; recol; source ~/.config/lf/lfrc
-map C clear
+# map C clear
 map U selectload
 map L symlink
 map Yd yankdir
