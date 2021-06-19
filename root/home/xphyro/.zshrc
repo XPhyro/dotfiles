@@ -140,7 +140,7 @@ alias qq="exit"
 alias qqq="exit"
 
 alias bash="HISTFILE= bash"
-alias sh="HISTFILE= sh"
+alias sh="HISTFILE= sh -V"
 
 alias cpr="cp -r"
 alias mkd="mkdir -p"
@@ -257,10 +257,10 @@ alias yql="yay -Ql"
 alias yqu="yay -Qu"
 alias yr="yay -R"
 alias yrn="yay -Rns"
-alias ys="yay -Ss"
+alias ys="yay -S"
 alias ysc="yes | yay -Sc"
 alias yscc="yes | yay -Scc"
-alias yss="yay -S"
+alias yss="yay -Ss"
 alias yu="yay -Syu"
 
 alias pacman-autoremove='sudo pacman -Rcns "$(pacman -Qdtq)"'
