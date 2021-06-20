@@ -68,15 +68,6 @@ setopt histignorespace
 
 FIGNORE=".meta"
 
-mnt="/mnt"
-mntmb="/mnt/mybook"
-mntmbssh="/mnt/sshfs"
-
-pihole="192.168.1.100"
-
-bt="E8:07:BF:1B:A1:CB"
-mpow="EB:06:EF:5D:4F:4D"
-
 ca="--color=always"
 
 #
@@ -89,6 +80,7 @@ ca="--color=always"
 
 alias bgd="bg 2> /dev/null && disown"
 alias bgq="bg 2> /dev/null && disown && exit"
+alias re="builtin r"
 
 alias o="$OPENER"
 
@@ -117,10 +109,9 @@ alias ll="ls -lh"
 alias lr="ls -lRh"
 alias lsd="ls -d"
 
-alias less="less -R"
+alias bat="less"
+alias cat="previewtext"
 alias lessr="less -r"
-alias bat="bat --style=plain --paging=always"
-alias cat="bat --style=plain --paging=never"
 
 alias ..........="cd ../../../../../../../../.."
 alias .........="cd ../../../../../../../.."
@@ -144,10 +135,10 @@ alias sh="HISTFILE= sh -V"
 
 alias cpr="cp -r"
 alias mkd="mkdir -p"
-alias rmr="rm -r"
 alias mvr="mv -r"
-alias prm="progress -m"
 alias prM="progress -M"
+alias prm="progress -m"
+alias rmr="rm -r"
 
 alias cfd="sudo cfdisk"
 alias cfdn="sudo cfdisk /dev/nvme0n1"
@@ -162,11 +153,11 @@ alias dud="du -chx . | sort -h | less -F +G"
 
 alias compgen="print -rl -- \${(k)aliases} \${(k)functions} \${(k)parameters} \${(k)builtins} \${(k)commands}"
 
+# alias hcgrep="hist | awk '{$1=$2=$3=""; print substr($0,2)}' | grep -i" # TODO: Works as standalone, but alias gives error, fix.
 alias cgrep="compgen | grep -i"
 alias hgrep="hist | grep -i"
-alias hgrepi="hist | grep"
-# alias hcgrep="hist | awk '{$1=$2=$3=""; print substr($0,2)}' | grep -i" # TODO: Works as standalone, but alias gives error, fix.
 alias hgrepc="hist | grep -iC 3"
+alias hgrepi="hist | grep"
 alias lalgrep="lal | grep -i"
 alias lgrep="l1 | grep -i"
 alias llgrep="ll | grep -i"
@@ -211,10 +202,10 @@ alias Rs="R -s"
 alias mat="matlab &!"
 
 alias b="broot"
-alias me="mapexec"
 alias ce="contexec"
-alias v="vim"
+alias me="mapexec"
 alias nv='nvim -u "$(getfl vimrc)"'
+alias v="vim"
 
 alias sv="sudo v"
 
@@ -342,8 +333,8 @@ alias umount="sudo umount"
 
 alias btmon="sudo btmon"
 
-alias btctl="bluetoothctl"
 # alias tlmgr="tllocalmgr"
+alias btctl="bluetoothctl"
 
 alias a2dpb="a2dp $bt"
 alias a2dpbe="a2dp $bt && exit"
@@ -445,9 +436,9 @@ alias vpn="sudo protonvpn"
 alias vpnc="vpn c"
 alias vpncc="vpn c --cc ch"
 alias vpncd="vpn c --cc de"
-alias vpnct="vpn c --cc tr"
 alias vpncf="vpn c -f"
 alias vpncn="vpn c --cc nl"
+alias vpnct="vpn c --cc tr"
 alias vpnd="vpn d"
 alias vpnr="vpn r"
 alias vpns="vpn s"
@@ -491,8 +482,6 @@ alias tetris="autoload -Uz tetriscurses && tetriscurses"
 
 alias antigen="echo n | antigen-hs-setup"
 
-alias re="builtin r"
-
 #
 ##
 ### END ALIAS ###
@@ -527,6 +516,14 @@ cd() {
 
 cdw() {
     cd "$(where "$1")"
+}
+
+less() {
+    if [ "$#" -eq 0 ]; then
+        env less -R
+    else
+        previewtext "$@" | env less -R
+    fi
 }
 
 ¬() {

@@ -7,7 +7,6 @@
 # TODO: fzf stuff.
 # TODO: mapexec stuff.
 # TODO: contexec and latexstp.
-# TODO: zips/unzips.
 # TODO: Name, path, etc. copying of files.
 # TODO: Integrate the trash functionality after it is implemented in the sh repository.
 # TODO: Implement 'map <a-m> mkcd'
@@ -26,6 +25,8 @@
 # TODO: Make 'map zi' instance specific.
 # TODO: Make 'map V' select all files inside the selected directories, then unselect the initial directories. Do not unselect the initial files.
 
+##### INIT #####
+
 cmd recol &{{
     w="$(tput cols)"
     if [ "$w" -le 80 ]; then
@@ -42,22 +43,26 @@ cmd recol &{{
 recol
 &[ "$PWD" = "$HOME/downloads" ] && lf -remote "send $id push sm"
 
-set cleaner ~/.config/lf/cleaner
-set previewer ~/.config/lf/preview
-# set sorter ~/.config/lf/sorter
-set shell zsh
-set shellopts "-ey" # '-euy'
-set ifs "\n"
-set filesep "\n"
-set scrolloff 1000
+##### SET #####
+
+set cleaner     ~/.config/lf/cleaner
+set previewer   ~/.config/lf/preview
+# set sorter      ~/.config/lf/sorter
+set shell       zsh
+set shellopts   "-ey" # '-euy'
+set ifs         "\n"
+set filesep     "\n"
+set scrolloff   1000
+set period      1
+set errorfmt    "\033[1;37;41m%s\033[0m"
+# set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set icons
-set period 1
 set number
 set relativenumber
 set incsearch
 # set drawbox
-# set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-set errorfmt "\033[1;37;41m%s\033[0m"
+
+##### CMD #####
 
 cmd remove ${{
     { printf "%s\n" $fx; printf "Remove? [y/N]"; } | sless
@@ -127,12 +132,9 @@ cmd df !{{
     } | sless
 }}
 
-cmd countdir %find -mindepth 1 -maxdepth 1 | wc -l
-
-cmd countpath %printf "%s\n" "$fx" | stest -d | xargs -d '\n' -rI {} find {} -mindepth 1 -maxdepth 1 | wc -l
-
-cmd countdirrec %find -mindepth 1 | wc -l
-
+cmd countdir     %find -mindepth 1 -maxdepth 1 | wc -l
+cmd countpath    %printf "%s\n" "$fx" | stest -d | xargs -d '\n' -rI {} find {} -mindepth 1 -maxdepth 1 | wc -l
+cmd countdirrec  %find -mindepth 1 | wc -l
 cmd countpathrec %printf "%s\n" "$fx" | stest -d | xargs -d '\n' -rI {} find {} -mindepth 1 | wc -l
 
 cmd selectload %{{
@@ -144,10 +146,7 @@ cmd selectload %{{
 }}
 
 cmd selectsxiv &{{
-    outfl="$(getfl sxivout)"
-    truncate -s 0 -- "$outfl"
-    sxiv -- .
-    cat -- "$outfl" | xargs -d '\n' -r realpath | while IFS= read -r i; do
+    sxiv -- . | uniqs | xargs -d '\n' -r realpath | while IFS= read -r i; do
         lf -remote "send $id select '$i'" && lf -remote "send $id toggle"
     done
     lf -remote "send $id select '$f'"
@@ -160,8 +159,8 @@ cmd zip &{{
 
 cmd unzip &{{
     printf "%s\n" $fx | while IFS= read -r i; do
-        fb="$(basename "$i")"
-        fn="$(rawname "$fb")"
+        fb="${i##*/}"
+        fn="${fb%.*}"
         mkdir -p -- "unzipped-$fn"
         cd "unzipped-$fn"
         cp -- "$i" "$fb"
@@ -178,9 +177,9 @@ cmd share %{{
     curl -F"file=@$f" "https://0x0.st" | xclip -se c
 }}
 
-cmd yankdir &printf "%s\n" "$PWD" | xclip -se c
-cmd yankpath &printf "%s\n" "$fx" | xclip -se c
-cmd yankname &printf "%s\n" "$fx" | xargs -r -d '\n' -n 1 basename | xclip -se c
+cmd yankdir      &printf "%s\n" "$PWD" | xclip -se c
+cmd yankpath     &printf "%s\n" "$fx" | xclip -se c
+cmd yankname     &printf "%s\n" "$fx" | xargs -r -d '\n' -n 1 basename | xclip -se c
 cmd yankpathcurr &printf "%s\n" "$f" | xclip -se c
 cmd yanknamecurr &printf "%s\n" "$f" | xargs -r -d '\n' -n 1 basename | xclip -se c
 
@@ -198,81 +197,82 @@ cmd nextsel &{{
     lf -remote "send $id select '$next'"
 }}
 
-cmd page $bat --color=always --decorations=always --paging=always -- $fx
 # cmd pagesingle $bat --color=always --paging=always -- "$f"
-cmd pagesingle ${{
-    if grep -Iq '' "$f"; then
-        vimcat -o - -- "$f" | sponge | less -R
-    else
-        exiftool -- "$f" | sponge | less
-    fi
-}}
+cmd page       $bat --color=always --decorations=always --paging=always -- $fx
+cmd pagesingle $previewtext "$f" | sponge | less -R
 
-map _ prevsel
+##### MAP #####
+
 map + nextsel
+map _ prevsel
 
-# map <a-j> $lf -remote "send $id cd $(cut -d'    ' -f2 "$(getfl loc)" | fzf)"
-map K half-up
-map J half-down
-map <c-f> $lf -remote "send $id select '$(fzf)'"
-map <c-d> &dragon-drag-and-drop -a -x $fx
-map M push %mkdir<space>-p<space>--<space>
-map t push %touch<space>--<space>
-map = push %chmod<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
-map - push %chown<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
+# map C clear
+map <a-h> set hidden!
 map <c-space> toggle
 map B set drawbox!
-map <c-z> $kill -STOP "$PPID"
-
-map gh
-map gg top
 map D remove
-map I page
-map i pagesingle
-map R :reload; recol; source ~/.config/lf/lfrc; redraw
-# map C clear
-map U selectload
-map L symlink
-map Yd yankdir
-map Yp yankpath
-map Yn yankname
-map YP yankpathcurr
-map YN yanknamecurr
-map <a-h> set hidden!
-map sf !"$f"
-map sF &"$f"
-map szx unzip
-map szc zip
-map sdu du
-map sdf df
-map sdd countdir
-map sdp countpath
-map sdD countdirrec
-map sdP countpathrec
-map swc %wc -l $fx
-map SSH share
-map sh $"$SHELL" -i
-map sl &export LF_LEVEL=; setsid --fork -- "$TERMINAL"
-map o &setsid --fork -- xdg-open "$f"
-map <c-o> &setsid --fork -- mimeopen --ask "$f"
-map O &setsid --fork -- xdg-open $fx
+map J half-down
+map K half-up
 
 map r
 map rA rename
 map rI push rA<c-a>
-map ri push rA<a-b><a-b><a-f> # before extension
-map rb bulkrename
-map rr push rA<c-u>
 map ra push rA<a-b>
+map rb bulkrename
+map ri push rA<a-b><a-b><a-f> # before extension
+map rr push rA<c-u>
 
-map sx selectsxiv
-map zi &mkdir "$XDG_CACHE_HOME/lf/preview.lck" || rm -rf "$XDG_CACHE_HOME/lf/preview.lck"; lf -remote "send $id reload"
-
-map e $vim -- "$f"
+map R :reload; recol; source ~/.config/lf/lfrc; redraw
 map sm :set reverse; set sortby time; set info time
 map sr set reverse!
 
-map gG bottom
+map I page
+map L symlink
+map SSH share
+map U selectload
+map YN yanknamecurr
+map YP yankpathcurr
+map Yd yankdir
+map Yn yankname
+map Yp yankpath
+map i pagesingle
+map sdD countdirrec
+map sdP countpathrec
+map sdd countdir
+map sdf df
+map sdp countpath
+map sdu du
+map sx selectsxiv
+map szc zip
+map szx unzip
+
+map - push %chown<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
+map = push %chmod<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
+map M push %mkdir<space>-p<space>--<space>
+map t push %touch<space>--<space>
+
+# map <a-j> $lf -remote "send $id cd $(cut -d'    ' -f2 "$(getfl loc)" | fzf)"
+map <c-d> &dragon-drag-and-drop -a -x $fx
+map <c-f> $lf -remote "send $id select '$(fzf)'"
+map <c-o> &setsid --fork -- mimeopen --ask "$f"
+map <c-z> $kill -STOP "$PPID"
+map O &setsid --fork -- xdg-open $fx
+map o &setsid --fork -- xdg-open "$f"
+map sF &"$f"
+map sf !"$f"
+map sh $"$SHELL" -i
+map sl &export LF_LEVEL=; setsid --fork -- "$TERMINAL"
+map swc %wc -l $fx
+map zi &mkdir "$XDG_CACHE_HOME/lf/preview.lck" || rm -rf "$XDG_CACHE_HOME/lf/preview.lck"; lf -remote "send $id reload"
+
+map e $vim -- "$f"
+
+map g
 map g/ :cd /
+map gG bottom
+map gg top
+map gh
+
+##### SOURCE #####
 
 source ~/.config/lf/lfrc-sensitive

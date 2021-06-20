@@ -41,6 +41,7 @@ se softtabstop=4
 se expandtab
 se smarttab
 
+"se tw=80
 se tw=0
 
 se ai "autoindent
@@ -531,6 +532,6 @@ if argc() == 0
 endif
 
 augroup overridegroup
-    au BufNewFile,BufRead        /tmp/neomutt*   set tw=0 textwidth=0 wrapmargin=0 wrap noai | let b:noWriteOnInsert=1
+    au BufNewFile,BufRead        /tmp/neomutt*   set tw=78 textwidth=0 wrapmargin=0 wrap noai | let b:noWriteOnInsert=1
     au FileWritePre,BufWritePre  /tmp/neomutt*   silent! %s/\($\n\s*\)\+\%$//e
 augroup END
