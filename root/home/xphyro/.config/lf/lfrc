@@ -222,6 +222,7 @@ map = push %chmod<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
 map - push %chown<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
 map <c-space> toggle
 map B set drawbox!
+map <c-z> $kill -STOP "$PPID"
 
 map gh
 map gg top
