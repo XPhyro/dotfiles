@@ -228,7 +228,7 @@ map gg top
 map D remove
 map I page
 map i pagesingle
-map R :reload; recol; source ~/.config/lf/lfrc
+map R :reload; recol; source ~/.config/lf/lfrc; redraw
 # map C clear
 map U selectload
 map L symlink

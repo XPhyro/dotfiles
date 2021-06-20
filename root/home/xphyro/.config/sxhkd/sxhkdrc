@@ -1,6 +1,5 @@
 # TODO: Add pacmixer/ncpamixer/pulsemixer.
 # TODO: Use fn+KEY on k380.
-# TODO: Add ipython as a dwmpad.
 # TODO: Add bindings backward/forward clicks.
 # TODO: Limit the CPU usage of `update`.
 # TODO: Make mouse emulation bindings single-handed or add alternate bindings suitable for single hand. The latter option probably makes more sense as if one is using only one hand, they are likely using the mouse anyways. The bindings are still beneficial for the rare occasion.
@@ -19,8 +18,8 @@ super + ctrl + Return
     cdexec "$HOME/downloads" "$TERMINAL" -e lfrun
 super + p
     dmenu_run
-super + {apostrophe, numbersign, Menu}
-    dwmpad -- {scratchpad, octave --no-gui -q, popcal}
+super + {apostrophe, numbersign, Menu, grave, backslash}
+    dwmpad -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
 ctrl + alt + y; ctrl + alt + {y, u}
     dwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && (echo; update) || readstr'} && statbarsetavlsyu && statbaravlsyu && statbarset
 ctrl + alt + {h, n, w, f, t, i, s, p, g, c}; ctrl + alt + t
