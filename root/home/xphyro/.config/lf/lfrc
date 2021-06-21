@@ -249,7 +249,8 @@ map szx unzip
 map - push %chown<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
 map = push %chmod<space><space>--<space>$fx<a-b><a-b><a-f><c-f>
 map M push %mkdir<space>-p<space>--<space>
-map t push %touch<space>--<space>
+map T push %fl=""<space>&&<space>[<space>!<space>-e<space>"$fl"<space>]<space>&&<space>touch<space>--<space>"$fl"<space>&&<space>chmod<space>+x<space>--<space>"$fl"<space>&&<space>lf<space>-remote<space>"send<space>$id<space>select<space>'$fl'"<c-a><a-f><c-f><c-f>
+map t push %fl=""<space>&&<space>[<space>!<space>-e<space>"$fl"<space>]<space>&&<space>touch<space>--<space>"$fl"<space>&&<space>lf<space>-remote<space>"send<space>$id<space>select<space>'$fl'"<c-a><a-f><c-f><c-f>
 
 # map <a-j> $lf -remote "send $id cd $(cut -d'    ' -f2 "$(getfl loc)" | fzf)"
 map <c-d> &dragon-drag-and-drop -a -x $fx

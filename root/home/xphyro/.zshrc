@@ -829,6 +829,7 @@ bindkey '^[[P' delete-char
 
 bindkey '^r' history-beginning-search-backward
 bindkey '^u' history-beginning-search-forward
+bindkey '^_'  history-incremental-search-backward
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^v' edit-command-line
