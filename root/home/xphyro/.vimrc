@@ -451,7 +451,7 @@ inoremap <c-u> <ESC>2BEa
 inoremap <c-r> <ESC>Ea
 inoremap <c-c> <ESC>~a
 inoremap <C-x> <Esc>dBxi
-inoremap <C-l> <Esc>dEi
+inoremap <C-l> <Esc>ldEa
 
 "wipe registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) |
