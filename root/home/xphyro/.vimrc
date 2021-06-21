@@ -501,9 +501,9 @@ se nrformats=alpha,octal,hex
 
 ""ycm
 let g:ycm_confirm_extra_conf=1
-let g:ycm_key_list_select_completion=['<C-i>']
-let g:ycm_key_list_previous_completion=['<C-h>']
-let g:ycm_key_list_next_completion=['<C-i>']
+"let g:ycm_key_list_select_completion=['<C-i>']
+"let g:ycm_key_list_previous_completion=['<C-h>']
+"let g:ycm_key_list_next_completion=['<C-i>']
 
 ""ultisnips
 "let g:UltiSnipsExpandTrigger='<C-h>'

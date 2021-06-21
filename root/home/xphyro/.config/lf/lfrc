@@ -153,21 +153,23 @@ cmd selectsxiv &{{
 }}
 
 cmd zip &{{
-    # TODO
-    exit 1
+    zips zip $fx
 }}
 
 cmd unzip &{{
-    printf "%s\n" $fx | while IFS= read -r i; do
-        fb="${i##*/}"
-        fn="${fb%.*}"
-        mkdir -p -- "unzipped-$fn"
-        cd "unzipped-$fn"
-        cp -- "$i" "$fb"
-        { unzips "$fb"; rm -f -- "$fb"; } &
-        cd ..
-    done
+    # printf "%s\n" $fx | while IFS= read -r i; do
+    #     fb="${i##*/}"
+    #     fn="${fb%.*}"
+    #     mkdir -p -- "unzipped-$fn"
+    #     cd "unzipped-$fn"
+    #     cp -- "$i" "$fb"
+    #     { unzips "$fb"; rm -f -- "$fb"; } &
+    #     cd ..
+    # done
+    unar "$f"
 }}
+
+cmd ocrpdf &ocrmypdf "$f" "${f%.*}-ocr.${f##*.}"
 
 cmd share %{{
     [ "$(stat --format="%s" -- "$f")" -gt 53687912 ] && {
@@ -242,6 +244,7 @@ map sdd countdir
 map sdf df
 map sdp countpath
 map sdu du
+map socr ocrpdf
 map sx selectsxiv
 map szc zip
 map szx unzip
