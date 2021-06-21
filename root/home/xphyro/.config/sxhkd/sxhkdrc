@@ -21,7 +21,7 @@ super + p
 super + {apostrophe, numbersign, Menu, grave, backslash}
     dwmpad -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
 ctrl + alt + y; ctrl + alt + {y, u}
-    dwmpad -- {sh -c 'yay -Syu || readstr; statbarset', sh -c 'yay -Syu && (echo; update) || readstr; statbarset'} && statbarsetavlsyu && statbaravlsyu && statbarset
+    dwmpad -- {sh -c 'yay -Syu || readstr; sleep 1; statbarset', sh -c 'yay -Syu && (echo; update) || readstr; sleep 1; statbarset'} && statbarsetavlsyu && statbaravlsyu && statbarset
 ctrl + alt + {h, n, w, f, t, i, s, p, g, c}; ctrl + alt + t
     dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances, watch conky -i 1}
 ctrl + alt + m; ctrl + alt + {m, s}
