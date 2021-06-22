@@ -34,10 +34,12 @@ statbar() {
     restart-wallpaper -T on
 }
 
+tglapp -c
+
 xdotool key Num_Lock
 setxkbtick &
 
-xcompmgr -c -o 0 &
+tglapp -T on -- compton &
 hsetroot
 
 setxkb
