@@ -179,11 +179,12 @@ cmd share %{{
     curl -F"file=@$f" "https://0x0.st" | xclip -se c
 }}
 
+cmd yankcontent  &cat -- $fx | xclip -se c
 cmd yankdir      &printf "%s\n" "$PWD" | xclip -se c
-cmd yankpath     &printf "%s\n" "$fx" | xclip -se c
 cmd yankname     &printf "%s\n" "$fx" | xargs -r -d '\n' -n 1 basename | xclip -se c
-cmd yankpathcurr &printf "%s\n" "$f" | xclip -se c
 cmd yanknamecurr &printf "%s\n" "$f" | xargs -r -d '\n' -n 1 basename | xclip -se c
+cmd yankpath     &printf "%s\n" "$fx" | xclip -se c
+cmd yankpathcurr &printf "%s\n" "$f" | xclip -se c
 
 cmd prevsel &{{
     [ "$(printf "%s\n" "$fx" | head -n 1)" = "$f" ] && prev="$(printf "%s\n" "$fx" | tail -n 1)"
@@ -234,6 +235,7 @@ map SSH share
 map U selectload
 map YN yanknamecurr
 map YP yankpathcurr
+map YY yankcontent
 map Yd yankdir
 map Yn yankname
 map Yp yankpath
