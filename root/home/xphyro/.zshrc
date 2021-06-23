@@ -526,6 +526,14 @@ less() {
     fi
 }
 
+rgf() {
+    rg -L --files -g "$*" 2> /dev/null
+}
+
+rgg() {
+    rg -L --files -g "*$**" 2> /dev/null
+}
+
 ¬() {
     # TODO: Make the mark '¬' not shared between terminals, but still saved after terminal is closed. Then, load the save only at initialisation. Before exiting, cp -f "$somedir/$$" "$somedir/0" and when initialising, cp "$somedir/0" "$somedir/$$" can respectively be used to save and load.
     # TODO: This fails to work correctly if there is whitespace in the path.
