@@ -271,6 +271,7 @@ map s& &"$f"
 map sf $f
 map sh $"$SHELL" -i
 map sl &export LF_LEVEL=; setsid --fork -- "$TERMINAL"
+map swa %hsetroot -cover "$f"
 map swc %wc -l $fx
 map zi &mkdir "$XDG_CACHE_HOME/lf/preview.lck" || rm -rf "$XDG_CACHE_HOME/lf/preview.lck"; lf -remote "send $id reload"
 
