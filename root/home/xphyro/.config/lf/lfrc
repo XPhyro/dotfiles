@@ -11,7 +11,6 @@
 # TODO: Integrate the trash functionality after it is implemented in the sh repository.
 # TODO: Implement 'map <a-m> mkcd'
 # TODO: Impelement a version of gXXX that presents the options with fzf.
-# TODO: Implement chmod and chown.
 # TODO: sxiv stuff.
 # TODO: Make 'map i' into a dynamic pager. Say, if the file is a video file, execute ffprobe on it and show its output. Add these sorts of details for the dynamic pager. Also make it such that the pager can be stopped with the same key, i.e. 'i'.
 # TODO: Add interactive zsh.
@@ -24,6 +23,7 @@
 # TODO: When paging binary files, pipe exiftool to less instead of using bat.
 # TODO: Make 'map zi' instance specific.
 # TODO: Make 'map V' select all files inside the selected directories, then unselect the initial directories. Do not unselect the initial files.
+# TODO: `reload` after chmod.
 
 ##### INIT #####
 
@@ -264,8 +264,11 @@ map <c-o> &setsid --fork -- mimeopen --ask "$f"
 map <c-z> $kill -STOP "$PPID"
 map O &setsid --fork -- xdg-open $fx
 map o &setsid --fork -- xdg-open "$f"
-map sF &"$f"
-map sf !"$f"
+map s! !"$f"
+map s$ $"$f"
+map s% %"$f"
+map s& &"$f"
+map sf $f
 map sh $"$SHELL" -i
 map sl &export LF_LEVEL=; setsid --fork -- "$TERMINAL"
 map swc %wc -l $fx
