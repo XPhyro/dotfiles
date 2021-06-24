@@ -203,8 +203,6 @@ alias mat="matlab &!"
 alias b="broot"
 alias ce="contexec"
 alias me="mapexec"
-alias nv='nvim -u "$(getfl vimrc)"'
-alias v="vim"
 
 alias sv="sudo v"
 
