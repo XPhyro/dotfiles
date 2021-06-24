@@ -212,6 +212,14 @@ map _ prevsel
 # map C clear
 map <a-h> set hidden!
 map <c-space> toggle
+map <down>
+map <end>
+map <home>
+map <left>
+map <pgdn>
+map <pgup>
+map <right>
+map <up>
 map B set drawbox!
 map D remove
 map J half-down
@@ -225,7 +233,7 @@ map rb bulkrename
 map ri push rA<a-b><a-b><a-f> # before extension
 map rr push rA<c-u>
 
-map R :reload; recol; source ~/.config/lf/lfrc; redraw
+map R :reload; sync; recol; source ~/.config/lf/lfrc; redraw
 map sm :set reverse; set sortby time; set info time
 map sr set reverse!
 
