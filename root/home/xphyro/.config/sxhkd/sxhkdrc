@@ -5,7 +5,6 @@
 # TODO: Make mouse emulation bindings single-handed or add alternate bindings suitable for single hand. The latter option probably makes more sense as if one is using only one hand, they are likely using the mouse anyways. The bindings are still beneficial for the rare occasion.
 # TODO: Add a binding toggle mute the current application, similar to volappch.
 # TODO: Add darktable/lightzone/rawtherapee.
-# TODO: Add tglapp compton.
 
 ### Programs ###
 ##
@@ -59,8 +58,8 @@ ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, k, s, a}
     {dwmpad -gn 160x50 9 -- spt, sptkeys, tglapp -a musescore, tglapp -a matlab}
-ctrl + alt + o; ctrl + alt + v; ctrl + alt + p
-    tglapp -a freetube
+ctrl + alt + {c, y}; ctrl + alt + {c, t}
+    tglapp -a {compton, freetube}
 ctrl + super + {o, i, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp -a pavucontrol}
 ctrl + alt + shift + {b, v}
