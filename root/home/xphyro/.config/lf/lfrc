@@ -65,7 +65,25 @@ set incsearch
 ##### CMD #####
 
 cmd remove ${{
-    { printf "%s\n" $fx; printf "Remove? [y/N]"; } | sless
+    # TODO: Rewrite with stest and diff. I suspect it will execute faster.
+    # TODO: Printing non-matching files to stderr in stest might be a nice addition. Perhaps add this feature in and use here?
+    # {
+    #     tmp="$(mktemp)"
+    #     printf "%s\n" "$fx" | stest -d > "$tmp"
+    #     sed -- 's|/?$|/|' "$tmp"
+    #     diff --{unchaged,new}-line-format= -- =(printf "%s\n" "$fx") "$tmp"
+    #     printf "Remove? [y/N]"
+    # } | sless
+    {
+        printf "%s\n" "$fx" | while IFS= read -r i; do
+            if [ -d "$i" ]; then
+                printf "%s/**\n" "$i"
+            else
+                printf "%s\n" "$i"
+            fi
+        done
+        printf "Remove? [y/N]"
+    } | sless
     equals "$(readchar)" Y y && rm -rf -- $fx 2> /dev/null &
     exit 0
 }}
@@ -143,6 +161,8 @@ cmd selectload %{{
     done
     lf -remote "send $id select '$f'"
     lf -remote 'send clear'
+    { head -n 1 -- "$XDG_DATA_HOME/lf/files"; printf "%s\n" "$fs"; } | sponge -- "$XDG_DATA_HOME/lf/files"
+    lf -remote 'send sync'
 }}
 
 cmd selectsxiv &{{
