@@ -211,7 +211,7 @@ map _ prevsel
 
 # map C clear
 map <a-h> set hidden!
-map <c-space> toggle
+map <c-space> :toggle; up
 map <down>
 map <end>
 map <home>
@@ -219,6 +219,7 @@ map <left>
 map <pgdn>
 map <pgup>
 map <right>
+map <tab> toggle
 map <up>
 map B set drawbox!
 map D remove

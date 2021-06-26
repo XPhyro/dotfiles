@@ -464,7 +464,7 @@ Plug 'glts/vim-magnum'
 Plug 'mbbill/undotree/'
 Plug 'mileszs/ack.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'triglav/vim-visual-increment'
+"Plug 'triglav/vim-visual-increment' "use g<c-a> or g<c-x>
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'fisadev/vim-isort'
 "Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
