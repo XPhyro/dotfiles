@@ -47,7 +47,7 @@ tglapp -T on -- sxhkd &
 dunst &
 notiflog &
 flameshot &
-nm-applet &
+# nm-applet &
 tglapp -T on -k syncmailtick -- syncmailtick 120 &
 
 tpcycle &
