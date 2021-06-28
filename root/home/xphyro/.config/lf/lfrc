@@ -302,6 +302,7 @@ map sh $"$SHELL" -i
 map sl &export LF_LEVEL=; setsid --fork -- "$TERMINAL"
 map swa %hsetroot -cover "$f"
 map swc %wc -- $fx
+map swp %if [ "$(printf "%s\n" "$fs" | wc -l)" -ne 2 ]; then printf "You must select exactly 2 files.\n"; exit 1; else swp $fs; fi
 map zi &mkdir "$XDG_CACHE_HOME/lf/preview.lck" || rm -rf "$XDG_CACHE_HOME/lf/preview.lck"; lf -remote "send $id reload"
 
 map e $vim -- "$f"
