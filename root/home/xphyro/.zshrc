@@ -528,8 +528,16 @@ rgf() {
     rg -L --files -g "$*" 2> /dev/null
 }
 
+rgfi() {
+    rg -L --files --iglob "$*" 2> /dev/null
+}
+
 rgg() {
     rg -L --files -g "*$**" 2> /dev/null
+}
+
+rggi() {
+    rg -L --files --iglob "*$**" 2> /dev/null
 }
 
 ¬() {

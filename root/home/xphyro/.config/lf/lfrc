@@ -121,7 +121,7 @@ cmd open ${{
 cmd bulkrename ${{
     if [ -z "$fs" ]
     then
-        find -mindepth 1 -maxdepth 1 -not -name ".*" -printf "%P\n"
+        find -mindepth 1 -maxdepth 1 -not -name ".*" -printf "%P\n" | sort -V
     else
         printf "%s\n" "$fs"
     fi | mapexec -m 'if [ -e "$f" ]; then printf "Not moving %s to %s as the destination already exists.\n" "$i" "$f"; else mv --backup=numbered -- "$i" "$f"; fi'
