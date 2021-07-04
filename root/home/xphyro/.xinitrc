@@ -31,7 +31,7 @@ statbar() {
     done
 
     statbarset
-    restart-wallpaper -T on
+    restart-wallpaper -aT on
 }
 
 tglapp -c
@@ -39,20 +39,20 @@ tglapp -c
 xdotool key Num_Lock
 setxkbtick &
 
-tglapp -T on -- compton &
+tglapp -aT on -- compton &
 hsetroot
 
 setxkb
-tglapp -T on -- sxhkd &
+tglapp -aT on -- sxhkd &
 dunst &
 notiflog &
 flameshot &
 # nm-applet &
-tglapp -T on -k syncmailtick -- syncmailtick 120 &
+tglapp -aT on -k syncmailtick -- syncmailtick 120 &
 
 tpcycle &
 clplog &
-tglapp -T on -- redshift -l "$(catfl gpsloc)" -t 5800:3900 -g 0.8 -m randr &
+tglapp -aT on -- redshift -l "$(catfl gpsloc)" -t 5800:3900 -g 0.8 -m randr &
 
 opendocs &
 # tglapp -T on -- steam &
