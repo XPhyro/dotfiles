@@ -70,7 +70,7 @@ bind index \031 previous-undeleted
 bind index \005 next-undeleted
 bind pager \031 previous-line
 bind pager \005 next-line
-bind editor <Tab> complete-query
+bind editor <tab> complete-query
 
 macro index,pager a "<enter-command>set my_pipe_decode = \$pipe_decode pipe_decode<return><pipe-message>abook --add-email<return><enter-command>set pipe_decode = \$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
