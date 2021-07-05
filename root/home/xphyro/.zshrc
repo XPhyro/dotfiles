@@ -644,15 +644,15 @@ sl() {
 }
 
 gr() {
-    g "$1" && r "${@:2}"
+    g "${@:1:1}" && r "${@:2}"
 }
 
 @r() {
-    @ "$1" && r "${@:2}"
+    @ "${@:1:1}" && r "${@:2}"
 }
 
 @l() {
-    @ "$1" && l "${@:2}"
+    @ "${@:1:1}" && l "${@:2}"
 }
 
 # TODO: Make y do -S instead of -Syu when trying to install a package that is not installed.
