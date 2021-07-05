@@ -524,19 +524,19 @@ less() {
     fi
 }
 
-rgf() {
+rgfi() {
     rg -L --files -g "$*" 2> /dev/null
 }
 
-rgfi() {
+rgf() {
     rg -L --files --iglob "$*" 2> /dev/null
 }
 
-rgg() {
+rggi() {
     rg -L --files -g "*$**" 2> /dev/null
 }
 
-rggi() {
+rgg() {
     rg -L --files --iglob "*$**" 2> /dev/null
 }
 
