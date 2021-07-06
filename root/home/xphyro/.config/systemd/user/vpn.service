@@ -4,7 +4,7 @@ Wants=network-online.target
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/sudo /usr/bin/sh -c 'sudo protonvpn c --cc de || sudo protonvpn c --p2p'
+ExecStart=/usr/bin/sudo /usr/bin/protonvpn c --cc de
 Environment=PVPN_WAIT=600
 Environment=PVPN_DEBUG=1
 

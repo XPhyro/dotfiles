@@ -3,8 +3,8 @@ Description=Mount devices.
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/sudo /home/xphyro/code/sh/mountdevs
-Environment=PATH=/usr/bin:/home/xphyro/code/sh
+ExecStart=/usr/bin/sudo /usr/local/bin/mountdevs
+Environment=PATH=/usr/bin:/usr/local/bin
 
 [Install]
 WantedBy=default.target

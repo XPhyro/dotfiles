@@ -92,8 +92,6 @@ alias fuck='sudo $(fc -ln -1)'
 alias sudo="nocorrect sudo "
 alias sudod="/usr/bin/sudo"
 
-alias c="clear"
-
 alias diff="colordiff"
 alias diffd="meld"
 alias grep="grep --color=auto"
@@ -109,8 +107,7 @@ alias lr="ls -lRh"
 alias lsd="ls -d"
 
 alias bat="less"
-alias cat="previewtext"
-alias lessr="env less -r"
+alias lessr="less -R"
 
 alias ..........="cd ../../../../../../../../.."
 alias .........="cd ../../../../../../../.."
@@ -204,7 +201,7 @@ alias b="broot"
 alias ce="contexec"
 alias me="mapexec"
 
-alias sv="sudo v"
+alias sv="sudo vim"
 
 alias fx="fzfx"
 
@@ -523,6 +520,16 @@ l() {
         previewtext "$@" | less -R
     else
         eval "$*" | less -R
+    fi
+}
+
+c() {
+    if [ "$#" -eq 0 ]; then
+        return 0
+    elif [ -e "$1" ]; then
+        previewtext "$@"
+    else
+        whereis -b "$@" | awk '{if (NF > 1) print $2}' | xargs -d '\n' -r strings --
     fi
 }
 
