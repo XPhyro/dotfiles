@@ -79,7 +79,11 @@ cmd remove ${{
     {
         printf "%s\n" "$fx" | while IFS= read -r i; do
             if [ -d "$i" ]; then
-                printf "%s/**\n" "$i"
+                if [ "$(find "$i" -mindepth 1 -maxdepth 1 | wc -c)" -ne 0 ]; then
+                    printf "%s/**\n" "$i"
+                else
+                    printf "%s/\n" "$i"
+                fi
             else
                 printf "%s\n" "$i"
             fi
