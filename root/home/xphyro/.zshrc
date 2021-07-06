@@ -143,7 +143,7 @@ alias cfd="sudo cfdisk"
 alias cfdn="sudo cfdisk /dev/nvme0n1"
 alias mount="sudo mount"
 alias sfd="sudo fdisk"
-alias sfdl="sudo fdisk -l"
+alias sfdl="sudo fdisk -l | less"
 
 alias dffs="df -h | head -n 1; df -h | grep \\^/dev/ --color=never"
 alias dffsw='watch "$(eal dffs)"'
@@ -516,11 +516,13 @@ cdw() {
     cd "$(where "$1")"
 }
 
-less() {
+l() {
     if [ "$#" -eq 0 ]; then
-        env less -R
+        less -R
+    elif [ -e "$1" ]; then
+        previewtext "$@" | less -R
     else
-        previewtext "$@" | env less -R
+        eval "$*" | less -R
     fi
 }
 
@@ -581,23 +583,16 @@ ff() {
 }
 
 eal() {
-    if [ "$#" = "1" ]
+    expw="$(where "$1")"
+    if [ -z "$(printf "%s" "$expw" | sed "s/^$1: aliased to .*//" )" ] && [ "$( whereis "$1")" = "$1:" ]
     then
-        empty=""
+        printf "%s" "$expw" | cut -f 1,2,3 -d ' ' --complement | perl -p -e 'chomp if eof'
     else
-        empty="\n"
+        return 1
     fi
 
-    for i
-    do
-        expw="$(where "$i")"
-        if [ -z "$(printf "%s" "$expw" | sed "s/^$i: aliased to .*//" )" ] && [ "$( whereis "$i")" = "$i:" ]
-        then
-            printf "%s\n" "$expw" | cut -f 1,2,3 -d ' ' --complement
-        else
-            printf "$empty"
-        fi
-    done
+    printf " %s" "${@:2}"
+    printf "\n"
 }
 
 # TODO: Merge @r, gr and r into r. Check whether the key exists in @, then g, then fallback to plain r. sr should stay the same.
@@ -623,7 +618,7 @@ sr() {
     }
 }
 
-l() {
+ra() {
     tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
     [ -f "$tmp" ] && {
@@ -633,7 +628,7 @@ l() {
     }
 }
 
-sl() {
+sra() {
     tmp="$(sudo mktemp)"
     sudo ranger --choosedir="$tmp" --confdir="$XDG_CONFIG_HOME/ranger" . "$@"
     [ -f "$tmp" ] && {
