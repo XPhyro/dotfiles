@@ -318,7 +318,7 @@ alias ssh="ssh -p 14253"
 alias ka="sudo killall"
 alias rfk="sudo rfkill"
 
-alias sc="shellcheck -e SC2188"
+alias sc="shellcheck -e SC2188,SC1007,SC2088,SC2086,SC2015,SC2046,SC1003,SC2059"
 
 alias fum="fusermount"
 alias mount="sudo mount"
