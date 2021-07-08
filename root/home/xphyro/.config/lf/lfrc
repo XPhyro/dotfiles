@@ -297,7 +297,7 @@ map <c-d> &dragon-drag-and-drop -a -x $fx
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-o> &setsid --fork -- mimeopen --ask "$f"
 map <c-z> $kill -STOP "$PPID"
-map W &setsid --fork -- st -e lfrun
+map W &LF_LEVEL= setsid --fork -- st -e lfrun
 map O &setsid --fork -- xdg-open $fx
 map o &setsid --fork -- xdg-open "$f"
 map s! !"$f"
