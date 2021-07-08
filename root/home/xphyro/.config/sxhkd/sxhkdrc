@@ -18,6 +18,8 @@ super + ctrl + Return
     cdexec "$HOME/downloads" "$TERMINAL" -e lfrun
 super + p
     dmenu_run
+super + ctrl + alt + p
+    sudo dmenu_run
 super + {apostrophe, numbersign, Menu, grave, backslash}
     dwmpad -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
 ctrl + alt + y; ctrl + alt + {y, u}
