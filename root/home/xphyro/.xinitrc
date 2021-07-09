@@ -43,7 +43,7 @@ tglapp -aT on -- compton &
 hsetroot
 
 setxkb
-tglapp -aT on -- sxhkd &
+restart-sxhkd &
 dunst &
 notiflog &
 flameshot &

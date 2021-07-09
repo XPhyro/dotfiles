@@ -55,7 +55,7 @@ ctrl + alt + o; ctrl + alt + p; ctrl + alt + b; ctrl + alt + {w}
 ctrl + alt + o; ctrl + alt + p; ctrl + alt + r; ctrl + alt + {e}
     {xdg-reopen}
 ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, r, m, b, w, c}
-    {notify-send 'Opening steam'; tglapp -a steam, open-steam, steammgr, tglapp -a ModOrganizer2, screen -dmS battlenet sh -c 'lutris lutris:rungame/world-of-warcraft', wowstart, wowsim}
+    {notify-send 'Opening steam'; screen -dmS steam -- tglapp -a steam, open-steam, steammgr, tglapp -a ModOrganizer2, screen -dmS battlenet sh -c 'lutris lutris:rungame/world-of-warcraft', wowstart, wowsim}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, k, s, a}
