@@ -101,7 +101,7 @@ shift + super + alt + y; shift + super + alt + {y, d, s, n, r, p, a, u}
 shift + super + alt + {d, h, n, c}
     dunstctl {close, history-pop, set-paused toggle; statbarnotif; statbarset, context}
 shift + super + alt + {u, s, w, m, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
-    {tglapp -a -- unclutter --idle 1, search, popupnote, view-music, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp -a screenkey, restart-notifd, mountsel, umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
+    {tglapp -a -- unclutter --idle 1, search, popupnote, view-music, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp -a screenkey, restart-notifd, sudo mountsel, sudo umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
 ctrl + shift + super + alt + m
     OPENER=firefox view-music
 super + {KP_Divide, KP_Multiply}
