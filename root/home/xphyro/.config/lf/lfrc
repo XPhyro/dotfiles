@@ -195,6 +195,12 @@ cmd unzip &{{
     unar "$f"
 }}
 
+cmd unzips &{{
+    printf "%s\n" "$fx" | while IFS= read -r i; do
+        unar "$i"
+    done
+}}
+
 cmd ocrpdf &ocrmypdf "$f" "${f%.*}-ocr.${f##*.}"
 
 cmd share %{{
@@ -226,6 +232,18 @@ cmd nextsel &{{
     lf -remote "send $id select '$next'"
 }}
 
+cmd evalsel ${{
+    tput smcup
+    out="$(eval "$(readstr)")" || exit 0
+    tput rmcup
+    [ -z "$out" ] && exit 0
+    printf "%s\n" "$out" | while IFS= read -r i; do
+        lf -remote "send $id select '$i'"
+        lf -remote "send $id toggle"
+    done
+    lf -remote "send $id select '$f'"
+}}
+
 # cmd pagesingle $bat --color=always --paging=always -- "$f"
 cmd page       $bat --color=always --decorations=always --paging=always -- $fx
 cmd pagesingle $previewtext "$f" | sponge | less -R
@@ -234,6 +252,7 @@ cmd pagesingle $previewtext "$f" | sponge | less -R
 
 map + nextsel
 map _ prevsel
+map @ evalsel
 
 # map C clear
 map <a-h> set hidden!
@@ -283,6 +302,7 @@ map sdp countpath
 map sdu du
 map socr ocrpdf
 map sx selectsxiv
+map szX unzips
 map szc zip
 map szx unzip
 
