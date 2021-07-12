@@ -606,7 +606,7 @@ eal() {
 r() {
     tmp="$(mktemp)"
     # TODO: lfrun basically disables the asynchronouity, maybe don't use lfrun or have an alternate function where lf is used instead of lfrun. Maybe try to make lfrun more asynchronous?
-    lfrun -last-dir-path="$tmp" "$@" 2>> ~/.lf-error
+    lfrun -last-dir-path="$tmp" "$@"
     [ -f "$tmp" ] && {
         dir="$(< "$tmp")"
         rm -f "$tmp"
@@ -617,7 +617,7 @@ r() {
 sr() {
     tmp="$(sudo mktemp)"
     # TODO: lfrun basically disables the asynchronouity, maybe don't use lfrun or have an alternate function where lf is used instead of lfrun. Maybe try to make lfrun more asynchronous?
-    sudo lfrun -last-dir-path="$tmp" -config="$XDG_CONFIG_HOME/lf/lfrc" "$@" 2>> /home/xphyro/.lf-error
+    sudo lfrun -last-dir-path="$tmp" -config="$XDG_CONFIG_HOME/lf/lfrc" "$@"
     [ -f "$tmp" ] && {
         dir="$(sudo cat "$tmp")"
         sudo rm -f "$tmp"

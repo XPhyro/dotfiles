@@ -24,7 +24,7 @@
 # TODO: Make 'map zi' instance specific.
 # TODO: Make 'map V' select all files inside the selected directories, then unselect the initial directories. Do not unselect the initial files.
 # TODO: `reload` after chmod.
-# TODO: Add versioning to the special 'files' file of lf. Make it possible to return to states via previewed fzf selections (each state has a file catted by fzf for previews) (fzf does not work with lf(?), so maybe do it with dmenu). every time 'files' is consumed (say, when git thinks it's a rewrite), commit the pre-consume state.
+# TODO: Add versioning to the special 'files' file of lf. Make it possible to return to states via previewed fzf selections (each state has a file catted by fzf for previews). every time 'files' is consumed (say, when git thinks it's a rewrite), commit the pre-consume state.
 # TODO: Make 'map P' paste, then copy or cut the pasted depending on the operation done.
 
 ##### INIT #####

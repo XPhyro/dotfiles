@@ -10,16 +10,18 @@ setupxr() {
 opendocs() {
     sleep 2.5
 
-    find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
-    do
-        xph-open "$i" &
-        sleep 0.1
-    done
+    xdg-open "~/documents/ass" &
 
-    firefox 'https://en.wikipedia.org/wiki/Special:Random' &
+    # find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
+    # do
+    #     xph-open "$i" &
+    #     sleep 0.1
+    # done
 
-    fl="$(catfl mrk | grep "^¬")"
-    st -d "${fl#"¬ "}" # make this into a more comprehensive framework
+    # firefox 'https://en.wikipedia.org/wiki/Special:Random' &
+
+    # fl="$(catfl mrk | grep "^¬")"
+    # st -d "${fl#"¬ "}" # make this into a more comprehensive framework
 }
 
 statbar() {
