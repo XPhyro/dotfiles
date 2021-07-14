@@ -10,8 +10,6 @@ setupxr() {
 opendocs() {
     sleep 2.5
 
-    xdg-open "~/documents/ass" &
-
     # find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
     # do
     #     xph-open "$i" &
