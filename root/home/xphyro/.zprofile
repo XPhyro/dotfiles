@@ -12,7 +12,8 @@ export PYTHONPATH="$PYTHONPATH:$HOME/code/py/_modules"
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-export BROWSER="brave"
+export BROWSER="browser"
+export _BROWSER="brave"
 export EDITOR="vim"
 export OPENER="xdg-open"
 export PAGER="less"
@@ -38,7 +39,7 @@ export LF_ICONS="di=📁:fi=📃:tw=🤝:ow=📂:ln=⛓:or=❌:ex=🎯:*.txt=✍
 
 [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1  ] && {
     export XDG_SESSION_TYPE=x11
-    export XDG_CURRENT_DESKTOP=KDE
+    # export XDG_CURRENT_DESKTOP=KDE
     startx
     tglapp --clean
     [ "$(brightnessctl g)" = "0" ] && {

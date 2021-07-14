@@ -59,7 +59,7 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, r, m, b, w, c}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, k, s, a}
-    {dwmpad -gn 160x50 9 -- spt, sptkeys, tglapp -a musescore, tglapp -a matlab}
+    {systemctl --user start spotifyd; dwmpad -gn 160x50 9 -- spt, sptkeys, tglapp -a musescore, tglapp -a matlab}
 ctrl + alt + {c, y}; ctrl + alt + {c, t}
     tglapp -a {compton, freetube}
 ctrl + super + {o, i, p}
