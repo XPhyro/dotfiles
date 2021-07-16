@@ -447,6 +447,11 @@ alias vpndq="vpn d && exit"
 alias vpnrq="vpn r && exit"
 alias vpnsq="vpn s && exit"
 
+alias h="hugo --path-warnings"
+alias hd="h -D"
+alias hs="h server"
+alias hsd="hs -D"
+
 alias base_ytdl='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
 alias base_ytdl_log='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 --download-archive ~/documents/data-dump/download-archive -o "%(uploader)s_%(upload_date)s_%(id)s_%(title)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
 alias base_ytdl_short='youtube-dl --add-metadata --mark-watched --geo-bypass --retries 25 --fragment-retries 25 -o "%(uploader)s_%(upload_date)s_%(id)s_%(timestamp)s.%(ext)s" --prefer-free-formats -i'
@@ -779,6 +784,10 @@ gcm() {
 
 gacmc() {
     gacma Create "$@"
+}
+
+gacmrm() {
+    gacma Remove "$@"
 }
 
 gacmu() {
