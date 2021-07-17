@@ -14,8 +14,8 @@ bspc config borderless_monocle      true
 bspc config focus_follows_pointer   true
 bspc config gapless_monocle         true
 bspc config gapless_monocle         true
-bspc config pointer_follows_focus   false
-bspc config pointer_follows_monitor false
+bspc config pointer_follows_focus   true
+bspc config pointer_follows_monitor true
 bspc config removal_adjustment      false
 bspc config split_ratio             0.50
 bspc config top_padding             "$(grep "height\s*=\s*[0-9]\+" "${XDG_CONFIG_HOME-"$HOME/.config"}/polybar/config" | awk '{print $NF}')"

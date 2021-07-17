@@ -14,6 +14,8 @@ super + alt + shift + control + {q,r}
     bspc {quit,wm -r}
 super + shift + {_,control +}c
     bspc node -{c,k}
+super + shift + w
+    bspc config pointer_follows_focus "$(bspc config pointer_follows_focus | END= maps false=true true=false)"; bspc config pointer_follows_monitor "$(bspc config pointer_follows_monitor | END= maps false=true true=false)"
 # alternate between the tiled and monocle layout
 super + m
     bspc desktop -l next
@@ -27,7 +29,7 @@ super + {t,shift + t,s,f}
 super + ctrl + {m,x,y,z}
     bspc node -g {marked,locked,sticky,private}
 super + {_,shift + }{h,j,k,l}
-    bspc config pointer_follows_focus true; bspc node -{f,s} {west,south,north,east}; bspc config pointer_follows_focus false
+    bspc node -{f,s} {west,south,north,east}
 super + {p,shift + p,braceleft,braceright}
     bspc node -f '@'{parent,brother,first,second}
 super + {_,shift + }n
@@ -35,15 +37,15 @@ super + {_,shift + }n
 super + bracket{left,right}
     bspc desktop -f {prev,next}.local
 super + {_, shift + }{comma,period}
-    bspc config pointer_follows_monitor true; bspc {monitor -f,node -m} {next,prev}; bspc config pointer_follows_monitor false
+    bspc {monitor -f,node -m} {next,prev}
 super + {Return,Tab}
     bspc {node,desktop} -f last
 super + {o,i}
     bspc wm -h off; bspc node {older,newer} -f; bspc wm -h on
 super + {_,shift + }{1-9,0}
-    bspc config pointer_follows_focus true; bspc {desktop -f,node -d} focused:'^{1-9,10}'; bspc config pointer_follows_focus false
+    bspc {desktop -f,node -d} focused:'^{1-9,10}'
 super + alt + {_,shift + }{1-9,0}
-    bspc config pointer_follows_focus true; bspc {desktop -f,node -d} focused:'^'{11,12,13,14,15,16,17,18,19,20}; bspc config pointer_follows_focus false
+    bspc {desktop -f,node -d} focused:'^'{11,12,13,14,15,16,17,18,19,20}
 # preselect the direction
 super + ctrl + {h,j,k,l}
     bspc node -p {west,south,north,east}
@@ -57,7 +59,7 @@ super + ctrl + space
 super + ctrl + shift + space
     bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 super + alt + {h,j,k,l}
-    bspwm_node_resize {west,south,north,east}
+    bspwm-node-resize {west,south,north,east} 30
 # super + {Left,Down,Up,Right}
 #     bspc node -v {-20 0,0 20,0 -20,20 0}
 # super + {_,shift + }g
@@ -75,7 +77,7 @@ super + alt + {h,j,k,l}
 super + shift + Return
     "$TERMINAL"
 super + ctrl + {0-9}
-    bspwmpad -n {0-9}
+    "$PAD" -n {0-9}
 # super + ctrl + Return
 #     "$TERMINAL" -e zsh -c 'tmp="$(mktemp)"; lfrun -last-dir-path="$tmp" "$HOME/downloads"; [ -f "$tmp" ] && { dir="$(< "$tmp")"; rm -f "$tmp"; [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"; exec zsh -i'
 super + ctrl + Return
@@ -87,21 +89,21 @@ super + ctrl + Return
 super + {_, shift + }BackSpace
     {_,sudo} rofi -show run
 super + {apostrophe, numbersign, Menu, grave, backslash}
-    bspwmpad -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
+    "$PAD" -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
 ctrl + alt + y; ctrl + alt + {y, u}
-    bspwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && (echo; update) || readstr'} && statbarsetavlsyu && statbaravlsyu && statbarset && sleep 5 && statbarset
+    "$PAD" -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && (echo; update) || readstr'} && statbarsetavlsyu && statbaravlsyu && statbarset && sleep 5 && statbarset
 ctrl + alt + {h, n, w, f, t, i, s, p, g, c}; ctrl + alt + t
-    bspwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances, watch conky -i 1}
+    "$PAD" -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances, watch conky -i 1}
 ctrl + alt + m; ctrl + alt + {m, s}
-    {bspwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
+    {"$PAD" -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
 ctrl + alt + r; ctrl + alt + {s, d, v}
-    bspwmpad -g 160x50 -- {newsboat, refreshdocs, dvtm} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
+    "$PAD" -g 160x50 -- {newsboat, refreshdocs, dvtm} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
 ctrl + alt + r; ctrl + alt + r
-    bspwmpad -g 220x50 -- tmux new-session -x "$(tput cols)" -y "$(tput lines)" "lfrun '$HOME/downloads'" \; split-window -h -p 50 "lfrun '$HOME/downloads'" \; select-pane -t left \; new-window "sudo lfrun -config='$XDG_CONFIG_HOME/lf/lfrc' '$HOME/downloads'" \; select-window -t 1 \;
+    "$PAD" -g 220x50 -- tmux new-session -x "$(tput cols)" -y "$(tput lines)" "lfrun '$HOME/downloads'" \; split-window -h -p 50 "lfrun '$HOME/downloads'" \; select-pane -t left \; new-window "sudo lfrun -config='$XDG_CONFIG_HOME/lf/lfrc' '$HOME/downloads'" \; select-window -t 1 \;
 ctrl + alt + w; ctrl + alt + {w, a}
-    {bspwmpad -g 203x50 -- weather, "$BROWSER" --new-window "https://web.whatsapp.com"}
+    {"$PAD" -g 203x50 -- weather, "$BROWSER" --new-window "https://web.whatsapp.com"}
 ctrl + alt + b; ctrl + alt + b
-    bspwmpad -- bluetoothctl
+    "$PAD" -- bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}
     {hsetroot; restart-wallpaper -ST off, restart-wallpaper -fST on}
 ctrl + alt + s; ctrl + alt + {s, d}
@@ -125,7 +127,7 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, r, m, b, w, c}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, k, s, a}
-    {systemctl --user start spotifyd; bspwmpad -gn 160x50 9 -- spt, bspwmpad -- sptkeys, tglapp -a musescore, tglapp -a matlab}
+    {systemctl --user start spotifyd; "$PAD" -gn 160x50 9 -- spt, "$PAD" -- sptkeys, tglapp -a musescore, tglapp -a matlab}
 ctrl + alt + {c, y}; ctrl + alt + {c, t}
     tglapp -a {picom, freetube}
 ctrl + super + {o, i, p}
@@ -210,4 +212,3 @@ shift + alt + super + question
 #
 ##
 ### System ###
-

@@ -15,6 +15,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export BROWSER="browser"
 export EDITOR="vim"
 export OPENER="xdg-open"
+export PAD="bspwmpad"
 export PAGER="less"
 export READER="zathura"
 export TERMINAL="st"
