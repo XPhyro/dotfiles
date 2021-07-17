@@ -41,7 +41,7 @@ tglapp -c
 xdotool key Num_Lock
 setxkbtick &
 
-tglapp -aT on -- compton &
+tglapp -aT on -- picom --experimental-backends &
 hsetroot
 
 setxkb

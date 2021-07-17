@@ -81,7 +81,7 @@ super + ctrl + Return
 #     dmenu_run
 # super + ctrl + alt + p
 #     sudo dmenu_run
-super + {_, alt + }Caps_Lock
+super + {_, shift + }BackSpace
     {_,sudo} rofi -show run
 super + {apostrophe, numbersign, Menu, grave, backslash}
     dwmpad -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
