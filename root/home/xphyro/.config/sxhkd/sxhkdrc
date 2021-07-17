@@ -12,7 +12,7 @@
 
 super + alt + shift + control + {q,r}
     bspc {quit,wm -r}
-super + shift + {_,alt +}c
+super + shift + {_,control +}c
     bspc node -{c,k}
 # alternate between the tiled and monocle layout
 super + m
@@ -60,6 +60,9 @@ super + alt + {h,j,k,l}
     bspwm_node_resize {west,south,north,east}
 # super + {Left,Down,Up,Right}
 #     bspc node -v {-20 0,0 20,0 -20,20 0}
+# super + {_,shift + }g
+#     {bspc config -d focused window_gap $(($(bspc config -d focused window_gap) + 10)), \
+#     [ $(bspc config -d focused window_gap) -ge 10 ] && bspc config -d focused window_gap $(($(bspc config -d focused window_gap) - 10))}
 
 #
 ##
@@ -72,7 +75,7 @@ super + alt + {h,j,k,l}
 super + shift + Return
     "$TERMINAL"
 super + ctrl + {0-9}
-    dwmpad -n {0-9}
+    bspwmpad -n {0-9}
 # super + ctrl + Return
 #     "$TERMINAL" -e zsh -c 'tmp="$(mktemp)"; lfrun -last-dir-path="$tmp" "$HOME/downloads"; [ -f "$tmp" ] && { dir="$(< "$tmp")"; rm -f "$tmp"; [ -d "$dir" ] && [ "$dir" != "$PWD" ] && cd "$dir"; exec zsh -i'
 super + ctrl + Return
@@ -84,21 +87,21 @@ super + ctrl + Return
 super + {_, shift + }BackSpace
     {_,sudo} rofi -show run
 super + {apostrophe, numbersign, Menu, grave, backslash}
-    dwmpad -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
+    bspwmpad -- {scratchpad, octave --no-gui -q, popcal, ptpython, units}
 ctrl + alt + y; ctrl + alt + {y, u}
-    dwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && (echo; update) || readstr'} && statbarsetavlsyu && statbaravlsyu && statbarset && sleep 5 && statbarset
+    bspwmpad -- {sh -c 'yay -Syu || readstr', sh -c 'yay -Syu && (echo; update) || readstr'} && statbarsetavlsyu && statbaravlsyu && statbarset && sleep 5 && statbarset
 ctrl + alt + {h, n, w, f, t, i, s, p, g, c}; ctrl + alt + t
-    dwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances, watch conky -i 1}
+    bspwmpad -g 160x50 -- sudo {htop, nvtop, jnettop, iftop, iptraf, iotop, slabtop, powertop, glances, watch conky -i 1}
 ctrl + alt + m; ctrl + alt + {m, s}
-    {dwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
+    {bspwmpad -g 160x50 -- neomutt; sleep 0.25; statbarmail; statbarset, lckget notiflog && notify-send -t 1000 "Syncing mail" && syncmail && lckget notiflog && notify-send -t 1000 "Synced mail"}
 ctrl + alt + r; ctrl + alt + {s, d, v}
-    dwmpad -g 160x50 -- {newsboat, refreshdocs, dvtm} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
+    bspwmpad -g 160x50 -- {newsboat, refreshdocs, dvtm} # TODO: Execute l instead of lfrun in an interactive zsh session and continue the session after lf exits.
 ctrl + alt + r; ctrl + alt + r
-    dwmpad -g 220x50 -- tmux new-session -x "$(tput cols)" -y "$(tput lines)" "lfrun '$HOME/downloads'" \; split-window -h -p 50 "lfrun '$HOME/downloads'" \; select-pane -t left \; new-window "sudo lfrun -config='$XDG_CONFIG_HOME/lf/lfrc' '$HOME/downloads'" \; select-window -t 1 \;
+    bspwmpad -g 220x50 -- tmux new-session -x "$(tput cols)" -y "$(tput lines)" "lfrun '$HOME/downloads'" \; split-window -h -p 50 "lfrun '$HOME/downloads'" \; select-pane -t left \; new-window "sudo lfrun -config='$XDG_CONFIG_HOME/lf/lfrc' '$HOME/downloads'" \; select-window -t 1 \;
 ctrl + alt + w; ctrl + alt + {w, a}
-    {dwmpad -g 203x50 -- weather, "$BROWSER" --new-window "https://web.whatsapp.com"}
+    {bspwmpad -g 203x50 -- weather, "$BROWSER" --new-window "https://web.whatsapp.com"}
 ctrl + alt + b; ctrl + alt + b
-    dwmpad -- bluetoothctl
+    bspwmpad -- bluetoothctl
 ctrl + alt + r; ctrl + alt + {q, w}
     {hsetroot; restart-wallpaper -ST off, restart-wallpaper -fST on}
 ctrl + alt + s; ctrl + alt + {s, d}
@@ -122,13 +125,13 @@ ctrl + alt + o; ctrl + alt + g; ctrl + alt + {s, g, r, m, b, w, c}
 ctrl + alt + o; ctrl + alt + d; ctrl + alt + {u, r, d, l, c}
     {unity-hub, rider, unity-hub & rider &, unity-layout-reference, clion}
 ctrl + alt + o; ctrl + alt + m; ctrl + alt + {p, k, s, a}
-    {systemctl --user start spotifyd; dwmpad -gn 160x50 9 -- spt, sptkeys, tglapp -a musescore, tglapp -a matlab}
+    {systemctl --user start spotifyd; bspwmpad -gn 160x50 9 -- spt, bspwmpad -- sptkeys, tglapp -a musescore, tglapp -a matlab}
 ctrl + alt + {c, y}; ctrl + alt + {c, t}
-    tglapp -a {compton, freetube}
+    tglapp -a {picom, freetube}
 ctrl + super + {o, i, p}
     {obs --profile Default --collection default, obs --startrecording --profile Camera --collection camera, tglapp -a pavucontrol}
 ctrl + alt + shift + {b, v}
-    swp {"$HOME/.local/share/applications/browser.desktop" "$HOME/.local/share/applications/browser-other.desktop"; statbarbrowser; statbarset, "$HOME/.config/mpv/mpv.conf" "$HOME/.config/mpv/mpv-other.conf"}
+    swp {"$HOME/.local/share/applications/browser.desktop" "$HOME/.local/share/applications/browser-other.desktop"; statbarbrowser; polybar-msg hook browser 1, "$HOME/.config/mpv/mpv.conf" "$HOME/.config/mpv/mpv-other.conf"}
 ctrl + alt + s; ctrl + alt + {c, e, a}
     {xdg-open ~/course-schedule.png, xdg-open "$(getlocall exam)/main.pdf", openass}
 
@@ -162,7 +165,7 @@ ctrl + super + {h, j, k, l}
 shift + super + alt + y; shift + super + alt + {y, d, s, n, r, p, a, u}
     {clplogynk, clpfilter uniqs, clpfilter sort, clpfilter tr '\n' ' ', clpfilter tac, clpprint, yank, yankunicode}
 shift + super + alt + {d, h, n, c}
-    dunstctl {close, history-pop, set-paused toggle; statbarnotif, context} # ; statbarset, context}
+    dunstctl {close, history-pop, set-paused toggle; statbarnotif; polybar-msg hook notif 1, context} # ; statbarset, context}
 shift + super + alt + {u, s, w, m, k, p, F2, F3, F5, F7, F9, F10, F11, F12}
     {tglapp -a -- unclutter --idle 1, search, popupnote, view-music, kasel, pssusp, syu, tpcycle; statbartp; statbarset, tglapp -a screenkey, restart-notifd, sudo mountsel, sudo umountsel, btccdev; statbarspeak; statbarvol; statbarset, btdcdev; statbarspeak; statbarvol; statbarset}
 ctrl + shift + super + alt + m
@@ -207,3 +210,4 @@ shift + alt + super + question
 #
 ##
 ### System ###
+

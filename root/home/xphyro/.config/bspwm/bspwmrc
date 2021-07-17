@@ -5,6 +5,8 @@ polybar --list-monitors | cut -d":" -f1 | while IFS= read -r m; do
     bspc monitor "$m" -d 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 done
 
+# bspc config gapless_monocle         true
+# bspc config single_monocle          true
 bspc config automatic_scheme        alternate
 bspc config border_width            2
 bspc config borderless_monocle      true
@@ -20,6 +22,6 @@ bspc config top_padding             "$(grep "height\s*=\s*[0-9]\+" "${XDG_CONFIG
 bspc config window_gap              12
 
 seq 0 9 | while IFS= read -r i; do
-    bspc rule -a "*:dwmpad$i" sticky=on state=floating hidden=on
+    bspc rule -a "*:bspwmpad$i" sticky=on state=floating hidden=on
 done
 bspc rule -a Screenkey manage=off
