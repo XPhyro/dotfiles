@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+# ~/.config/bspwm/masterlayout.sh &
+
+polybar --list-monitors | cut -d":" -f1 | while IFS= read -r m; do
+    MONITOR="$m" polybar --reload bspwm &
+done
+
+bspc query -M | while IFS= read -r m; do
+    bspc monitor "$m" -d 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+done
+
+bspc config border_width            2
+bspc config borderless_monocle      true
+bspc config borderless_monocle      true
+bspc config external_rules_command  ~/.config/bspwm/external_rules.sh
+bspc config focus_follows_pointer   true
+bspc config pointer_follows_focus   true
+bspc config pointer_follows_monitor true
+bspc config gapless_monocle         true
+bspc config gapless_monocle         true
+bspc config removal_adjustment      false
+bspc config split_ratio             0.50
+bspc config window_gap              12
+
+bspc rule -a Screenkey manage=off

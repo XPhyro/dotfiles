@@ -10,6 +10,7 @@
 /home/xphyro/.bash_profile
 /home/xphyro/.config/QTalarm/QTalarm.conf
 /home/xphyro/.config/bluedevilreceiverrc
+/home/xphyro/.config/bspwm/bspwmrc
 /home/xphyro/.config/chrome-flags.conf
 /home/xphyro/.config/filetypesrc
 /home/xphyro/.config/fish/fish_variables
@@ -32,6 +33,7 @@
 /home/xphyro/.config/octave/qt-settings
 /home/xphyro/.config/pavucontrol.ini
 /home/xphyro/.config/plasmarc
+/home/xphyro/.config/polybar/config
 /home/xphyro/.config/ptpython/config.py
 /home/xphyro/.config/pulseaudio-ctl/config
 /home/xphyro/.config/qBittorrent/qBittorrent.conf

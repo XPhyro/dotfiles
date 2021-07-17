@@ -13,20 +13,21 @@ export DOTNET_CLI_TELEMETRY_OPTOUT="true"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export BROWSER="browser"
-export _BROWSER="brave"
 export EDITOR="vim"
 export OPENER="xdg-open"
 export PAGER="less"
 export READER="zathura"
 export TERMINAL="st"
 export VISUAL="vim"
+export VPN="protonvpn"
+export _BROWSER="brave"
 
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export GIT_PAGER="bat -p"
 # export LESS="-F +k"
+export GIT_PAGER="bat -p"
 export LESS="+k"
 export LESSKEY="$XDG_CONFIG_HOME/lf/less.lesskey"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
