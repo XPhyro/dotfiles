@@ -1,3 +1,6 @@
+; TODO: Edit color scheme of modules.
+; TODO: Make bar semi-transparent.
+
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #222
@@ -33,14 +36,24 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "JetBrainsMono:size=8;0
-font-1 = misc fixed:pixelsize=10;1
-font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-3 = siji:pixelsize=10;1
+font-0  = "JetBrainsMono:pixelsize=9:antialias=true:autohint=true"
+font-1  = "Liberation Mono:pixelsize=9:antialias=true:autohint=true"
+font-2  = "FontAwesome:pixelsize=9:antialias=true:autohint=true"
+font-3  = "NotoColorEmoji:scale=10:antialias=true:autohint=true"
+font-4  = "JoyPixels:pixelsize=9:antialias=true:autohint=true
+font-5  = "misc fixed:pixelsize=9:antialias=true:autohint=true;1"
+font-6  = "unifont:fontformat=truetype:pixelsize=9:antialias=false:antialias=true:autohint=true"
+font-7  = "siji:pixelsize=9:antialias=true:autohint=true;1"
+font-8  = "IPAexMincho:pixelsize=9:antialias=true:autohint=true",
+font-9  = "IPAPMincho:pixelsize=9:antialias=true:autohint=true",
+font-10 = "IPAMincho:pixelsize=9:antialias=true:autohint=true",
+font-11 = "IPAexGothic:pixelsize=9:antialias=true:autohint=true",
+font-12 = "IPAPGothic:pixelsize=9:antialias=true:autohint=true",
+font-13 = "IPAGothic:pixelsize=9:antialias=true:autohint=true",
 
 modules-left = bspwm
 modules-center = 
-modules-right = pulseaudio xkeyboard battery date powermenu
+modules-right = vpn mic pulseaudio xkeyboard battery date
 
 tray-position = right
 tray-padding = 2
@@ -57,6 +70,8 @@ override-redirect = true
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+enable-ipc = true
 
 [module/xwindow]
 type = internal/xwindow
@@ -257,7 +272,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume = 🔈 %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = "🔇 muted"
@@ -279,6 +294,8 @@ bar-volume-fill-font = 0
 bar-volume-empty = 
 bar-volume-empty-font = 0
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+format-underline = #0a6cf5
 
 [module/alsa]
 type = internal/alsa
@@ -388,6 +405,22 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+; custom modules
+[module/vpn]
+type = custom/script
+exec = printf -- "🌐\n"
+exec-if = pgrep -x openvpn
+interval = 15
+format-underline = #268bd2
+format-prefix = ""
+format-prefix-foreground = #5b
+
+[module/mic]
+type = custom/ipc
+hook-0 = cat -- "$HOME/.cache/statbar/8_statbarvolmic"
+initial = 1
+format-underline = #268bd2
 
 [settings]
 screenchange-reload = true
