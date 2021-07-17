@@ -10,7 +10,9 @@ setupxr() {
 opendocs() {
     sleep 2.5
 
-    # find ~/documents/music/guitar/in-progress ~/documents/ass -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
+    xdg-open "$HOME/documents/ass/deadlines.pdf"
+
+    # find "$HOME/documents/music/guitar/in-progress" "$HOME/documents/ass" -mindepth 1 -name "*.pdf" | sort -dfi | while read -r i
     # do
     #     xph-open "$i" &
     #     sleep 0.1
@@ -58,4 +60,4 @@ opendocs &
 # tglapp -T on -- steam &
 setupxr &
 statbar &
-exec dwm
+exec bspwm
